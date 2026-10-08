@@ -162,8 +162,17 @@ def main(argv: list[str] | None = None) -> int:
     tasks = list(manifest.tasks)
     if args.limit:
         tasks = tasks[: args.limit]
-    # only tasks every panel member answered
-    tasks = [t for t in tasks if all(t.id in panels[l] for l in labels)]
+    # Fuse a task as soon as ANY configured panel member answered it --
+    # not only when every single one did. A task-major pipeline calling
+    # this per-task (one panel member failing, or coming back with
+    # genuinely empty content, is a real and not-uncommon outcome -- see
+    # scripts/draco_task_major_pipeline.py's own "prerequisite missing"
+    # skip logic) would otherwise lose that task's fusion entirely even
+    # when 2 of 3 panel members produced a perfectly usable answer.
+    # run_one() below only includes the labels that actually have this
+    # task_id in `panel`, so the judge/fuser only ever see the panel
+    # members that really answered, never a KeyError on a missing one.
+    tasks = [t for t in tasks if any(t.id in panels[l] for l in labels)]
 
     completed: set[str] = set()
     if args.resume and args.output.exists():
@@ -175,7 +184,7 @@ def main(argv: list[str] | None = None) -> int:
     pending = [t for t in tasks if t.id not in completed]
 
     print(f"panel members: {labels}")
-    print(f"tasks with full panel coverage: {len(tasks)}  pending: {len(pending)}")
+    print(f"tasks with at least 1 panel answer: {len(tasks)}  pending: {len(pending)}")
     print(f"fuser: {args.fuser_model}  judge: {args.judge_model}  config: {args.config_id}")
     print(f"output: {args.output}")
     if not args.execute:
@@ -204,7 +213,11 @@ def main(argv: list[str] | None = None) -> int:
     def run_one(task) -> dict[str, Any]:
         client = tr_sdk.make_client(base_url=args.base_url, api_key=api_key, timeout=args.timeout_seconds)
         try:
-            panel = [(l, panels[l][task.id]) for l in labels]
+            # Only the labels that actually answered THIS task -- guaranteed
+            # non-empty by the `any(...)` filter above, but may be a strict
+            # subset of `labels` (see that filter's comment).
+            present_labels = [l for l in labels if task.id in panels[l]]
+            panel = [(l, panels[l][task.id]) for l in present_labels]
             # 1) Fusion judge analysis (cached per judge_model/provider/task — reused across synthesizers)
             jkey = f"{args.judge_model}\t{args.judge_provider or ''}\t{task.id}"
             judge_json = judge_cache.get(jkey)
@@ -288,7 +301,7 @@ def main(argv: list[str] | None = None) -> int:
             return {
                 "schema": REPLAY_SCHEMA, "config_id": args.config_id, "task_id": task.id,
                 "domain": task.domain, "task": task.cache_dict(),
-                "fusion": {"panel": labels, "judge_model": args.judge_model,
+                "fusion": {"panel": present_labels, "judge_model": args.judge_model,
                            "judge_chars": len(judge_json), "fuser_model": args.fuser_model,
                            "fallback_fuser_model": args.fallback_fuser_model,
                            "fuser_used": fuser_used, "fell_back": fell_back},

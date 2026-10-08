@@ -44,14 +44,22 @@ filtering -- this script only ever changes WHEN it calls each tool, never
 WHAT each tool does internally.
 
 One real consequence of relying on this instead of a hard --task-id pin:
-if a panel member's call for task K fails, draco_client_fusion.py's own
-intersection naturally will not include task K in `tasks` yet (the failed
-model has no successful row for it) -- fusion for task K is silently
-*skipped that round*, not retried or errored. This script detects that
-(by comparing each combo's output line count before/after the call) and
-prints a clear "skipped (prerequisite missing)" line rather than treating
-it as a silent success. Re-running this script later with --resume at
-every step will pick task K back up once/if that panel member succeeds.
+draco_client_fusion.py fuses a task as soon as ANY ONE configured panel
+member answered it (not only once every single one has) -- see that
+script's own `any(...)` task filter and `present_labels` construction in
+run_one(). So a single panel member failing, or coming back with
+genuinely empty content (both real, observed outcomes -- a raised
+exception, or a response that hit its token/tool-call budget before
+writing any visible content), does NOT block fusion for that task; the
+judge/fuser simply see whichever subset of the configured panel actually
+answered (see each fused row's own `fusion.panel` field for exactly which
+labels that was). Fusion for task K is only skipped entirely when EVERY
+configured panel member failed or came back empty for it. This script
+still detects that zero-coverage case (by comparing each combo's output
+line count before/after the call) and prints a clear "skipped
+(prerequisite missing)" line rather than treating it as a silent success.
+Re-running this script later with --resume at every step will pick task K
+back up once/if at least one panel member succeeds for it.
 
 Models and configs (see report/draco-eval-on-0g-router-howto.md for the
 full background on where these come from)
@@ -463,7 +471,8 @@ def main(argv: list[str] | None = None) -> int:
                 after = read_jsonl_line_count(fusion_out)
                 if after == before:
                     print(f"  skipped (prerequisite missing): {cfg['config_id']} has no new row "
-                          f"for task {task_id} -- a required panel member likely failed above.")
+                          f"for task {task_id} -- ALL of {list(cfg['panel'])} failed or came back "
+                          "empty above (fusion only needs one to succeed).")
 
         # (e) score every active fusion config, plus baseline -- independent
         # scoring passes, same --resume-based narrowing. Iterates
