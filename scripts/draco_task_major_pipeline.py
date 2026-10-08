@@ -1,10 +1,19 @@
 #!/usr/bin/env python3
 """Task-major DRACO orchestration: for each task (one at a time, in manifest
-order), run all 7 panel solos + baseline, both fusion configs, and all 3
-scorings -- before moving to the next task. Pure orchestration over the
-EXISTING CLI tools (draco_agentic_solo.py / draco_client_fusion.py /
-draco_rejudge.py) via subprocess; no panel/judge/fusion/scoring logic is
+order), run the active panel solos + baseline, the active fusion config(s),
+and their scorings -- before moving to the next task. Pure orchestration
+over the EXISTING CLI tools (draco_agentic_solo.py / draco_client_fusion.py
+/ draco_rejudge.py) via subprocess; no panel/judge/fusion/scoring logic is
 reimplemented here.
+
+Current scope (2026-10-08): only "fusion-latest3panel" + baseline are
+active -- "fusion-prometheus20" (the real Prometheus 2.0 panel) is disabled
+for now because its panel includes kimi-k3, which has been hitting
+intermittent real HTTP 400s from 0G router on this agentic workload (not
+yet root-caused; --resume will retry it automatically whenever it's
+re-enabled). FUSION_PROMETHEUS20 is still fully defined below, just left
+out of the active FUSION_CONFIGS tuple -- re-enable by adding it back in
+once kimi-k3 is stable, no other code changes needed.
 
 Why no per-task temp manifest or temp single-row panel files are needed
 ------------------------------------------------------------------------
@@ -47,23 +56,23 @@ every step will pick task K back up once/if that panel member succeeds.
 Models and configs (see report/draco-eval-on-0g-router-howto.md for the
 full background on where these come from)
 ------------------------------------------------------------------------
-Panel pool (7, solo, independently tooled runs): minimax-m3, kimi-k3,
-glm-5.2, deepseek-v4-pro, mimo-v2.5-pro, glm-5.3-flash, deepseek-v4-flash.
-Baseline: gpt-5.6-sol, run through the IDENTICAL tooled agentic harness
-(draco_agentic_solo.py) as every panel member -- not a simplified
-single-shot call.
+Active panel pool (3, solo, independently tooled runs): minimax-m3,
+glm-5.3-flash, deepseek-v4-flash -- exactly what fusion-latest3panel needs,
+nothing more. Baseline: gpt-5.6-sol, run through the IDENTICAL tooled
+agentic harness (draco_agentic_solo.py) as every panel member -- not a
+simplified single-shot call.
 
-Two fusion configs, BOTH built only from the 7 panel results above (no
-panel member is ever run twice):
-  - "fusion-prometheus20": panel = minimax-m3, kimi-k3, glm-5.2,
-    deepseek-v4-pro, mimo-v2.5-pro -- the real Prometheus 2.0 panel
-    (confirmed from Lore-Hex/quill-cloud-proxy's enclave fusion.go,
-    `fusionPrometheus20Panel`). judge=minimax-m3, fuser=kimi-k3 (each
-    config's own real first-priority choice from
-    fusionPresetJudgeModelsForModel / fusionPresetFinalModelsForModel).
+One active fusion config (built only from the 3 panel results above):
   - "fusion-latest3panel": panel = minimax-m3, glm-5.3-flash,
     deepseek-v4-flash -- this project's own "Latest 3-panel" combo.
     judge=synthesis=minimax-m3.
+
+Disabled for now (see "Current scope" above): "fusion-prometheus20" --
+panel = minimax-m3, kimi-k3, glm-5.2, deepseek-v4-pro, mimo-v2.5-pro --
+the real Prometheus 2.0 panel (confirmed from Lore-Hex/quill-cloud-proxy's
+enclave fusion.go, `fusionPrometheus20Panel`). judge=minimax-m3,
+fuser=kimi-k3 (each config's own real first-priority choice from
+fusionPresetJudgeModelsForModel / fusionPresetFinalModelsForModel).
 
 Environment
 -----------
@@ -89,11 +98,9 @@ its own output file, so re-running this script picks up where it left off
 described above).
 
 Output files, under --out-dir (default out/task_major/):
-    panel-<model>.jsonl             one per panel model, 7 files
+    panel-<model>.jsonl             one per active panel model (3 files)
     baseline-gpt-5.6-sol.jsonl
-    fusion-prometheus20.jsonl
     fusion-latest3panel.jsonl
-    score-fusion-prometheus20.jsonl
     score-fusion-latest3panel.jsonl
     score-baseline.jsonl
 """
@@ -108,17 +115,21 @@ from typing import Any
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 
+# Active panel pool -- just what fusion-latest3panel needs. kimi-k3,
+# glm-5.2, deepseek-v4-pro, mimo-v2.5-pro (needed only by the currently-
+# disabled fusion-prometheus20) are intentionally NOT here; re-add them
+# alongside re-enabling FUSION_PROMETHEUS20 below.
 PANEL_MODELS: tuple[str, ...] = (
     "minimax-m3",
-    "kimi-k3",
-    "glm-5.2",
-    "deepseek-v4-pro",
-    "mimo-v2.5-pro",
     "glm-5.3-flash",
     "deepseek-v4-flash",
 )
 BASELINE_MODEL = "gpt-5.6-sol"
 
+# Kept defined (not deleted) for when kimi-k3 is stable again -- see
+# "Current scope" in the module docstring. Not referenced by FUSION_CONFIGS
+# below, so it has no effect on an active run; PANEL_MODELS above would also
+# need kimi-k3/glm-5.2/deepseek-v4-pro/mimo-v2.5-pro added back.
 FUSION_PROMETHEUS20 = {
     "config_id": "fusion-prometheus20",
     "panel": ("minimax-m3", "kimi-k3", "glm-5.2", "deepseek-v4-pro", "mimo-v2.5-pro"),
@@ -131,7 +142,7 @@ FUSION_LATEST3PANEL = {
     "judge_model": "minimax-m3",
     "fuser_model": "minimax-m3",
 }
-FUSION_CONFIGS = (FUSION_PROMETHEUS20, FUSION_LATEST3PANEL)
+FUSION_CONFIGS = (FUSION_LATEST3PANEL,)
 
 DEFAULT_MANIFEST = REPO_ROOT / "data" / "draco-non-financial-80.manifest.json"
 DEFAULT_OUT_DIR = REPO_ROOT / "out" / "task_major"
@@ -454,11 +465,12 @@ def main(argv: list[str] | None = None) -> int:
                     print(f"  skipped (prerequisite missing): {cfg['config_id']} has no new row "
                           f"for task {task_id} -- a required panel member likely failed above.")
 
-        # (e) score fusion-A, fusion-B, and baseline -- three independent
-        # scoring passes, same --resume-based narrowing.
+        # (e) score every active fusion config, plus baseline -- independent
+        # scoring passes, same --resume-based narrowing. Iterates
+        # FUSION_CONFIGS directly (not a hardcoded config_id list) so this
+        # stays correct however many fusion configs are currently active.
         for config_id, replay_path in (
-            (FUSION_PROMETHEUS20["config_id"], fusion_paths[FUSION_PROMETHEUS20["config_id"]]),
-            (FUSION_LATEST3PANEL["config_id"], fusion_paths[FUSION_LATEST3PANEL["config_id"]]),
+            *((cfg["config_id"], fusion_paths[cfg["config_id"]]) for cfg in FUSION_CONFIGS),
             ("baseline", baseline_path),
         ):
             score_out = score_paths[config_id]

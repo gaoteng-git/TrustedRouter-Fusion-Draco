@@ -154,19 +154,30 @@ def test_fusion_configs_cover_exactly_the_required_panel_models_no_qwen():
     for cfg in pipeline.FUSION_CONFIGS:
         all_fusion_panel_models.update(cfg["panel"])
     assert all_fusion_panel_models <= set(pipeline.PANEL_MODELS), (
-        "a fusion config references a panel model not in PANEL_MODELS"
+        "an ACTIVE fusion config references a panel model not in the active PANEL_MODELS"
     )
     assert "qwen3.8-max" not in pipeline.PANEL_MODELS
     assert "qwen3.8-max" not in all_fusion_panel_models
+
+    # Current scope (2026-10-08): only fusion-latest3panel is active, so
+    # PANEL_MODELS is scoped down to just what it needs -- kimi-k3 (needed
+    # only by the currently-disabled fusion-prometheus20) is intentionally
+    # NOT required here.
     assert set(pipeline.PANEL_MODELS) == {
-        "minimax-m3", "kimi-k3", "glm-5.2", "deepseek-v4-pro",
-        "mimo-v2.5-pro", "glm-5.3-flash", "deepseek-v4-flash",
+        "minimax-m3", "glm-5.3-flash", "deepseek-v4-flash",
     }
+    assert pipeline.FUSION_CONFIGS == (pipeline.FUSION_LATEST3PANEL,)
+
+    # FUSION_PROMETHEUS20 stays defined (kept for re-enabling later) even
+    # though it's not in the active FUSION_CONFIGS tuple -- check its own
+    # values are still correct so re-enabling it later doesn't silently
+    # pick up a stale/wrong config.
     assert set(pipeline.FUSION_PROMETHEUS20["panel"]) == {
         "minimax-m3", "kimi-k3", "glm-5.2", "deepseek-v4-pro", "mimo-v2.5-pro",
     }
     assert pipeline.FUSION_PROMETHEUS20["judge_model"] == "minimax-m3"
     assert pipeline.FUSION_PROMETHEUS20["fuser_model"] == "kimi-k3"
+
     assert set(pipeline.FUSION_LATEST3PANEL["panel"]) == {
         "minimax-m3", "glm-5.3-flash", "deepseek-v4-flash",
     }
