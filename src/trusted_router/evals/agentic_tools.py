@@ -24,6 +24,7 @@ import hashlib
 import io
 import json
 import os
+import re
 import shutil
 import subprocess
 import time
@@ -154,14 +155,35 @@ _TOOL_MARKUP_MARKERS = (
 )
 
 
+_THINK_BLOCK_RE = re.compile(r"<think>.*?</think>", re.IGNORECASE | re.DOTALL)
+
+
 def strip_tool_markup(content: str) -> str:
-    """Truncate visible content at the first leaked tool-call marker."""
+    """Truncate visible content at the first leaked tool-call marker, and
+    remove any <think>...</think> reasoning block(s) leaked directly into
+    `content`.
+
+    Confirmed live against 0G router: minimax-m3 embeds its reasoning this
+    way on essentially every call (never in the separate reasoning_content
+    field), both as a panel member and -- more importantly -- as
+    fusion-latest3panel's own fuser, where its raw output IS the thing
+    saved to `final.content` and handed to draco_rejudge.py's judge. Left
+    unstripped this pollutes judge/fuser evidence and, worse, is literally
+    what gets scored as "the final answer." A dangling, never-closed
+    <think> (synthesis budget exhausted mid-reasoning -- the observed
+    glm-5.3-flash/deepseek-v4-flash empty-content pattern) means everything
+    from it onward is scratch text, not a real answer, so it's dropped too.
+    """
+    content = _THINK_BLOCK_RE.sub("", content)
+    idx = content.lower().find("<think>")
+    if idx != -1:
+        content = content[:idx]
     cut = len(content)
     for marker in _TOOL_MARKUP_MARKERS:
         idx = content.find(marker)
         if idx != -1:
             cut = min(cut, idx)
-    return content[:cut].rstrip()
+    return content[:cut].strip()
 
 DRACO_AGENTIC_SYSTEM_PROMPT = (
     "You are a deep research analyst. Answer the user's research task with a "

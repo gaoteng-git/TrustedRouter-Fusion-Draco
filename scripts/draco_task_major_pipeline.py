@@ -55,9 +55,10 @@ judge/fuser simply see whichever subset of the configured panel actually
 answered (see each fused row's own `fusion.panel` field for exactly which
 labels that was). Fusion for task K is only skipped entirely when EVERY
 configured panel member failed or came back empty for it. This script
-still detects that zero-coverage case (by comparing each combo's output
-line count before/after the call) and prints a clear "skipped
-(prerequisite missing)" line rather than treating it as a silent success.
+still detects that zero-coverage case (by looking up each combo's output
+for a row matching this specific task_id -- see find_row_for_task) and
+prints a clear "skipped (prerequisite missing)" line rather than treating
+it as a silent success.
 Re-running this script later with --resume at every step will pick task K
 back up once/if at least one panel member succeeds for it.
 
@@ -219,6 +220,34 @@ def read_last_jsonl_row(path: Path) -> dict[str, Any] | None:
         if line.strip():
             last = line
     return json.loads(last) if last is not None else None
+
+
+def find_row_for_task(path: Path, task_id: str) -> dict[str, Any] | None:
+    """The row in `path` for this exact task_id (last one, if somehow
+    duplicated), or None if there isn't one.
+
+    NOT the same as read_last_jsonl_row(path) -- that returns whatever
+    row is physically last in the file, which is only the SAME row as
+    this task's when this task is the most recently processed one. On a
+    restart (this script re-walks every task_id from the start each time,
+    relying on --resume to skip already-done ones), a task near the front
+    of the manifest whose row was written in an EARLIER invocation can be
+    arbitrarily far from the end of an already-partially-filled output
+    file -- read_last_jsonl_row would silently check some LATER task's
+    status instead of this one's, both masking real failures and raising
+    false "prerequisite missing" alarms for tasks that actually succeeded
+    (see the task-major run log: this exact false alarm fired for task 1
+    once task 2's rows were appended after it)."""
+    match: dict[str, Any] | None = None
+    if not path.exists():
+        return None
+    for line in path.read_text(encoding="utf-8").splitlines():
+        if not line.strip():
+            continue
+        row = json.loads(line)
+        if row.get("task_id") == task_id:
+            match = row
+    return match
 
 
 def row_status_ok(row: dict[str, Any] | None) -> bool:
@@ -421,7 +450,7 @@ def main(argv: list[str] | None = None) -> int:
             )
             run_step(cmd, label=f"panel solo: {model}")
             if args.execute:
-                row = read_last_jsonl_row(out_path)
+                row = find_row_for_task(out_path, task_id)
                 if not row_status_ok(row):
                     print(f"  WARNING: panel {model} failed for task {task_id} "
                           f"(error_type={row.get('error_type') if row else None}) -- "
@@ -438,7 +467,7 @@ def main(argv: list[str] | None = None) -> int:
         )
         run_step(cmd, label=f"baseline: {BASELINE_MODEL}")
         if args.execute:
-            row = read_last_jsonl_row(baseline_path)
+            row = find_row_for_task(baseline_path, task_id)
             if not row_status_ok(row):
                 print(f"  WARNING: baseline failed for task {task_id} "
                       f"(error_type={row.get('error_type') if row else None})")
@@ -457,7 +486,6 @@ def main(argv: list[str] | None = None) -> int:
                 for label in cfg["panel"]:
                     ensure_file_exists(panel_paths[label])
                 ensure_file_exists(fusion_out)
-            before = read_jsonl_line_count(fusion_out)
             panel_files = {label: panel_paths[label] for label in cfg["panel"]}
             cmd = build_fusion_cmd(
                 python_exe=python_exe, manifest=args.manifest, panel_files=panel_files,
@@ -468,17 +496,20 @@ def main(argv: list[str] | None = None) -> int:
             )
             run_step(cmd, label=f"fusion: {cfg['config_id']}")
             if args.execute:
-                after = read_jsonl_line_count(fusion_out)
-                if after == before:
-                    print(f"  skipped (prerequisite missing): {cfg['config_id']} has no new row "
+                # Matched by task_id, NOT a before/after line-count diff --
+                # on a restart, a task resolved in an EARLIER invocation has
+                # "no new row" too (--resume skipped it), which a count diff
+                # can't tell apart from genuine zero panel coverage. See
+                # find_row_for_task's docstring.
+                row = find_row_for_task(fusion_out, task_id)
+                if row is None:
+                    print(f"  skipped (prerequisite missing): {cfg['config_id']} has no row "
                           f"for task {task_id} -- ALL of {list(cfg['panel'])} failed or came back "
                           "empty above (fusion only needs one to succeed).")
-                else:
-                    row = read_last_jsonl_row(fusion_out)
-                    if not row_status_ok(row):
-                        print(f"  WARNING: fusion {cfg['config_id']} failed for task {task_id} "
-                              f"(error_type={row.get('error_type') if row else None}) -- a failed "
-                              "row was written; --resume will retry it on a later full re-run.")
+                elif not row_status_ok(row):
+                    print(f"  WARNING: fusion {cfg['config_id']} failed for task {task_id} "
+                          f"(error_type={row.get('error_type')}) -- a failed row was written; "
+                          "--resume will retry it on a later full re-run.")
 
         # (e) score every active fusion config, plus baseline -- independent
         # scoring passes, same --resume-based narrowing. Iterates
@@ -494,23 +525,22 @@ def main(argv: list[str] | None = None) -> int:
                 # reads `replay_path` before its own --execute check.
                 ensure_file_exists(replay_path)
                 ensure_file_exists(score_out)
-            before = read_jsonl_line_count(score_out)
             cmd = build_rejudge_cmd(
                 python_exe=python_exe, replay_file=replay_path, output=score_out,
                 base_url=args.base_url, execute=args.execute, workers=args.workers,
             )
             run_step(cmd, label=f"score: {config_id}")
             if args.execute:
-                after = read_jsonl_line_count(score_out)
-                if after == before:
-                    print(f"  skipped (prerequisite missing): score-{config_id} has no new row "
+                # See the fusion step's identical comment above: matched by
+                # task_id, not a before/after count diff.
+                row = find_row_for_task(score_out, task_id)
+                if row is None:
+                    print(f"  skipped (prerequisite missing): score-{config_id} has no row "
                           f"for task {task_id}.")
-                else:
-                    row = read_last_jsonl_row(score_out)
-                    if not row_status_ok(row):
-                        print(f"  WARNING: score-{config_id} failed for task {task_id} "
-                              f"(error_type={row.get('error_type') if row else None}) -- a failed "
-                              "row was written; --resume will retry it on a later full re-run.")
+                elif not row_status_ok(row):
+                    print(f"  WARNING: score-{config_id} failed for task {task_id} "
+                          f"(error_type={row.get('error_type')}) -- a failed row was written; "
+                          "--resume will retry it on a later full re-run.")
 
     print("\nAll tasks processed.")
     return 0
