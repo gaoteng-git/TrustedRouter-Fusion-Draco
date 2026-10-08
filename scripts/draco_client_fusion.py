@@ -62,9 +62,22 @@ FINAL_INSTRUCTION = (
     "answers as the primary evidence and the judge analysis as guidance to write "
     "the final answer for the original request. Return only the final visible "
     "answer. Do not include chain-of-thought, hidden reasoning, analysis, "
-    "scratchpad text, <think> blocks, or internal model names unless the user "
-    "asked for methodology."
+    "scratchpad text, <think> blocks, or internal model names -- unless the "
+    "original request explicitly asks you to describe your own research "
+    "process or approach (not merely because the subject matter itself "
+    "concerns research methodology)."
 )
+# Deliberate deviation from the upstream (main branch / enclave fusion.go)
+# wording "unless the user asked for methodology": confirmed live, a DiD
+# econometrics task whose OWN subject matter is "compare these methodologies"
+# made minimax-m3 read that clause as license to return the judge's raw
+# analysis JSON (consensus/contradictions/... keys and all) verbatim as the
+# "final answer" -- a real, reproduced failure, not a parsing/plumbing bug.
+# The clause's likely original intent was narrower: only skip the
+# no-analysis rule when the user asks the FUSER to explain ITS OWN process,
+# not whenever the task's topic happens to be about methodology in general.
+# This rewording targets exactly that gap; the rest of the instruction is
+# unchanged.
 
 
 def _panel_evidence(panel: list[tuple[str, str]]) -> str:
