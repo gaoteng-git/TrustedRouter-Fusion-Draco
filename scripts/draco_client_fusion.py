@@ -31,6 +31,25 @@ from trusted_router.evals.fusion_live import load_eval_key
 
 REPLAY_SCHEMA = "trustedrouter.fusion_draco.replay.v1"
 
+# Confirmed live against https://router-api.0g.ai/v1/chat/completions
+# (2026-10-08): minimax-m3 hard-rejects `response_format: json_object` --
+#   {"error":{"message":"failed to select provider: model minimax-m3 does
+#   not support JSON mode (response_format: json_object)","type":
+#   "invalid_request_error","code":"model_not_capable"}}
+# -- even though this is exactly the model Prometheus 2.0's own production
+# judge preset tries first (fusionPresetJudgeModelsForModel in
+# quill-cloud-proxy's fusion.go: minimax-m3 primary, kimi-k3 fallback).
+# TrustedRouter's own gateway presumably reaches minimax-m3 through a path
+# that tolerates response_format (or strips it) -- 0G router's does not.
+# Rather than swap the judge model to dodge this (which would no longer be
+# testing Prometheus 2.0's real configuration), skip sending
+# response_format for models known not to support it here, relying on
+# JUDGE_SYSTEM's own "Return only JSON" instruction instead -- the same
+# fix already applied for this identical model/identical issue in this
+# project's other (0g-fusion-model-eval) codebase. Compared
+# case-insensitively since 0G router resolves model ids case-insensitively.
+JUDGE_MODELS_WITHOUT_JSON_MODE = {"minimax-m3", "minimax/minimax-m3"}
+
 JUDGE_SYSTEM = (
     "You are the TrustedRouter Fusion judge. Compare panel responses and return "
     "compact JSON with keys consensus, contradictions, partial_coverage, "
@@ -192,12 +211,13 @@ def main(argv: list[str] | None = None) -> int:
             if judge_json is None:
                 judge_body = {
                     "model": args.judge_model, "max_tokens": args.judge_max_tokens,
-                    "response_format": {"type": "json_object"},
                     "messages": [
                         {"role": "system", "content": JUDGE_SYSTEM},
                         {"role": "user", "content": _judge_user(task.problem, panel)},
                     ],
                 }
+                if args.judge_model.lower() not in JUDGE_MODELS_WITHOUT_JSON_MODE:
+                    judge_body["response_format"] = {"type": "json_object"}
                 jprov = args.judge_provider
                 if args.judge_providers:
                     jprovs = [x for x in args.judge_providers.split(",") if x]
