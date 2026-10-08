@@ -269,6 +269,19 @@ class AgenticResult:
     elapsed_ms: int
     steps: int
     truncated_loop: bool
+    # Captured but NOT used anywhere yet (not fed to judge/fuser, not a
+    # fallback when `content` is empty) -- saved purely so it's on disk for
+    # later inspection/decision-making. See 0G router's real response shape
+    # (confirmed live via curl against /v1/chat/completions): `message` can
+    # carry both `content` and a separate `reasoning_content` field; the
+    # model's own internal reasoning is NOT always fully reflected in
+    # `content` (e.g. the glm-5.3-flash empty-content case that prompted
+    # this field's addition -- its reasoning likely consumed the entire
+    # synthesis_max_tokens budget with nothing surfacing in `content` at
+    # all). Raw, never stripped of tool-markup or truncated -- exactly
+    # what the API returned for whichever single call produced this
+    # AgenticResult (the natural-finish turn, or the forced synthesis turn).
+    reasoning: str | None = None
 
 
 # --------------------------------------------------------------------------- #
@@ -790,6 +803,7 @@ def run_agentic_completion(
                     elapsed_ms=elapsed(),
                     steps=steps,
                     truncated_loop=False,
+                    reasoning=msg.get("reasoning_content"),
                 )
             break  # empty content, no tool calls -> force a synthesis turn
         messages.append(
@@ -848,4 +862,5 @@ def run_agentic_completion(
         elapsed_ms=elapsed(),
         steps=steps,
         truncated_loop=True,
+        reasoning=msg.get("reasoning_content"),
     )

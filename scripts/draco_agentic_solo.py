@@ -193,6 +193,13 @@ def _run_one(task: DracoTask, *, args: argparse.Namespace, api_key: str, exa_key
             },
             "final": {
                 "content": result.content,
+                # Saved but NOT used anywhere yet (not a fallback when
+                # `content` is empty, not fed to judge/fuser) -- see
+                # AgenticResult.reasoning's own docstring for why this
+                # exists. Raw reasoning_content from whichever single call
+                # produced this result, or None if the model/response
+                # didn't carry one.
+                "reasoning": result.reasoning,
                 "finish_reason": result.finish_reason,
                 "model": args.model,
                 "input_tokens": result.input_tokens,
