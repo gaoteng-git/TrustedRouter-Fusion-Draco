@@ -473,6 +473,12 @@ def main(argv: list[str] | None = None) -> int:
                     print(f"  skipped (prerequisite missing): {cfg['config_id']} has no new row "
                           f"for task {task_id} -- ALL of {list(cfg['panel'])} failed or came back "
                           "empty above (fusion only needs one to succeed).")
+                else:
+                    row = read_last_jsonl_row(fusion_out)
+                    if not row_status_ok(row):
+                        print(f"  WARNING: fusion {cfg['config_id']} failed for task {task_id} "
+                              f"(error_type={row.get('error_type') if row else None}) -- a failed "
+                              "row was written; --resume will retry it on a later full re-run.")
 
         # (e) score every active fusion config, plus baseline -- independent
         # scoring passes, same --resume-based narrowing. Iterates
@@ -499,6 +505,12 @@ def main(argv: list[str] | None = None) -> int:
                 if after == before:
                     print(f"  skipped (prerequisite missing): score-{config_id} has no new row "
                           f"for task {task_id}.")
+                else:
+                    row = read_last_jsonl_row(score_out)
+                    if not row_status_ok(row):
+                        print(f"  WARNING: score-{config_id} failed for task {task_id} "
+                              f"(error_type={row.get('error_type') if row else None}) -- a failed "
+                              "row was written; --resume will retry it on a later full re-run.")
 
     print("\nAll tasks processed.")
     return 0
