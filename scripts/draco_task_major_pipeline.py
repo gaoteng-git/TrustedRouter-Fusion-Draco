@@ -163,6 +163,29 @@ def load_task_ids(manifest_path: Path, *, limit: int | None = None) -> list[str]
     return ids
 
 
+def ensure_file_exists(path: Path) -> None:
+    """Create an empty file (and parent dirs) if it doesn't exist yet.
+
+    Needed ONLY for the no-`--execute` dry-run path: draco_client_fusion.py's
+    _load_panel() and draco_rejudge.py's row-reading both open their input
+    files unconditionally, BEFORE either script's own `if not args.execute:
+    print("dry run..."); return 0` check -- so in a from-scratch dry run
+    (no prior --execute call ever created these files), calling fusion/
+    rejudge on a panel/replay path that doesn't exist yet raises a bare
+    FileNotFoundError instead of reaching that script's own clean dry-run
+    message. This is a real, pre-existing gap in those two scripts
+    (confirmed empty files read as "0 rows", never crashing once they
+    exist), not something to patch inside them -- touching an empty file
+    here is the minimal fix that keeps this orchestrator's own advertised
+    "dry run prints every command, calls nothing" promise true even on a
+    brand new --out-dir. In a real --execute run this is always a no-op:
+    by the time step (c)/(d)/(e) need a file, the real panel/fusion call
+    that produces it has already run for real and created it with content."""
+    path.parent.mkdir(parents=True, exist_ok=True)
+    if not path.exists():
+        path.touch()
+
+
 def read_jsonl_line_count(path: Path) -> int:
     if not path.exists():
         return 0
@@ -406,6 +429,15 @@ def main(argv: list[str] | None = None) -> int:
         # resolves to "only this task" in a task-major loop.
         for cfg in FUSION_CONFIGS:
             fusion_out = fusion_paths[cfg["config_id"]]
+            if not args.execute:
+                # See ensure_file_exists's docstring: a from-scratch dry run
+                # never created these panel files for real, but
+                # draco_client_fusion.py reads them before its own
+                # --execute check -- touch them empty so it reaches that
+                # check instead of crashing.
+                for label in cfg["panel"]:
+                    ensure_file_exists(panel_paths[label])
+                ensure_file_exists(fusion_out)
             before = read_jsonl_line_count(fusion_out)
             panel_files = {label: panel_paths[label] for label in cfg["panel"]}
             cmd = build_fusion_cmd(
@@ -430,6 +462,11 @@ def main(argv: list[str] | None = None) -> int:
             ("baseline", baseline_path),
         ):
             score_out = score_paths[config_id]
+            if not args.execute:
+                # Same reasoning as the fusion step above -- draco_rejudge.py
+                # reads `replay_path` before its own --execute check.
+                ensure_file_exists(replay_path)
+                ensure_file_exists(score_out)
             before = read_jsonl_line_count(score_out)
             cmd = build_rejudge_cmd(
                 python_exe=python_exe, replay_file=replay_path, output=score_out,
