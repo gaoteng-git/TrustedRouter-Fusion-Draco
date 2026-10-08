@@ -292,6 +292,25 @@ def _result_leaks(task: DracoTask, *, url: str, title: str, text: str) -> bool:
     return _draco_search_result_leak_reason(task, probe) is not None
 
 
+def _record_exa_failure(detail: str) -> None:
+    """Bump the Exa circuit breaker's consecutive-failure counter and raise
+    ExaCircuitBreakerTripped once it crosses EXA_CIRCUIT_BREAKER_THRESHOLD.
+    Shared by both failure paths in make_web_search: a raised exception
+    (HTTP error, network error, ...) and a "successful" call that came back
+    with zero raw results -- some APIs degrade into always returning an
+    empty result set (HTTP 200) once a key/quota is exhausted, rather than
+    erroring, which would otherwise never trip the breaker at all."""
+    global _exa_consecutive_failures
+    _exa_consecutive_failures += 1
+    if _exa_consecutive_failures >= EXA_CIRCUIT_BREAKER_THRESHOLD:
+        raise ExaCircuitBreakerTripped(
+            f"web_search failed {_exa_consecutive_failures} times in a row "
+            f"(most recent: {detail}) -- stopping the run instead of continuing "
+            "to burn LLM calls against a dead search tool. Check Exa "
+            "credits/key, then re-run (consider --resume)."
+        )
+
+
 def make_web_search(task: DracoTask, exa_client: ExaSearchClient) -> Callable[[dict[str, Any]], str]:
     def run(args: dict[str, Any]) -> str:
         global _exa_consecutive_failures
@@ -307,18 +326,25 @@ def make_web_search(task: DracoTask, exa_client: ExaSearchClient) -> Callable[[d
                 num_results=num_results,
             )
         except Exception as exc:
-            _exa_consecutive_failures += 1
-            if _exa_consecutive_failures >= EXA_CIRCUIT_BREAKER_THRESHOLD:
-                raise ExaCircuitBreakerTripped(
-                    f"web_search failed {_exa_consecutive_failures} times in a row "
-                    f"(most recent: {type(exc).__name__}: {exc}) -- stopping the run "
-                    "instead of continuing to burn LLM calls against a dead search "
-                    "tool. Check Exa credits/key, then re-run (consider --resume)."
-                ) from exc
+            _record_exa_failure(f"{type(exc).__name__}: {exc}")
             raise
+        if not bundle.results:
+            # Zero raw results, no exception -- treated the same as a raised
+            # exception (see _record_exa_failure's docstring): this is the
+            # one soft-failure shape worth counting. A non-empty `results`
+            # where every item individually has thin/empty text is NOT
+            # counted here -- that's plausibly just a genuinely narrow query
+            # that found real (if unhelpful) pages, not evidence Exa itself
+            # is broken, and counting it would risk false-tripping the
+            # breaker on ordinary hard-to-search tasks.
+            _record_exa_failure(f"0 raw results for query: {query!r}")
+            return f"No usable results for query: {query!r}."
         _exa_consecutive_failures = 0
         kept = [r for r in bundle.results if not _draco_search_result_leak_reason(task, r)]
         if not kept:
+            # Results existed but were all filtered out by the anti-leak
+            # check -- a real (if rare) legitimate outcome, not an Exa
+            # failure, so this does NOT feed the circuit breaker.
             return f"No usable results for query: {query!r}."
         lines = [f"web_search results for {query!r}:"]
         for i, r in enumerate(kept, start=1):
