@@ -212,6 +212,7 @@ def main(argv: list[str] | None = None) -> int:
 
     def run_one(task) -> dict[str, Any]:
         client = tr_sdk.make_client(base_url=args.base_url, api_key=api_key, timeout=args.timeout_seconds)
+        run_started = time.perf_counter()
         try:
             # Only the labels that actually answered THIS task -- guaranteed
             # non-empty by the `any(...)` filter above, but may be a strict
@@ -221,7 +222,9 @@ def main(argv: list[str] | None = None) -> int:
             # 1) Fusion judge analysis (cached per judge_model/provider/task — reused across synthesizers)
             jkey = f"{args.judge_model}\t{args.judge_provider or ''}\t{task.id}"
             judge_json = judge_cache.get(jkey)
+            judge_elapsed_ms = None
             if judge_json is None:
+                judge_started = time.perf_counter()
                 judge_body = {
                     "model": args.judge_model, "max_tokens": args.judge_max_tokens,
                     "messages": [
@@ -238,6 +241,7 @@ def main(argv: list[str] | None = None) -> int:
                 if jprov:
                     judge_body["provider"] = {"only": [jprov], "allow_fallbacks": False}
                 judge_json = _content(_post(client, args.base_url, api_key, judge_body)).strip()
+                judge_elapsed_ms = int((time.perf_counter() - judge_started) * 1000)
                 if args.judge_cache:
                     with cache_lock:
                         judge_cache[jkey] = judge_json
@@ -249,7 +253,7 @@ def main(argv: list[str] | None = None) -> int:
             #    e.g. GLM-5.2 silently refusing politically restricted panel content)
             final_user = FINAL_INSTRUCTION + "\n\n" + _panel_evidence(panel) + "\n\nJudge analysis JSON:\n" + judge_json
 
-            def _fuse(model: str, pin: bool = True) -> tuple[str, dict[str, Any]]:
+            def _fuse(model: str, pin: bool = True) -> tuple[str, dict[str, Any], int]:
                 # Mirror enclave fusion.go fusionFinalRequest: reuse the original request (the bare
                 # task as a user message) and append ONLY the instruction+panel+judge user message.
                 # No persona system prompt — that was ours, not TrustedRouter's / OpenRouter's.
@@ -273,30 +277,40 @@ def main(argv: list[str] | None = None) -> int:
                                 prov = None  # this task uses default routing
                 if prov:
                     body["provider"] = {"only": [prov], "allow_fallbacks": False}
+                fuse_started = time.perf_counter()
                 resp = _post(client, args.base_url, api_key, body)
-                return strip_tool_markup(_content(resp)), resp
+                return strip_tool_markup(_content(resp)), resp, int((time.perf_counter() - fuse_started) * 1000)
 
             fuser_used = args.fuser_model
             fell_back = False
+            fuser_attempts: list[dict[str, Any]] = []
             # STICK WITH GLM. First attempt uses the deterministic pinned provider (spreads load
             # across the GLM fleet); subsequent attempts drop the pin and let the gateway route to
             # ANY GLM provider, retried with backoff. A loaded/failing/balance-out provider must
             # never leave the synthesis empty — we keep retrying GLM, not swap models.
-            content, fr = "", {}
+            content, fr, fuser_elapsed_ms = "", {}, None
             for attempt in range(5):
+                attempt_started = time.perf_counter()
                 try:
-                    content, fr = _fuse(args.fuser_model, pin=(attempt == 0))
+                    content, fr, fuser_elapsed_ms = _fuse(args.fuser_model, pin=(attempt == 0))
+                    fuser_attempts.append({"attempt": attempt, "model": args.fuser_model,
+                                            "elapsed_ms": fuser_elapsed_ms, "content_chars": len(content)})
                     if len(content.strip()) >= 50:
                         break
                 except Exception:  # noqa: BLE001 - provider error; retry GLM via open routing
                     content, fr = "", {}
+                    fuser_attempts.append({"attempt": attempt, "model": args.fuser_model,
+                                            "elapsed_ms": int((time.perf_counter() - attempt_started) * 1000),
+                                            "content_chars": 0, "error": True})
                 time.sleep(1.5 * (attempt + 1))
             # Cross-model fallback ONLY if one is explicitly configured (we do not pass one, to
             # keep the synthesizer a pure GLM measurement).
             if len(content.strip()) < 50 and args.fallback_fuser_model:
                 fuser_used = args.fallback_fuser_model
                 fell_back = True
-                content, fr = _fuse(args.fallback_fuser_model, pin=False)
+                content, fr, fuser_elapsed_ms = _fuse(args.fallback_fuser_model, pin=False)
+                fuser_attempts.append({"attempt": len(fuser_attempts), "model": fuser_used,
+                                        "elapsed_ms": fuser_elapsed_ms, "content_chars": len(content)})
             usage = fr.get("usage") or {}
             return {
                 "schema": REPLAY_SCHEMA, "config_id": args.config_id, "task_id": task.id,
@@ -304,10 +318,25 @@ def main(argv: list[str] | None = None) -> int:
                 "fusion": {"panel": present_labels, "judge_model": args.judge_model,
                            "judge_chars": len(judge_json), "fuser_model": args.fuser_model,
                            "fallback_fuser_model": args.fallback_fuser_model,
-                           "fuser_used": fuser_used, "fell_back": fell_back},
+                           "fuser_used": fuser_used, "fell_back": fell_back,
+                           # None when this task's judge analysis came from --judge-cache (no
+                           # real call made this run); otherwise the one real judge call's
+                           # wall-clock time.
+                           "judge_elapsed_ms": judge_elapsed_ms,
+                           # Wall-clock time of the WINNING fuser attempt only (the one whose
+                           # content is in `final.content`) -- excludes retry/backoff overhead.
+                           "fuser_elapsed_ms": fuser_elapsed_ms,
+                           # Every fuser attempt (including failed/discarded retries), so retry
+                           # overhead can be told apart from genuine synthesis latency.
+                           "fuser_attempts": fuser_attempts},
                 "final": {"content": content, "finish_reason": fr.get("choices", [{}])[0].get("finish_reason"),
                           "model": fuser_used, "input_tokens": usage.get("prompt_tokens"),
-                          "output_tokens": usage.get("completion_tokens"), "elapsed_ms": None,
+                          "output_tokens": usage.get("completion_tokens"),
+                          # Total wall-clock time for this task's run_one() call (judge + ALL
+                          # fuser attempts, including retries/backoff sleeps) -- same convention
+                          # as draco_agentic_solo.py's final.elapsed_ms (total time to produce
+                          # this row's answer), so fusion- and baseline-latency are comparable.
+                          "elapsed_ms": int((time.perf_counter() - run_started) * 1000),
                           "http_status": 200, "request_id": fr.get("id")},
             }
         except Exception as exc:  # noqa: BLE001

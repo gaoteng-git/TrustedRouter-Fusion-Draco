@@ -187,8 +187,18 @@ def _run_one(task: DracoTask, *, args: argparse.Namespace, api_key: str, exa_key
                 "steps": result.steps,
                 "truncated_loop": result.truncated_loop,
                 "tools": [
-                    {"name": r.name, "args": r.args, "result_chars": r.result_chars, "error": r.error}
+                    {"name": r.name, "args": r.args, "result_chars": r.result_chars,
+                     "error": r.error, "elapsed_ms": r.elapsed_ms}
                     for r in result.tool_records
+                ],
+                # One entry per gateway /chat/completions call (research-phase
+                # rounds plus, if reached, the synthesis call). Lets latency
+                # analysis split `final.elapsed_ms` into LLM-wait vs tool-wait
+                # and compare per-round latency across panel/baseline models.
+                "llm_calls": [
+                    {"phase": c.phase, "step": c.step, "elapsed_ms": c.elapsed_ms,
+                     "input_tokens": c.input_tokens, "output_tokens": c.output_tokens}
+                    for c in result.llm_calls
                 ],
             },
             "final": {

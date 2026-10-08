@@ -256,6 +256,25 @@ class ToolCallRecord:
     args: dict[str, Any]
     result_chars: int
     error: str | None = None
+    # Wall-clock time of the single `executor(args)` call this record
+    # describes (web_search/web_fetch/bash), in milliseconds. 0 for the
+    # unknown-tool case (no executor was ever invoked).
+    elapsed_ms: int = 0
+
+
+@dataclass
+class LlmCallRecord:
+    """One gateway `/chat/completions` call inside run_agentic_completion --
+    either a research-phase round (model offered tools) or the final
+    synthesis call (no tools). Lets latency analysis separate "time spent
+    waiting on the LLM" from "time spent waiting on tools" within a single
+    AgenticResult.elapsed_ms total, and compare per-round latency across
+    panel models for a fusion-vs-baseline latency breakdown."""
+    phase: str  # "research" | "synthesis"
+    step: int
+    elapsed_ms: int
+    input_tokens: int | None
+    output_tokens: int | None
 
 
 @dataclass
@@ -269,6 +288,12 @@ class AgenticResult:
     elapsed_ms: int
     steps: int
     truncated_loop: bool
+    # Every individual gateway call made while producing this result (one
+    # per research-phase round plus, when the loop falls through to
+    # synthesis, one more for that call). Sum of llm_calls[*].elapsed_ms plus
+    # sum of tool_records[*].elapsed_ms should land close to `elapsed_ms`
+    # (the gap is JSON/dispatch overhead, not a separate wait).
+    llm_calls: list[LlmCallRecord] = field(default_factory=list)
     # Captured but NOT used anywhere yet (not fed to judge/fuser, not a
     # fallback when `content` is empty) -- saved purely so it's on disk for
     # later inspection/decision-making. See 0G router's real response shape
@@ -755,6 +780,7 @@ def run_agentic_completion(
         {"role": "user", "content": user_prompt},
     ]
     records: list[ToolCallRecord] = []
+    llm_calls: list[LlmCallRecord] = []
     tool_calls_made = 0
     last_input = last_output = None
     started = time.perf_counter()
@@ -784,9 +810,18 @@ def run_agentic_completion(
             tool_choice="required" if (force_first_tool and tool_calls_made == 0) else "auto",
             reasoning_effort=reasoning_effort,
         )
+        call_started = time.perf_counter()
         resp = _post_with_retry(client, url, headers, body)
         resp.raise_for_status()
-        choice = record_usage(resp.json())
+        payload = resp.json()
+        call_elapsed_ms = int((time.perf_counter() - call_started) * 1000)
+        choice = record_usage(payload)
+        usage = payload.get("usage") or {}
+        llm_calls.append(LlmCallRecord(
+            phase="research", step=steps, elapsed_ms=call_elapsed_ms,
+            input_tokens=usage.get("prompt_tokens") if isinstance(usage.get("prompt_tokens"), int) else None,
+            output_tokens=usage.get("completion_tokens") if isinstance(usage.get("completion_tokens"), int) else None,
+        ))
         msg = choice.get("message") or {}
         tool_calls = msg.get("tool_calls")
         if not tool_calls:
@@ -803,6 +838,7 @@ def run_agentic_completion(
                     elapsed_ms=elapsed(),
                     steps=steps,
                     truncated_loop=False,
+                    llm_calls=llm_calls,
                     reasoning=msg.get("reasoning_content"),
                 )
             break  # empty content, no tool calls -> force a synthesis turn
@@ -821,9 +857,13 @@ def run_agentic_completion(
                 result = f"Error: unknown tool {name!r}."
                 records.append(ToolCallRecord(name=name, args=args, result_chars=0, error="unknown_tool"))
             else:
+                tool_started = time.perf_counter()
                 try:
                     result = executor(args)
-                    records.append(ToolCallRecord(name=name, args=args, result_chars=len(result)))
+                    records.append(ToolCallRecord(
+                        name=name, args=args, result_chars=len(result),
+                        elapsed_ms=int((time.perf_counter() - tool_started) * 1000),
+                    ))
                 except ExaCircuitBreakerTripped:
                     # Deliberately NOT swallowed into a tool-result string like
                     # every other tool error below -- this must abort the whole
@@ -831,9 +871,10 @@ def run_agentic_completion(
                     raise
                 except Exception as exc:  # noqa: BLE001 - surface tool error to the model
                     result = f"Error running {name}: {exc}"
-                    records.append(
-                        ToolCallRecord(name=name, args=args, result_chars=0, error=type(exc).__name__)
-                    )
+                    records.append(ToolCallRecord(
+                        name=name, args=args, result_chars=0, error=type(exc).__name__,
+                        elapsed_ms=int((time.perf_counter() - tool_started) * 1000),
+                    ))
             tool_calls_made += 1
             messages.append(
                 {"role": "tool", "tool_call_id": tc.get("id"), "content": result[:MAX_TOOL_RESULT_CHARS]}
@@ -848,9 +889,18 @@ def run_agentic_completion(
         model, messages, max_tokens=synthesis_max_tokens, temperature=temperature,
         reasoning_effort=reasoning_effort,
     )
+    call_started = time.perf_counter()
     resp = _post_with_retry(client, url, headers, body)
     resp.raise_for_status()
-    choice = record_usage(resp.json())
+    payload = resp.json()
+    call_elapsed_ms = int((time.perf_counter() - call_started) * 1000)
+    choice = record_usage(payload)
+    usage = payload.get("usage") or {}
+    llm_calls.append(LlmCallRecord(
+        phase="synthesis", step=steps, elapsed_ms=call_elapsed_ms,
+        input_tokens=usage.get("prompt_tokens") if isinstance(usage.get("prompt_tokens"), int) else None,
+        output_tokens=usage.get("completion_tokens") if isinstance(usage.get("completion_tokens"), int) else None,
+    ))
     msg = choice.get("message") or {}
     return AgenticResult(
         content=strip_tool_markup(msg.get("content") or ""),
@@ -862,5 +912,6 @@ def run_agentic_completion(
         elapsed_ms=elapsed(),
         steps=steps,
         truncated_loop=True,
+        llm_calls=llm_calls,
         reasoning=msg.get("reasoning_content"),
     )
