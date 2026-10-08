@@ -103,6 +103,34 @@ DEFAULT_FETCH_CHARS = 25_000
 MAX_TOOL_RESULT_CHARS = 40_000
 RETRYABLE_STATUS = frozenset({408, 429, 500, 502, 503, 504})
 
+# --- Exa circuit breaker -----------------------------------------------------
+# Without this, a single exhausted/revoked Exa key (or an Exa outage) makes
+# EVERY subsequent web_search call fail -- but run_agentic_completion's tool
+# dispatch (see the `except Exception` below) converts that failure into an
+# "Error running web_search: ..." string and feeds it back to the model as an
+# ordinary tool result, then keeps calling the LLM for the rest of that
+# task's tool-call budget, and then again for every remaining task in the
+# whole run -- burning real LLM spend on a search tool that will never work
+# again until someone notices and kills the process by hand. This counter is
+# process-global (module-level, not per-task) because a fresh ExaSearchClient
+# is created per task in `_run_one()` -- only a global counter actually
+# detects "this has been broken across many consecutive calls," not just
+# "broken within one task."
+EXA_CIRCUIT_BREAKER_THRESHOLD = 3
+_exa_consecutive_failures = 0
+
+
+class ExaCircuitBreakerTripped(RuntimeError):
+    """Raised when web_search has failed EXA_CIRCUIT_BREAKER_THRESHOLD times
+    in a row with no successful call in between -- almost always exhausted
+    credits, a revoked key, or an Exa-side outage, none of which will be
+    fixed by simply retrying the next task. Deliberately NOT caught by
+    run_agentic_completion's generic per-tool-call `except Exception` (see
+    there) or by `_run_one`'s per-task `except Exception` (see
+    draco_agentic_solo.py) -- it must propagate all the way out of the
+    process so the run actually stops instead of silently burning LLM calls
+    on every remaining task."""
+
 SYNTHESIS_INSTRUCTION = (
     "You have reached your research budget. Using ONLY the evidence already gathered "
     "in this conversation, write your COMPLETE and FINAL research report now. It must "
@@ -266,16 +294,29 @@ def _result_leaks(task: DracoTask, *, url: str, title: str, text: str) -> bool:
 
 def make_web_search(task: DracoTask, exa_client: ExaSearchClient) -> Callable[[dict[str, Any]], str]:
     def run(args: dict[str, Any]) -> str:
+        global _exa_consecutive_failures
         query = str(args.get("query") or "").strip()
         if not query:
             return "Error: web_search requires a non-empty 'query'."
         num = args.get("num_results")
         num_results = num if isinstance(num, int) and 1 <= num <= 10 else DEFAULT_SEARCH_RESULTS
-        bundle: ExaSearchBundle = exa_client.search_with_contents(
-            query,
-            exclude_domains=DRACO_BLOCKED_DOMAINS,
-            num_results=num_results,
-        )
+        try:
+            bundle: ExaSearchBundle = exa_client.search_with_contents(
+                query,
+                exclude_domains=DRACO_BLOCKED_DOMAINS,
+                num_results=num_results,
+            )
+        except Exception as exc:
+            _exa_consecutive_failures += 1
+            if _exa_consecutive_failures >= EXA_CIRCUIT_BREAKER_THRESHOLD:
+                raise ExaCircuitBreakerTripped(
+                    f"web_search failed {_exa_consecutive_failures} times in a row "
+                    f"(most recent: {type(exc).__name__}: {exc}) -- stopping the run "
+                    "instead of continuing to burn LLM calls against a dead search "
+                    "tool. Check Exa credits/key, then re-run (consider --resume)."
+                ) from exc
+            raise
+        _exa_consecutive_failures = 0
         kept = [r for r in bundle.results if not _draco_search_result_leak_reason(task, r)]
         if not kept:
             return f"No usable results for query: {query!r}."
@@ -743,6 +784,11 @@ def run_agentic_completion(
                 try:
                     result = executor(args)
                     records.append(ToolCallRecord(name=name, args=args, result_chars=len(result)))
+                except ExaCircuitBreakerTripped:
+                    # Deliberately NOT swallowed into a tool-result string like
+                    # every other tool error below -- this must abort the whole
+                    # run, not just get shown to the model as "search failed."
+                    raise
                 except Exception as exc:  # noqa: BLE001 - surface tool error to the model
                     result = f"Error running {name}: {exc}"
                     records.append(

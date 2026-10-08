@@ -20,6 +20,7 @@ from trusted_router.evals import tr_sdk
 from trusted_router.evals.agentic_tools import (
     DRACO_AGENTIC_SYSTEM_PROMPT,
     DEFAULT_BASH_IMAGE,
+    ExaCircuitBreakerTripped,
     build_tool_executors,
     run_agentic_completion,
 )
@@ -139,6 +140,9 @@ def _run(pending: list[DracoTask], *, args: argparse.Namespace, api_key: str, ex
                 task = futures.pop(fut)
                 try:
                     row = fut.result()
+                except ExaCircuitBreakerTripped:
+                    # Must abort the whole run, not just fail this one task.
+                    raise
                 except Exception as exc:  # noqa: BLE001
                     row = _failure_row(task, args, exc)
                 done += 1
@@ -198,6 +202,10 @@ def _run_one(task: DracoTask, *, args: argparse.Namespace, api_key: str, exa_key
                 "request_id": None,
             },
         }
+    except ExaCircuitBreakerTripped:
+        # Must abort the whole run, not just fail this one task -- see
+        # agentic_tools.ExaCircuitBreakerTripped's own docstring.
+        raise
     except Exception as exc:  # noqa: BLE001
         return _failure_row(task, args, exc)
     finally:
