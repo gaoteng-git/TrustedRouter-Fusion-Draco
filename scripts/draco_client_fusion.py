@@ -65,7 +65,24 @@ FINAL_INSTRUCTION = (
     "scratchpad text, <think> blocks, or internal model names -- unless the "
     "original request explicitly asks you to describe your own research "
     "process or approach (not merely because the subject matter itself "
-    "concerns research methodology)."
+    "concerns research methodology).\n\n"
+    "Preserve detail -- do not compress for brevity. A longer, fully sourced "
+    "answer is strongly preferred over a shorter summary that drops verifiable "
+    "specifics. Do not omit a figure, date, name, example, or citation from the "
+    "panel answers merely to shorten the final answer or make the prose read "
+    "more cleanly.\n\n"
+    "Keep citations inline, in the same form the panel answers used (URL or "
+    "source name next to the claim it supports). Every specific factual claim, "
+    "figure, or quote carried over from a panel answer must keep its original "
+    "citation attached.\n\n"
+    "Where panel sources conflict, use your own judgment to decide which "
+    "position is more likely correct -- based on which is better corroborated, "
+    "more specific, or better sourced -- and state your conclusion directly. "
+    "You do not need to present every disagreement as unresolved. A claim made "
+    "by only one panel source is yours to judge too: include it with "
+    "attribution if it's plausible and adds real value, or leave it out if it "
+    "seems unreliable or marginal -- don't include it as unattributed settled "
+    "fact."
 )
 # Deliberate deviation from the upstream (main branch / enclave fusion.go)
 # wording "unless the user asked for methodology": confirmed live, a DiD
@@ -76,8 +93,26 @@ FINAL_INSTRUCTION = (
 # The clause's likely original intent was narrower: only skip the
 # no-analysis rule when the user asks the FUSER to explain ITS OWN process,
 # not whenever the task's topic happens to be about methodology in general.
-# This rewording targets exactly that gap; the rest of the instruction is
-# unchanged.
+# This rewording targets exactly that gap.
+#
+# Three more paragraphs added (branch fusion-prompt-detail-fix, off the
+# methodology fix above): a root-cause dive into 14 real fusion-losing tasks
+# (see git history / conversation record) found the fuser (minimax-m3)
+# systematically shrinks its own best panel answer by 40-90%, stripping
+# nearly all inline citations and dropping whole named-source sections /
+# roughly half of the panel's specific figures -- even when well under its
+# token budget (finish_reason=stop). The "preserve detail" and "keep
+# citations inline" paragraphs target that directly. The "where panel
+# sources conflict" paragraph deliberately does NOT mandate mechanically
+# presenting every contradiction as unresolved, or forcing a binary
+# attribute-or-omit rule on single-source claims -- early drafts did, but
+# that was judged too rigid: real synthesis value comes from the fuser
+# making a credible call, not refusing to. The wording keeps that judgment
+# call explicitly in the fuser's hands, only anchoring it to concrete
+# criteria (corroboration, specificity, sourcing) instead of leaving it
+# totally open-ended, given this same model has already shown a tendency to
+# default to the laziest option (silently dropping content) when given
+# unconstrained synthesis instructions.
 
 
 def _panel_evidence(panel: list[tuple[str, str]]) -> str:
@@ -134,7 +169,15 @@ def main(argv: list[str] | None = None) -> int:
                    help="If the primary fuser returns (near-)empty output — e.g. a silent "
                         "refusal — re-synthesize the same panel with this model instead.")
     p.add_argument("--judge-max-tokens", type=int, default=3000)
-    p.add_argument("--fuser-max-tokens", type=int, default=8000)
+    # Raised from 8000 -> 12000 (matches draco_agentic_solo.py's own
+    # synthesis_max_tokens default) alongside FINAL_INSTRUCTION's new
+    # "preserve detail / keep citations inline" paragraphs: those paragraphs
+    # ask the fuser to write a longer, fully-cited answer, which needs more
+    # output budget -- otherwise the fix would just trade "lossy summary"
+    # for "truncated mid-answer" (already observed hitting the old 8000
+    # ceiling, finish_reason=length, on at least one task under the OLD,
+    # shorter-by-default instruction).
+    p.add_argument("--fuser-max-tokens", type=int, default=12000)
     p.add_argument("--judge-provider", default=None,
                    help="Force a provider for the judge model (OpenRouter-shape provider.only), "
                         "e.g. tinfoil for GLM-5.2 so the Z.ai host censorship doesn't blank the judge.")
