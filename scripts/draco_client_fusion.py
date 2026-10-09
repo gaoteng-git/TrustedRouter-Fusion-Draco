@@ -329,7 +329,16 @@ def main(argv: list[str] | None = None) -> int:
                 "schema": REPLAY_SCHEMA, "config_id": args.config_id, "task_id": task.id,
                 "domain": task.domain, "task": task.cache_dict(),
                 "fusion": {"panel": present_labels, "judge_model": args.judge_model,
-                           "judge_chars": len(judge_json), "fuser_model": args.fuser_model,
+                           "judge_chars": len(judge_json),
+                           # Raw judge analysis text, saved unconditionally (not just when
+                           # --judge-cache is set) -- previously only judge_chars (a length)
+                           # survived to disk and the actual judge_json was discarded right
+                           # after building the fuser prompt, making it impossible to check,
+                           # after the fact, whether a terse/weak judge analysis contributed to
+                           # a lossy fuser rewrite. Same text the fuser itself was given as
+                           # "Judge analysis JSON:\n<this>" in final_user.
+                           "judge_json": judge_json,
+                           "fuser_model": args.fuser_model,
                            "fallback_fuser_model": args.fallback_fuser_model,
                            "fuser_used": fuser_used, "fell_back": fell_back,
                            # None when this task's judge analysis came from --judge-cache (no
