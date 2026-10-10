@@ -75,6 +75,32 @@ def make_client(*, base_url: str | None = None, api_key: str,
     )
 
 
+def _raise_with_body(resp: httpx.Response) -> None:
+    """Like resp.raise_for_status(), but puts the real response body (the
+    gateway's actual error message -- "model not capable", invalid param,
+    etc.) at the FRONT of the exception's str(), not just status+url.
+
+    httpx.HTTPStatusError's default str() is boilerplate only
+    ("Client error '400 Bad Request' for url '...' For more information
+    check: https://..."); every caller that stores str(exc)[:500] in a
+    failure row (draco_agentic_solo.py's _failure_row, draco_rejudge.py's
+    _failure_row) was silently discarding the one piece of information
+    that actually explains WHY a call failed. Confirmed live: this is
+    exactly why kimi-k3's real 400 reason was never captured across
+    several real failures -- the row only ever showed the generic
+    boilerplate, requiring manual curl reproduction to see anything more.
+    """
+    if resp.is_success:
+        return
+    try:
+        resp.raise_for_status()
+    except httpx.HTTPStatusError as e:
+        raise httpx.HTTPStatusError(
+            f"HTTP {resp.status_code} from {resp.request.url}: {resp.text[:400]}",
+            request=e.request, response=e.response,
+        ) from None
+
+
 def chat(client: Tr0GClient, body: Mapping[str, Any]) -> dict[str, Any]:
     """Send an OpenAI-shaped chat body as a plain non-streaming POST; return
     the response as a dict.
@@ -101,10 +127,10 @@ def chat(client: Tr0GClient, body: Mapping[str, Any]) -> dict[str, Any]:
             continue
         if resp.status_code == 429 or resp.status_code >= 500:
             if attempt > client.max_retries:
-                resp.raise_for_status()
+                _raise_with_body(resp)
             time.sleep(min(2 ** attempt, 30))
             continue
-        resp.raise_for_status()
+        _raise_with_body(resp)
         return resp.json()
 
 
