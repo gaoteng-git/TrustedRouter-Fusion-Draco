@@ -82,7 +82,18 @@ FINAL_INSTRUCTION = (
     "by only one panel source is yours to judge too: include it with "
     "attribution if it's plausible and adds real value, or leave it out if it "
     "seems unreliable or marginal -- don't include it as unattributed settled "
-    "fact."
+    "fact.\n\n"
+    "Your response has a limited token budget (stated below, along with the "
+    "total size of the source material). The instructions above on preserving "
+    "detail and citations remain the default -- do not shorten the answer out "
+    "of caution just because a budget is mentioned. Only if the fully detailed "
+    "answer would clearly not fit in your stated budget should you reorder "
+    "content by importance: write the direct answer to the original request "
+    "and the most load-bearing facts, figures, and conclusions first; place "
+    "secondary elaboration, caveats, and less critical supporting detail "
+    "later. This way, if you are cut off before finishing, the core answer is "
+    "already complete and usable, and only the least important material is "
+    "lost."
 )
 # Deliberate deviation from the upstream (main branch / enclave fusion.go)
 # wording "unless the user asked for methodology": confirmed live, a DiD
@@ -113,6 +124,21 @@ FINAL_INSTRUCTION = (
 # totally open-ended, given this same model has already shown a tendency to
 # default to the laziest option (silently dropping content) when given
 # unconstrained synthesis instructions.
+#
+# A fifth paragraph ("Your response has a limited token budget...") added
+# later, on the same branch: of the tasks scored so far, a handful hit
+# finish_reason=length (ran out of --fuser-max-tokens, currently 12000,
+# mid-answer) and lose to baseline specifically because of what got cut off
+# at the END, not because the content was wrong -- the model had no way to
+# know it should front-load the most important material. This paragraph is
+# explicitly scoped as a fallback ("only if...clearly not fit"), not a new
+# default, so it doesn't re-introduce the premature-compression behavior the
+# "preserve detail" paragraph was written to stop. --fuser-max-tokens is
+# deliberately NOT raised further alongside this: baseline's own dominant
+# code path (draco_agentic_solo.py's forced-synthesis call, taken in the
+# large majority of baseline rows) caps at the same 12000, so matching that
+# ceiling is what keeps this a fair comparison rather than just giving the
+# fuser more room to write than baseline ever gets.
 
 
 def _panel_evidence(panel: list[tuple[str, str]]) -> str:
@@ -137,6 +163,29 @@ def _post(client: tr_sdk.TrustedRouter, base_url: str, api_key: str, body: dict[
 
 def _content(resp: dict[str, Any]) -> str:
     return (resp.get("choices", [{}])[0].get("message", {}) or {}).get("content") or ""
+
+
+def _clean_judge_json(raw: str) -> str:
+    """Clean a judge model's raw output before splicing it into the fuser's
+    prompt or persisting it. Confirmed live (8-sample check, 2026-10-10):
+    the judge (minimax-m3) leaks a <think> block exactly like it does as a
+    panel member / fuser (see strip_tool_markup's own docstring) AND wraps
+    its JSON in a markdown code fence (```json ... ```), despite
+    JUDGE_SYSTEM's "Return only JSON" instruction covering neither. Of 8 raw
+    samples: 1 was already clean, 4 parsed as valid JSON once <think> and
+    the fence were stripped, and 3 were genuinely truncated mid-answer
+    (hit --judge-max-tokens before finishing) -- those still won't parse
+    after this cleanup, because there's nothing left to clean; that's a
+    real generation-truncation problem (raise --judge-max-tokens), not
+    something text post-processing can fix."""
+    text = strip_tool_markup(raw)
+    t = text.strip()
+    if t.startswith("```"):
+        newline_idx = t.find("\n")
+        t = t[newline_idx + 1:] if newline_idx != -1 else t[3:]
+    if t.rstrip().endswith("```"):
+        t = t.rstrip()[:-3]
+    return t.strip()
 
 
 def _load_panel(path: Path) -> dict[str, str]:
@@ -296,7 +345,7 @@ def main(argv: list[str] | None = None) -> int:
                     jprov = jprovs[int(hashlib.md5(task.id.encode()).hexdigest(), 16) % len(jprovs)]
                 if jprov:
                     judge_body["provider"] = {"only": [jprov], "allow_fallbacks": False}
-                judge_json = _content(_post(client, args.base_url, api_key, judge_body)).strip()
+                judge_json = _clean_judge_json(_content(_post(client, args.base_url, api_key, judge_body)))
                 judge_elapsed_ms = int((time.perf_counter() - judge_started) * 1000)
                 if args.judge_cache:
                     with cache_lock:
@@ -307,7 +356,20 @@ def main(argv: list[str] | None = None) -> int:
                                                  "task_id": task.id, "judge_json": judge_json}) + "\n")
             # 2) fuser (primary, with optional fallback when it returns near-empty —
             #    e.g. GLM-5.2 silently refusing politically restricted panel content)
-            final_user = FINAL_INSTRUCTION + "\n\n" + _panel_evidence(panel) + "\n\nJudge analysis JSON:\n" + judge_json
+            evidence_block = _panel_evidence(panel)
+            # Rough chars/4 token estimate -- 0G router exposes no tokenizer
+            # endpoint, and this is only for the model's own budgeting sense,
+            # not an exact accounting.
+            evidence_tokens_est = (len(evidence_block) + len(judge_json)) // 4
+            budget_note = (
+                f"\n\nFor reference: the panel answers and judge analysis above total "
+                f"approximately {evidence_tokens_est} tokens of source material. Your own "
+                f"response budget for this answer is approximately {args.fuser_max_tokens} tokens."
+            )
+            final_user = (
+                FINAL_INSTRUCTION + "\n\n" + evidence_block + "\n\nJudge analysis JSON:\n" + judge_json
+                + budget_note
+            )
 
             def _fuse(model: str, pin: bool = True) -> tuple[str, dict[str, Any], int]:
                 # Mirror enclave fusion.go fusionFinalRequest: reuse the original request (the bare
