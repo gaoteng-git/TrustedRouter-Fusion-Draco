@@ -252,6 +252,14 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("--workers", type=int, default=4)
     p.add_argument("--timeout-seconds", type=float, default=600.0)
     p.add_argument("--limit", type=int, default=None)
+    p.add_argument("--require-full-panel", action="store_true",
+                   help="Only fuse a task once EVERY configured --panel member has answered it "
+                        "(default: fuse as soon as ANY ONE has, see the any()-vs-all() comment "
+                        "below). Use this for an experiment where partial-coverage fusion would "
+                        "not be a faithful measurement of the full panel (e.g. a 5-panel config "
+                        "where 2 slow/flaky new members haven't caught up yet) -- tasks missing "
+                        "even one member are simply left pending, picked up automatically by a "
+                        "later --resume re-run once that member's result exists.")
     p.add_argument("--resume", action="store_true")
     p.add_argument("--execute", action="store_true")
     args = p.parse_args(argv)
@@ -277,7 +285,15 @@ def main(argv: list[str] | None = None) -> int:
     # run_one() below only includes the labels that actually have this
     # task_id in `panel`, so the judge/fuser only ever see the panel
     # members that really answered, never a KeyError on a missing one.
-    tasks = [t for t in tasks if any(t.id in panels[l] for l in labels)]
+    #
+    # --require-full-panel flips this to all(): for an experiment
+    # comparing a SPECIFIC N-panel config (e.g. 5-panel) against baseline,
+    # fusing a task on 2/5 members isn't a faithful instance of that
+    # config -- it's silently a different, smaller config. Leaving such a
+    # task pending until every member has a real answer (--resume retries
+    # it later) keeps every fused row an actual N/N-panel result.
+    coverage_check = all if args.require_full_panel else any
+    tasks = [t for t in tasks if coverage_check(t.id in panels[l] for l in labels)]
 
     completed: set[str] = set()
     if args.resume and args.output.exists():
@@ -289,7 +305,8 @@ def main(argv: list[str] | None = None) -> int:
     pending = [t for t in tasks if t.id not in completed]
 
     print(f"panel members: {labels}")
-    print(f"tasks with at least 1 panel answer: {len(tasks)}  pending: {len(pending)}")
+    coverage_desc = "ALL panel answers" if args.require_full_panel else "at least 1 panel answer"
+    print(f"tasks with {coverage_desc}: {len(tasks)}  pending: {len(pending)}")
     print(f"fuser: {args.fuser_model}  judge: {args.judge_model}  config: {args.config_id}")
     print(f"output: {args.output}")
     if not args.execute:

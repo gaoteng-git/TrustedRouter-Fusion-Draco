@@ -132,6 +132,18 @@ def test_build_fusion_cmd():
                  ("--workers", "1")):
         i = cmd.index(pair[0])
         assert cmd[i + 1] == pair[1], (pair, cmd)
+    assert "--require-full-panel" not in cmd  # default False -> flag omitted entirely
+
+
+def test_build_fusion_cmd_require_full_panel():
+    cmd = pipeline.build_fusion_cmd(
+        python_exe="PY", manifest=Path("M.json"), panel_files={"minimax-m3": Path("p1.jsonl")},
+        output=Path("F.jsonl"), config_id="fusion-latest5panel",
+        judge_model="minimax-m3", fuser_model="minimax-m3",
+        base_url="https://router-api.0g.ai/v1", api_key_name="TR_API_KEY", execute=False,
+        require_full_panel=True,
+    )
+    assert "--require-full-panel" in cmd
 
 
 def test_build_rejudge_cmd_uses_0g_router_judge_model_id():

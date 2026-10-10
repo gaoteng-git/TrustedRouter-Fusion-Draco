@@ -323,6 +323,7 @@ def build_fusion_cmd(
     api_key_name: str,
     execute: bool,
     workers: int = 1,
+    require_full_panel: bool = False,
 ) -> list[str]:
     cmd = [
         python_exe, "scripts/draco_client_fusion.py",
@@ -340,6 +341,8 @@ def build_fusion_cmd(
         "--workers", str(workers),
         "--resume",
     ]
+    if require_full_panel:
+        cmd.append("--require-full-panel")
     if execute:
         cmd.append("--execute")
     return cmd
@@ -420,6 +423,11 @@ def main(argv: list[str] | None = None) -> int:
                          "--panel-models/--judge-model/--fuser-model.")
     p.add_argument("--judge-model", default=FUSION_LATEST3PANEL["judge_model"])
     p.add_argument("--fuser-model", default=FUSION_LATEST3PANEL["fuser_model"])
+    p.add_argument("--require-full-panel", action="store_true",
+                    help="Passed through to draco_client_fusion.py: only fuse/score a task once "
+                         "EVERY --panel-models member has answered it, instead of the default "
+                         "any-one-is-enough rule. Tasks missing a member are left pending and "
+                         "picked up by a later --resume re-run once that member catches up.")
     p.add_argument("--execute", action="store_true",
                     help="Actually call the gateway/Exa/docker. Omit for a dry run that prints "
                          "every command without spending anything.")
@@ -510,7 +518,7 @@ def main(argv: list[str] | None = None) -> int:
                 output=fusion_out, config_id=cfg["config_id"],
                 judge_model=cfg["judge_model"], fuser_model=cfg["fuser_model"],
                 base_url=args.base_url, api_key_name=args.api_key_name, execute=args.execute,
-                workers=args.workers,
+                workers=args.workers, require_full_panel=args.require_full_panel,
             )
             run_step(cmd, label=f"fusion: {cfg['config_id']}")
             if args.execute:
@@ -521,9 +529,14 @@ def main(argv: list[str] | None = None) -> int:
                 # find_row_for_task's docstring.
                 row = find_row_for_task(fusion_out, task_id)
                 if row is None:
+                    reason = (
+                        f"at least one of {list(cfg['panel'])} hasn't answered yet"
+                        if args.require_full_panel else
+                        f"ALL of {list(cfg['panel'])} failed or came back empty above "
+                        "(fusion only needs one to succeed)"
+                    )
                     print(f"  skipped (prerequisite missing): {cfg['config_id']} has no row "
-                          f"for task {task_id} -- ALL of {list(cfg['panel'])} failed or came back "
-                          "empty above (fusion only needs one to succeed).")
+                          f"for task {task_id} -- {reason}.")
                 elif not row_status_ok(row):
                     print(f"  WARNING: fusion {cfg['config_id']} failed for task {task_id} "
                           f"(error_type={row.get('error_type')}) -- a failed row was written; "
