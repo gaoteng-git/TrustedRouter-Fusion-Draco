@@ -381,20 +381,35 @@ class FatalPipelineError(RuntimeError):
     exception surfaces at the process level)."""
 
 
-def run_step(cmd: list[str], *, label: str) -> subprocess.CompletedProcess:
-    print(f"--- {label} ---")
-    print(" ".join(cmd))
-    proc = subprocess.run(cmd, cwd=REPO_ROOT, capture_output=True, text=True)
-    if proc.stdout:
-        print(proc.stdout, end="" if proc.stdout.endswith("\n") else "\n")
-    if proc.stderr:
-        print(proc.stderr, end="" if proc.stderr.endswith("\n") else "\n", file=sys.stderr)
-    if proc.returncode != 0:
+def run_step(cmd: list[str], *, label: str) -> int:
+    """Stream the child's output line-by-line as it arrives (flushed
+    immediately), instead of capturing it all and only printing once the
+    whole subprocess exits. The old subprocess.run(capture_output=True)
+    meant a single step -- a panel solo call running up to 16 tool-call
+    rounds plus a synthesis call, or a fusion/score pass batching many
+    newly-eligible tasks -- showed NOTHING in the log until it finished
+    entirely, even once draco_agentic_solo.py itself was made to print
+    per-round progress (see run_agentic_completion's own print calls) --
+    capture_output withheld that progress from ever reaching the log file.
+    stderr is merged into stdout (both already land in the same nohup
+    log file downstream anyway, via the top-level `> file 2>&1` redirect)."""
+    print(f"--- {label} ---", flush=True)
+    print(" ".join(cmd), flush=True)
+    proc = subprocess.Popen(
+        cmd, cwd=REPO_ROOT, stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
+        text=True, bufsize=1,
+    )
+    assert proc.stdout is not None
+    for line in proc.stdout:
+        print(line, end="", flush=True)
+    returncode = proc.wait()
+    if returncode != 0:
         raise FatalPipelineError(
-            f"{label} exited {proc.returncode} -- aborting the whole run "
+            f"{label} exited {returncode} -- aborting the whole run "
             "(this is almost always either ExaCircuitBreakerTripped or a "
-            "missing/invalid API key; see the stderr above)."
+            "missing/invalid API key; see the output above)."
         )
+    return returncode
     return proc
 
 

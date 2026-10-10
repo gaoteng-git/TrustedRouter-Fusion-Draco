@@ -848,6 +848,7 @@ def run_agentic_completion(
             tool_choice="required" if (force_first_tool and tool_calls_made == 0) else "auto",
             reasoning_effort=reasoning_effort,
         )
+        print(f"    [{model}] round {steps}: calling LLM...", flush=True)
         call_started = time.perf_counter()
         resp = _post_with_retry(client, url, headers, body)
         resp.raise_for_status()
@@ -862,6 +863,10 @@ def run_agentic_completion(
         ))
         msg = choice.get("message") or {}
         tool_calls = msg.get("tool_calls")
+        outcome = f"{len(tool_calls)} tool call(s) requested" if tool_calls else "no tool calls"
+        print(f"    [{model}] round {steps}: LLM responded in {call_elapsed_ms}ms "
+              f"(in={usage.get('prompt_tokens')} out={usage.get('completion_tokens')}) -> {outcome}",
+              flush=True)
         if not tool_calls:
             content = strip_tool_markup(msg.get("content") or "")
             if content.strip():
@@ -891,28 +896,36 @@ def run_agentic_completion(
             except json.JSONDecodeError:
                 args = {}
             executor = executors.get(name)
+            arg_preview = json.dumps(args)[:120]
+            print(f"    [{model}] round {steps}: tool={name} args={arg_preview} ...", flush=True)
             if executor is None:
                 result = f"Error: unknown tool {name!r}."
                 records.append(ToolCallRecord(name=name, args=args, result_chars=0, error="unknown_tool"))
+                print(f"    [{model}] round {steps}: tool={name} -> unknown_tool", flush=True)
             else:
                 tool_started = time.perf_counter()
                 try:
                     result = executor(args)
+                    tool_elapsed_ms = int((time.perf_counter() - tool_started) * 1000)
                     records.append(ToolCallRecord(
-                        name=name, args=args, result_chars=len(result),
-                        elapsed_ms=int((time.perf_counter() - tool_started) * 1000),
+                        name=name, args=args, result_chars=len(result), elapsed_ms=tool_elapsed_ms,
                     ))
+                    print(f"    [{model}] round {steps}: tool={name} -> {len(result)} chars "
+                          f"in {tool_elapsed_ms}ms", flush=True)
                 except ExaCircuitBreakerTripped:
                     # Deliberately NOT swallowed into a tool-result string like
                     # every other tool error below -- this must abort the whole
                     # run, not just get shown to the model as "search failed."
                     raise
                 except Exception as exc:  # noqa: BLE001 - surface tool error to the model
+                    tool_elapsed_ms = int((time.perf_counter() - tool_started) * 1000)
                     result = f"Error running {name}: {exc}"
                     records.append(ToolCallRecord(
                         name=name, args=args, result_chars=0, error=type(exc).__name__,
-                        elapsed_ms=int((time.perf_counter() - tool_started) * 1000),
+                        elapsed_ms=tool_elapsed_ms,
                     ))
+                    print(f"    [{model}] round {steps}: tool={name} -> error "
+                          f"{type(exc).__name__} in {tool_elapsed_ms}ms", flush=True)
             tool_calls_made += 1
             messages.append(
                 {"role": "tool", "tool_call_id": tc.get("id"), "content": result[:MAX_TOOL_RESULT_CHARS]}
@@ -927,6 +940,8 @@ def run_agentic_completion(
         model, messages, max_tokens=synthesis_max_tokens, temperature=temperature,
         reasoning_effort=reasoning_effort,
     )
+    print(f"    [{model}] round {steps}: calling LLM for synthesis (budget={synthesis_max_tokens})...",
+          flush=True)
     call_started = time.perf_counter()
     resp = _post_with_retry(client, url, headers, body)
     resp.raise_for_status()
@@ -934,6 +949,8 @@ def run_agentic_completion(
     call_elapsed_ms = int((time.perf_counter() - call_started) * 1000)
     choice = record_usage(payload)
     usage = payload.get("usage") or {}
+    print(f"    [{model}] round {steps}: synthesis responded in {call_elapsed_ms}ms "
+          f"(in={usage.get('prompt_tokens')} out={usage.get('completion_tokens')})", flush=True)
     llm_calls.append(LlmCallRecord(
         phase="synthesis", step=steps, elapsed_ms=call_elapsed_ms,
         input_tokens=usage.get("prompt_tokens") if isinstance(usage.get("prompt_tokens"), int) else None,
