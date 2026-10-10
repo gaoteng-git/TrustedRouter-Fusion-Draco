@@ -410,6 +410,16 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("--max-tool-calls", type=int, default=16)
     p.add_argument("--synthesis-max-tokens", type=int, default=12000)
     p.add_argument("--workers", type=int, default=1)
+    p.add_argument("--panel-models", default=",".join(PANEL_MODELS),
+                    help="Comma-separated panel model list. Default reproduces the active "
+                         "PANEL_MODELS/FUSION_LATEST3PANEL combo exactly; override to run a "
+                         "different panel (e.g. a 5-panel experiment) without touching the "
+                         "default 3-panel setup's own output files (use a different --out-dir).")
+    p.add_argument("--fusion-config-id", default=FUSION_LATEST3PANEL["config_id"],
+                    help="config_id for the single active fusion config built from "
+                         "--panel-models/--judge-model/--fuser-model.")
+    p.add_argument("--judge-model", default=FUSION_LATEST3PANEL["judge_model"])
+    p.add_argument("--fuser-model", default=FUSION_LATEST3PANEL["fuser_model"])
     p.add_argument("--execute", action="store_true",
                     help="Actually call the gateway/Exa/docker. Omit for a dry run that prints "
                          "every command without spending anything.")
@@ -419,27 +429,35 @@ def main(argv: list[str] | None = None) -> int:
     out_dir = args.out_dir
     out_dir.mkdir(parents=True, exist_ok=True)
 
+    panel_models = tuple(m.strip() for m in args.panel_models.split(",") if m.strip())
+    fusion_configs = ({
+        "config_id": args.fusion_config_id,
+        "panel": panel_models,
+        "judge_model": args.judge_model,
+        "fuser_model": args.fuser_model,
+    },)
+
     task_ids = load_task_ids(args.manifest, limit=args.limit)
     print(f"manifest: {args.manifest}  tasks: {len(task_ids)}  execute: {args.execute}")
     print(f"out_dir: {out_dir}")
-    print(f"panel models ({len(PANEL_MODELS)}): {', '.join(PANEL_MODELS)}")
+    print(f"panel models ({len(panel_models)}): {', '.join(panel_models)}")
     print(f"baseline: {BASELINE_MODEL}")
-    for cfg in FUSION_CONFIGS:
+    for cfg in fusion_configs:
         print(f"fusion [{cfg['config_id']}]: panel={list(cfg['panel'])} "
               f"judge={cfg['judge_model']} fuser={cfg['fuser_model']}")
     print()
 
-    panel_paths = {m: panel_output_path(out_dir, m) for m in PANEL_MODELS}
+    panel_paths = {m: panel_output_path(out_dir, m) for m in panel_models}
     baseline_path = baseline_output_path(out_dir)
-    fusion_paths = {cfg["config_id"]: fusion_output_path(out_dir, cfg["config_id"]) for cfg in FUSION_CONFIGS}
-    score_paths = {cfg["config_id"]: score_output_path(out_dir, cfg["config_id"]) for cfg in FUSION_CONFIGS}
+    fusion_paths = {cfg["config_id"]: fusion_output_path(out_dir, cfg["config_id"]) for cfg in fusion_configs}
+    score_paths = {cfg["config_id"]: score_output_path(out_dir, cfg["config_id"]) for cfg in fusion_configs}
     score_paths["baseline"] = score_output_path(out_dir, "baseline")
 
     for i, task_id in enumerate(task_ids, start=1):
         print(f"\n===== task {i}/{len(task_ids)}  id={task_id} =====")
 
-        # (a) 7 panel models, solo
-        for model in PANEL_MODELS:
+        # (a) active panel models, solo
+        for model in panel_models:
             out_path = panel_paths[model]
             cmd = build_agentic_solo_cmd(
                 python_exe=python_exe, manifest=args.manifest, output=out_path,
@@ -475,7 +493,7 @@ def main(argv: list[str] | None = None) -> int:
         # (c)/(d) both fusion configs -- full manifest + full (cumulative)
         # panel files + --resume; see module docstring for why this alone
         # resolves to "only this task" in a task-major loop.
-        for cfg in FUSION_CONFIGS:
+        for cfg in fusion_configs:
             fusion_out = fusion_paths[cfg["config_id"]]
             if not args.execute:
                 # See ensure_file_exists's docstring: a from-scratch dry run
@@ -513,10 +531,10 @@ def main(argv: list[str] | None = None) -> int:
 
         # (e) score every active fusion config, plus baseline -- independent
         # scoring passes, same --resume-based narrowing. Iterates
-        # FUSION_CONFIGS directly (not a hardcoded config_id list) so this
+        # fusion_configs directly (not a hardcoded config_id list) so this
         # stays correct however many fusion configs are currently active.
         for config_id, replay_path in (
-            *((cfg["config_id"], fusion_paths[cfg["config_id"]]) for cfg in FUSION_CONFIGS),
+            *((cfg["config_id"], fusion_paths[cfg["config_id"]]) for cfg in fusion_configs),
             ("baseline", baseline_path),
         ):
             score_out = score_paths[config_id]
