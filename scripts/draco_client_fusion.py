@@ -25,7 +25,7 @@ from pathlib import Path
 from typing import Any
 
 from trusted_router.evals import tr_sdk
-from trusted_router.evals.agentic_tools import strip_tool_markup
+from trusted_router.evals.agentic_tools import MODELS_WITHOUT_TEMPERATURE, strip_tool_markup
 from trusted_router.evals.draco_replay import load_manifest
 from trusted_router.evals.fusion_live import load_eval_key
 
@@ -393,12 +393,20 @@ def main(argv: list[str] | None = None) -> int:
                 # task as a user message) and append ONLY the instruction+panel+judge user message.
                 # No persona system prompt — that was ours, not TrustedRouter's / OpenRouter's.
                 body = {
-                    "model": model, "max_tokens": args.fuser_max_tokens, "temperature": 0.2,
+                    "model": model, "max_tokens": args.fuser_max_tokens,
                     "messages": [
                         {"role": "user", "content": task.problem},
                         {"role": "user", "content": final_user},
                     ],
                 }
+                # See MODELS_WITHOUT_TEMPERATURE's own docstring (agentic_tools.py)
+                # -- kimi-k3 hard-rejects this param on 0G router. Not currently
+                # reachable (fuser_model is always minimax-m3 in the active
+                # configs), but FUSION_PROMETHEUS20 sets fuser_model=kimi-k3 and
+                # is kept defined for re-enabling later -- fix it here too so
+                # that doesn't silently regress when it comes back.
+                if model.lower() not in MODELS_WITHOUT_TEMPERATURE:
+                    body["temperature"] = 0.2
                 prov = None
                 if pin and model == args.fuser_model:  # pin only the primary fuser, never the fallback model
                     if args.fuser_providers:

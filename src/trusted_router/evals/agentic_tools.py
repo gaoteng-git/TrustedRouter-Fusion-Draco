@@ -744,6 +744,21 @@ def _is_openai_reasoning_model(model: str) -> bool:
     return model.lower().removeprefix("openai/").startswith("gpt-5")
 
 
+# Confirmed live against https://router-api.0g.ai/v1/chat/completions
+# (2026-10-10, via tr_sdk's real HTTP-error-body capture -- 6/6 real
+# panel-call failures for kimi-k3 across this task-major run showed the
+# IDENTICAL reason, zero exceptions):
+#   {"error":{"code":"invalid_parameter_error","param":null,"message":
+#   "Parameter 'temperature'=0.2 is not supported for kimi-k3 model.",
+#   "type":"invalid_request_error"}}
+# Unlike the gpt-5.x reasoning-model case above, this is the ONLY
+# difference -- kimi-k3 still wants max_tokens (not max_completion_tokens),
+# tools, tool_choice, etc. exactly as normal. Compared case-insensitively,
+# matching the same convention as JUDGE_MODELS_WITHOUT_JSON_MODE in
+# draco_client_fusion.py for the analogous minimax-m3/response_format issue.
+MODELS_WITHOUT_TEMPERATURE = {"kimi-k3", "moonshotai/kimi-k3"}
+
+
 def _completion_body(
     model: str,
     messages: list[dict[str, Any]],
@@ -759,7 +774,8 @@ def _completion_body(
         body["max_completion_tokens"] = max_tokens  # gpt-5.x: no temperature, max_completion_tokens
     else:
         body["max_tokens"] = max_tokens
-        body["temperature"] = temperature
+        if model.lower() not in MODELS_WITHOUT_TEMPERATURE:
+            body["temperature"] = temperature
     if tools is not None:
         body["tools"] = tools
     if tool_choice is not None:
