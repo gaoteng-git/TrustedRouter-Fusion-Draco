@@ -65,89 +65,26 @@ FINAL_INSTRUCTION = (
     "scratchpad text, <think> blocks, or internal model names -- unless the "
     "original request explicitly asks you to describe your own research "
     "process or approach (not merely because the subject matter itself "
-    "concerns research methodology).\n\n"
-    "Preserve detail -- do not compress for brevity. A longer, fully sourced "
-    "answer is strongly preferred over a shorter summary that drops verifiable "
-    "specifics. Do not omit a figure, date, name, example, or citation from the "
-    "panel answers merely to shorten the final answer or make the prose read "
-    "more cleanly.\n\n"
-    "Keep citations inline, in the same form the panel answers used (URL or "
-    "source name next to the claim it supports). Every specific factual claim, "
-    "figure, or quote carried over from a panel answer must keep its original "
-    "citation attached.\n\n"
-    "Where panel sources conflict, use your own judgment to decide which "
-    "position is more likely correct -- based on which is better corroborated, "
-    "more specific, or better sourced -- and state your conclusion directly. "
-    "You do not need to present every disagreement as unresolved. A claim made "
-    "by only one panel source is yours to judge too: include it with "
-    "attribution if it's plausible and adds real value, or leave it out if it "
-    "seems unreliable or marginal -- don't include it as unattributed settled "
-    "fact.\n\n"
-    "You have a generous response budget (stated below) -- a complete, fully "
-    "detailed answer typically needs most of it, so use the space. Do NOT stop "
-    "early, do NOT compress, and do NOT summarize where the panel answers gave "
-    "specifics. As a safeguard in case you approach the limit, order content by "
-    "importance: the direct answer to the original request and the most "
-    "load-bearing facts, figures, and conclusions first; secondary elaboration "
-    "and caveats later. But length itself is not a goal to minimize -- a "
-    "thorough answer that uses the whole budget is the expected outcome."
+    "concerns research methodology)."
 )
-# Budget-paragraph rewrite (2026-10-16): the previous wording ("limited token
-# budget... along with the total size of the source material") plus a budget
-# note that stated the source-material token count (e.g. "~25k tokens of
-# source material, your budget ~12k") measurably triggered DEFENSIVE
-# OVER-COMPRESSION in the minimax-m3 fuser on 4-panel inputs: in the
-# fusion-4panel-mimo run, 10 of 11 compression-classified losses had the
-# fuser stop at 11%-70% of its 12k budget with finish=stop -- the cap never
-# bound; the model shortened by choice. Reading "source is 2x your budget"
-# evidently flips it into summarize-mode despite the explicit "do not shorten
-# out of caution" sentence. New wording drops the source-size number entirely
-# and frames the budget as room to be used, keeping importance-ordering only
-# as a limit-approach safeguard.
-# Deliberate deviation from the upstream (main branch / enclave fusion.go)
-# wording "unless the user asked for methodology": confirmed live, a DiD
-# econometrics task whose OWN subject matter is "compare these methodologies"
-# made minimax-m3 read that clause as license to return the judge's raw
-# analysis JSON (consensus/contradictions/... keys and all) verbatim as the
-# "final answer" -- a real, reproduced failure, not a parsing/plumbing bug.
-# The clause's likely original intent was narrower: only skip the
-# no-analysis rule when the user asks the FUSER to explain ITS OWN process,
-# not whenever the task's topic happens to be about methodology in general.
-# This rewording targets exactly that gap.
-#
-# Three more paragraphs added (branch fusion-prompt-detail-fix, off the
-# methodology fix above): a root-cause dive into 14 real fusion-losing tasks
-# (see git history / conversation record) found the fuser (minimax-m3)
-# systematically shrinks its own best panel answer by 40-90%, stripping
-# nearly all inline citations and dropping whole named-source sections /
-# roughly half of the panel's specific figures -- even when well under its
-# token budget (finish_reason=stop). The "preserve detail" and "keep
-# citations inline" paragraphs target that directly. The "where panel
-# sources conflict" paragraph deliberately does NOT mandate mechanically
-# presenting every contradiction as unresolved, or forcing a binary
-# attribute-or-omit rule on single-source claims -- early drafts did, but
-# that was judged too rigid: real synthesis value comes from the fuser
-# making a credible call, not refusing to. The wording keeps that judgment
-# call explicitly in the fuser's hands, only anchoring it to concrete
-# criteria (corroboration, specificity, sourcing) instead of leaving it
-# totally open-ended, given this same model has already shown a tendency to
-# default to the laziest option (silently dropping content) when given
-# unconstrained synthesis instructions.
-#
-# A fifth paragraph ("Your response has a limited token budget...") added
-# later, on the same branch: of the tasks scored so far, a handful hit
-# finish_reason=length (ran out of --fuser-max-tokens, currently 12000,
-# mid-answer) and lose to baseline specifically because of what got cut off
-# at the END, not because the content was wrong -- the model had no way to
-# know it should front-load the most important material. This paragraph is
-# explicitly scoped as a fallback ("only if...clearly not fit"), not a new
-# default, so it doesn't re-introduce the premature-compression behavior the
-# "preserve detail" paragraph was written to stop. --fuser-max-tokens is
-# deliberately NOT raised further alongside this: baseline's own dominant
-# code path (draco_agentic_solo.py's forced-synthesis call, taken in the
-# large majority of baseline rows) caps at the same 12000, so matching that
-# ceiling is what keeps this a fair comparison rather than just giving the
-# fuser more room to write than baseline ever gets.
+# Branch fusion-prompt-mainlike (2026-10-16): FINAL_INSTRUCTION reverted to the
+# upstream main-branch / enclave fusion.go wording, dropping ALL the length- and
+# detail-tuning paragraphs that fusion-prompt-detail-fix added (preserve-detail,
+# inline-citations, conflict-resolution, budget/use-the-space). Those paragraphs
+# were compensations for the minimax-m3 fuser's failure modes (40-90% silent
+# compression; defensive shortening when told the source size); with a stronger
+# fuser (kimi-k3) the same pushes caused the opposite failure -- 100% of early
+# fusions slammed into the 12k cap mid-sentence. This branch tests the
+# minimal-instruction hypothesis: a capable fuser needs no length coaching,
+# matching how main ran (one-paragraph instruction, no budget note, Opus-4.8
+# fuser). The ONE retained deviation from main's text: the methodology-exception
+# clause is the tightened version ("asks you to describe your own research
+# process") instead of main's "unless the user asked for methodology" -- main's
+# looser clause caused a reproduced failure (a DiD methodology-topic task made
+# the fuser emit the judge's raw JSON as the final answer), and reverting that
+# would knowingly reintroduce a bug rather than remove a tuning confound.
+# The budget_note is likewise GONE (main sent none): the fuser sees no token
+# numbers at all.
 
 
 def _panel_evidence(panel: list[tuple[str, str]]) -> str:
@@ -252,7 +189,7 @@ def _format_fusion_transcript(
     lines.append("  >> full input (message 1 -- original task):")
     for ln in fuser_problem.splitlines():
         lines.append(f"      {ln}")
-    lines.append("  >> full input (message 2 -- instruction + panel evidence + judge analysis + budget note):")
+    lines.append("  >> full input (message 2 -- instruction + panel evidence + judge analysis):")
     for ln in fuser_final_user.splitlines():
         lines.append(f"      {ln}")
     for a in fuser_attempts_detail:
@@ -483,29 +420,12 @@ def main(argv: list[str] | None = None) -> int:
             # 2) fuser (primary, with optional fallback when it returns near-empty —
             #    e.g. GLM-5.2 silently refusing politically restricted panel content)
             evidence_block = _panel_evidence(panel)
-            # NOTE (2026-10-16): this note used to also state the estimated
-            # source-material token total; that number is deliberately gone --
-            # see the comment under FINAL_INSTRUCTION (it provoked defensive
-            # over-compression in the fuser when source >> budget).
-            # STATED budget is 95% of the hard API cap, deliberately: models
-            # can't count their own tokens precisely, and running into the
-            # hard cap mid-sentence (finish=length) mutilates the ENDING --
-            # the part rubrics often grade (conclusions/recommendations).
-            # Observed same-day with the kimi-k3 fuser: it used the budget
-            # fully (12,003/12,000, finish=length, tail cut). Aiming it at
-            # ~95% trades <=5% of length for a clean, complete finish, while
-            # the API cap itself stays unchanged for cross-config parity.
-            stated_budget = int(args.fuser_max_tokens * 0.95)
-            budget_note = (
-                f"\n\nYour response budget for this answer is approximately "
-                f"{stated_budget} tokens; a complete, fully detailed answer is "
-                f"expected to use most of it. Plan to finish cleanly -- end with "
-                f"your concluding section complete rather than running into the "
-                f"limit mid-sentence."
-            )
+            # Branch fusion-prompt-mainlike: no budget_note at all -- matches
+            # main / enclave fusion.go, where the fuser receives instruction +
+            # evidence + judge JSON and nothing about token budgets. See the
+            # comment under FINAL_INSTRUCTION for the full rationale.
             final_user = (
                 FINAL_INSTRUCTION + "\n\n" + evidence_block + "\n\nJudge analysis JSON:\n" + judge_json
-                + budget_note
             )
 
             def _fuse(model: str, pin: bool = True) -> tuple[str, dict[str, Any], int]:
