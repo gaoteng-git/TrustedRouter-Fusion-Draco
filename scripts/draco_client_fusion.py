@@ -83,18 +83,27 @@ FINAL_INSTRUCTION = (
     "attribution if it's plausible and adds real value, or leave it out if it "
     "seems unreliable or marginal -- don't include it as unattributed settled "
     "fact.\n\n"
-    "Your response has a limited token budget (stated below, along with the "
-    "total size of the source material). The instructions above on preserving "
-    "detail and citations remain the default -- do not shorten the answer out "
-    "of caution just because a budget is mentioned. Only if the fully detailed "
-    "answer would clearly not fit in your stated budget should you reorder "
-    "content by importance: write the direct answer to the original request "
-    "and the most load-bearing facts, figures, and conclusions first; place "
-    "secondary elaboration, caveats, and less critical supporting detail "
-    "later. This way, if you are cut off before finishing, the core answer is "
-    "already complete and usable, and only the least important material is "
-    "lost."
+    "You have a generous response budget (stated below) -- a complete, fully "
+    "detailed answer typically needs most of it, so use the space. Do NOT stop "
+    "early, do NOT compress, and do NOT summarize where the panel answers gave "
+    "specifics. As a safeguard in case you approach the limit, order content by "
+    "importance: the direct answer to the original request and the most "
+    "load-bearing facts, figures, and conclusions first; secondary elaboration "
+    "and caveats later. But length itself is not a goal to minimize -- a "
+    "thorough answer that uses the whole budget is the expected outcome."
 )
+# Budget-paragraph rewrite (2026-10-16): the previous wording ("limited token
+# budget... along with the total size of the source material") plus a budget
+# note that stated the source-material token count (e.g. "~25k tokens of
+# source material, your budget ~12k") measurably triggered DEFENSIVE
+# OVER-COMPRESSION in the minimax-m3 fuser on 4-panel inputs: in the
+# fusion-4panel-mimo run, 10 of 11 compression-classified losses had the
+# fuser stop at 11%-70% of its 12k budget with finish=stop -- the cap never
+# bound; the model shortened by choice. Reading "source is 2x your budget"
+# evidently flips it into summarize-mode despite the explicit "do not shorten
+# out of caution" sentence. New wording drops the source-size number entirely
+# and frames the budget as room to be used, keeping importance-ordering only
+# as a limit-approach safeguard.
 # Deliberate deviation from the upstream (main branch / enclave fusion.go)
 # wording "unless the user asked for methodology": confirmed live, a DiD
 # econometrics task whose OWN subject matter is "compare these methodologies"
@@ -474,14 +483,25 @@ def main(argv: list[str] | None = None) -> int:
             # 2) fuser (primary, with optional fallback when it returns near-empty —
             #    e.g. GLM-5.2 silently refusing politically restricted panel content)
             evidence_block = _panel_evidence(panel)
-            # Rough chars/4 token estimate -- 0G router exposes no tokenizer
-            # endpoint, and this is only for the model's own budgeting sense,
-            # not an exact accounting.
-            evidence_tokens_est = (len(evidence_block) + len(judge_json)) // 4
+            # NOTE (2026-10-16): this note used to also state the estimated
+            # source-material token total; that number is deliberately gone --
+            # see the comment under FINAL_INSTRUCTION (it provoked defensive
+            # over-compression in the fuser when source >> budget).
+            # STATED budget is 95% of the hard API cap, deliberately: models
+            # can't count their own tokens precisely, and running into the
+            # hard cap mid-sentence (finish=length) mutilates the ENDING --
+            # the part rubrics often grade (conclusions/recommendations).
+            # Observed same-day with the kimi-k3 fuser: it used the budget
+            # fully (12,003/12,000, finish=length, tail cut). Aiming it at
+            # ~95% trades <=5% of length for a clean, complete finish, while
+            # the API cap itself stays unchanged for cross-config parity.
+            stated_budget = int(args.fuser_max_tokens * 0.95)
             budget_note = (
-                f"\n\nFor reference: the panel answers and judge analysis above total "
-                f"approximately {evidence_tokens_est} tokens of source material. Your own "
-                f"response budget for this answer is approximately {args.fuser_max_tokens} tokens."
+                f"\n\nYour response budget for this answer is approximately "
+                f"{stated_budget} tokens; a complete, fully detailed answer is "
+                f"expected to use most of it. Plan to finish cleanly -- end with "
+                f"your concluding section complete rather than running into the "
+                f"limit mid-sentence."
             )
             final_user = (
                 FINAL_INSTRUCTION + "\n\n" + evidence_block + "\n\nJudge analysis JSON:\n" + judge_json
