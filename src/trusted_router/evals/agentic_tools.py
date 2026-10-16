@@ -138,8 +138,42 @@ SYNTHESIS_INSTRUCTION = (
     "directly and fully answer the original task, be well structured, cite source URLs "
     "inline, and show any quantitative work. Do NOT call or attempt to call any tools. "
     "Do NOT include planning, reasoning narration, scratchpad text, or any tool-call "
-    "syntax — output only the final report."
+    "syntax — unless the original task explicitly asks you to describe your own "
+    "research process or approach (not merely because the subject matter itself "
+    "concerns research methodology). Output only the final report.\n\n"
+    "Preserve detail — do not compress for brevity. A longer, fully sourced report is "
+    "strongly preferred over a shorter summary that drops verifiable specifics. Do not "
+    "omit a figure, date, name, example, or citation from the gathered evidence merely "
+    "to shorten the report or make the prose read more cleanly.\n\n"
+    "Keep citations inline (URL or source name next to the claim it supports). Every "
+    "specific factual claim, figure, or quote carried over from the gathered evidence "
+    "must keep its source attached.\n\n"
+    "Your response budget for this report is approximately {synthesis_max_tokens} "
+    "tokens. The instructions above on preserving detail and citations remain the "
+    "default — do not shorten the report out of caution just because a budget is "
+    "mentioned. Only if the fully detailed report would clearly not fit in that budget "
+    "should you reorder content by importance: write the direct answer to the original "
+    "task and the most load-bearing facts, figures, and conclusions first; place "
+    "secondary elaboration, caveats, and less critical supporting detail later. This "
+    "way, if you are cut off before finishing, the core answer is already complete and "
+    "usable, and only the least important material is lost."
 )
+# Parity note (branch baseline-prompt-parity): the three paragraphs above mirror the
+# detail-preservation / inline-citation / budget-fallback additions made to the fusion
+# side's FINAL_INSTRUCTION (scripts/draco_client_fusion.py, branch
+# fusion-prompt-detail-fix). Those additions were motivated by failure analysis of the
+# FUSER's behavior, but they encode task-general writing guidance, and applying them
+# only to the fusion arm made every fusion-vs-baseline score comparison partially
+# confounded (the fusion arm got writing-instruction tuning the baseline arm never
+# received). This brings the baseline/panel synthesis instruction to parity so the
+# remaining measured difference is attributable to the fusion architecture itself.
+# The fusion side's fourth addition (how to resolve cross-PANELIST disagreement) is
+# deliberately NOT mirrored here: a solo run has no panel to disagree with, so there
+# is no equivalent instruction to give.
+# NOTE: this instruction is shared by baseline AND panel-member solo runs (both go
+# through run_agentic_completion). Re-scoring comparisons must re-run BOTH arms (or
+# compare only rows generated after this change) -- mixing old-prompt fusion rows with
+# new-prompt baseline rows would just invert the original confound.
 
 # Markers for tool-call syntax some models leak into visible content (DeepSeek's
 # native DSML format; Kimi/Claude-style <invoke>/<function_calls>). We truncate the
@@ -282,6 +316,20 @@ class ToolCallRecord:
     # describes (web_search/web_fetch/bash), in milliseconds. 0 for the
     # unknown-tool case (no executor was ever invoked).
     elapsed_ms: int = 0
+    # Which research-phase round (LlmCallRecord.step) requested this tool
+    # call. Lets a caller re-group a flat tool_records list back under the
+    # LLM call that triggered it -- the jsonl replay row does NOT persist
+    # this (see draco_agentic_solo.py's row-building dict, which lists
+    # fields explicitly rather than dumping the dataclass), it exists only
+    # for building the human-readable transcript companion file.
+    step: int = 0
+    # Full tool output text (same string handed to the model as the tool
+    # result). Also NOT persisted into the jsonl row -- only result_chars
+    # is -- for the same reason: this field exists purely so
+    # draco_agentic_solo.py can render it into the transcript file without
+    # bloating the machine-readable replay row that --resume/fusion/scoring
+    # parse one line at a time.
+    result: str = ""
 
 
 @dataclass
@@ -297,6 +345,16 @@ class LlmCallRecord:
     elapsed_ms: int
     input_tokens: int | None
     output_tokens: int | None
+    # Full request `messages` list as of this call (a snapshot -- taken
+    # before any later round appends more entries, so each round's copy is
+    # independent, not one shared/mutated list) and the full raw response
+    # message dict (content, tool_calls, reasoning_content). Like
+    # ToolCallRecord.result, these are NOT persisted into the jsonl replay
+    # row (draco_agentic_solo.py's row-building dict lists fields
+    # explicitly) -- they exist only for the human-readable transcript
+    # companion file.
+    input_messages: list[dict[str, Any]] = field(default_factory=list)
+    output_message: dict[str, Any] = field(default_factory=dict)
 
 
 @dataclass
@@ -856,12 +914,13 @@ def run_agentic_completion(
         call_elapsed_ms = int((time.perf_counter() - call_started) * 1000)
         choice = record_usage(payload)
         usage = payload.get("usage") or {}
+        msg = choice.get("message") or {}
         llm_calls.append(LlmCallRecord(
             phase="research", step=steps, elapsed_ms=call_elapsed_ms,
             input_tokens=usage.get("prompt_tokens") if isinstance(usage.get("prompt_tokens"), int) else None,
             output_tokens=usage.get("completion_tokens") if isinstance(usage.get("completion_tokens"), int) else None,
+            input_messages=list(messages), output_message=msg,
         ))
-        msg = choice.get("message") or {}
         tool_calls = msg.get("tool_calls")
         outcome = f"{len(tool_calls)} tool call(s) requested" if tool_calls else "no tool calls"
         print(f"    [{model}] round {steps}: LLM responded in {call_elapsed_ms}ms "
@@ -900,7 +959,10 @@ def run_agentic_completion(
             print(f"    [{model}] round {steps}: tool={name} args={arg_preview} ...", flush=True)
             if executor is None:
                 result = f"Error: unknown tool {name!r}."
-                records.append(ToolCallRecord(name=name, args=args, result_chars=0, error="unknown_tool"))
+                records.append(ToolCallRecord(
+                    name=name, args=args, result_chars=0, error="unknown_tool",
+                    step=steps, result=result,
+                ))
                 print(f"    [{model}] round {steps}: tool={name} -> unknown_tool", flush=True)
             else:
                 tool_started = time.perf_counter()
@@ -909,9 +971,12 @@ def run_agentic_completion(
                     tool_elapsed_ms = int((time.perf_counter() - tool_started) * 1000)
                     records.append(ToolCallRecord(
                         name=name, args=args, result_chars=len(result), elapsed_ms=tool_elapsed_ms,
+                        step=steps, result=result,
                     ))
                     print(f"    [{model}] round {steps}: tool={name} -> {len(result)} chars "
                           f"in {tool_elapsed_ms}ms", flush=True)
+                    print(f"    [{model}] round {steps}: tool={name} result:\n{result}\n"
+                          f"    ---- end tool={name} result ----", flush=True)
                 except ExaCircuitBreakerTripped:
                     # Deliberately NOT swallowed into a tool-result string like
                     # every other tool error below -- this must abort the whole
@@ -922,7 +987,7 @@ def run_agentic_completion(
                     result = f"Error running {name}: {exc}"
                     records.append(ToolCallRecord(
                         name=name, args=args, result_chars=0, error=type(exc).__name__,
-                        elapsed_ms=tool_elapsed_ms,
+                        elapsed_ms=tool_elapsed_ms, step=steps, result=result,
                     ))
                     print(f"    [{model}] round {steps}: tool={name} -> error "
                           f"{type(exc).__name__} in {tool_elapsed_ms}ms", flush=True)
@@ -935,7 +1000,8 @@ def run_agentic_completion(
     #     call with NO tools and a strong write-the-report instruction, so the
     #     model writes a clean report instead of leaking tool-call markup. ---
     steps += 1
-    messages.append({"role": "user", "content": SYNTHESIS_INSTRUCTION})
+    messages.append({"role": "user", "content": SYNTHESIS_INSTRUCTION.format(
+        synthesis_max_tokens=synthesis_max_tokens)})
     body = _completion_body(
         model, messages, max_tokens=synthesis_max_tokens, temperature=temperature,
         reasoning_effort=reasoning_effort,
@@ -951,12 +1017,13 @@ def run_agentic_completion(
     usage = payload.get("usage") or {}
     print(f"    [{model}] round {steps}: synthesis responded in {call_elapsed_ms}ms "
           f"(in={usage.get('prompt_tokens')} out={usage.get('completion_tokens')})", flush=True)
+    msg = choice.get("message") or {}
     llm_calls.append(LlmCallRecord(
         phase="synthesis", step=steps, elapsed_ms=call_elapsed_ms,
         input_tokens=usage.get("prompt_tokens") if isinstance(usage.get("prompt_tokens"), int) else None,
         output_tokens=usage.get("completion_tokens") if isinstance(usage.get("completion_tokens"), int) else None,
+        input_messages=list(messages), output_message=msg,
     ))
-    msg = choice.get("message") or {}
     return AgenticResult(
         content=strip_tool_markup(msg.get("content") or ""),
         finish_reason=choice.get("finish_reason"),

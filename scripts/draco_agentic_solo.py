@@ -106,21 +106,24 @@ def main(argv: list[str] | None = None) -> int:
         return 2
 
     args.output.parent.mkdir(parents=True, exist_ok=True)
-    with args.output.open("a" if args.resume else "w", encoding="utf-8") as fh:
-        _run(pending, args=args, api_key=api_key, exa_key=exa_key, fh=fh)
+    with args.output.open("a" if args.resume else "w", encoding="utf-8") as fh, \
+         _transcript_path(args.output).open("a" if args.resume else "w", encoding="utf-8") as transcript_fh:
+        _run(pending, args=args, api_key=api_key, exa_key=exa_key, fh=fh, transcript_fh=transcript_fh)
     return 0
 
 
-def _run(pending: list[DracoTask], *, args: argparse.Namespace, api_key: str, exa_key: str, fh: Any) -> None:
+def _run(pending: list[DracoTask], *, args: argparse.Namespace, api_key: str, exa_key: str,
+         fh: Any, transcript_fh: Any) -> None:
     total = len(pending)
     if args.workers == 1:
         for i, task in enumerate(pending, start=1):
-            _write(fh, _run_one(task, args=args, api_key=api_key, exa_key=exa_key), index=i, total=total)
+            row, result = _run_one(task, args=args, api_key=api_key, exa_key=exa_key)
+            _write(fh, transcript_fh, row, result, index=i, total=total)
         return
     max_workers = min(args.workers, total)
     ex = ThreadPoolExecutor(max_workers=max_workers)
     try:
-        futures: dict[Future[dict[str, Any]], DracoTask] = {}
+        futures: dict[Future[tuple[dict[str, Any], Any | None]], DracoTask] = {}
         nxt = 0
         done = 0
 
@@ -139,20 +142,21 @@ def _run(pending: list[DracoTask], *, args: argparse.Namespace, api_key: str, ex
             for fut in ready:
                 task = futures.pop(fut)
                 try:
-                    row = fut.result()
+                    row, result = fut.result()
                 except ExaCircuitBreakerTripped:
                     # Must abort the whole run, not just fail this one task.
                     raise
                 except Exception as exc:  # noqa: BLE001
-                    row = _failure_row(task, args, exc)
+                    row, result = _failure_row(task, args, exc), None
                 done += 1
-                _write(fh, row, index=done, total=total)
+                _write(fh, transcript_fh, row, result, index=done, total=total)
                 submit()
     finally:
         ex.shutdown(wait=True)
 
 
-def _run_one(task: DracoTask, *, args: argparse.Namespace, api_key: str, exa_key: str) -> dict[str, Any]:
+def _run_one(task: DracoTask, *, args: argparse.Namespace, api_key: str,
+             exa_key: str) -> tuple[dict[str, Any], Any | None]:
     client = tr_sdk.make_client(base_url=args.base_url, api_key=api_key, timeout=args.timeout_seconds)
     exa_client = ExaSearchClient(exa_key)
     try:
@@ -176,7 +180,7 @@ def _run_one(task: DracoTask, *, args: argparse.Namespace, api_key: str, exa_key
             reasoning_effort=args.reasoning_effort,
             force_first_tool=args.force_first_tool,
         )
-        return {
+        row = {
             "schema": REPLAY_SCHEMA,
             "config_id": args.config_id,
             "task_id": task.id,
@@ -219,12 +223,13 @@ def _run_one(task: DracoTask, *, args: argparse.Namespace, api_key: str, exa_key
                 "request_id": None,
             },
         }
+        return row, result
     except ExaCircuitBreakerTripped:
         # Must abort the whole run, not just fail this one task -- see
         # agentic_tools.ExaCircuitBreakerTripped's own docstring.
         raise
     except Exception as exc:  # noqa: BLE001
-        return _failure_row(task, args, exc)
+        return _failure_row(task, args, exc), None
     finally:
         exa_client.close()
         client.close()
@@ -242,9 +247,86 @@ def _failure_row(task: DracoTask, args: argparse.Namespace, exc: Exception) -> d
     }
 
 
-def _write(fh: Any, row: dict[str, Any], *, index: int, total: int) -> None:
+def _transcript_path(output: Path) -> Path:
+    return output.with_name(output.stem + ".transcript.txt")
+
+
+def _format_transcript(row: dict[str, Any], result: Any | None) -> str:
+    """Human-readable, call-ordered companion to one jsonl replay row --
+    NEVER read back by any script (--resume/_load_panel/find_row_for_task
+    all still parse the single-line jsonl exactly as before). Groups each
+    LLM call together with the tool calls it triggered, in true call order,
+    showing each tool's full args and full output text (the jsonl row only
+    keeps result_chars, not the text itself) -- then the final answer.
+    """
+    lines: list[str] = [
+        "=" * 100,
+        f"task_id: {row.get('task_id')}",
+        f"domain:  {row.get('domain')}",
+        f"config:  {row.get('config_id')}",
+    ]
+    if row.get("status") == "failed" or result is None:
+        lines.append(f"STATUS: FAILED ({row.get('error_type')})")
+        lines.append(row.get("error") or "")
+        lines.append("")
+        return "\n".join(lines)
+
+    lines.append(
+        f"finish_reason={result.finish_reason}  steps={result.steps}  "
+        f"tool_calls_made={result.tool_calls_made}  truncated_loop={result.truncated_loop}"
+    )
+    tools_by_step: dict[int, list[Any]] = {}
+    for t in result.tool_records:
+        tools_by_step.setdefault(t.step, []).append(t)
+    for call in result.llm_calls:
+        lines.append("-" * 100)
+        lines.append(
+            f"[round {call.step}] phase={call.phase}  input_tokens={call.input_tokens}  "
+            f"output_tokens={call.output_tokens}  elapsed_ms={call.elapsed_ms}"
+        )
+        lines.append("  >> full input (messages sent to the LLM this call):")
+        for i, m in enumerate(call.input_messages):
+            tc = m.get("tool_calls")
+            header = f"    [{i}] role={m.get('role')}"
+            if m.get("tool_call_id"):
+                header += f" tool_call_id={m.get('tool_call_id')}"
+            if tc:
+                header += f" tool_calls={json.dumps(tc, ensure_ascii=False)}"
+            lines.append(header)
+            for ln in (m.get("content") or "").splitlines() or [""]:
+                lines.append(f"        {ln}")
+        lines.append("  >> full output (raw LLM response message this call):")
+        out = call.output_message or {}
+        if out.get("tool_calls"):
+            lines.append(f"    tool_calls={json.dumps(out['tool_calls'], ensure_ascii=False)}")
+        if out.get("reasoning_content"):
+            lines.append("    reasoning_content:")
+            for ln in str(out["reasoning_content"]).splitlines():
+                lines.append(f"        {ln}")
+        lines.append("    content:")
+        for ln in (out.get("content") or "").splitlines() or ["    (empty)"]:
+            lines.append(f"        {ln}")
+        for t in tools_by_step.get(call.step, []):
+            lines.append(f"  tool: {t.name}")
+            lines.append(f"  args: {json.dumps(t.args, ensure_ascii=False)}")
+            status = f"error={t.error}" if t.error else f"result_chars={t.result_chars}"
+            lines.append(f"  {status}  elapsed_ms={t.elapsed_ms}")
+            lines.append("  result:")
+            for ln in (t.result or "").splitlines() or [""]:
+                lines.append(f"    {ln}")
+    lines.append("-" * 100)
+    lines.append("[final content]")
+    lines.append(result.content or "(empty)")
+    lines.append("")
+    return "\n".join(lines)
+
+
+def _write(fh: Any, transcript_fh: Any, row: dict[str, Any], result: Any | None,
+           *, index: int, total: int) -> None:
     fh.write(json.dumps(row, sort_keys=True) + "\n")
     fh.flush()
+    transcript_fh.write(_format_transcript(row, result))
+    transcript_fh.flush()
     final = row.get("final") or {}
     ag = row.get("agentic") or {}
     print(

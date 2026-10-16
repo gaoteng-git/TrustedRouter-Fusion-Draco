@@ -6,6 +6,7 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
+from trusted_router.evals.agentic_tools import strip_tool_markup
 from trusted_router.evals.draco import (
     DRACO_CONFIG,
     DRACO_DATASET,
@@ -330,6 +331,24 @@ def _judge_replay_answer(
     )
 
 
+# Confirmed live (2026-10-11) via direct curl against
+# https://router-api.0g.ai/v1/chat/completions: a request to gemini-3.1-pro-preview
+# carrying BOTH response_format={"type":"json_object"} AND reasoning_effort="high"
+# gets "HTTP 503 No available providers for this request" on every attempt (reproduced
+# repeatedly, including mid-run causing 5 consecutive rejudge failures and tripping
+# draco_rejudge.py's --max-consecutive-failures abort). Dropping response_format alone
+# (keeping reasoning_effort="high") made the identical curl succeed. This reads as 0G
+# router routing json_object-mode requests for this model to a narrower provider subset
+# that is currently out of capacity -- not a permanent "model can't do JSON" limitation
+# like MODELS_WITHOUT_TEMPERATURE/JUDGE_MODELS_WITHOUT_JSON_MODE elsewhere in this
+# codebase, so this set is named/scoped to be easy to shrink once 0G router's provider
+# pool for this combination recovers. The grading system prompt already says "Return
+# only JSON ... Do not include prose" and parse_criterion_judge_json_for_criteria
+# already strips a leading/trailing markdown fence, so omitting response_format only
+# removes the gateway's enforcement, not the model-side instruction.
+JUDGE_MODELS_WITHOUT_JSON_MODE = {"gemini-3.1-pro-preview", "google/gemini-3.1-pro-preview"}
+
+
 def _judge_replay_criteria_chunk(
     task: DracoTask,
     answer: str,
@@ -346,12 +365,17 @@ def _judge_replay_criteria_chunk(
         messages=criterion_judge_messages_for_criteria(task, answer, criteria),
         temperature=0.0,
         max_tokens=max(judge_max_tokens, DEFAULT_TR_CRITERION_JUDGE_MAX_OUTPUT_TOKENS),
-        response_format={"type": "json_object"},
+        response_format=(
+            None if judge_model.lower() in JUDGE_MODELS_WITHOUT_JSON_MODE
+            else {"type": "json_object"}
+        ),
         reasoning_effort=judge_reasoning_effort,
         timeout_seconds=timeout_seconds,
     )
     try:
-        return parse_criterion_judge_json_for_criteria(criteria, raw.content), (raw,)
+        return parse_criterion_judge_json_for_criteria(
+            criteria, strip_tool_markup(raw.content)
+        ), (raw,)
     except (json.JSONDecodeError, ValueError):
         if len(criteria) <= 1:
             raise

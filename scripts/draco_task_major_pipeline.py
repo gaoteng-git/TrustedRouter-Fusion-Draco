@@ -297,7 +297,6 @@ def build_agentic_solo_cmd(
         "--task-id", task_id,
         "--base-url", base_url,
         "--doc-parser", "markitdown",
-        "--no-sec-facts",
         "--max-tool-calls", str(max_tool_calls),
         "--synthesis-max-tokens", str(synthesis_max_tokens),
         "--workers", str(workers),

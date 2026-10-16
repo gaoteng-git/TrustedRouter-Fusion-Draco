@@ -120,7 +120,15 @@ def chat(client: Tr0GClient, body: Mapping[str, Any]) -> dict[str, Any]:
         attempt += 1
         try:
             resp = client._client.post(url, headers=headers, json=payload)
-        except httpx.TimeoutException:
+        except (httpx.TimeoutException, httpx.ConnectError):
+            # ConnectError (e.g. "SSL: UNEXPECTED_EOF_WHILE_READING") happens when this
+            # long-lived client's pooled keep-alive connection goes stale -- the server
+            # side silently drops an idle connection between rounds of a long agentic
+            # task, but httpx doesn't discover that until the next reuse attempt. A
+            # fresh curl always opens a new connection and never hits this; retrying
+            # here does too, since httpx discards the dead connection from its pool on
+            # failure rather than re-offering it. Confirmed live (2026-10-12): identical
+            # requests that fail this way from this client succeed immediately via curl.
             if attempt > client.max_retries:
                 raise
             time.sleep(min(2 ** attempt, 30))

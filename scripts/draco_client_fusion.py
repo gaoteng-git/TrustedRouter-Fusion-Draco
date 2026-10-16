@@ -188,8 +188,100 @@ def _clean_judge_json(raw: str) -> str:
     return t.strip()
 
 
+_NO_CONTENT_PLACEHOLDER = (
+    "[no usable answer -- this panel member's generation was truncated "
+    "before producing a final response]"
+)
+
+
+def _transcript_path(output: Path) -> Path:
+    return output.with_name(output.stem + ".transcript.txt")
+
+
+def _format_fusion_transcript(
+    *, task_id: str, domain: str, config_id: str, panel_labels: list[str],
+    judge_model: str, judge_system: str, judge_user: str,
+    judge_raw: str | None, judge_json: str, judge_from_cache: bool,
+    judge_elapsed_ms: int | None,
+    fuser_problem: str, fuser_final_user: str,
+    fuser_attempts_detail: list[dict[str, Any]],
+    final_content: str,
+) -> str:
+    """Human-readable, call-ordered companion to one jsonl fusion row -- NEVER
+    read back by any script (--resume/_load_panel/scoring all still parse the
+    single-line jsonl exactly as before). Shows the judge's and fuser's FULL
+    input (the real system/user prompt text sent) and FULL output (the real
+    raw response text), which the jsonl row never persisted (only judge_json
+    -- the cleaned judge output -- and final.content -- the winning fuser
+    output -- survive there; the raw/uncleaned judge response, the fuser's
+    exact input text, and any losing retry attempts' content did not)."""
+    lines: list[str] = [
+        "=" * 100,
+        f"task_id: {task_id}",
+        f"domain:  {domain}",
+        f"config:  {config_id}",
+        f"panel used: {panel_labels}",
+        "-" * 100,
+        "[JUDGE]",
+        f"model: {judge_model}" + ("  (reused from --judge-cache; no fresh call made this run)"
+                                    if judge_from_cache else f"  elapsed_ms={judge_elapsed_ms}"),
+        "  >> full input (system):",
+    ]
+    for ln in judge_system.splitlines():
+        lines.append(f"      {ln}")
+    lines.append("  >> full input (user):")
+    for ln in judge_user.splitlines():
+        lines.append(f"      {ln}")
+    lines.append("  >> full raw output (before <think>/code-fence cleanup):")
+    for ln in (judge_raw or "(not called this run -- judge_cache hit)").splitlines() or [""]:
+        lines.append(f"      {ln}")
+    lines.append("  >> cleaned judge_json (what the fuser actually received):")
+    for ln in judge_json.splitlines() or [""]:
+        lines.append(f"      {ln}")
+    lines.append("-" * 100)
+    lines.append("[FUSER]")
+    lines.append("  >> full input (message 1 -- original task):")
+    for ln in fuser_problem.splitlines():
+        lines.append(f"      {ln}")
+    lines.append("  >> full input (message 2 -- instruction + panel evidence + judge analysis + budget note):")
+    for ln in fuser_final_user.splitlines():
+        lines.append(f"      {ln}")
+    for a in fuser_attempts_detail:
+        lines.append(f"  >> attempt {a['attempt']} model={a['model']} elapsed_ms={a.get('elapsed_ms')}")
+        if a.get("error"):
+            lines.append(f"      ERROR: {a['error']}")
+            continue
+        lines.append(f"      finish_reason={a.get('finish_reason')}")
+        lines.append("      full output:")
+        for ln in (a.get("content") or "").splitlines() or ["      (empty)"]:
+            lines.append(f"          {ln}")
+    lines.append("-" * 100)
+    lines.append("[final content]")
+    lines.append(final_content or "(empty)")
+    lines.append("")
+    return "\n".join(lines)
+
+
 def _load_panel(path: Path) -> dict[str, str]:
-    """task_id -> final report text (last non-failed row wins)."""
+    """task_id -> final report text (last non-failed row wins).
+
+    A row counts as "this panel member answered" once the call actually
+    completed (has a `final` block) and wasn't a hard API failure (no
+    `status: "failed"`, which only `_failure_row`-style rows carry and
+    which never have a `final` block at all) -- even when the model's own
+    verbosity ate its whole token budget and left `final.content` empty
+    (finish_reason="length", reasoning/think populated but no answer
+    text). That is the model being long-winded, not a transient error, so
+    it must not block --require-full-panel forever waiting for a retry
+    that will never come (status-less "ok" rows are never re-attempted by
+    --resume). Confirmed this already happened, unremarked, in the
+    original 3-panel run (out/task_major_v2/panel-deepseek-v4-flash.jsonl
+    and panel-glm-5.3-flash.jsonl both have multiple such rows) -- it just
+    didn't matter there because that run's coverage check was any(), not
+    all(). A placeholder is used as evidence in this case so the
+    judge/fuser see an explicit "no answer" rather than a blank panel
+    block that could read as a formatting bug.
+    """
     out: dict[str, str] = {}
     for line in path.read_text(encoding="utf-8").splitlines():
         line = line.strip()
@@ -198,10 +290,14 @@ def _load_panel(path: Path) -> dict[str, str]:
         r = json.loads(line)
         if r.get("status") == "failed":
             continue
+        final = r.get("final")
+        if final is None:
+            continue
         t = r.get("task_id")
-        c = (r.get("final") or {}).get("content")
-        if t and isinstance(c, str) and c.strip():
-            out[t] = c
+        if not t:
+            continue
+        c = final.get("content")
+        out[t] = c if isinstance(c, str) and c.strip() else _NO_CONTENT_PLACEHOLDER
     return out
 
 
@@ -332,7 +428,7 @@ def main(argv: list[str] | None = None) -> int:
                 judge_cache[jk] = rec["judge_json"]
         print(f"judge cache: loaded {len(judge_cache)} analyses from {args.judge_cache}")
 
-    def run_one(task) -> dict[str, Any]:
+    def run_one(task) -> tuple[dict[str, Any], str]:
         client = tr_sdk.make_client(base_url=args.base_url, api_key=api_key, timeout=args.timeout_seconds)
         run_started = time.perf_counter()
         try:
@@ -344,14 +440,17 @@ def main(argv: list[str] | None = None) -> int:
             # 1) Fusion judge analysis (cached per judge_model/provider/task — reused across synthesizers)
             jkey = f"{args.judge_model}\t{args.judge_provider or ''}\t{task.id}"
             judge_json = judge_cache.get(jkey)
+            judge_from_cache = judge_json is not None
             judge_elapsed_ms = None
+            judge_user_text = _judge_user(task.problem, panel)
+            judge_raw: str | None = None
             if judge_json is None:
                 judge_started = time.perf_counter()
                 judge_body = {
                     "model": args.judge_model, "max_tokens": args.judge_max_tokens,
                     "messages": [
                         {"role": "system", "content": JUDGE_SYSTEM},
-                        {"role": "user", "content": _judge_user(task.problem, panel)},
+                        {"role": "user", "content": judge_user_text},
                     ],
                 }
                 if args.judge_model.lower() not in JUDGE_MODELS_WITHOUT_JSON_MODE:
@@ -362,7 +461,8 @@ def main(argv: list[str] | None = None) -> int:
                     jprov = jprovs[int(hashlib.md5(task.id.encode()).hexdigest(), 16) % len(jprovs)]
                 if jprov:
                     judge_body["provider"] = {"only": [jprov], "allow_fallbacks": False}
-                judge_json = _clean_judge_json(_content(_post(client, args.base_url, api_key, judge_body)))
+                judge_raw = _content(_post(client, args.base_url, api_key, judge_body))
+                judge_json = _clean_judge_json(judge_raw)
                 judge_elapsed_ms = int((time.perf_counter() - judge_started) * 1000)
                 if args.judge_cache:
                     with cache_lock:
@@ -427,6 +527,7 @@ def main(argv: list[str] | None = None) -> int:
             fuser_used = args.fuser_model
             fell_back = False
             fuser_attempts: list[dict[str, Any]] = []
+            fuser_attempts_detail: list[dict[str, Any]] = []
             # STICK WITH GLM. First attempt uses the deterministic pinned provider (spreads load
             # across the GLM fleet); subsequent attempts drop the pin and let the gateway route to
             # ANY GLM provider, retried with backoff. A loaded/failing/balance-out provider must
@@ -438,13 +539,20 @@ def main(argv: list[str] | None = None) -> int:
                     content, fr, fuser_elapsed_ms = _fuse(args.fuser_model, pin=(attempt == 0))
                     fuser_attempts.append({"attempt": attempt, "model": args.fuser_model,
                                             "elapsed_ms": fuser_elapsed_ms, "content_chars": len(content)})
+                    fuser_attempts_detail.append({
+                        "attempt": attempt, "model": args.fuser_model, "elapsed_ms": fuser_elapsed_ms,
+                        "content": content, "finish_reason": fr.get("choices", [{}])[0].get("finish_reason"),
+                    })
                     if len(content.strip()) >= 50:
                         break
-                except Exception:  # noqa: BLE001 - provider error; retry GLM via open routing
+                except Exception as exc:  # noqa: BLE001 - provider error; retry GLM via open routing
                     content, fr = "", {}
+                    attempt_elapsed_ms = int((time.perf_counter() - attempt_started) * 1000)
                     fuser_attempts.append({"attempt": attempt, "model": args.fuser_model,
-                                            "elapsed_ms": int((time.perf_counter() - attempt_started) * 1000),
+                                            "elapsed_ms": attempt_elapsed_ms,
                                             "content_chars": 0, "error": True})
+                    fuser_attempts_detail.append({"attempt": attempt, "model": args.fuser_model,
+                                                   "elapsed_ms": attempt_elapsed_ms, "error": str(exc)[:400]})
                 time.sleep(1.5 * (attempt + 1))
             # Cross-model fallback ONLY if one is explicitly configured (we do not pass one, to
             # keep the synthesizer a pure GLM measurement).
@@ -454,7 +562,20 @@ def main(argv: list[str] | None = None) -> int:
                 content, fr, fuser_elapsed_ms = _fuse(args.fallback_fuser_model, pin=False)
                 fuser_attempts.append({"attempt": len(fuser_attempts), "model": fuser_used,
                                         "elapsed_ms": fuser_elapsed_ms, "content_chars": len(content)})
+                fuser_attempts_detail.append({
+                    "attempt": len(fuser_attempts_detail), "model": fuser_used, "elapsed_ms": fuser_elapsed_ms,
+                    "content": content, "finish_reason": fr.get("choices", [{}])[0].get("finish_reason"),
+                })
             usage = fr.get("usage") or {}
+            transcript = _format_fusion_transcript(
+                task_id=task.id, domain=task.domain, config_id=args.config_id,
+                panel_labels=present_labels, judge_model=args.judge_model,
+                judge_system=JUDGE_SYSTEM, judge_user=judge_user_text,
+                judge_raw=judge_raw, judge_json=judge_json, judge_from_cache=judge_from_cache,
+                judge_elapsed_ms=judge_elapsed_ms, fuser_problem=task.problem,
+                fuser_final_user=final_user, fuser_attempts_detail=fuser_attempts_detail,
+                final_content=content,
+            )
             return {
                 "schema": REPLAY_SCHEMA, "config_id": args.config_id, "task_id": task.id,
                 "domain": task.domain, "task": task.cache_dict(),
@@ -490,15 +611,22 @@ def main(argv: list[str] | None = None) -> int:
                           # this row's answer), so fusion- and baseline-latency are comparable.
                           "elapsed_ms": int((time.perf_counter() - run_started) * 1000),
                           "http_status": 200, "request_id": fr.get("id")},
-            }
+            }, transcript
         except Exception as exc:  # noqa: BLE001
-            return {"schema": REPLAY_SCHEMA, "status": "failed", "config_id": args.config_id,
-                    "task_id": task.id, "domain": task.domain,
-                    "error_type": type(exc).__name__, "error": str(exc)[:400]}
+            row = {"schema": REPLAY_SCHEMA, "status": "failed", "config_id": args.config_id,
+                   "task_id": task.id, "domain": task.domain,
+                   "error_type": type(exc).__name__, "error": str(exc)[:400]}
+            transcript = "\n".join([
+                "=" * 100, f"task_id: {task.id}", f"domain:  {task.domain}",
+                f"config:  {args.config_id}", f"STATUS: FAILED ({type(exc).__name__})",
+                str(exc)[:400], "",
+            ])
+            return row, transcript
         finally:
             client.close()
 
     fh = args.output.open("a" if args.resume else "w", encoding="utf-8")
+    transcript_fh = _transcript_path(args.output).open("a" if args.resume else "w", encoding="utf-8")
     done = 0
     total = len(pending)
     with ThreadPoolExecutor(max_workers=max(1, min(args.workers, total or 1))) as ex:
@@ -517,9 +645,11 @@ def main(argv: list[str] | None = None) -> int:
             ready, _ = wait(futures, return_when=FIRST_COMPLETED)
             for fut in ready:
                 futures.pop(fut)
-                row = fut.result()
+                row, transcript = fut.result()
                 fh.write(json.dumps(row, sort_keys=True) + "\n")
                 fh.flush()
+                transcript_fh.write(transcript)
+                transcript_fh.flush()
                 done += 1
                 fin = row.get("final") or {}
                 print(f"fusion {done}/{total} task={str(row.get('task_id'))[:8]} "
@@ -527,6 +657,7 @@ def main(argv: list[str] | None = None) -> int:
                       f"finish={fin.get('finish_reason')}")
                 submit()
     fh.close()
+    transcript_fh.close()
     return 0
 
 
