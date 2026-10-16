@@ -1,0 +1,17 @@
+nohup: ignoring input
+manifest: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json  tasks: 80  execute: True
+out_dir: out/task_major_v2
+panel models (3): minimax-m3, glm-5.3-flash, deepseek-v4-flash
+baseline: gpt-5.6-sol
+fusion [fusion-latest3panel]: panel=['minimax-m3', 'glm-5.3-flash', 'deepseek-v4-flash'] judge=minimax-m3 fuser=minimax-m3
+
+
+===== task 1/80  id=0c2c668a-c3bf-41af-93c9-b5614ff63508 =====
+--- panel solo: minimax-m3 ---
+/usr/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output out/task_major_v2/panel-minimax-m3.jsonl --model minimax-m3 --config-id panel-minimax-m3 --task-id 0c2c668a-c3bf-41af-93c9-b5614ff63508 --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+Traceback (most recent call last):
+  File "/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/scripts/draco_agentic_solo.py", line 19, in <module>
+    from trusted_router.evals import tr_sdk
+ModuleNotFoundError: No module named 'trusted_router'
+
+FATAL: panel solo: minimax-m3 exited 1 -- aborting the whole run (this is almost always either ExaCircuitBreakerTripped or a missing/invalid API key; see the output above).
