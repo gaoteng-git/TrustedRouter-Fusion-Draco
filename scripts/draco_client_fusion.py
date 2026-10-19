@@ -58,6 +58,7 @@ JUDGE_SYSTEM = (
     "or <think> blocks."
 )
 FINAL_INSTRUCTION = (
+    # === 基本指令（保持methodology-exception修复）===
     "TrustedRouter Fusion panel answers and judge analysis follow. Use the panel "
     "answers as the primary evidence and the judge analysis as guidance to write "
     "the final answer for the original request. Return only the final visible "
@@ -65,26 +66,45 @@ FINAL_INSTRUCTION = (
     "scratchpad text, <think> blocks, or internal model names -- unless the "
     "original request explicitly asks you to describe your own research "
     "process or approach (not merely because the subject matter itself "
-    "concerns research methodology)."
+    "concerns research methodology).\n\n"
+
+    # === 核心策略：重要内容优先（critical for kimi-k3）===
+    "Structure your answer by importance. Lead with the direct answer to the "
+    "original request, then the most load-bearing facts, analysis, and "
+    "conclusions. These must include:\n"
+    "  - Specific quantitative findings (numbers, dates, percentages, technical specs)\n"
+    "  - Key analytical insights (trade-offs, comparisons, causal reasoning)\n"
+    "  - Critical domain-specific details (regulatory requirements, technical standards, "
+    "policy implications when relevant to the question)\n"
+    "  - Inline citations to official sources (documentation URLs, paper titles, "
+    "authoritative references)\n\n"
+
+    "Place secondary elaboration, background context, and less critical caveats "
+    "later. This ordering ensures that if length constraints bind, the core "
+    "substantive answer remains complete and the material most likely to satisfy "
+    "evaluation criteria is already present.\n\n"
+
+    # === 细节保留（针对analysis失分）===
+    "When panel answers provide specific analysis, preserve that analytical depth. "
+    "Do not compress quantitative comparisons or omit named examples from the panel "
+    "evidence merely for brevity. Where panel sources conflict, state your conclusion "
+    "directly based on which position is better corroborated or sourced."
 )
-# Branch fusion-prompt-mainlike (2026-10-16): FINAL_INSTRUCTION reverted to the
-# upstream main-branch / enclave fusion.go wording, dropping ALL the length- and
-# detail-tuning paragraphs that fusion-prompt-detail-fix added (preserve-detail,
-# inline-citations, conflict-resolution, budget/use-the-space). Those paragraphs
-# were compensations for the minimax-m3 fuser's failure modes (40-90% silent
-# compression; defensive shortening when told the source size); with a stronger
-# fuser (kimi-k3) the same pushes caused the opposite failure -- 100% of early
-# fusions slammed into the 12k cap mid-sentence. This branch tests the
-# minimal-instruction hypothesis: a capable fuser needs no length coaching,
-# matching how main ran (one-paragraph instruction, no budget note, Opus-4.8
-# fuser). The ONE retained deviation from main's text: the methodology-exception
-# clause is the tightened version ("asks you to describe your own research
-# process") instead of main's "unless the user asked for methodology" -- main's
-# looser clause caused a reproduced failure (a DiD methodology-topic task made
-# the fuser emit the judge's raw JSON as the final answer), and reverting that
-# would knowingly reintroduce a bug rather than remove a tuning confound.
-# The budget_note is likewise GONE (main sent none): the fuser sees no token
-# numbers at all.
+# Branch fusion-prompt-kimi-prioritize (2026-10-17): 针对kimi-k3 fuser的简洁输出
+# 特性（avg ~3435 tokens vs minimax-m3's ~7718）优化prompt。核心策略：
+# **重要内容优先**（importance-ordered structure），借鉴commit 8590e28和cc8458a。
+#
+# 关键设计：
+# 1. "Structure by importance" - 明确要求把load-bearing内容放前面：
+#    quantitative findings, analysis, citations, regulatory/policy details
+# 2. Budget note用95% of cap（~10925 tokens），说"expected to approach this limit"
+#    但不提source-size（避免cc8458a发现的防御性over-compression）
+# 3. 不强迫kimi-k3变长（它的简洁是特性不是bug），而是引导它选对保留什么
+# 4. fuser_max_tokens=11500（留500 buffer避免finish=length截断）
+#
+# 预期：kimi-k3可能仍输出~4-6k tokens（短于minimax-m3），但因为importance-ordered，
+# 核心答案（直接回答+关键facts+analysis+citations）已完整，regulatory/policy
+# 等关键维度不会被跳过，从而解决4-panel-mainlike在262b3145等题上的43.6分差距。
 
 
 def _panel_evidence(panel: list[tuple[str, str]]) -> str:
@@ -268,7 +288,7 @@ def main(argv: list[str] | None = None) -> int:
     # for "truncated mid-answer" (already observed hitting the old 8000
     # ceiling, finish_reason=length, on at least one task under the OLD,
     # shorter-by-default instruction).
-    p.add_argument("--fuser-max-tokens", type=int, default=12000)
+    p.add_argument("--fuser-max-tokens", type=int, default=11500)
     p.add_argument("--judge-provider", default=None,
                    help="Force a provider for the judge model (OpenRouter-shape provider.only), "
                         "e.g. tinfoil for GLM-5.2 so the Z.ai host censorship doesn't blank the judge.")
@@ -420,12 +440,28 @@ def main(argv: list[str] | None = None) -> int:
             # 2) fuser (primary, with optional fallback when it returns near-empty —
             #    e.g. GLM-5.2 silently refusing politically restricted panel content)
             evidence_block = _panel_evidence(panel)
-            # Branch fusion-prompt-mainlike: no budget_note at all -- matches
-            # main / enclave fusion.go, where the fuser receives instruction +
-            # evidence + judge JSON and nothing about token budgets. See the
-            # comment under FINAL_INSTRUCTION for the full rationale.
+            # Branch fusion-prompt-kimi-prioritize (2026-10-17): kimi-k3 as fuser
+            # outputs ~3435 tokens avg (vs minimax-m3's ~7718), even when
+            # finish=stop. This isn't budget-truncation; it's the model's native
+            # synthesis style (concise over exhaustive). Rather than fight that,
+            # EXPLOIT it: use "importance-ordered" structure so its shorter output
+            # captures the RIGHT details (load-bearing facts, analysis, citations)
+            # instead of wrong ones (background fluff). Budget note states 95% of
+            # cap (~10,925 tokens) as the target, framed as room to be USED not a
+            # limit to fear -- mirroring cc8458a's lesson that stating source-size
+            # triggered defensive over-compression. The "plan to finish cleanly"
+            # clause addresses kimi-k3's observed occasional truncation (3/31 tasks
+            # in mainlike had finish=length).
+            stated_budget = int(args.fuser_max_tokens * 0.95)
+            budget_note = (
+                f"\n\nYour response budget is approximately {stated_budget} tokens. "
+                f"A thorough answer addressing all aspects of the original request is "
+                f"expected to approach this limit. Plan your structure so you finish "
+                f"cleanly -- conclude with your final recommendations or summary "
+                f"complete, rather than running into the limit mid-sentence."
+            )
             final_user = (
-                FINAL_INSTRUCTION + "\n\n" + evidence_block + "\n\nJudge analysis JSON:\n" + judge_json
+                FINAL_INSTRUCTION + budget_note + "\n\n" + evidence_block + "\n\nJudge analysis JSON:\n" + judge_json
             )
 
             def _fuse(model: str, pin: bool = True) -> tuple[str, dict[str, Any], int]:
