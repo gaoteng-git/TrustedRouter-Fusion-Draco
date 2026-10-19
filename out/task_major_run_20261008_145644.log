@@ -1,0 +1,1359 @@
+nohup: ignoring input
+manifest: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json  tasks: 80  execute: True
+out_dir: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major
+panel models (3): minimax-m3, glm-5.3-flash, deepseek-v4-flash
+baseline: gpt-5.6-sol
+fusion [fusion-latest3panel]: panel=['minimax-m3', 'glm-5.3-flash', 'deepseek-v4-flash'] judge=minimax-m3 fuser=minimax-m3
+
+
+===== task 1/80  id=0c2c668a-c3bf-41af-93c9-b5614ff63508 =====
+--- panel solo: minimax-m3 ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-minimax-m3.jsonl --model minimax-m3 --config-id panel-minimax-m3 --task-id 0c2c668a-c3bf-41af-93c9-b5614ff63508 --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 1
+model: minimax-m3  config_id: panel-minimax-m3
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-minimax-m3.jsonl
+agentic 1/1 task=0c2c668a status=ok tools=19 finish=stop clen=23448 elapsed=161s
+--- panel solo: glm-5.3-flash ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-glm-5.3-flash.jsonl --model glm-5.3-flash --config-id panel-glm-5.3-flash --task-id 0c2c668a-c3bf-41af-93c9-b5614ff63508 --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 1
+model: glm-5.3-flash  config_id: panel-glm-5.3-flash
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-glm-5.3-flash.jsonl
+agentic 1/1 task=0c2c668a status=ok tools=16 finish=length clen=15732 elapsed=383s
+--- panel solo: deepseek-v4-flash ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-deepseek-v4-flash.jsonl --model deepseek-v4-flash --config-id panel-deepseek-v4-flash --task-id 0c2c668a-c3bf-41af-93c9-b5614ff63508 --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 1
+model: deepseek-v4-flash  config_id: panel-deepseek-v4-flash
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-deepseek-v4-flash.jsonl
+agentic 1/1 task=0c2c668a status=ok tools=18 finish=stop clen=28798 elapsed=156s
+--- baseline: gpt-5.6-sol ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/baseline-gpt-5.6-sol.jsonl --model gpt-5.6-sol --config-id baseline --task-id 0c2c668a-c3bf-41af-93c9-b5614ff63508 --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 1
+model: gpt-5.6-sol  config_id: baseline
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/baseline-gpt-5.6-sol.jsonl
+agentic 1/1 task=0c2c668a status=ok tools=20 finish=stop clen=24442 elapsed=157s
+--- fusion: fusion-latest3panel ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_client_fusion.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --panel minimax-m3=/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-minimax-m3.jsonl --panel glm-5.3-flash=/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-glm-5.3-flash.jsonl --panel deepseek-v4-flash=/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-deepseek-v4-flash.jsonl --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/fusion-latest3panel.jsonl --config-id fusion-latest3panel --judge-model minimax-m3 --fuser-model minimax-m3 --base-url https://router-api.0g.ai/v1 --api-key-name TR_API_KEY --workers 1 --resume --execute
+panel members: ['minimax-m3', 'glm-5.3-flash', 'deepseek-v4-flash']
+tasks with at least 1 panel answer: 1  pending: 1
+fuser: minimax-m3  judge: minimax-m3  config: fusion-latest3panel
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/fusion-latest3panel.jsonl
+fusion 1/1 task=0c2c668a status=ok clen=11868 finish=stop
+--- score: fusion-latest3panel ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_rejudge.py /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/fusion-latest3panel.jsonl --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/score-fusion-latest3panel.jsonl --judge-model gemini-3.1-pro-preview --base-url https://router-api.0g.ai/v1 --workers 1 --resume --execute
+replay rows: 1
+pending rows: 1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/score-fusion-latest3panel.jsonl
+rejudged 1/1 task_id=0c2c668a-c3bf-41af-93c9-b5614ff63508 score=72.31920199501246
+--- score: baseline ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_rejudge.py /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/baseline-gpt-5.6-sol.jsonl --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/score-baseline.jsonl --judge-model gemini-3.1-pro-preview --base-url https://router-api.0g.ai/v1 --workers 1 --resume --execute
+replay rows: 1
+pending rows: 0
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/score-baseline.jsonl
+
+===== task 2/80  id=f6de7687-7cff-4f68-93ea-f632bf6266af =====
+--- panel solo: minimax-m3 ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-minimax-m3.jsonl --model minimax-m3 --config-id panel-minimax-m3 --task-id f6de7687-7cff-4f68-93ea-f632bf6266af --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 1
+model: minimax-m3  config_id: panel-minimax-m3
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-minimax-m3.jsonl
+agentic 1/1 task=f6de7687 status=ok tools=16 finish=stop clen=28314 elapsed=159s
+--- panel solo: glm-5.3-flash ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-glm-5.3-flash.jsonl --model glm-5.3-flash --config-id panel-glm-5.3-flash --task-id f6de7687-7cff-4f68-93ea-f632bf6266af --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 1
+model: glm-5.3-flash  config_id: panel-glm-5.3-flash
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-glm-5.3-flash.jsonl
+agentic 1/1 task=f6de7687 status=ok tools=18 finish=length clen=9476 elapsed=249s
+--- panel solo: deepseek-v4-flash ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-deepseek-v4-flash.jsonl --model deepseek-v4-flash --config-id panel-deepseek-v4-flash --task-id f6de7687-7cff-4f68-93ea-f632bf6266af --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 1
+model: deepseek-v4-flash  config_id: panel-deepseek-v4-flash
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-deepseek-v4-flash.jsonl
+agentic 1/1 task=f6de7687 status=ok tools=16 finish=length clen=0 elapsed=146s
+--- baseline: gpt-5.6-sol ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/baseline-gpt-5.6-sol.jsonl --model gpt-5.6-sol --config-id baseline --task-id f6de7687-7cff-4f68-93ea-f632bf6266af --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 1
+model: gpt-5.6-sol  config_id: baseline
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/baseline-gpt-5.6-sol.jsonl
+agentic 1/1 task=f6de7687 status=ok tools=18 finish=stop clen=32475 elapsed=168s
+--- fusion: fusion-latest3panel ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_client_fusion.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --panel minimax-m3=/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-minimax-m3.jsonl --panel glm-5.3-flash=/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-glm-5.3-flash.jsonl --panel deepseek-v4-flash=/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-deepseek-v4-flash.jsonl --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/fusion-latest3panel.jsonl --config-id fusion-latest3panel --judge-model minimax-m3 --fuser-model minimax-m3 --base-url https://router-api.0g.ai/v1 --api-key-name TR_API_KEY --workers 1 --resume --execute
+panel members: ['minimax-m3', 'glm-5.3-flash', 'deepseek-v4-flash']
+tasks with at least 1 panel answer: 2  pending: 1
+fuser: minimax-m3  judge: minimax-m3  config: fusion-latest3panel
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/fusion-latest3panel.jsonl
+fusion 1/1 task=f6de7687 status=ok clen=15911 finish=stop
+--- score: fusion-latest3panel ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_rejudge.py /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/fusion-latest3panel.jsonl --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/score-fusion-latest3panel.jsonl --judge-model gemini-3.1-pro-preview --base-url https://router-api.0g.ai/v1 --workers 1 --resume --execute
+replay rows: 2
+pending rows: 1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/score-fusion-latest3panel.jsonl
+rejudged 1/1 task_id=f6de7687-7cff-4f68-93ea-f632bf6266af score=73.87616624257845
+--- score: baseline ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_rejudge.py /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/baseline-gpt-5.6-sol.jsonl --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/score-baseline.jsonl --judge-model gemini-3.1-pro-preview --base-url https://router-api.0g.ai/v1 --workers 1 --resume --execute
+replay rows: 2
+pending rows: 1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/score-baseline.jsonl
+rejudged 1/1 task_id=f6de7687-7cff-4f68-93ea-f632bf6266af score=75.74215436810857
+
+===== task 3/80  id=e1f2c310-d311-49da-b0e4-ee855603469d =====
+--- panel solo: minimax-m3 ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-minimax-m3.jsonl --model minimax-m3 --config-id panel-minimax-m3 --task-id e1f2c310-d311-49da-b0e4-ee855603469d --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 1
+model: minimax-m3  config_id: panel-minimax-m3
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-minimax-m3.jsonl
+agentic 1/1 task=e1f2c310 status=ok tools=15 finish=length clen=26772 elapsed=174s
+--- panel solo: glm-5.3-flash ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-glm-5.3-flash.jsonl --model glm-5.3-flash --config-id panel-glm-5.3-flash --task-id e1f2c310-d311-49da-b0e4-ee855603469d --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 1
+model: glm-5.3-flash  config_id: panel-glm-5.3-flash
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-glm-5.3-flash.jsonl
+agentic 1/1 task=e1f2c310 status=ok tools=17 finish=length clen=13209 elapsed=354s
+--- panel solo: deepseek-v4-flash ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-deepseek-v4-flash.jsonl --model deepseek-v4-flash --config-id panel-deepseek-v4-flash --task-id e1f2c310-d311-49da-b0e4-ee855603469d --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 1
+model: deepseek-v4-flash  config_id: panel-deepseek-v4-flash
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-deepseek-v4-flash.jsonl
+agentic 1/1 task=e1f2c310 status=ok tools=16 finish=length clen=12323 elapsed=120s
+--- baseline: gpt-5.6-sol ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/baseline-gpt-5.6-sol.jsonl --model gpt-5.6-sol --config-id baseline --task-id e1f2c310-d311-49da-b0e4-ee855603469d --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 1
+model: gpt-5.6-sol  config_id: baseline
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/baseline-gpt-5.6-sol.jsonl
+agentic 1/1 task=e1f2c310 status=ok tools=20 finish=stop clen=28486 elapsed=160s
+--- fusion: fusion-latest3panel ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_client_fusion.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --panel minimax-m3=/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-minimax-m3.jsonl --panel glm-5.3-flash=/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-glm-5.3-flash.jsonl --panel deepseek-v4-flash=/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-deepseek-v4-flash.jsonl --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/fusion-latest3panel.jsonl --config-id fusion-latest3panel --judge-model minimax-m3 --fuser-model minimax-m3 --base-url https://router-api.0g.ai/v1 --api-key-name TR_API_KEY --workers 1 --resume --execute
+panel members: ['minimax-m3', 'glm-5.3-flash', 'deepseek-v4-flash']
+tasks with at least 1 panel answer: 3  pending: 1
+fuser: minimax-m3  judge: minimax-m3  config: fusion-latest3panel
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/fusion-latest3panel.jsonl
+fusion 1/1 task=e1f2c310 status=ok clen=14424 finish=stop
+--- score: fusion-latest3panel ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_rejudge.py /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/fusion-latest3panel.jsonl --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/score-fusion-latest3panel.jsonl --judge-model gemini-3.1-pro-preview --base-url https://router-api.0g.ai/v1 --workers 1 --resume --execute
+replay rows: 3
+pending rows: 1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/score-fusion-latest3panel.jsonl
+rejudged 1/1 task_id=e1f2c310-d311-49da-b0e4-ee855603469d score=59.58702064896755
+--- score: baseline ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_rejudge.py /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/baseline-gpt-5.6-sol.jsonl --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/score-baseline.jsonl --judge-model gemini-3.1-pro-preview --base-url https://router-api.0g.ai/v1 --workers 1 --resume --execute
+replay rows: 3
+pending rows: 1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/score-baseline.jsonl
+rejudged 1/1 task_id=e1f2c310-d311-49da-b0e4-ee855603469d score=82.89085545722715
+
+===== task 4/80  id=f004b46b-c0e7-4e86-a072-c7491328d538 =====
+--- panel solo: minimax-m3 ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-minimax-m3.jsonl --model minimax-m3 --config-id panel-minimax-m3 --task-id f004b46b-c0e7-4e86-a072-c7491328d538 --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 1
+model: minimax-m3  config_id: panel-minimax-m3
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-minimax-m3.jsonl
+agentic 1/1 task=f004b46b status=ok tools=15 finish=stop clen=13741 elapsed=269s
+--- panel solo: glm-5.3-flash ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-glm-5.3-flash.jsonl --model glm-5.3-flash --config-id panel-glm-5.3-flash --task-id f004b46b-c0e7-4e86-a072-c7491328d538 --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 1
+model: glm-5.3-flash  config_id: panel-glm-5.3-flash
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-glm-5.3-flash.jsonl
+agentic 1/1 task=f004b46b status=ok tools=0 finish=length clen=0 elapsed=372s
+--- panel solo: deepseek-v4-flash ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-deepseek-v4-flash.jsonl --model deepseek-v4-flash --config-id panel-deepseek-v4-flash --task-id f004b46b-c0e7-4e86-a072-c7491328d538 --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 1
+model: deepseek-v4-flash  config_id: panel-deepseek-v4-flash
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-deepseek-v4-flash.jsonl
+agentic 1/1 task=f004b46b status=ok tools=0 finish=length clen=0 elapsed=105s
+--- baseline: gpt-5.6-sol ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/baseline-gpt-5.6-sol.jsonl --model gpt-5.6-sol --config-id baseline --task-id f004b46b-c0e7-4e86-a072-c7491328d538 --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 1
+model: gpt-5.6-sol  config_id: baseline
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/baseline-gpt-5.6-sol.jsonl
+agentic 1/1 task=f004b46b status=ok tools=19 finish=stop clen=21849 elapsed=168s
+--- fusion: fusion-latest3panel ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_client_fusion.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --panel minimax-m3=/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-minimax-m3.jsonl --panel glm-5.3-flash=/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-glm-5.3-flash.jsonl --panel deepseek-v4-flash=/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-deepseek-v4-flash.jsonl --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/fusion-latest3panel.jsonl --config-id fusion-latest3panel --judge-model minimax-m3 --fuser-model minimax-m3 --base-url https://router-api.0g.ai/v1 --api-key-name TR_API_KEY --workers 1 --resume --execute
+panel members: ['minimax-m3', 'glm-5.3-flash', 'deepseek-v4-flash']
+tasks with at least 1 panel answer: 4  pending: 1
+fuser: minimax-m3  judge: minimax-m3  config: fusion-latest3panel
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/fusion-latest3panel.jsonl
+fusion 1/1 task=f004b46b status=ok clen=7760 finish=stop
+--- score: fusion-latest3panel ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_rejudge.py /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/fusion-latest3panel.jsonl --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/score-fusion-latest3panel.jsonl --judge-model gemini-3.1-pro-preview --base-url https://router-api.0g.ai/v1 --workers 1 --resume --execute
+replay rows: 4
+pending rows: 1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/score-fusion-latest3panel.jsonl
+rejudged 1/1 task_id=f004b46b-c0e7-4e86-a072-c7491328d538 score=40.53794428434198
+--- score: baseline ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_rejudge.py /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/baseline-gpt-5.6-sol.jsonl --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/score-baseline.jsonl --judge-model gemini-3.1-pro-preview --base-url https://router-api.0g.ai/v1 --workers 1 --resume --execute
+replay rows: 4
+pending rows: 1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/score-baseline.jsonl
+rejudged 1/1 task_id=f004b46b-c0e7-4e86-a072-c7491328d538 score=64.26512968299711
+
+===== task 5/80  id=1516d849-b413-4fab-9153-c4d9b16a1aa9 =====
+--- panel solo: minimax-m3 ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-minimax-m3.jsonl --model minimax-m3 --config-id panel-minimax-m3 --task-id 1516d849-b413-4fab-9153-c4d9b16a1aa9 --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 1
+model: minimax-m3  config_id: panel-minimax-m3
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-minimax-m3.jsonl
+agentic 1/1 task=1516d849 status=ok tools=16 finish=stop clen=24474 elapsed=123s
+--- panel solo: glm-5.3-flash ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-glm-5.3-flash.jsonl --model glm-5.3-flash --config-id panel-glm-5.3-flash --task-id 1516d849-b413-4fab-9153-c4d9b16a1aa9 --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 1
+model: glm-5.3-flash  config_id: panel-glm-5.3-flash
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-glm-5.3-flash.jsonl
+agentic 1/1 task=1516d849 status=ok tools=16 finish=stop clen=18564 elapsed=329s
+--- panel solo: deepseek-v4-flash ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-deepseek-v4-flash.jsonl --model deepseek-v4-flash --config-id panel-deepseek-v4-flash --task-id 1516d849-b413-4fab-9153-c4d9b16a1aa9 --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 1
+model: deepseek-v4-flash  config_id: panel-deepseek-v4-flash
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-deepseek-v4-flash.jsonl
+agentic 1/1 task=1516d849 status=ok tools=19 finish=length clen=1074 elapsed=132s
+--- baseline: gpt-5.6-sol ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/baseline-gpt-5.6-sol.jsonl --model gpt-5.6-sol --config-id baseline --task-id 1516d849-b413-4fab-9153-c4d9b16a1aa9 --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 1
+model: gpt-5.6-sol  config_id: baseline
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/baseline-gpt-5.6-sol.jsonl
+agentic 1/1 task=1516d849 status=ok tools=22 finish=stop clen=27148 elapsed=145s
+--- fusion: fusion-latest3panel ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_client_fusion.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --panel minimax-m3=/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-minimax-m3.jsonl --panel glm-5.3-flash=/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-glm-5.3-flash.jsonl --panel deepseek-v4-flash=/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-deepseek-v4-flash.jsonl --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/fusion-latest3panel.jsonl --config-id fusion-latest3panel --judge-model minimax-m3 --fuser-model minimax-m3 --base-url https://router-api.0g.ai/v1 --api-key-name TR_API_KEY --workers 1 --resume --execute
+panel members: ['minimax-m3', 'glm-5.3-flash', 'deepseek-v4-flash']
+tasks with at least 1 panel answer: 5  pending: 1
+fuser: minimax-m3  judge: minimax-m3  config: fusion-latest3panel
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/fusion-latest3panel.jsonl
+fusion 1/1 task=1516d849 status=ok clen=11275 finish=stop
+--- score: fusion-latest3panel ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_rejudge.py /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/fusion-latest3panel.jsonl --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/score-fusion-latest3panel.jsonl --judge-model gemini-3.1-pro-preview --base-url https://router-api.0g.ai/v1 --workers 1 --resume --execute
+replay rows: 5
+pending rows: 1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/score-fusion-latest3panel.jsonl
+rejudged 1/1 task_id=1516d849-b413-4fab-9153-c4d9b16a1aa9 score=75.85034013605441
+--- score: baseline ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_rejudge.py /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/baseline-gpt-5.6-sol.jsonl --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/score-baseline.jsonl --judge-model gemini-3.1-pro-preview --base-url https://router-api.0g.ai/v1 --workers 1 --resume --execute
+replay rows: 5
+pending rows: 1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/score-baseline.jsonl
+rejudged 1/1 task_id=1516d849-b413-4fab-9153-c4d9b16a1aa9 score=79.25170068027211
+
+===== task 6/80  id=b0e3597d-6cda-4082-a5b4-234aac7d2684 =====
+--- panel solo: minimax-m3 ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-minimax-m3.jsonl --model minimax-m3 --config-id panel-minimax-m3 --task-id b0e3597d-6cda-4082-a5b4-234aac7d2684 --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 1
+model: minimax-m3  config_id: panel-minimax-m3
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-minimax-m3.jsonl
+agentic 1/1 task=b0e3597d status=ok tools=16 finish=stop clen=24011 elapsed=129s
+--- panel solo: glm-5.3-flash ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-glm-5.3-flash.jsonl --model glm-5.3-flash --config-id panel-glm-5.3-flash --task-id b0e3597d-6cda-4082-a5b4-234aac7d2684 --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 1
+model: glm-5.3-flash  config_id: panel-glm-5.3-flash
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-glm-5.3-flash.jsonl
+agentic 1/1 task=b0e3597d status=ok tools=16 finish=length clen=642 elapsed=282s
+--- panel solo: deepseek-v4-flash ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-deepseek-v4-flash.jsonl --model deepseek-v4-flash --config-id panel-deepseek-v4-flash --task-id b0e3597d-6cda-4082-a5b4-234aac7d2684 --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 1
+model: deepseek-v4-flash  config_id: panel-deepseek-v4-flash
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-deepseek-v4-flash.jsonl
+agentic 1/1 task=b0e3597d status=ok tools=19 finish=length clen=3030 elapsed=166s
+--- baseline: gpt-5.6-sol ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/baseline-gpt-5.6-sol.jsonl --model gpt-5.6-sol --config-id baseline --task-id b0e3597d-6cda-4082-a5b4-234aac7d2684 --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 1
+model: gpt-5.6-sol  config_id: baseline
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/baseline-gpt-5.6-sol.jsonl
+agentic 1/1 task=b0e3597d status=ok tools=20 finish=stop clen=31368 elapsed=164s
+--- fusion: fusion-latest3panel ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_client_fusion.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --panel minimax-m3=/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-minimax-m3.jsonl --panel glm-5.3-flash=/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-glm-5.3-flash.jsonl --panel deepseek-v4-flash=/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-deepseek-v4-flash.jsonl --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/fusion-latest3panel.jsonl --config-id fusion-latest3panel --judge-model minimax-m3 --fuser-model minimax-m3 --base-url https://router-api.0g.ai/v1 --api-key-name TR_API_KEY --workers 1 --resume --execute
+panel members: ['minimax-m3', 'glm-5.3-flash', 'deepseek-v4-flash']
+tasks with at least 1 panel answer: 6  pending: 1
+fuser: minimax-m3  judge: minimax-m3  config: fusion-latest3panel
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/fusion-latest3panel.jsonl
+fusion 1/1 task=b0e3597d status=ok clen=11449 finish=stop
+--- score: fusion-latest3panel ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_rejudge.py /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/fusion-latest3panel.jsonl --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/score-fusion-latest3panel.jsonl --judge-model gemini-3.1-pro-preview --base-url https://router-api.0g.ai/v1 --workers 1 --resume --execute
+replay rows: 6
+pending rows: 1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/score-fusion-latest3panel.jsonl
+rejudged 1/1 task_id=b0e3597d-6cda-4082-a5b4-234aac7d2684 score=76.81159420289855
+--- score: baseline ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_rejudge.py /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/baseline-gpt-5.6-sol.jsonl --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/score-baseline.jsonl --judge-model gemini-3.1-pro-preview --base-url https://router-api.0g.ai/v1 --workers 1 --resume --execute
+replay rows: 6
+pending rows: 1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/score-baseline.jsonl
+rejudged 1/1 task_id=b0e3597d-6cda-4082-a5b4-234aac7d2684 score=77.84679089026916
+
+===== task 7/80  id=79224558-75f7-4e51-bc24-51f1e3ede921 =====
+--- panel solo: minimax-m3 ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-minimax-m3.jsonl --model minimax-m3 --config-id panel-minimax-m3 --task-id 79224558-75f7-4e51-bc24-51f1e3ede921 --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 1
+model: minimax-m3  config_id: panel-minimax-m3
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-minimax-m3.jsonl
+agentic 1/1 task=79224558 status=ok tools=14 finish=stop clen=23166 elapsed=91s
+--- panel solo: glm-5.3-flash ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-glm-5.3-flash.jsonl --model glm-5.3-flash --config-id panel-glm-5.3-flash --task-id 79224558-75f7-4e51-bc24-51f1e3ede921 --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 1
+model: glm-5.3-flash  config_id: panel-glm-5.3-flash
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-glm-5.3-flash.jsonl
+agentic 1/1 task=79224558 status=ok tools=17 finish=stop clen=25813 elapsed=240s
+--- panel solo: deepseek-v4-flash ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-deepseek-v4-flash.jsonl --model deepseek-v4-flash --config-id panel-deepseek-v4-flash --task-id 79224558-75f7-4e51-bc24-51f1e3ede921 --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 1
+model: deepseek-v4-flash  config_id: panel-deepseek-v4-flash
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-deepseek-v4-flash.jsonl
+agentic 1/1 task=79224558 status=ok tools=19 finish=length clen=31696 elapsed=118s
+--- baseline: gpt-5.6-sol ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/baseline-gpt-5.6-sol.jsonl --model gpt-5.6-sol --config-id baseline --task-id 79224558-75f7-4e51-bc24-51f1e3ede921 --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 1
+model: gpt-5.6-sol  config_id: baseline
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/baseline-gpt-5.6-sol.jsonl
+agentic 1/1 task=79224558 status=ok tools=18 finish=stop clen=23541 elapsed=121s
+--- fusion: fusion-latest3panel ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_client_fusion.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --panel minimax-m3=/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-minimax-m3.jsonl --panel glm-5.3-flash=/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-glm-5.3-flash.jsonl --panel deepseek-v4-flash=/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-deepseek-v4-flash.jsonl --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/fusion-latest3panel.jsonl --config-id fusion-latest3panel --judge-model minimax-m3 --fuser-model minimax-m3 --base-url https://router-api.0g.ai/v1 --api-key-name TR_API_KEY --workers 1 --resume --execute
+panel members: ['minimax-m3', 'glm-5.3-flash', 'deepseek-v4-flash']
+tasks with at least 1 panel answer: 7  pending: 1
+fuser: minimax-m3  judge: minimax-m3  config: fusion-latest3panel
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/fusion-latest3panel.jsonl
+fusion 1/1 task=79224558 status=ok clen=13047 finish=stop
+--- score: fusion-latest3panel ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_rejudge.py /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/fusion-latest3panel.jsonl --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/score-fusion-latest3panel.jsonl --judge-model gemini-3.1-pro-preview --base-url https://router-api.0g.ai/v1 --workers 1 --resume --execute
+replay rows: 7
+pending rows: 1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/score-fusion-latest3panel.jsonl
+rejudged 1/1 task_id=79224558-75f7-4e51-bc24-51f1e3ede921 score=49.22222222222222
+--- score: baseline ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_rejudge.py /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/baseline-gpt-5.6-sol.jsonl --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/score-baseline.jsonl --judge-model gemini-3.1-pro-preview --base-url https://router-api.0g.ai/v1 --workers 1 --resume --execute
+replay rows: 7
+pending rows: 1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/score-baseline.jsonl
+rejudged 1/1 task_id=79224558-75f7-4e51-bc24-51f1e3ede921 score=51.0
+
+===== task 8/80  id=cd19ee22-ded0-4fee-b1a0-51f074d72b8b =====
+--- panel solo: minimax-m3 ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-minimax-m3.jsonl --model minimax-m3 --config-id panel-minimax-m3 --task-id cd19ee22-ded0-4fee-b1a0-51f074d72b8b --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 1
+model: minimax-m3  config_id: panel-minimax-m3
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-minimax-m3.jsonl
+agentic 1/1 task=cd19ee22 status=ok tools=8 finish=stop clen=8081 elapsed=49s
+--- panel solo: glm-5.3-flash ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-glm-5.3-flash.jsonl --model glm-5.3-flash --config-id panel-glm-5.3-flash --task-id cd19ee22-ded0-4fee-b1a0-51f074d72b8b --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 1
+model: glm-5.3-flash  config_id: panel-glm-5.3-flash
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-glm-5.3-flash.jsonl
+agentic 1/1 task=cd19ee22 status=ok tools=7 finish=stop clen=6767 elapsed=156s
+--- panel solo: deepseek-v4-flash ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-deepseek-v4-flash.jsonl --model deepseek-v4-flash --config-id panel-deepseek-v4-flash --task-id cd19ee22-ded0-4fee-b1a0-51f074d72b8b --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 1
+model: deepseek-v4-flash  config_id: panel-deepseek-v4-flash
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-deepseek-v4-flash.jsonl
+agentic 1/1 task=cd19ee22 status=ok tools=17 finish=stop clen=26469 elapsed=125s
+--- baseline: gpt-5.6-sol ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/baseline-gpt-5.6-sol.jsonl --model gpt-5.6-sol --config-id baseline --task-id cd19ee22-ded0-4fee-b1a0-51f074d72b8b --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 1
+model: gpt-5.6-sol  config_id: baseline
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/baseline-gpt-5.6-sol.jsonl
+agentic 1/1 task=cd19ee22 status=ok tools=10 finish=stop clen=3159 elapsed=42s
+--- fusion: fusion-latest3panel ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_client_fusion.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --panel minimax-m3=/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-minimax-m3.jsonl --panel glm-5.3-flash=/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-glm-5.3-flash.jsonl --panel deepseek-v4-flash=/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-deepseek-v4-flash.jsonl --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/fusion-latest3panel.jsonl --config-id fusion-latest3panel --judge-model minimax-m3 --fuser-model minimax-m3 --base-url https://router-api.0g.ai/v1 --api-key-name TR_API_KEY --workers 1 --resume --execute
+panel members: ['minimax-m3', 'glm-5.3-flash', 'deepseek-v4-flash']
+tasks with at least 1 panel answer: 8  pending: 1
+fuser: minimax-m3  judge: minimax-m3  config: fusion-latest3panel
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/fusion-latest3panel.jsonl
+fusion 1/1 task=cd19ee22 status=ok clen=5340 finish=stop
+--- score: fusion-latest3panel ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_rejudge.py /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/fusion-latest3panel.jsonl --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/score-fusion-latest3panel.jsonl --judge-model gemini-3.1-pro-preview --base-url https://router-api.0g.ai/v1 --workers 1 --resume --execute
+replay rows: 8
+pending rows: 1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/score-fusion-latest3panel.jsonl
+rejudged 1/1 task_id=cd19ee22-ded0-4fee-b1a0-51f074d72b8b score=70.51282051282051
+--- score: baseline ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_rejudge.py /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/baseline-gpt-5.6-sol.jsonl --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/score-baseline.jsonl --judge-model gemini-3.1-pro-preview --base-url https://router-api.0g.ai/v1 --workers 1 --resume --execute
+replay rows: 8
+pending rows: 1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/score-baseline.jsonl
+rejudged 1/1 task_id=cd19ee22-ded0-4fee-b1a0-51f074d72b8b score=77.77777777777777
+
+===== task 9/80  id=ca0edd2d-c9b8-4b85-9b40-754f4865579a =====
+--- panel solo: minimax-m3 ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-minimax-m3.jsonl --model minimax-m3 --config-id panel-minimax-m3 --task-id ca0edd2d-c9b8-4b85-9b40-754f4865579a --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 1
+model: minimax-m3  config_id: panel-minimax-m3
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-minimax-m3.jsonl
+agentic 1/1 task=ca0edd2d status=ok tools=13 finish=stop clen=16689 elapsed=95s
+--- panel solo: glm-5.3-flash ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-glm-5.3-flash.jsonl --model glm-5.3-flash --config-id panel-glm-5.3-flash --task-id ca0edd2d-c9b8-4b85-9b40-754f4865579a --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 1
+model: glm-5.3-flash  config_id: panel-glm-5.3-flash
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-glm-5.3-flash.jsonl
+agentic 1/1 task=ca0edd2d status=ok tools=16 finish=stop clen=19328 elapsed=267s
+--- panel solo: deepseek-v4-flash ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-deepseek-v4-flash.jsonl --model deepseek-v4-flash --config-id panel-deepseek-v4-flash --task-id ca0edd2d-c9b8-4b85-9b40-754f4865579a --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 1
+model: deepseek-v4-flash  config_id: panel-deepseek-v4-flash
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-deepseek-v4-flash.jsonl
+agentic 1/1 task=ca0edd2d status=ok tools=16 finish=stop clen=15515 elapsed=89s
+--- baseline: gpt-5.6-sol ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/baseline-gpt-5.6-sol.jsonl --model gpt-5.6-sol --config-id baseline --task-id ca0edd2d-c9b8-4b85-9b40-754f4865579a --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 1
+model: gpt-5.6-sol  config_id: baseline
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/baseline-gpt-5.6-sol.jsonl
+agentic 1/1 task=ca0edd2d status=ok tools=25 finish=stop clen=25300 elapsed=112s
+--- fusion: fusion-latest3panel ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_client_fusion.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --panel minimax-m3=/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-minimax-m3.jsonl --panel glm-5.3-flash=/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-glm-5.3-flash.jsonl --panel deepseek-v4-flash=/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-deepseek-v4-flash.jsonl --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/fusion-latest3panel.jsonl --config-id fusion-latest3panel --judge-model minimax-m3 --fuser-model minimax-m3 --base-url https://router-api.0g.ai/v1 --api-key-name TR_API_KEY --workers 1 --resume --execute
+panel members: ['minimax-m3', 'glm-5.3-flash', 'deepseek-v4-flash']
+tasks with at least 1 panel answer: 9  pending: 1
+fuser: minimax-m3  judge: minimax-m3  config: fusion-latest3panel
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/fusion-latest3panel.jsonl
+fusion 1/1 task=ca0edd2d status=ok clen=12222 finish=stop
+--- score: fusion-latest3panel ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_rejudge.py /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/fusion-latest3panel.jsonl --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/score-fusion-latest3panel.jsonl --judge-model gemini-3.1-pro-preview --base-url https://router-api.0g.ai/v1 --workers 1 --resume --execute
+replay rows: 9
+pending rows: 1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/score-fusion-latest3panel.jsonl
+rejudged 1/1 task_id=ca0edd2d-c9b8-4b85-9b40-754f4865579a score=80.72562358276645
+--- score: baseline ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_rejudge.py /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/baseline-gpt-5.6-sol.jsonl --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/score-baseline.jsonl --judge-model gemini-3.1-pro-preview --base-url https://router-api.0g.ai/v1 --workers 1 --resume --execute
+replay rows: 9
+pending rows: 1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/score-baseline.jsonl
+rejudged 1/1 task_id=ca0edd2d-c9b8-4b85-9b40-754f4865579a score=70.06802721088435
+
+===== task 10/80  id=ce522bc2-e8a2-436b-971f-dd4972f23d39 =====
+--- panel solo: minimax-m3 ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-minimax-m3.jsonl --model minimax-m3 --config-id panel-minimax-m3 --task-id ce522bc2-e8a2-436b-971f-dd4972f23d39 --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 1
+model: minimax-m3  config_id: panel-minimax-m3
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-minimax-m3.jsonl
+agentic 1/1 task=ce522bc2 status=ok tools=18 finish=stop clen=35911 elapsed=158s
+--- panel solo: glm-5.3-flash ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-glm-5.3-flash.jsonl --model glm-5.3-flash --config-id panel-glm-5.3-flash --task-id ce522bc2-e8a2-436b-971f-dd4972f23d39 --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 1
+model: glm-5.3-flash  config_id: panel-glm-5.3-flash
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-glm-5.3-flash.jsonl
+agentic 1/1 task=ce522bc2 status=ok tools=16 finish=length clen=16024 elapsed=222s
+--- panel solo: deepseek-v4-flash ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-deepseek-v4-flash.jsonl --model deepseek-v4-flash --config-id panel-deepseek-v4-flash --task-id ce522bc2-e8a2-436b-971f-dd4972f23d39 --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 1
+model: deepseek-v4-flash  config_id: panel-deepseek-v4-flash
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-deepseek-v4-flash.jsonl
+agentic 1/1 task=ce522bc2 status=ok tools=16 finish=length clen=3184 elapsed=173s
+--- baseline: gpt-5.6-sol ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/baseline-gpt-5.6-sol.jsonl --model gpt-5.6-sol --config-id baseline --task-id ce522bc2-e8a2-436b-971f-dd4972f23d39 --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 1
+model: gpt-5.6-sol  config_id: baseline
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/baseline-gpt-5.6-sol.jsonl
+agentic 1/1 task=ce522bc2 status=ok tools=18 finish=stop clen=33164 elapsed=128s
+--- fusion: fusion-latest3panel ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_client_fusion.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --panel minimax-m3=/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-minimax-m3.jsonl --panel glm-5.3-flash=/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-glm-5.3-flash.jsonl --panel deepseek-v4-flash=/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-deepseek-v4-flash.jsonl --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/fusion-latest3panel.jsonl --config-id fusion-latest3panel --judge-model minimax-m3 --fuser-model minimax-m3 --base-url https://router-api.0g.ai/v1 --api-key-name TR_API_KEY --workers 1 --resume --execute
+panel members: ['minimax-m3', 'glm-5.3-flash', 'deepseek-v4-flash']
+tasks with at least 1 panel answer: 10  pending: 1
+fuser: minimax-m3  judge: minimax-m3  config: fusion-latest3panel
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/fusion-latest3panel.jsonl
+fusion 1/1 task=ce522bc2 status=ok clen=19085 finish=stop
+--- score: fusion-latest3panel ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_rejudge.py /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/fusion-latest3panel.jsonl --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/score-fusion-latest3panel.jsonl --judge-model gemini-3.1-pro-preview --base-url https://router-api.0g.ai/v1 --workers 1 --resume --execute
+replay rows: 10
+pending rows: 1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/score-fusion-latest3panel.jsonl
+rejudged 1/1 task_id=ce522bc2-e8a2-436b-971f-dd4972f23d39 score=58.68544600938967
+--- score: baseline ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_rejudge.py /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/baseline-gpt-5.6-sol.jsonl --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/score-baseline.jsonl --judge-model gemini-3.1-pro-preview --base-url https://router-api.0g.ai/v1 --workers 1 --resume --execute
+replay rows: 10
+pending rows: 1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/score-baseline.jsonl
+rejudged 1/1 task_id=ce522bc2-e8a2-436b-971f-dd4972f23d39 score=49.85915492957747
+
+===== task 11/80  id=faeeb64e-e5eb-4768-a9b9-8ef19de51473 =====
+--- panel solo: minimax-m3 ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-minimax-m3.jsonl --model minimax-m3 --config-id panel-minimax-m3 --task-id faeeb64e-e5eb-4768-a9b9-8ef19de51473 --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 1
+model: minimax-m3  config_id: panel-minimax-m3
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-minimax-m3.jsonl
+agentic 1/1 task=faeeb64e status=ok tools=16 finish=stop clen=29080 elapsed=115s
+--- panel solo: glm-5.3-flash ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-glm-5.3-flash.jsonl --model glm-5.3-flash --config-id panel-glm-5.3-flash --task-id faeeb64e-e5eb-4768-a9b9-8ef19de51473 --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 1
+model: glm-5.3-flash  config_id: panel-glm-5.3-flash
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-glm-5.3-flash.jsonl
+agentic 1/1 task=faeeb64e status=ok tools=16 finish=length clen=13134 elapsed=261s
+--- panel solo: deepseek-v4-flash ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-deepseek-v4-flash.jsonl --model deepseek-v4-flash --config-id panel-deepseek-v4-flash --task-id faeeb64e-e5eb-4768-a9b9-8ef19de51473 --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 1
+model: deepseek-v4-flash  config_id: panel-deepseek-v4-flash
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-deepseek-v4-flash.jsonl
+agentic 1/1 task=faeeb64e status=ok tools=17 finish=length clen=3907 elapsed=125s
+--- baseline: gpt-5.6-sol ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/baseline-gpt-5.6-sol.jsonl --model gpt-5.6-sol --config-id baseline --task-id faeeb64e-e5eb-4768-a9b9-8ef19de51473 --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 1
+model: gpt-5.6-sol  config_id: baseline
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/baseline-gpt-5.6-sol.jsonl
+agentic 1/1 task=faeeb64e status=ok tools=20 finish=stop clen=30345 elapsed=150s
+--- fusion: fusion-latest3panel ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_client_fusion.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --panel minimax-m3=/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-minimax-m3.jsonl --panel glm-5.3-flash=/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-glm-5.3-flash.jsonl --panel deepseek-v4-flash=/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-deepseek-v4-flash.jsonl --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/fusion-latest3panel.jsonl --config-id fusion-latest3panel --judge-model minimax-m3 --fuser-model minimax-m3 --base-url https://router-api.0g.ai/v1 --api-key-name TR_API_KEY --workers 1 --resume --execute
+panel members: ['minimax-m3', 'glm-5.3-flash', 'deepseek-v4-flash']
+tasks with at least 1 panel answer: 11  pending: 1
+fuser: minimax-m3  judge: minimax-m3  config: fusion-latest3panel
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/fusion-latest3panel.jsonl
+fusion 1/1 task=faeeb64e status=ok clen=15061 finish=stop
+--- score: fusion-latest3panel ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_rejudge.py /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/fusion-latest3panel.jsonl --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/score-fusion-latest3panel.jsonl --judge-model gemini-3.1-pro-preview --base-url https://router-api.0g.ai/v1 --workers 1 --resume --execute
+replay rows: 11
+pending rows: 1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/score-fusion-latest3panel.jsonl
+rejudged 1/1 task_id=faeeb64e-e5eb-4768-a9b9-8ef19de51473 score=75.17948717948718
+--- score: baseline ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_rejudge.py /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/baseline-gpt-5.6-sol.jsonl --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/score-baseline.jsonl --judge-model gemini-3.1-pro-preview --base-url https://router-api.0g.ai/v1 --workers 1 --resume --execute
+replay rows: 11
+pending rows: 1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/score-baseline.jsonl
+rejudged 1/1 task_id=faeeb64e-e5eb-4768-a9b9-8ef19de51473 score=76.61538461538461
+
+===== task 12/80  id=6c59b2a0-c097-4c69-ad03-2c4ea2ec579b =====
+--- panel solo: minimax-m3 ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-minimax-m3.jsonl --model minimax-m3 --config-id panel-minimax-m3 --task-id 6c59b2a0-c097-4c69-ad03-2c4ea2ec579b --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 1
+model: minimax-m3  config_id: panel-minimax-m3
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-minimax-m3.jsonl
+agentic 1/1 task=6c59b2a0 status=ok tools=16 finish=stop clen=5477 elapsed=93s
+--- panel solo: glm-5.3-flash ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-glm-5.3-flash.jsonl --model glm-5.3-flash --config-id panel-glm-5.3-flash --task-id 6c59b2a0-c097-4c69-ad03-2c4ea2ec579b --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 1
+model: glm-5.3-flash  config_id: panel-glm-5.3-flash
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-glm-5.3-flash.jsonl
+agentic 1/1 task=6c59b2a0 status=ok tools=8 finish=stop clen=3723 elapsed=110s
+--- panel solo: deepseek-v4-flash ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-deepseek-v4-flash.jsonl --model deepseek-v4-flash --config-id panel-deepseek-v4-flash --task-id 6c59b2a0-c097-4c69-ad03-2c4ea2ec579b --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 1
+model: deepseek-v4-flash  config_id: panel-deepseek-v4-flash
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-deepseek-v4-flash.jsonl
+agentic 1/1 task=6c59b2a0 status=ok tools=0 finish=length clen=0 elapsed=95s
+--- baseline: gpt-5.6-sol ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/baseline-gpt-5.6-sol.jsonl --model gpt-5.6-sol --config-id baseline --task-id 6c59b2a0-c097-4c69-ad03-2c4ea2ec579b --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 1
+model: gpt-5.6-sol  config_id: baseline
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/baseline-gpt-5.6-sol.jsonl
+agentic 1/1 task=6c59b2a0 status=ok tools=16 finish=stop clen=1220 elapsed=58s
+--- fusion: fusion-latest3panel ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_client_fusion.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --panel minimax-m3=/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-minimax-m3.jsonl --panel glm-5.3-flash=/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-glm-5.3-flash.jsonl --panel deepseek-v4-flash=/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-deepseek-v4-flash.jsonl --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/fusion-latest3panel.jsonl --config-id fusion-latest3panel --judge-model minimax-m3 --fuser-model minimax-m3 --base-url https://router-api.0g.ai/v1 --api-key-name TR_API_KEY --workers 1 --resume --execute
+panel members: ['minimax-m3', 'glm-5.3-flash', 'deepseek-v4-flash']
+tasks with at least 1 panel answer: 12  pending: 1
+fuser: minimax-m3  judge: minimax-m3  config: fusion-latest3panel
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/fusion-latest3panel.jsonl
+fusion 1/1 task=6c59b2a0 status=ok clen=431 finish=stop
+--- score: fusion-latest3panel ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_rejudge.py /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/fusion-latest3panel.jsonl --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/score-fusion-latest3panel.jsonl --judge-model gemini-3.1-pro-preview --base-url https://router-api.0g.ai/v1 --workers 1 --resume --execute
+replay rows: 12
+pending rows: 1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/score-fusion-latest3panel.jsonl
+rejudged 1/1 task_id=6c59b2a0-c097-4c69-ad03-2c4ea2ec579b score=35.82089552238806
+--- score: baseline ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_rejudge.py /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/baseline-gpt-5.6-sol.jsonl --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/score-baseline.jsonl --judge-model gemini-3.1-pro-preview --base-url https://router-api.0g.ai/v1 --workers 1 --resume --execute
+replay rows: 12
+pending rows: 1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/score-baseline.jsonl
+rejudged 1/1 task_id=6c59b2a0-c097-4c69-ad03-2c4ea2ec579b score=55.72139303482587
+
+===== task 13/80  id=c66a5c80-df51-4914-88dd-8b08aff7380c =====
+--- panel solo: minimax-m3 ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-minimax-m3.jsonl --model minimax-m3 --config-id panel-minimax-m3 --task-id c66a5c80-df51-4914-88dd-8b08aff7380c --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 1
+model: minimax-m3  config_id: panel-minimax-m3
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-minimax-m3.jsonl
+agentic 1/1 task=c66a5c80 status=ok tools=5 finish=stop clen=4254 elapsed=23s
+--- panel solo: glm-5.3-flash ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-glm-5.3-flash.jsonl --model glm-5.3-flash --config-id panel-glm-5.3-flash --task-id c66a5c80-df51-4914-88dd-8b08aff7380c --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 1
+model: glm-5.3-flash  config_id: panel-glm-5.3-flash
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-glm-5.3-flash.jsonl
+agentic 1/1 task=c66a5c80 status=ok tools=10 finish=stop clen=7516 elapsed=149s
+--- panel solo: deepseek-v4-flash ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-deepseek-v4-flash.jsonl --model deepseek-v4-flash --config-id panel-deepseek-v4-flash --task-id c66a5c80-df51-4914-88dd-8b08aff7380c --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 1
+model: deepseek-v4-flash  config_id: panel-deepseek-v4-flash
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-deepseek-v4-flash.jsonl
+agentic 1/1 task=c66a5c80 status=ok tools=16 finish=stop clen=16006 elapsed=173s
+--- baseline: gpt-5.6-sol ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/baseline-gpt-5.6-sol.jsonl --model gpt-5.6-sol --config-id baseline --task-id c66a5c80-df51-4914-88dd-8b08aff7380c --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 1
+model: gpt-5.6-sol  config_id: baseline
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/baseline-gpt-5.6-sol.jsonl
+agentic 1/1 task=c66a5c80 status=ok tools=20 finish=stop clen=7563 elapsed=167s
+--- fusion: fusion-latest3panel ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_client_fusion.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --panel minimax-m3=/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-minimax-m3.jsonl --panel glm-5.3-flash=/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-glm-5.3-flash.jsonl --panel deepseek-v4-flash=/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-deepseek-v4-flash.jsonl --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/fusion-latest3panel.jsonl --config-id fusion-latest3panel --judge-model minimax-m3 --fuser-model minimax-m3 --base-url https://router-api.0g.ai/v1 --api-key-name TR_API_KEY --workers 1 --resume --execute
+panel members: ['minimax-m3', 'glm-5.3-flash', 'deepseek-v4-flash']
+tasks with at least 1 panel answer: 13  pending: 1
+fuser: minimax-m3  judge: minimax-m3  config: fusion-latest3panel
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/fusion-latest3panel.jsonl
+fusion 1/1 task=c66a5c80 status=ok clen=4237 finish=stop
+--- score: fusion-latest3panel ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_rejudge.py /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/fusion-latest3panel.jsonl --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/score-fusion-latest3panel.jsonl --judge-model gemini-3.1-pro-preview --base-url https://router-api.0g.ai/v1 --workers 1 --resume --execute
+replay rows: 13
+pending rows: 1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/score-fusion-latest3panel.jsonl
+rejudged 1/1 task_id=c66a5c80-df51-4914-88dd-8b08aff7380c score=90.25032938076417
+--- score: baseline ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_rejudge.py /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/baseline-gpt-5.6-sol.jsonl --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/score-baseline.jsonl --judge-model gemini-3.1-pro-preview --base-url https://router-api.0g.ai/v1 --workers 1 --resume --execute
+replay rows: 13
+pending rows: 1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/score-baseline.jsonl
+rejudged 1/1 task_id=c66a5c80-df51-4914-88dd-8b08aff7380c score=77.86561264822134
+
+===== task 14/80  id=aca95495-b0fe-4330-90fc-d2fd1e2c709e =====
+--- panel solo: minimax-m3 ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-minimax-m3.jsonl --model minimax-m3 --config-id panel-minimax-m3 --task-id aca95495-b0fe-4330-90fc-d2fd1e2c709e --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 1
+model: minimax-m3  config_id: panel-minimax-m3
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-minimax-m3.jsonl
+agentic 1/1 task=aca95495 status=ok tools=16 finish=stop clen=40580 elapsed=137s
+--- panel solo: glm-5.3-flash ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-glm-5.3-flash.jsonl --model glm-5.3-flash --config-id panel-glm-5.3-flash --task-id aca95495-b0fe-4330-90fc-d2fd1e2c709e --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 1
+model: glm-5.3-flash  config_id: panel-glm-5.3-flash
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-glm-5.3-flash.jsonl
+agentic 1/1 task=aca95495 status=ok tools=16 finish=length clen=22857 elapsed=236s
+--- panel solo: deepseek-v4-flash ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-deepseek-v4-flash.jsonl --model deepseek-v4-flash --config-id panel-deepseek-v4-flash --task-id aca95495-b0fe-4330-90fc-d2fd1e2c709e --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 1
+model: deepseek-v4-flash  config_id: panel-deepseek-v4-flash
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-deepseek-v4-flash.jsonl
+agentic 1/1 task=aca95495 status=ok tools=16 finish=length clen=28298 elapsed=124s
+--- baseline: gpt-5.6-sol ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/baseline-gpt-5.6-sol.jsonl --model gpt-5.6-sol --config-id baseline --task-id aca95495-b0fe-4330-90fc-d2fd1e2c709e --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 1
+model: gpt-5.6-sol  config_id: baseline
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/baseline-gpt-5.6-sol.jsonl
+agentic 1/1 task=aca95495 status=ok tools=23 finish=stop clen=36471 elapsed=137s
+--- fusion: fusion-latest3panel ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_client_fusion.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --panel minimax-m3=/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-minimax-m3.jsonl --panel glm-5.3-flash=/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-glm-5.3-flash.jsonl --panel deepseek-v4-flash=/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-deepseek-v4-flash.jsonl --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/fusion-latest3panel.jsonl --config-id fusion-latest3panel --judge-model minimax-m3 --fuser-model minimax-m3 --base-url https://router-api.0g.ai/v1 --api-key-name TR_API_KEY --workers 1 --resume --execute
+panel members: ['minimax-m3', 'glm-5.3-flash', 'deepseek-v4-flash']
+tasks with at least 1 panel answer: 14  pending: 1
+fuser: minimax-m3  judge: minimax-m3  config: fusion-latest3panel
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/fusion-latest3panel.jsonl
+fusion 1/1 task=aca95495 status=ok clen=29497 finish=stop
+--- score: fusion-latest3panel ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_rejudge.py /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/fusion-latest3panel.jsonl --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/score-fusion-latest3panel.jsonl --judge-model gemini-3.1-pro-preview --base-url https://router-api.0g.ai/v1 --workers 1 --resume --execute
+replay rows: 14
+pending rows: 1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/score-fusion-latest3panel.jsonl
+rejudged 1/1 task_id=aca95495-b0fe-4330-90fc-d2fd1e2c709e score=46.33240482822655
+--- score: baseline ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_rejudge.py /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/baseline-gpt-5.6-sol.jsonl --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/score-baseline.jsonl --judge-model gemini-3.1-pro-preview --base-url https://router-api.0g.ai/v1 --workers 1 --resume --execute
+replay rows: 14
+pending rows: 1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/score-baseline.jsonl
+rejudged 1/1 task_id=aca95495-b0fe-4330-90fc-d2fd1e2c709e score=39.46146703806871
+
+===== task 15/80  id=6f425968-0c5b-42d8-a5c5-0b20d2f1d71e =====
+--- panel solo: minimax-m3 ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-minimax-m3.jsonl --model minimax-m3 --config-id panel-minimax-m3 --task-id 6f425968-0c5b-42d8-a5c5-0b20d2f1d71e --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 1
+model: minimax-m3  config_id: panel-minimax-m3
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-minimax-m3.jsonl
+agentic 1/1 task=6f425968 status=ok tools=16 finish=stop clen=35596 elapsed=164s
+The PDF <_io.BytesIO object at 0x7f653f41e8e0> contains a metadata field indicating that it should not allow text extraction. Ignoring this field and proceeding. Use the check_extractable if you want to raise an error in this case
+--- panel solo: glm-5.3-flash ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-glm-5.3-flash.jsonl --model glm-5.3-flash --config-id panel-glm-5.3-flash --task-id 6f425968-0c5b-42d8-a5c5-0b20d2f1d71e --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 1
+model: glm-5.3-flash  config_id: panel-glm-5.3-flash
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-glm-5.3-flash.jsonl
+agentic 1/1 task=6f425968 status=ok tools=16 finish=length clen=9677 elapsed=293s
+--- panel solo: deepseek-v4-flash ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-deepseek-v4-flash.jsonl --model deepseek-v4-flash --config-id panel-deepseek-v4-flash --task-id 6f425968-0c5b-42d8-a5c5-0b20d2f1d71e --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 1
+model: deepseek-v4-flash  config_id: panel-deepseek-v4-flash
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-deepseek-v4-flash.jsonl
+agentic 1/1 task=6f425968 status=ok tools=16 finish=length clen=35231 elapsed=120s
+The PDF <_io.BytesIO object at 0x7fe8c1e2ade0> contains a metadata field indicating that it should not allow text extraction. Ignoring this field and proceeding. Use the check_extractable if you want to raise an error in this case
+--- baseline: gpt-5.6-sol ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/baseline-gpt-5.6-sol.jsonl --model gpt-5.6-sol --config-id baseline --task-id 6f425968-0c5b-42d8-a5c5-0b20d2f1d71e --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 1
+model: gpt-5.6-sol  config_id: baseline
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/baseline-gpt-5.6-sol.jsonl
+agentic 1/1 task=6f425968 status=ok tools=18 finish=stop clen=43890 elapsed=172s
+--- fusion: fusion-latest3panel ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_client_fusion.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --panel minimax-m3=/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-minimax-m3.jsonl --panel glm-5.3-flash=/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-glm-5.3-flash.jsonl --panel deepseek-v4-flash=/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-deepseek-v4-flash.jsonl --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/fusion-latest3panel.jsonl --config-id fusion-latest3panel --judge-model minimax-m3 --fuser-model minimax-m3 --base-url https://router-api.0g.ai/v1 --api-key-name TR_API_KEY --workers 1 --resume --execute
+panel members: ['minimax-m3', 'glm-5.3-flash', 'deepseek-v4-flash']
+tasks with at least 1 panel answer: 15  pending: 1
+fuser: minimax-m3  judge: minimax-m3  config: fusion-latest3panel
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/fusion-latest3panel.jsonl
+fusion 1/1 task=6f425968 status=ok clen=38461 finish=length
+--- score: fusion-latest3panel ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_rejudge.py /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/fusion-latest3panel.jsonl --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/score-fusion-latest3panel.jsonl --judge-model gemini-3.1-pro-preview --base-url https://router-api.0g.ai/v1 --workers 1 --resume --execute
+replay rows: 15
+pending rows: 1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/score-fusion-latest3panel.jsonl
+rejudged 1/1 task_id=6f425968-0c5b-42d8-a5c5-0b20d2f1d71e score=78.27380952380952
+--- score: baseline ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_rejudge.py /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/baseline-gpt-5.6-sol.jsonl --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/score-baseline.jsonl --judge-model gemini-3.1-pro-preview --base-url https://router-api.0g.ai/v1 --workers 1 --resume --execute
+replay rows: 15
+pending rows: 1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/score-baseline.jsonl
+rejudged 1/1 task_id=6f425968-0c5b-42d8-a5c5-0b20d2f1d71e score=81.84523809523809
+
+===== task 16/80  id=34e9b780-7fb6-426a-bc39-c340baa578e8 =====
+--- panel solo: minimax-m3 ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-minimax-m3.jsonl --model minimax-m3 --config-id panel-minimax-m3 --task-id 34e9b780-7fb6-426a-bc39-c340baa578e8 --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 1
+model: minimax-m3  config_id: panel-minimax-m3
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-minimax-m3.jsonl
+agentic 1/1 task=34e9b780 status=ok tools=18 finish=stop clen=41049 elapsed=210s
+--- panel solo: glm-5.3-flash ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-glm-5.3-flash.jsonl --model glm-5.3-flash --config-id panel-glm-5.3-flash --task-id 34e9b780-7fb6-426a-bc39-c340baa578e8 --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 1
+model: glm-5.3-flash  config_id: panel-glm-5.3-flash
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-glm-5.3-flash.jsonl
+agentic 1/1 task=34e9b780 status=ok tools=16 finish=length clen=18052 elapsed=252s
+--- panel solo: deepseek-v4-flash ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-deepseek-v4-flash.jsonl --model deepseek-v4-flash --config-id panel-deepseek-v4-flash --task-id 34e9b780-7fb6-426a-bc39-c340baa578e8 --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 1
+model: deepseek-v4-flash  config_id: panel-deepseek-v4-flash
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-deepseek-v4-flash.jsonl
+agentic 1/1 task=34e9b780 status=ok tools=16 finish=stop clen=30279 elapsed=192s
+--- baseline: gpt-5.6-sol ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/baseline-gpt-5.6-sol.jsonl --model gpt-5.6-sol --config-id baseline --task-id 34e9b780-7fb6-426a-bc39-c340baa578e8 --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 1
+model: gpt-5.6-sol  config_id: baseline
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/baseline-gpt-5.6-sol.jsonl
+agentic 1/1 task=34e9b780 status=ok tools=21 finish=stop clen=30346 elapsed=139s
+--- fusion: fusion-latest3panel ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_client_fusion.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --panel minimax-m3=/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-minimax-m3.jsonl --panel glm-5.3-flash=/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-glm-5.3-flash.jsonl --panel deepseek-v4-flash=/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-deepseek-v4-flash.jsonl --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/fusion-latest3panel.jsonl --config-id fusion-latest3panel --judge-model minimax-m3 --fuser-model minimax-m3 --base-url https://router-api.0g.ai/v1 --api-key-name TR_API_KEY --workers 1 --resume --execute
+panel members: ['minimax-m3', 'glm-5.3-flash', 'deepseek-v4-flash']
+tasks with at least 1 panel answer: 16  pending: 1
+fuser: minimax-m3  judge: minimax-m3  config: fusion-latest3panel
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/fusion-latest3panel.jsonl
+fusion 1/1 task=34e9b780 status=ok clen=21682 finish=stop
+--- score: fusion-latest3panel ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_rejudge.py /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/fusion-latest3panel.jsonl --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/score-fusion-latest3panel.jsonl --judge-model gemini-3.1-pro-preview --base-url https://router-api.0g.ai/v1 --workers 1 --resume --execute
+replay rows: 16
+pending rows: 1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/score-fusion-latest3panel.jsonl
+rejudged 1/1 task_id=34e9b780-7fb6-426a-bc39-c340baa578e8 score=70.54263565891473
+--- score: baseline ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_rejudge.py /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/baseline-gpt-5.6-sol.jsonl --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/score-baseline.jsonl --judge-model gemini-3.1-pro-preview --base-url https://router-api.0g.ai/v1 --workers 1 --resume --execute
+replay rows: 16
+pending rows: 1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/score-baseline.jsonl
+rejudged 1/1 task_id=34e9b780-7fb6-426a-bc39-c340baa578e8 score=58.80398671096345
+
+===== task 17/80  id=262b3145-5b6d-486b-a09f-c8e6a8f98e20 =====
+--- panel solo: minimax-m3 ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-minimax-m3.jsonl --model minimax-m3 --config-id panel-minimax-m3 --task-id 262b3145-5b6d-486b-a09f-c8e6a8f98e20 --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 1
+model: minimax-m3  config_id: panel-minimax-m3
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-minimax-m3.jsonl
+agentic 1/1 task=262b3145 status=ok tools=16 finish=stop clen=35904 elapsed=98s
+--- panel solo: glm-5.3-flash ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-glm-5.3-flash.jsonl --model glm-5.3-flash --config-id panel-glm-5.3-flash --task-id 262b3145-5b6d-486b-a09f-c8e6a8f98e20 --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 1
+model: glm-5.3-flash  config_id: panel-glm-5.3-flash
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-glm-5.3-flash.jsonl
+agentic 1/1 task=262b3145 status=ok tools=0 finish=length clen=0 elapsed=279s
+--- panel solo: deepseek-v4-flash ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-deepseek-v4-flash.jsonl --model deepseek-v4-flash --config-id panel-deepseek-v4-flash --task-id 262b3145-5b6d-486b-a09f-c8e6a8f98e20 --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 1
+model: deepseek-v4-flash  config_id: panel-deepseek-v4-flash
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-deepseek-v4-flash.jsonl
+agentic 1/1 task=262b3145 status=ok tools=18 finish=length clen=31125 elapsed=122s
+--- baseline: gpt-5.6-sol ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/baseline-gpt-5.6-sol.jsonl --model gpt-5.6-sol --config-id baseline --task-id 262b3145-5b6d-486b-a09f-c8e6a8f98e20 --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 1
+model: gpt-5.6-sol  config_id: baseline
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/baseline-gpt-5.6-sol.jsonl
+agentic 1/1 task=262b3145 status=ok tools=16 finish=stop clen=33600 elapsed=141s
+--- fusion: fusion-latest3panel ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_client_fusion.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --panel minimax-m3=/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-minimax-m3.jsonl --panel glm-5.3-flash=/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-glm-5.3-flash.jsonl --panel deepseek-v4-flash=/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-deepseek-v4-flash.jsonl --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/fusion-latest3panel.jsonl --config-id fusion-latest3panel --judge-model minimax-m3 --fuser-model minimax-m3 --base-url https://router-api.0g.ai/v1 --api-key-name TR_API_KEY --workers 1 --resume --execute
+panel members: ['minimax-m3', 'glm-5.3-flash', 'deepseek-v4-flash']
+tasks with at least 1 panel answer: 17  pending: 1
+fuser: minimax-m3  judge: minimax-m3  config: fusion-latest3panel
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/fusion-latest3panel.jsonl
+fusion 1/1 task=262b3145 status=ok clen=26815 finish=stop
+--- score: fusion-latest3panel ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_rejudge.py /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/fusion-latest3panel.jsonl --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/score-fusion-latest3panel.jsonl --judge-model gemini-3.1-pro-preview --base-url https://router-api.0g.ai/v1 --workers 1 --resume --execute
+replay rows: 17
+pending rows: 1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/score-fusion-latest3panel.jsonl
+rejudged 1/1 task_id=262b3145-5b6d-486b-a09f-c8e6a8f98e20 score=79.27170868347339
+--- score: baseline ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_rejudge.py /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/baseline-gpt-5.6-sol.jsonl --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/score-baseline.jsonl --judge-model gemini-3.1-pro-preview --base-url https://router-api.0g.ai/v1 --workers 1 --resume --execute
+replay rows: 17
+pending rows: 1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/score-baseline.jsonl
+rejudged 1/1 task_id=262b3145-5b6d-486b-a09f-c8e6a8f98e20 score=75.21008403361344
+
+===== task 18/80  id=eb3965d1-c466-4c4c-bd4a-c8a0b255b893 =====
+--- panel solo: minimax-m3 ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-minimax-m3.jsonl --model minimax-m3 --config-id panel-minimax-m3 --task-id eb3965d1-c466-4c4c-bd4a-c8a0b255b893 --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 1
+model: minimax-m3  config_id: panel-minimax-m3
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-minimax-m3.jsonl
+agentic 1/1 task=eb3965d1 status=ok tools=16 finish=stop clen=33801 elapsed=153s
+--- panel solo: glm-5.3-flash ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-glm-5.3-flash.jsonl --model glm-5.3-flash --config-id panel-glm-5.3-flash --task-id eb3965d1-c466-4c4c-bd4a-c8a0b255b893 --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 1
+model: glm-5.3-flash  config_id: panel-glm-5.3-flash
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-glm-5.3-flash.jsonl
+agentic 1/1 task=eb3965d1 status=ok tools=16 finish=length clen=6475 elapsed=257s
+--- panel solo: deepseek-v4-flash ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-deepseek-v4-flash.jsonl --model deepseek-v4-flash --config-id panel-deepseek-v4-flash --task-id eb3965d1-c466-4c4c-bd4a-c8a0b255b893 --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 1
+model: deepseek-v4-flash  config_id: panel-deepseek-v4-flash
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-deepseek-v4-flash.jsonl
+agentic 1/1 task=eb3965d1 status=ok tools=16 finish=length clen=7543 elapsed=122s
+--- baseline: gpt-5.6-sol ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/baseline-gpt-5.6-sol.jsonl --model gpt-5.6-sol --config-id baseline --task-id eb3965d1-c466-4c4c-bd4a-c8a0b255b893 --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 1
+model: gpt-5.6-sol  config_id: baseline
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/baseline-gpt-5.6-sol.jsonl
+agentic 1/1 task=eb3965d1 status=ok tools=18 finish=stop clen=29622 elapsed=146s
+--- fusion: fusion-latest3panel ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_client_fusion.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --panel minimax-m3=/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-minimax-m3.jsonl --panel glm-5.3-flash=/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-glm-5.3-flash.jsonl --panel deepseek-v4-flash=/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-deepseek-v4-flash.jsonl --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/fusion-latest3panel.jsonl --config-id fusion-latest3panel --judge-model minimax-m3 --fuser-model minimax-m3 --base-url https://router-api.0g.ai/v1 --api-key-name TR_API_KEY --workers 1 --resume --execute
+panel members: ['minimax-m3', 'glm-5.3-flash', 'deepseek-v4-flash']
+tasks with at least 1 panel answer: 18  pending: 1
+fuser: minimax-m3  judge: minimax-m3  config: fusion-latest3panel
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/fusion-latest3panel.jsonl
+fusion 1/1 task=eb3965d1 status=ok clen=23937 finish=stop
+--- score: fusion-latest3panel ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_rejudge.py /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/fusion-latest3panel.jsonl --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/score-fusion-latest3panel.jsonl --judge-model gemini-3.1-pro-preview --base-url https://router-api.0g.ai/v1 --workers 1 --resume --execute
+replay rows: 18
+pending rows: 1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/score-fusion-latest3panel.jsonl
+rejudged 1/1 task_id=eb3965d1-c466-4c4c-bd4a-c8a0b255b893 score=65.04559270516717
+--- score: baseline ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_rejudge.py /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/baseline-gpt-5.6-sol.jsonl --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/score-baseline.jsonl --judge-model gemini-3.1-pro-preview --base-url https://router-api.0g.ai/v1 --workers 1 --resume --execute
+replay rows: 18
+pending rows: 1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/score-baseline.jsonl
+rejudged 1/1 task_id=eb3965d1-c466-4c4c-bd4a-c8a0b255b893 score=67.57852077001013
+
+===== task 19/80  id=0a652d00-5c22-4621-8ec4-dd92b1f1450b =====
+--- panel solo: minimax-m3 ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-minimax-m3.jsonl --model minimax-m3 --config-id panel-minimax-m3 --task-id 0a652d00-5c22-4621-8ec4-dd92b1f1450b --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 1
+model: minimax-m3  config_id: panel-minimax-m3
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-minimax-m3.jsonl
+agentic 1/1 task=0a652d00 status=ok tools=17 finish=stop clen=33866 elapsed=128s
+--- panel solo: glm-5.3-flash ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-glm-5.3-flash.jsonl --model glm-5.3-flash --config-id panel-glm-5.3-flash --task-id 0a652d00-5c22-4621-8ec4-dd92b1f1450b --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 1
+model: glm-5.3-flash  config_id: panel-glm-5.3-flash
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-glm-5.3-flash.jsonl
+agentic 1/1 task=0a652d00 status=ok tools=17 finish=length clen=7389 elapsed=246s
+--- panel solo: deepseek-v4-flash ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-deepseek-v4-flash.jsonl --model deepseek-v4-flash --config-id panel-deepseek-v4-flash --task-id 0a652d00-5c22-4621-8ec4-dd92b1f1450b --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 1
+model: deepseek-v4-flash  config_id: panel-deepseek-v4-flash
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-deepseek-v4-flash.jsonl
+agentic 1/1 task=0a652d00 status=ok tools=17 finish=length clen=16664 elapsed=113s
+--- baseline: gpt-5.6-sol ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/baseline-gpt-5.6-sol.jsonl --model gpt-5.6-sol --config-id baseline --task-id 0a652d00-5c22-4621-8ec4-dd92b1f1450b --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 1
+model: gpt-5.6-sol  config_id: baseline
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/baseline-gpt-5.6-sol.jsonl
+agentic 1/1 task=0a652d00 status=ok tools=18 finish=stop clen=34233 elapsed=149s
+--- fusion: fusion-latest3panel ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_client_fusion.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --panel minimax-m3=/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-minimax-m3.jsonl --panel glm-5.3-flash=/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-glm-5.3-flash.jsonl --panel deepseek-v4-flash=/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-deepseek-v4-flash.jsonl --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/fusion-latest3panel.jsonl --config-id fusion-latest3panel --judge-model minimax-m3 --fuser-model minimax-m3 --base-url https://router-api.0g.ai/v1 --api-key-name TR_API_KEY --workers 1 --resume --execute
+panel members: ['minimax-m3', 'glm-5.3-flash', 'deepseek-v4-flash']
+tasks with at least 1 panel answer: 19  pending: 1
+fuser: minimax-m3  judge: minimax-m3  config: fusion-latest3panel
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/fusion-latest3panel.jsonl
+fusion 1/1 task=0a652d00 status=ok clen=13841 finish=stop
+--- score: fusion-latest3panel ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_rejudge.py /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/fusion-latest3panel.jsonl --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/score-fusion-latest3panel.jsonl --judge-model gemini-3.1-pro-preview --base-url https://router-api.0g.ai/v1 --workers 1 --resume --execute
+replay rows: 19
+pending rows: 1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/score-fusion-latest3panel.jsonl
+rejudged 1/1 task_id=0a652d00-5c22-4621-8ec4-dd92b1f1450b score=64.34494195688227
+--- score: baseline ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_rejudge.py /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/baseline-gpt-5.6-sol.jsonl --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/score-baseline.jsonl --judge-model gemini-3.1-pro-preview --base-url https://router-api.0g.ai/v1 --workers 1 --resume --execute
+replay rows: 19
+pending rows: 1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/score-baseline.jsonl
+rejudged 1/1 task_id=0a652d00-5c22-4621-8ec4-dd92b1f1450b score=82.75290215588723
+
+===== task 20/80  id=e15a37b4-cd7f-4f52-ba81-9f33b24aabe9 =====
+--- panel solo: minimax-m3 ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-minimax-m3.jsonl --model minimax-m3 --config-id panel-minimax-m3 --task-id e15a37b4-cd7f-4f52-ba81-9f33b24aabe9 --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 1
+model: minimax-m3  config_id: panel-minimax-m3
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-minimax-m3.jsonl
+agentic 1/1 task=e15a37b4 status=ok tools=18 finish=stop clen=22648 elapsed=120s
+--- panel solo: glm-5.3-flash ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-glm-5.3-flash.jsonl --model glm-5.3-flash --config-id panel-glm-5.3-flash --task-id e15a37b4-cd7f-4f52-ba81-9f33b24aabe9 --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 1
+model: glm-5.3-flash  config_id: panel-glm-5.3-flash
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-glm-5.3-flash.jsonl
+agentic 1/1 task=e15a37b4 status=ok tools=16 finish=length clen=6599 elapsed=263s
+--- panel solo: deepseek-v4-flash ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-deepseek-v4-flash.jsonl --model deepseek-v4-flash --config-id panel-deepseek-v4-flash --task-id e15a37b4-cd7f-4f52-ba81-9f33b24aabe9 --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 1
+model: deepseek-v4-flash  config_id: panel-deepseek-v4-flash
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-deepseek-v4-flash.jsonl
+agentic 1/1 task=e15a37b4 status=ok tools=16 finish=stop clen=25846 elapsed=120s
+--- baseline: gpt-5.6-sol ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/baseline-gpt-5.6-sol.jsonl --model gpt-5.6-sol --config-id baseline --task-id e15a37b4-cd7f-4f52-ba81-9f33b24aabe9 --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 1
+model: gpt-5.6-sol  config_id: baseline
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/baseline-gpt-5.6-sol.jsonl
+agentic 1/1 task=e15a37b4 status=ok tools=16 finish=stop clen=29689 elapsed=122s
+--- fusion: fusion-latest3panel ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_client_fusion.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --panel minimax-m3=/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-minimax-m3.jsonl --panel glm-5.3-flash=/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-glm-5.3-flash.jsonl --panel deepseek-v4-flash=/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-deepseek-v4-flash.jsonl --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/fusion-latest3panel.jsonl --config-id fusion-latest3panel --judge-model minimax-m3 --fuser-model minimax-m3 --base-url https://router-api.0g.ai/v1 --api-key-name TR_API_KEY --workers 1 --resume --execute
+panel members: ['minimax-m3', 'glm-5.3-flash', 'deepseek-v4-flash']
+tasks with at least 1 panel answer: 20  pending: 1
+fuser: minimax-m3  judge: minimax-m3  config: fusion-latest3panel
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/fusion-latest3panel.jsonl
+fusion 1/1 task=e15a37b4 status=ok clen=16358 finish=stop
+--- score: fusion-latest3panel ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_rejudge.py /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/fusion-latest3panel.jsonl --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/score-fusion-latest3panel.jsonl --judge-model gemini-3.1-pro-preview --base-url https://router-api.0g.ai/v1 --workers 1 --resume --execute
+replay rows: 20
+pending rows: 1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/score-fusion-latest3panel.jsonl
+rejudged 1/1 task_id=e15a37b4-cd7f-4f52-ba81-9f33b24aabe9 score=76.06837606837607
+--- score: baseline ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_rejudge.py /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/baseline-gpt-5.6-sol.jsonl --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/score-baseline.jsonl --judge-model gemini-3.1-pro-preview --base-url https://router-api.0g.ai/v1 --workers 1 --resume --execute
+replay rows: 20
+pending rows: 1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/score-baseline.jsonl
+rejudged 1/1 task_id=e15a37b4-cd7f-4f52-ba81-9f33b24aabe9 score=78.3993783993784
+
+===== task 21/80  id=4f36f602-6c14-4c23-a37d-e5ee92ed4552 =====
+--- panel solo: minimax-m3 ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-minimax-m3.jsonl --model minimax-m3 --config-id panel-minimax-m3 --task-id 4f36f602-6c14-4c23-a37d-e5ee92ed4552 --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 1
+model: minimax-m3  config_id: panel-minimax-m3
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-minimax-m3.jsonl
+agentic 1/1 task=4f36f602 status=ok tools=16 finish=stop clen=36137 elapsed=139s
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+--- panel solo: glm-5.3-flash ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-glm-5.3-flash.jsonl --model glm-5.3-flash --config-id panel-glm-5.3-flash --task-id 4f36f602-6c14-4c23-a37d-e5ee92ed4552 --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 1
+model: glm-5.3-flash  config_id: panel-glm-5.3-flash
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-glm-5.3-flash.jsonl
+agentic 1/1 task=4f36f602 status=ok tools=16 finish=stop clen=0 elapsed=332s
+--- panel solo: deepseek-v4-flash ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-deepseek-v4-flash.jsonl --model deepseek-v4-flash --config-id panel-deepseek-v4-flash --task-id 4f36f602-6c14-4c23-a37d-e5ee92ed4552 --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 1
+model: deepseek-v4-flash  config_id: panel-deepseek-v4-flash
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-deepseek-v4-flash.jsonl
+agentic 1/1 task=4f36f602 status=ok tools=16 finish=length clen=18123 elapsed=127s
+--- baseline: gpt-5.6-sol ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/baseline-gpt-5.6-sol.jsonl --model gpt-5.6-sol --config-id baseline --task-id 4f36f602-6c14-4c23-a37d-e5ee92ed4552 --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 1
+model: gpt-5.6-sol  config_id: baseline
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/baseline-gpt-5.6-sol.jsonl
+agentic 1/1 task=4f36f602 status=ok tools=25 finish=stop clen=44799 elapsed=197s
+--- fusion: fusion-latest3panel ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_client_fusion.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --panel minimax-m3=/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-minimax-m3.jsonl --panel glm-5.3-flash=/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-glm-5.3-flash.jsonl --panel deepseek-v4-flash=/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-deepseek-v4-flash.jsonl --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/fusion-latest3panel.jsonl --config-id fusion-latest3panel --judge-model minimax-m3 --fuser-model minimax-m3 --base-url https://router-api.0g.ai/v1 --api-key-name TR_API_KEY --workers 1 --resume --execute
+panel members: ['minimax-m3', 'glm-5.3-flash', 'deepseek-v4-flash']
+tasks with at least 1 panel answer: 21  pending: 1
+fuser: minimax-m3  judge: minimax-m3  config: fusion-latest3panel
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/fusion-latest3panel.jsonl
+fusion 1/1 task=4f36f602 status=ok clen=32127 finish=stop
+--- score: fusion-latest3panel ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_rejudge.py /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/fusion-latest3panel.jsonl --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/score-fusion-latest3panel.jsonl --judge-model gemini-3.1-pro-preview --base-url https://router-api.0g.ai/v1 --workers 1 --resume --execute
+replay rows: 21
+pending rows: 1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/score-fusion-latest3panel.jsonl
+rejudged 1/1 task_id=4f36f602-6c14-4c23-a37d-e5ee92ed4552 score=69.02738432483476
+--- score: baseline ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_rejudge.py /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/baseline-gpt-5.6-sol.jsonl --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/score-baseline.jsonl --judge-model gemini-3.1-pro-preview --base-url https://router-api.0g.ai/v1 --workers 1 --resume --execute
+replay rows: 21
+pending rows: 1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/score-baseline.jsonl
+rejudged 1/1 task_id=4f36f602-6c14-4c23-a37d-e5ee92ed4552 score=68.08309726156752
+
+===== task 22/80  id=b3c576e7-dfc6-403f-90e7-53c011884d5c =====
+--- panel solo: minimax-m3 ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-minimax-m3.jsonl --model minimax-m3 --config-id panel-minimax-m3 --task-id b3c576e7-dfc6-403f-90e7-53c011884d5c --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 1
+model: minimax-m3  config_id: panel-minimax-m3
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-minimax-m3.jsonl
+agentic 1/1 task=b3c576e7 status=ok tools=16 finish=stop clen=16847 elapsed=254s
+--- panel solo: glm-5.3-flash ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-glm-5.3-flash.jsonl --model glm-5.3-flash --config-id panel-glm-5.3-flash --task-id b3c576e7-dfc6-403f-90e7-53c011884d5c --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 1
+model: glm-5.3-flash  config_id: panel-glm-5.3-flash
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-glm-5.3-flash.jsonl
+agentic 1/1 task=b3c576e7 status=ok tools=16 finish=stop clen=16022 elapsed=668s
+--- panel solo: deepseek-v4-flash ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-deepseek-v4-flash.jsonl --model deepseek-v4-flash --config-id panel-deepseek-v4-flash --task-id b3c576e7-dfc6-403f-90e7-53c011884d5c --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 1
+model: deepseek-v4-flash  config_id: panel-deepseek-v4-flash
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-deepseek-v4-flash.jsonl
+agentic 1/1 task=b3c576e7 status=ok tools=16 finish=length clen=6470 elapsed=203s
+--- baseline: gpt-5.6-sol ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/baseline-gpt-5.6-sol.jsonl --model gpt-5.6-sol --config-id baseline --task-id b3c576e7-dfc6-403f-90e7-53c011884d5c --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 1
+model: gpt-5.6-sol  config_id: baseline
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/baseline-gpt-5.6-sol.jsonl
+agentic 1/1 task=b3c576e7 status=ok tools=16 finish=stop clen=10882 elapsed=217s
+--- fusion: fusion-latest3panel ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_client_fusion.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --panel minimax-m3=/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-minimax-m3.jsonl --panel glm-5.3-flash=/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-glm-5.3-flash.jsonl --panel deepseek-v4-flash=/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-deepseek-v4-flash.jsonl --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/fusion-latest3panel.jsonl --config-id fusion-latest3panel --judge-model minimax-m3 --fuser-model minimax-m3 --base-url https://router-api.0g.ai/v1 --api-key-name TR_API_KEY --workers 1 --resume --execute
+panel members: ['minimax-m3', 'glm-5.3-flash', 'deepseek-v4-flash']
+tasks with at least 1 panel answer: 22  pending: 1
+fuser: minimax-m3  judge: minimax-m3  config: fusion-latest3panel
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/fusion-latest3panel.jsonl
+fusion 1/1 task=b3c576e7 status=ok clen=12677 finish=stop
+--- score: fusion-latest3panel ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_rejudge.py /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/fusion-latest3panel.jsonl --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/score-fusion-latest3panel.jsonl --judge-model gemini-3.1-pro-preview --base-url https://router-api.0g.ai/v1 --workers 1 --resume --execute
+replay rows: 22
+pending rows: 1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/score-fusion-latest3panel.jsonl
+rejudged 1/1 task_id=b3c576e7-dfc6-403f-90e7-53c011884d5c score=60.7192254495159
+--- score: baseline ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_rejudge.py /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/baseline-gpt-5.6-sol.jsonl --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/score-baseline.jsonl --judge-model gemini-3.1-pro-preview --base-url https://router-api.0g.ai/v1 --workers 1 --resume --execute
+replay rows: 22
+pending rows: 1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/score-baseline.jsonl
+rejudged 1/1 task_id=b3c576e7-dfc6-403f-90e7-53c011884d5c score=62.655601659751035
+
+===== task 23/80  id=c6ca6371-72de-4f96-bc90-c4273080382c =====
+--- panel solo: minimax-m3 ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-minimax-m3.jsonl --model minimax-m3 --config-id panel-minimax-m3 --task-id c6ca6371-72de-4f96-bc90-c4273080382c --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 1
+model: minimax-m3  config_id: panel-minimax-m3
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-minimax-m3.jsonl
+agentic 1/1 task=c6ca6371 status=ok tools=16 finish=stop clen=39053 elapsed=153s
+--- panel solo: glm-5.3-flash ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-glm-5.3-flash.jsonl --model glm-5.3-flash --config-id panel-glm-5.3-flash --task-id c6ca6371-72de-4f96-bc90-c4273080382c --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 1
+model: glm-5.3-flash  config_id: panel-glm-5.3-flash
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-glm-5.3-flash.jsonl
+agentic 1/1 task=c6ca6371 status=ok tools=16 finish=stop clen=22841 elapsed=287s
+--- panel solo: deepseek-v4-flash ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-deepseek-v4-flash.jsonl --model deepseek-v4-flash --config-id panel-deepseek-v4-flash --task-id c6ca6371-72de-4f96-bc90-c4273080382c --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 1
+model: deepseek-v4-flash  config_id: panel-deepseek-v4-flash
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-deepseek-v4-flash.jsonl
+agentic 1/1 task=c6ca6371 status=ok tools=16 finish=stop clen=31124 elapsed=133s
+--- baseline: gpt-5.6-sol ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/baseline-gpt-5.6-sol.jsonl --model gpt-5.6-sol --config-id baseline --task-id c6ca6371-72de-4f96-bc90-c4273080382c --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 1
+model: gpt-5.6-sol  config_id: baseline
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/baseline-gpt-5.6-sol.jsonl
+agentic 1/1 task=c6ca6371 status=ok tools=17 finish=stop clen=29471 elapsed=129s
+--- fusion: fusion-latest3panel ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_client_fusion.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --panel minimax-m3=/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-minimax-m3.jsonl --panel glm-5.3-flash=/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-glm-5.3-flash.jsonl --panel deepseek-v4-flash=/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-deepseek-v4-flash.jsonl --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/fusion-latest3panel.jsonl --config-id fusion-latest3panel --judge-model minimax-m3 --fuser-model minimax-m3 --base-url https://router-api.0g.ai/v1 --api-key-name TR_API_KEY --workers 1 --resume --execute
+panel members: ['minimax-m3', 'glm-5.3-flash', 'deepseek-v4-flash']
+tasks with at least 1 panel answer: 23  pending: 1
+fuser: minimax-m3  judge: minimax-m3  config: fusion-latest3panel
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/fusion-latest3panel.jsonl
+fusion 1/1 task=c6ca6371 status=ok clen=21232 finish=stop
+--- score: fusion-latest3panel ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_rejudge.py /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/fusion-latest3panel.jsonl --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/score-fusion-latest3panel.jsonl --judge-model gemini-3.1-pro-preview --base-url https://router-api.0g.ai/v1 --workers 1 --resume --execute
+replay rows: 23
+pending rows: 1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/score-fusion-latest3panel.jsonl
+rejudged 1/1 task_id=c6ca6371-72de-4f96-bc90-c4273080382c score=80.28534370946822
+--- score: baseline ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_rejudge.py /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/baseline-gpt-5.6-sol.jsonl --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/score-baseline.jsonl --judge-model gemini-3.1-pro-preview --base-url https://router-api.0g.ai/v1 --workers 1 --resume --execute
+replay rows: 23
+pending rows: 1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/score-baseline.jsonl
+rejudged 1/1 task_id=c6ca6371-72de-4f96-bc90-c4273080382c score=61.08949416342413
+
+===== task 24/80  id=9b35aaf1-f3cf-466f-96e5-dde018b0ef35 =====
+--- panel solo: minimax-m3 ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-minimax-m3.jsonl --model minimax-m3 --config-id panel-minimax-m3 --task-id 9b35aaf1-f3cf-466f-96e5-dde018b0ef35 --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 1
+model: minimax-m3  config_id: panel-minimax-m3
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-minimax-m3.jsonl
+agentic 1/1 task=9b35aaf1 status=ok tools=17 finish=stop clen=31478 elapsed=158s
+--- panel solo: glm-5.3-flash ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-glm-5.3-flash.jsonl --model glm-5.3-flash --config-id panel-glm-5.3-flash --task-id 9b35aaf1-f3cf-466f-96e5-dde018b0ef35 --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 1
+model: glm-5.3-flash  config_id: panel-glm-5.3-flash
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-glm-5.3-flash.jsonl
+agentic 1/1 task=9b35aaf1 status=ok tools=0 finish=length clen=0 elapsed=292s
+--- panel solo: deepseek-v4-flash ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-deepseek-v4-flash.jsonl --model deepseek-v4-flash --config-id panel-deepseek-v4-flash --task-id 9b35aaf1-f3cf-466f-96e5-dde018b0ef35 --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 1
+model: deepseek-v4-flash  config_id: panel-deepseek-v4-flash
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-deepseek-v4-flash.jsonl
+agentic 1/1 task=9b35aaf1 status=ok tools=12 finish=length clen=28944 elapsed=295s
+--- baseline: gpt-5.6-sol ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/baseline-gpt-5.6-sol.jsonl --model gpt-5.6-sol --config-id baseline --task-id 9b35aaf1-f3cf-466f-96e5-dde018b0ef35 --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 1
+model: gpt-5.6-sol  config_id: baseline
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/baseline-gpt-5.6-sol.jsonl
+agentic 1/1 task=9b35aaf1 status=ok tools=17 finish=stop clen=34971 elapsed=153s
+--- fusion: fusion-latest3panel ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_client_fusion.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --panel minimax-m3=/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-minimax-m3.jsonl --panel glm-5.3-flash=/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-glm-5.3-flash.jsonl --panel deepseek-v4-flash=/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-deepseek-v4-flash.jsonl --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/fusion-latest3panel.jsonl --config-id fusion-latest3panel --judge-model minimax-m3 --fuser-model minimax-m3 --base-url https://router-api.0g.ai/v1 --api-key-name TR_API_KEY --workers 1 --resume --execute
+panel members: ['minimax-m3', 'glm-5.3-flash', 'deepseek-v4-flash']
+tasks with at least 1 panel answer: 24  pending: 1
+fuser: minimax-m3  judge: minimax-m3  config: fusion-latest3panel
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/fusion-latest3panel.jsonl
+fusion 1/1 task=9b35aaf1 status=ok clen=23803 finish=stop
+--- score: fusion-latest3panel ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_rejudge.py /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/fusion-latest3panel.jsonl --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/score-fusion-latest3panel.jsonl --judge-model gemini-3.1-pro-preview --base-url https://router-api.0g.ai/v1 --workers 1 --resume --execute
+replay rows: 24
+pending rows: 1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/score-fusion-latest3panel.jsonl
+rejudged 1/1 task_id=9b35aaf1-f3cf-466f-96e5-dde018b0ef35 score=92.72727272727273
+--- score: baseline ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_rejudge.py /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/baseline-gpt-5.6-sol.jsonl --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/score-baseline.jsonl --judge-model gemini-3.1-pro-preview --base-url https://router-api.0g.ai/v1 --workers 1 --resume --execute
+replay rows: 24
+pending rows: 1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/score-baseline.jsonl
+rejudged 1/1 task_id=9b35aaf1-f3cf-466f-96e5-dde018b0ef35 score=81.81818181818181
+
+===== task 25/80  id=7786ef30-1bb6-479b-9437-333ff50d5a3d =====
+--- panel solo: minimax-m3 ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-minimax-m3.jsonl --model minimax-m3 --config-id panel-minimax-m3 --task-id 7786ef30-1bb6-479b-9437-333ff50d5a3d --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 1
+model: minimax-m3  config_id: panel-minimax-m3
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-minimax-m3.jsonl
+agentic 1/1 task=7786ef30 status=ok tools=12 finish=stop clen=19463 elapsed=144s
+--- panel solo: glm-5.3-flash ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-glm-5.3-flash.jsonl --model glm-5.3-flash --config-id panel-glm-5.3-flash --task-id 7786ef30-1bb6-479b-9437-333ff50d5a3d --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 1
+model: glm-5.3-flash  config_id: panel-glm-5.3-flash
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-glm-5.3-flash.jsonl
+agentic 1/1 task=7786ef30 status=ok tools=13 finish=stop clen=20295 elapsed=391s
+--- panel solo: deepseek-v4-flash ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-deepseek-v4-flash.jsonl --model deepseek-v4-flash --config-id panel-deepseek-v4-flash --task-id 7786ef30-1bb6-479b-9437-333ff50d5a3d --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 1
+model: deepseek-v4-flash  config_id: panel-deepseek-v4-flash
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-deepseek-v4-flash.jsonl
+agentic 1/1 task=7786ef30 status=ok tools=15 finish=length clen=8344 elapsed=208s
+--- baseline: gpt-5.6-sol ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/baseline-gpt-5.6-sol.jsonl --model gpt-5.6-sol --config-id baseline --task-id 7786ef30-1bb6-479b-9437-333ff50d5a3d --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 1
+model: gpt-5.6-sol  config_id: baseline
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/baseline-gpt-5.6-sol.jsonl
+agentic 1/1 task=7786ef30 status=ok tools=13 finish=stop clen=25085 elapsed=124s
+--- fusion: fusion-latest3panel ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_client_fusion.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --panel minimax-m3=/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-minimax-m3.jsonl --panel glm-5.3-flash=/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-glm-5.3-flash.jsonl --panel deepseek-v4-flash=/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-deepseek-v4-flash.jsonl --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/fusion-latest3panel.jsonl --config-id fusion-latest3panel --judge-model minimax-m3 --fuser-model minimax-m3 --base-url https://router-api.0g.ai/v1 --api-key-name TR_API_KEY --workers 1 --resume --execute
+panel members: ['minimax-m3', 'glm-5.3-flash', 'deepseek-v4-flash']
+tasks with at least 1 panel answer: 25  pending: 1
+fuser: minimax-m3  judge: minimax-m3  config: fusion-latest3panel
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/fusion-latest3panel.jsonl
+fusion 1/1 task=7786ef30 status=ok clen=14024 finish=stop
+--- score: fusion-latest3panel ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_rejudge.py /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/fusion-latest3panel.jsonl --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/score-fusion-latest3panel.jsonl --judge-model gemini-3.1-pro-preview --base-url https://router-api.0g.ai/v1 --workers 1 --resume --execute
+replay rows: 25
+pending rows: 1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/score-fusion-latest3panel.jsonl
+rejudged 1/1 task_id=7786ef30-1bb6-479b-9437-333ff50d5a3d score=71.6566866267465
+--- score: baseline ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_rejudge.py /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/baseline-gpt-5.6-sol.jsonl --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/score-baseline.jsonl --judge-model gemini-3.1-pro-preview --base-url https://router-api.0g.ai/v1 --workers 1 --resume --execute
+replay rows: 25
+pending rows: 1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/score-baseline.jsonl
+rejudged 1/1 task_id=7786ef30-1bb6-479b-9437-333ff50d5a3d score=73.95209580838323
+
+===== task 26/80  id=b8ff32b6-967c-41bf-8277-69afe025293e =====
+--- panel solo: minimax-m3 ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-minimax-m3.jsonl --model minimax-m3 --config-id panel-minimax-m3 --task-id b8ff32b6-967c-41bf-8277-69afe025293e --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 1
+model: minimax-m3  config_id: panel-minimax-m3
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-minimax-m3.jsonl
+agentic 1/1 task=b8ff32b6 status=ok tools=16 finish=stop clen=24101 elapsed=223s
+--- panel solo: glm-5.3-flash ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-glm-5.3-flash.jsonl --model glm-5.3-flash --config-id panel-glm-5.3-flash --task-id b8ff32b6-967c-41bf-8277-69afe025293e --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 1
+model: glm-5.3-flash  config_id: panel-glm-5.3-flash
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-glm-5.3-flash.jsonl
+agentic 1/1 task=b8ff32b6 status=ok tools=0 finish=length clen=11716 elapsed=452s
+--- panel solo: deepseek-v4-flash ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/out/task_major/panel-deepseek-v4-flash.jsonl --model deepseek-v4-flash --config-id panel-deepseek-v4-flash --task-id b8ff32b6-967c-41bf-8277-69afe025293e --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute

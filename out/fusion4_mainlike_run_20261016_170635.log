@@ -1,0 +1,81 @@
+nohup: ignoring input
+preflight OK: gateway auth verified (HTTP 200)
+panel members: ['minimax-m3', 'glm-5.3-flash', 'deepseek-v4-flash', 'mimo-v2.5-pro']
+tasks with ALL panel answers: 31  pending: 31
+fuser: kimi-k3  judge: minimax-m3  config: fusion-4panel-mainlike
+output: out/fusion4_mainlike/fusion-4panel-mainlike.jsonl
+judge cache: loaded 30 analyses from out/fusion4_mainlike/judge_cache.jsonl
+fusion 1/31 task=0c2c668a status=ok clen=11475 finish=stop
+fusion 2/31 task=a78eed67 status=ok clen=8885 finish=stop
+fusion 3/31 task=f6de7687 status=ok clen=10893 finish=stop
+fusion 4/31 task=f0bed5aa status=ok clen=7889 finish=stop
+fusion 5/31 task=e1f2c310 status=ok clen=11485 finish=stop
+fusion 6/31 task=f004b46b status=ok clen=9267 finish=stop
+fusion 7/31 task=1516d849 status=ok clen=14624 finish=stop
+fusion 8/31 task=b0e3597d status=ok clen=13423 finish=stop
+fusion 9/31 task=79224558 status=ok clen=13038 finish=stop
+fusion 10/31 task=cd19ee22 status=ok clen=5092 finish=stop
+fusion 11/31 task=ca0edd2d status=ok clen=7683 finish=stop
+fusion 12/31 task=342b15b8 status=ok clen=9356 finish=stop
+fusion 13/31 task=1ed18b1d status=ok clen=18690 finish=length
+fusion 14/31 task=faeeb64e status=ok clen=14834 finish=stop
+fusion 15/31 task=6c59b2a0 status=ok clen=1128 finish=stop
+fusion 16/31 task=c66a5c80 status=ok clen=6499 finish=stop
+fusion 17/31 task=aca95495 status=ok clen=26415 finish=stop
+fusion 18/31 task=6f425968 status=ok clen=28531 finish=length
+fusion 19/31 task=34e9b780 status=ok clen=15760 finish=stop
+fusion 20/31 task=262b3145 status=ok clen=14922 finish=length
+fusion 21/31 task=eb3965d1 status=ok clen=19222 finish=stop
+fusion 22/31 task=0a652d00 status=ok clen=14302 finish=stop
+fusion 23/31 task=e15a37b4 status=ok clen=14590 finish=stop
+fusion 24/31 task=4f36f602 status=ok clen=31338 finish=stop
+fusion 25/31 task=b3c576e7 status=ok clen=13476 finish=stop
+fusion 26/31 task=3a8db70a status=ok clen=8096 finish=stop
+fusion 27/31 task=c6ca6371 status=ok clen=19169 finish=stop
+fusion 28/31 task=9b35aaf1 status=ok clen=17078 finish=stop
+fusion 29/31 task=7786ef30 status=ok clen=18363 finish=stop
+fusion 30/31 task=b8ff32b6 status=ok clen=6975 finish=stop
+fusion 31/31 task=646b575d status=ok clen=13458 finish=stop
+replay rows: 31
+pending rows: 31
+output: out/fusion4_mainlike/score-fusion-4panel-mainlike.jsonl
+rejudged 1/31 task_id=0c2c668a-c3bf-41af-93c9-b5614ff63508 score=85.20365752285953
+rejudged 2/31 task_id=a78eed67-ebe3-425e-a467-d54ee8949c8b score=55.01618122977347
+rejudged 3/31 task_id=f6de7687-7cff-4f68-93ea-f632bf6266af score=74.6395250212044
+rejudged 4/31 task_id=f0bed5aa-f7c4-4013-8d0c-10ffebeaf300 score=85.71428571428571
+rejudged 5/31 task_id=e1f2c310-d311-49da-b0e4-ee855603469d score=66.07669616519173
+rejudged 6/31 task_id=f004b46b-c0e7-4e86-a072-c7491328d538 score=54.56292026897214
+rejudged 7/31 task_id=1516d849-b413-4fab-9153-c4d9b16a1aa9 score=84.01360544217687
+rejudged 8/31 task_id=b0e3597d-6cda-4082-a5b4-234aac7d2684 score=89.23395445134577
+rejudged 9/31 task_id=79224558-75f7-4e51-bc24-51f1e3ede921 score=51.55555555555555
+rejudged 10/31 task_id=cd19ee22-ded0-4fee-b1a0-51f074d72b8b score=81.19658119658119
+rejudged 11/31 task_id=ca0edd2d-c9b8-4b85-9b40-754f4865579a score=74.14965986394559
+rejudged 12/31 task_id=342b15b8-0ae1-43ce-9ebe-c7318179f156 score=58.68544600938967
+rejudged 13/31 task_id=1ed18b1d-8436-44e5-9924-a503514c387d score=94.38058748403576
+rejudged 14/31 task_id=faeeb64e-e5eb-4768-a9b9-8ef19de51473 score=79.6923076923077
+rejudged 15/31 task_id=6c59b2a0-c097-4c69-ad03-2c4ea2ec579b score=58.70646766169154
+rejudged 16/31 task_id=c66a5c80-df51-4914-88dd-8b08aff7380c score=86.29776021080369
+rejudged 17/31 task_id=aca95495-b0fe-4330-90fc-d2fd1e2c709e score=47.07520891364902
+rejudged 18/31 task_id=6f425968-0c5b-42d8-a5c5-0b20d2f1d71e score=81.54761904761905
+rejudged 19/31 task_id=34e9b780-7fb6-426a-bc39-c340baa578e8 score=74.08637873754152
+rejudged 20/31 task_id=262b3145-5b6d-486b-a09f-c8e6a8f98e20 score=37.95518207282913
+rejudged 21/31 task_id=eb3965d1-c466-4c4c-bd4a-c8a0b255b893 score=72.13779128672746
+rejudged 22/31 task_id=0a652d00-5c22-4621-8ec4-dd92b1f1450b score=68.49087893864014
+rejudged 23/31 task_id=e15a37b4-cd7f-4f52-ba81-9f33b24aabe9 score=85.85858585858585
+rejudged 24/31 task_id=4f36f602-6c14-4c23-a37d-e5ee92ed4552 score=76.39282341831917
+rejudged 25/31 task_id=b3c576e7-dfc6-403f-90e7-53c011884d5c score=64.31535269709543
+rejudged 26/31 task_id=3a8db70a-d906-4bde-bf87-c0c74504409a score=58.79180151024811
+rejudged 27/31 task_id=c6ca6371-72de-4f96-bc90-c4273080382c score=87.54863813229572
+rejudged 28/31 task_id=9b35aaf1-f3cf-466f-96e5-dde018b0ef35 score=96.36363636363636
+rejudged 29/31 task_id=7786ef30-1bb6-479b-9437-333ff50d5a3d score=79.04191616766467
+rejudged 30/31 task_id=b8ff32b6-967c-41bf-8277-69afe025293e score=82.42424242424242
+rejudged 31/31 task_id=646b575d-383d-483b-82bd-01e5526212c7 score=79.57446808510639
+
+=== COMPARISON over 31 common tasks ===
+4p kimi-fuser, main-like prompt: 73.25
+4p minimax-fuser, tuned prompt:  70.40
+3-panel:                         75.12
+baseline:                        71.42
+mainlike beats 4p-minimax: 19/31; beats 3-panel: 11/31
+
+Done.

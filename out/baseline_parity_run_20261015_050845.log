@@ -1,0 +1,3 @@
+nohup: ignoring input
+FATAL: preflight auth check against https://router-api.0g.ai/v1 returned HTTP 401 (expected 200).
+TR_API_KEY is likely invalid/expired, or the gateway is unreachable. Aborting before any task runs.

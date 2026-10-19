@@ -1,0 +1,66 @@
+nohup: ignoring input
+--- fusion (reusing existing panel solos, new prompt) ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_client_fusion.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --panel minimax-m3=out/task_major/panel-minimax-m3.jsonl --panel glm-5.3-flash=out/task_major/panel-glm-5.3-flash.jsonl --panel deepseek-v4-flash=out/task_major/panel-deepseek-v4-flash.jsonl --output out/task_major_v2/fusion-latest3panel.jsonl --config-id fusion-latest3panel --judge-model minimax-m3 --fuser-model minimax-m3 --base-url https://router-api.0g.ai/v1 --api-key-name TR_API_KEY --workers 1 --resume --limit 25 --execute
+panel members: ['minimax-m3', 'glm-5.3-flash', 'deepseek-v4-flash']
+tasks with at least 1 panel answer: 25  pending: 25
+fuser: minimax-m3  judge: minimax-m3  config: fusion-latest3panel
+output: out/task_major_v2/fusion-latest3panel.jsonl
+fusion 1/25 task=0c2c668a status=ok clen=35343 finish=stop
+fusion 2/25 task=f6de7687 status=ok clen=31378 finish=stop
+fusion 3/25 task=e1f2c310 status=ok clen=37723 finish=length
+fusion 4/25 task=f004b46b status=ok clen=16250 finish=stop
+fusion 5/25 task=1516d849 status=ok clen=41076 finish=stop
+fusion 6/25 task=b0e3597d status=ok clen=26502 finish=stop
+fusion 7/25 task=79224558 status=ok clen=51155 finish=length
+fusion 8/25 task=cd19ee22 status=ok clen=23634 finish=stop
+fusion 9/25 task=ca0edd2d status=ok clen=24599 finish=stop
+fusion 10/25 task=ce522bc2 status=ok clen=31590 finish=stop
+fusion 11/25 task=faeeb64e status=ok clen=32713 finish=stop
+fusion 12/25 task=6c59b2a0 status=ok clen=5506 finish=stop
+fusion 13/25 task=c66a5c80 status=ok clen=12922 finish=stop
+fusion 14/25 task=aca95495 status=ok clen=51584 finish=length
+fusion 15/25 task=6f425968 status=ok clen=52287 finish=length
+fusion 16/25 task=34e9b780 status=ok clen=36768 finish=stop
+fusion 17/25 task=262b3145 status=ok clen=45077 finish=length
+fusion 18/25 task=eb3965d1 status=ok clen=28263 finish=stop
+fusion 19/25 task=0a652d00 status=ok clen=46711 finish=stop
+fusion 20/25 task=e15a37b4 status=ok clen=39935 finish=stop
+fusion 21/25 task=4f36f602 status=ok clen=48106 finish=length
+fusion 22/25 task=b3c576e7 status=ok clen=12786 finish=stop
+fusion 23/25 task=c6ca6371 status=ok clen=50583 finish=length
+fusion 24/25 task=9b35aaf1 status=ok clen=43274 finish=length
+fusion 25/25 task=7786ef30 status=ok clen=33173 finish=stop
+--- score fusion ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_rejudge.py out/task_major_v2/fusion-latest3panel.jsonl --output out/task_major_v2/score-fusion-latest3panel.jsonl --judge-model gemini-3.1-pro-preview --base-url https://router-api.0g.ai/v1 --workers 1 --resume --execute
+replay rows: 25
+pending rows: 25
+output: out/task_major_v2/score-fusion-latest3panel.jsonl
+rejudged 1/25 task_id=0c2c668a-c3bf-41af-93c9-b5614ff63508 score=86.69991687448048
+rejudged 2/25 task_id=f6de7687-7cff-4f68-93ea-f632bf6266af score=85.07209499575912
+rejudged 3/25 task_id=e1f2c310-d311-49da-b0e4-ee855603469d score=66.3716814159292
+rejudged 4/25 task_id=f004b46b-c0e7-4e86-a072-c7491328d538 score=59.654178674351584
+rejudged 5/25 task_id=1516d849-b413-4fab-9153-c4d9b16a1aa9 score=79.59183673469387
+rejudged 6/25 task_id=b0e3597d-6cda-4082-a5b4-234aac7d2684 score=80.12422360248448
+rejudged 7/25 task_id=79224558-75f7-4e51-bc24-51f1e3ede921 score=56.0
+rejudged 8/25 task_id=cd19ee22-ded0-4fee-b1a0-51f074d72b8b score=86.53846153846153
+rejudged 9/25 task_id=ca0edd2d-c9b8-4b85-9b40-754f4865579a score=79.59183673469387
+rejudged 10/25 task_id=ce522bc2-e8a2-436b-971f-dd4972f23d39 score=53.051643192488264
+rejudged 11/25 task_id=faeeb64e-e5eb-4768-a9b9-8ef19de51473 score=84.2051282051282
+rejudged 12/25 task_id=6c59b2a0-c097-4c69-ad03-2c4ea2ec579b score=65.00829187396351
+rejudged 13/25 task_id=c66a5c80-df51-4914-88dd-8b08aff7380c score=88.93280632411067
+rejudged 14/25 task_id=aca95495-b0fe-4330-90fc-d2fd1e2c709e score=55.06035283194058
+rejudged 15/25 task_id=6f425968-0c5b-42d8-a5c5-0b20d2f1d71e score=73.11507936507935
+rejudged 16/25 task_id=34e9b780-7fb6-426a-bc39-c340baa578e8 score=63.6766334440753
+rejudged 17/25 task_id=262b3145-5b6d-486b-a09f-c8e6a8f98e20 score=81.5126050420168
+rejudged 18/25 task_id=eb3965d1-c466-4c4c-bd4a-c8a0b255b893 score=67.27456940222898
+rejudged 19/25 task_id=0a652d00-5c22-4621-8ec4-dd92b1f1450b score=71.80762852404644
+rejudged 20/25 task_id=e15a37b4-cd7f-4f52-ba81-9f33b24aabe9 score=78.86557886557887
+rejudged 21/25 task_id=4f36f602-6c14-4c23-a37d-e5ee92ed4552 score=62.60623229461756
+rejudged 22/25 task_id=b3c576e7-dfc6-403f-90e7-53c011884d5c score=65.97510373443983
+rejudged 23/25 task_id=c6ca6371-72de-4f96-bc90-c4273080382c score=85.73281452658885
+rejudged 24/25 task_id=9b35aaf1-f3cf-466f-96e5-dde018b0ef35 score=92.72727272727273
+rejudged 25/25 task_id=7786ef30-1bb6-479b-9437-333ff50d5a3d score=76.04790419161677
+
+new fusion:       out/task_major_v2/fusion-latest3panel.jsonl
+new fusion score: out/task_major_v2/score-fusion-latest3panel.jsonl
+baseline score unchanged, reuse as-is: out/task_major/score-baseline.jsonl

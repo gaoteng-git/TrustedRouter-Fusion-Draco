@@ -1,0 +1,405 @@
+nohup: ignoring input
+manifest: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json  tasks: 80  execute: True
+out_dir: out/task_major_5panel
+panel models (5): minimax-m3, kimi-k3, glm-5.3-flash, deepseek-v4-flash, qwen3.8-max
+baseline: gpt-5.6-sol
+fusion [fusion-latest5panel]: panel=['minimax-m3', 'kimi-k3', 'glm-5.3-flash', 'deepseek-v4-flash', 'qwen3.8-max'] judge=minimax-m3 fuser=minimax-m3
+
+
+===== task 1/80  id=0c2c668a-c3bf-41af-93c9-b5614ff63508 =====
+--- panel solo: minimax-m3 ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output out/task_major_5panel/panel-minimax-m3.jsonl --model minimax-m3 --config-id panel-minimax-m3 --task-id 0c2c668a-c3bf-41af-93c9-b5614ff63508 --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 0
+model: minimax-m3  config_id: panel-minimax-m3
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: out/task_major_5panel/panel-minimax-m3.jsonl
+--- panel solo: kimi-k3 ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output out/task_major_5panel/panel-kimi-k3.jsonl --model kimi-k3 --config-id panel-kimi-k3 --task-id 0c2c668a-c3bf-41af-93c9-b5614ff63508 --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 1
+model: kimi-k3  config_id: panel-kimi-k3
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: out/task_major_5panel/panel-kimi-k3.jsonl
+agentic 1/1 task=0c2c668a status=failed tools=None finish=None clen=0 elapsed=0s
+  WARNING: panel kimi-k3 failed for task 0c2c668a-c3bf-41af-93c9-b5614ff63508 (error_type=HTTPStatusError) -- fusion configs needing this model will skip this task until a later --resume re-run succeeds.
+--- panel solo: glm-5.3-flash ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output out/task_major_5panel/panel-glm-5.3-flash.jsonl --model glm-5.3-flash --config-id panel-glm-5.3-flash --task-id 0c2c668a-c3bf-41af-93c9-b5614ff63508 --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 0
+model: glm-5.3-flash  config_id: panel-glm-5.3-flash
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: out/task_major_5panel/panel-glm-5.3-flash.jsonl
+--- panel solo: deepseek-v4-flash ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output out/task_major_5panel/panel-deepseek-v4-flash.jsonl --model deepseek-v4-flash --config-id panel-deepseek-v4-flash --task-id 0c2c668a-c3bf-41af-93c9-b5614ff63508 --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 0
+model: deepseek-v4-flash  config_id: panel-deepseek-v4-flash
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: out/task_major_5panel/panel-deepseek-v4-flash.jsonl
+--- panel solo: qwen3.8-max ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output out/task_major_5panel/panel-qwen3.8-max.jsonl --model qwen3.8-max --config-id panel-qwen3.8-max --task-id 0c2c668a-c3bf-41af-93c9-b5614ff63508 --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 0
+model: qwen3.8-max  config_id: panel-qwen3.8-max
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: out/task_major_5panel/panel-qwen3.8-max.jsonl
+--- baseline: gpt-5.6-sol ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output out/task_major_5panel/baseline-gpt-5.6-sol.jsonl --model gpt-5.6-sol --config-id baseline --task-id 0c2c668a-c3bf-41af-93c9-b5614ff63508 --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 0
+model: gpt-5.6-sol  config_id: baseline
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: out/task_major_5panel/baseline-gpt-5.6-sol.jsonl
+--- fusion: fusion-latest5panel ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_client_fusion.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --panel minimax-m3=out/task_major_5panel/panel-minimax-m3.jsonl --panel kimi-k3=out/task_major_5panel/panel-kimi-k3.jsonl --panel glm-5.3-flash=out/task_major_5panel/panel-glm-5.3-flash.jsonl --panel deepseek-v4-flash=out/task_major_5panel/panel-deepseek-v4-flash.jsonl --panel qwen3.8-max=out/task_major_5panel/panel-qwen3.8-max.jsonl --output out/task_major_5panel/fusion-latest5panel.jsonl --config-id fusion-latest5panel --judge-model minimax-m3 --fuser-model minimax-m3 --base-url https://router-api.0g.ai/v1 --api-key-name TR_API_KEY --workers 1 --resume --require-full-panel --execute
+panel members: ['minimax-m3', 'kimi-k3', 'glm-5.3-flash', 'deepseek-v4-flash', 'qwen3.8-max']
+tasks with ALL panel answers: 0  pending: 0
+fuser: minimax-m3  judge: minimax-m3  config: fusion-latest5panel
+output: out/task_major_5panel/fusion-latest5panel.jsonl
+  skipped (prerequisite missing): fusion-latest5panel has no row for task 0c2c668a-c3bf-41af-93c9-b5614ff63508 -- at least one of ['minimax-m3', 'kimi-k3', 'glm-5.3-flash', 'deepseek-v4-flash', 'qwen3.8-max'] hasn't answered yet.
+--- score: fusion-latest5panel ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_rejudge.py out/task_major_5panel/fusion-latest5panel.jsonl --output out/task_major_5panel/score-fusion-latest5panel.jsonl --judge-model gemini-3.1-pro-preview --base-url https://router-api.0g.ai/v1 --workers 1 --resume --execute
+replay rows: 0
+pending rows: 0
+output: out/task_major_5panel/score-fusion-latest5panel.jsonl
+  skipped (prerequisite missing): score-fusion-latest5panel has no row for task 0c2c668a-c3bf-41af-93c9-b5614ff63508.
+--- score: baseline ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_rejudge.py out/task_major_5panel/baseline-gpt-5.6-sol.jsonl --output out/task_major_5panel/score-baseline.jsonl --judge-model gemini-3.1-pro-preview --base-url https://router-api.0g.ai/v1 --workers 1 --resume --execute
+replay rows: 50
+pending rows: 0
+output: out/task_major_5panel/score-baseline.jsonl
+
+===== task 2/80  id=f6de7687-7cff-4f68-93ea-f632bf6266af =====
+--- panel solo: minimax-m3 ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output out/task_major_5panel/panel-minimax-m3.jsonl --model minimax-m3 --config-id panel-minimax-m3 --task-id f6de7687-7cff-4f68-93ea-f632bf6266af --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 0
+model: minimax-m3  config_id: panel-minimax-m3
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: out/task_major_5panel/panel-minimax-m3.jsonl
+--- panel solo: kimi-k3 ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output out/task_major_5panel/panel-kimi-k3.jsonl --model kimi-k3 --config-id panel-kimi-k3 --task-id f6de7687-7cff-4f68-93ea-f632bf6266af --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 1
+model: kimi-k3  config_id: panel-kimi-k3
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: out/task_major_5panel/panel-kimi-k3.jsonl
+agentic 1/1 task=f6de7687 status=failed tools=None finish=None clen=0 elapsed=0s
+  WARNING: panel kimi-k3 failed for task f6de7687-7cff-4f68-93ea-f632bf6266af (error_type=HTTPStatusError) -- fusion configs needing this model will skip this task until a later --resume re-run succeeds.
+--- panel solo: glm-5.3-flash ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output out/task_major_5panel/panel-glm-5.3-flash.jsonl --model glm-5.3-flash --config-id panel-glm-5.3-flash --task-id f6de7687-7cff-4f68-93ea-f632bf6266af --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 0
+model: glm-5.3-flash  config_id: panel-glm-5.3-flash
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: out/task_major_5panel/panel-glm-5.3-flash.jsonl
+--- panel solo: deepseek-v4-flash ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output out/task_major_5panel/panel-deepseek-v4-flash.jsonl --model deepseek-v4-flash --config-id panel-deepseek-v4-flash --task-id f6de7687-7cff-4f68-93ea-f632bf6266af --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 0
+model: deepseek-v4-flash  config_id: panel-deepseek-v4-flash
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: out/task_major_5panel/panel-deepseek-v4-flash.jsonl
+--- panel solo: qwen3.8-max ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output out/task_major_5panel/panel-qwen3.8-max.jsonl --model qwen3.8-max --config-id panel-qwen3.8-max --task-id f6de7687-7cff-4f68-93ea-f632bf6266af --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 0
+model: qwen3.8-max  config_id: panel-qwen3.8-max
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: out/task_major_5panel/panel-qwen3.8-max.jsonl
+--- baseline: gpt-5.6-sol ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output out/task_major_5panel/baseline-gpt-5.6-sol.jsonl --model gpt-5.6-sol --config-id baseline --task-id f6de7687-7cff-4f68-93ea-f632bf6266af --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 0
+model: gpt-5.6-sol  config_id: baseline
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: out/task_major_5panel/baseline-gpt-5.6-sol.jsonl
+--- fusion: fusion-latest5panel ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_client_fusion.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --panel minimax-m3=out/task_major_5panel/panel-minimax-m3.jsonl --panel kimi-k3=out/task_major_5panel/panel-kimi-k3.jsonl --panel glm-5.3-flash=out/task_major_5panel/panel-glm-5.3-flash.jsonl --panel deepseek-v4-flash=out/task_major_5panel/panel-deepseek-v4-flash.jsonl --panel qwen3.8-max=out/task_major_5panel/panel-qwen3.8-max.jsonl --output out/task_major_5panel/fusion-latest5panel.jsonl --config-id fusion-latest5panel --judge-model minimax-m3 --fuser-model minimax-m3 --base-url https://router-api.0g.ai/v1 --api-key-name TR_API_KEY --workers 1 --resume --require-full-panel --execute
+panel members: ['minimax-m3', 'kimi-k3', 'glm-5.3-flash', 'deepseek-v4-flash', 'qwen3.8-max']
+tasks with ALL panel answers: 0  pending: 0
+fuser: minimax-m3  judge: minimax-m3  config: fusion-latest5panel
+output: out/task_major_5panel/fusion-latest5panel.jsonl
+  skipped (prerequisite missing): fusion-latest5panel has no row for task f6de7687-7cff-4f68-93ea-f632bf6266af -- at least one of ['minimax-m3', 'kimi-k3', 'glm-5.3-flash', 'deepseek-v4-flash', 'qwen3.8-max'] hasn't answered yet.
+--- score: fusion-latest5panel ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_rejudge.py out/task_major_5panel/fusion-latest5panel.jsonl --output out/task_major_5panel/score-fusion-latest5panel.jsonl --judge-model gemini-3.1-pro-preview --base-url https://router-api.0g.ai/v1 --workers 1 --resume --execute
+replay rows: 0
+pending rows: 0
+output: out/task_major_5panel/score-fusion-latest5panel.jsonl
+  skipped (prerequisite missing): score-fusion-latest5panel has no row for task f6de7687-7cff-4f68-93ea-f632bf6266af.
+--- score: baseline ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_rejudge.py out/task_major_5panel/baseline-gpt-5.6-sol.jsonl --output out/task_major_5panel/score-baseline.jsonl --judge-model gemini-3.1-pro-preview --base-url https://router-api.0g.ai/v1 --workers 1 --resume --execute
+replay rows: 50
+pending rows: 0
+output: out/task_major_5panel/score-baseline.jsonl
+
+===== task 3/80  id=e1f2c310-d311-49da-b0e4-ee855603469d =====
+--- panel solo: minimax-m3 ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output out/task_major_5panel/panel-minimax-m3.jsonl --model minimax-m3 --config-id panel-minimax-m3 --task-id e1f2c310-d311-49da-b0e4-ee855603469d --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 0
+model: minimax-m3  config_id: panel-minimax-m3
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: out/task_major_5panel/panel-minimax-m3.jsonl
+--- panel solo: kimi-k3 ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output out/task_major_5panel/panel-kimi-k3.jsonl --model kimi-k3 --config-id panel-kimi-k3 --task-id e1f2c310-d311-49da-b0e4-ee855603469d --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 1
+model: kimi-k3  config_id: panel-kimi-k3
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: out/task_major_5panel/panel-kimi-k3.jsonl
+agentic 1/1 task=e1f2c310 status=failed tools=None finish=None clen=0 elapsed=0s
+  WARNING: panel kimi-k3 failed for task e1f2c310-d311-49da-b0e4-ee855603469d (error_type=HTTPStatusError) -- fusion configs needing this model will skip this task until a later --resume re-run succeeds.
+--- panel solo: glm-5.3-flash ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output out/task_major_5panel/panel-glm-5.3-flash.jsonl --model glm-5.3-flash --config-id panel-glm-5.3-flash --task-id e1f2c310-d311-49da-b0e4-ee855603469d --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 0
+model: glm-5.3-flash  config_id: panel-glm-5.3-flash
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: out/task_major_5panel/panel-glm-5.3-flash.jsonl
+--- panel solo: deepseek-v4-flash ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output out/task_major_5panel/panel-deepseek-v4-flash.jsonl --model deepseek-v4-flash --config-id panel-deepseek-v4-flash --task-id e1f2c310-d311-49da-b0e4-ee855603469d --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 0
+model: deepseek-v4-flash  config_id: panel-deepseek-v4-flash
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: out/task_major_5panel/panel-deepseek-v4-flash.jsonl
+--- panel solo: qwen3.8-max ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output out/task_major_5panel/panel-qwen3.8-max.jsonl --model qwen3.8-max --config-id panel-qwen3.8-max --task-id e1f2c310-d311-49da-b0e4-ee855603469d --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 0
+model: qwen3.8-max  config_id: panel-qwen3.8-max
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: out/task_major_5panel/panel-qwen3.8-max.jsonl
+--- baseline: gpt-5.6-sol ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output out/task_major_5panel/baseline-gpt-5.6-sol.jsonl --model gpt-5.6-sol --config-id baseline --task-id e1f2c310-d311-49da-b0e4-ee855603469d --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 0
+model: gpt-5.6-sol  config_id: baseline
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: out/task_major_5panel/baseline-gpt-5.6-sol.jsonl
+--- fusion: fusion-latest5panel ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_client_fusion.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --panel minimax-m3=out/task_major_5panel/panel-minimax-m3.jsonl --panel kimi-k3=out/task_major_5panel/panel-kimi-k3.jsonl --panel glm-5.3-flash=out/task_major_5panel/panel-glm-5.3-flash.jsonl --panel deepseek-v4-flash=out/task_major_5panel/panel-deepseek-v4-flash.jsonl --panel qwen3.8-max=out/task_major_5panel/panel-qwen3.8-max.jsonl --output out/task_major_5panel/fusion-latest5panel.jsonl --config-id fusion-latest5panel --judge-model minimax-m3 --fuser-model minimax-m3 --base-url https://router-api.0g.ai/v1 --api-key-name TR_API_KEY --workers 1 --resume --require-full-panel --execute
+panel members: ['minimax-m3', 'kimi-k3', 'glm-5.3-flash', 'deepseek-v4-flash', 'qwen3.8-max']
+tasks with ALL panel answers: 0  pending: 0
+fuser: minimax-m3  judge: minimax-m3  config: fusion-latest5panel
+output: out/task_major_5panel/fusion-latest5panel.jsonl
+  skipped (prerequisite missing): fusion-latest5panel has no row for task e1f2c310-d311-49da-b0e4-ee855603469d -- at least one of ['minimax-m3', 'kimi-k3', 'glm-5.3-flash', 'deepseek-v4-flash', 'qwen3.8-max'] hasn't answered yet.
+--- score: fusion-latest5panel ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_rejudge.py out/task_major_5panel/fusion-latest5panel.jsonl --output out/task_major_5panel/score-fusion-latest5panel.jsonl --judge-model gemini-3.1-pro-preview --base-url https://router-api.0g.ai/v1 --workers 1 --resume --execute
+replay rows: 0
+pending rows: 0
+output: out/task_major_5panel/score-fusion-latest5panel.jsonl
+  skipped (prerequisite missing): score-fusion-latest5panel has no row for task e1f2c310-d311-49da-b0e4-ee855603469d.
+--- score: baseline ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_rejudge.py out/task_major_5panel/baseline-gpt-5.6-sol.jsonl --output out/task_major_5panel/score-baseline.jsonl --judge-model gemini-3.1-pro-preview --base-url https://router-api.0g.ai/v1 --workers 1 --resume --execute
+replay rows: 50
+pending rows: 0
+output: out/task_major_5panel/score-baseline.jsonl
+
+===== task 4/80  id=f004b46b-c0e7-4e86-a072-c7491328d538 =====
+--- panel solo: minimax-m3 ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output out/task_major_5panel/panel-minimax-m3.jsonl --model minimax-m3 --config-id panel-minimax-m3 --task-id f004b46b-c0e7-4e86-a072-c7491328d538 --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 0
+model: minimax-m3  config_id: panel-minimax-m3
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: out/task_major_5panel/panel-minimax-m3.jsonl
+--- panel solo: kimi-k3 ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output out/task_major_5panel/panel-kimi-k3.jsonl --model kimi-k3 --config-id panel-kimi-k3 --task-id f004b46b-c0e7-4e86-a072-c7491328d538 --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 1
+model: kimi-k3  config_id: panel-kimi-k3
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: out/task_major_5panel/panel-kimi-k3.jsonl
+agentic 1/1 task=f004b46b status=failed tools=None finish=None clen=0 elapsed=0s
+  WARNING: panel kimi-k3 failed for task f004b46b-c0e7-4e86-a072-c7491328d538 (error_type=HTTPStatusError) -- fusion configs needing this model will skip this task until a later --resume re-run succeeds.
+--- panel solo: glm-5.3-flash ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output out/task_major_5panel/panel-glm-5.3-flash.jsonl --model glm-5.3-flash --config-id panel-glm-5.3-flash --task-id f004b46b-c0e7-4e86-a072-c7491328d538 --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 0
+model: glm-5.3-flash  config_id: panel-glm-5.3-flash
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: out/task_major_5panel/panel-glm-5.3-flash.jsonl
+--- panel solo: deepseek-v4-flash ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output out/task_major_5panel/panel-deepseek-v4-flash.jsonl --model deepseek-v4-flash --config-id panel-deepseek-v4-flash --task-id f004b46b-c0e7-4e86-a072-c7491328d538 --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 0
+model: deepseek-v4-flash  config_id: panel-deepseek-v4-flash
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: out/task_major_5panel/panel-deepseek-v4-flash.jsonl
+--- panel solo: qwen3.8-max ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output out/task_major_5panel/panel-qwen3.8-max.jsonl --model qwen3.8-max --config-id panel-qwen3.8-max --task-id f004b46b-c0e7-4e86-a072-c7491328d538 --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 1
+model: qwen3.8-max  config_id: panel-qwen3.8-max
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: out/task_major_5panel/panel-qwen3.8-max.jsonl
+agentic 1/1 task=f004b46b status=ok tools=16 finish=stop clen=17463 elapsed=1097s
+--- baseline: gpt-5.6-sol ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output out/task_major_5panel/baseline-gpt-5.6-sol.jsonl --model gpt-5.6-sol --config-id baseline --task-id f004b46b-c0e7-4e86-a072-c7491328d538 --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 0
+model: gpt-5.6-sol  config_id: baseline
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: out/task_major_5panel/baseline-gpt-5.6-sol.jsonl
+--- fusion: fusion-latest5panel ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_client_fusion.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --panel minimax-m3=out/task_major_5panel/panel-minimax-m3.jsonl --panel kimi-k3=out/task_major_5panel/panel-kimi-k3.jsonl --panel glm-5.3-flash=out/task_major_5panel/panel-glm-5.3-flash.jsonl --panel deepseek-v4-flash=out/task_major_5panel/panel-deepseek-v4-flash.jsonl --panel qwen3.8-max=out/task_major_5panel/panel-qwen3.8-max.jsonl --output out/task_major_5panel/fusion-latest5panel.jsonl --config-id fusion-latest5panel --judge-model minimax-m3 --fuser-model minimax-m3 --base-url https://router-api.0g.ai/v1 --api-key-name TR_API_KEY --workers 1 --resume --require-full-panel --execute
+panel members: ['minimax-m3', 'kimi-k3', 'glm-5.3-flash', 'deepseek-v4-flash', 'qwen3.8-max']
+tasks with ALL panel answers: 0  pending: 0
+fuser: minimax-m3  judge: minimax-m3  config: fusion-latest5panel
+output: out/task_major_5panel/fusion-latest5panel.jsonl
+  skipped (prerequisite missing): fusion-latest5panel has no row for task f004b46b-c0e7-4e86-a072-c7491328d538 -- at least one of ['minimax-m3', 'kimi-k3', 'glm-5.3-flash', 'deepseek-v4-flash', 'qwen3.8-max'] hasn't answered yet.
+--- score: fusion-latest5panel ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_rejudge.py out/task_major_5panel/fusion-latest5panel.jsonl --output out/task_major_5panel/score-fusion-latest5panel.jsonl --judge-model gemini-3.1-pro-preview --base-url https://router-api.0g.ai/v1 --workers 1 --resume --execute
+replay rows: 0
+pending rows: 0
+output: out/task_major_5panel/score-fusion-latest5panel.jsonl
+  skipped (prerequisite missing): score-fusion-latest5panel has no row for task f004b46b-c0e7-4e86-a072-c7491328d538.
+--- score: baseline ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_rejudge.py out/task_major_5panel/baseline-gpt-5.6-sol.jsonl --output out/task_major_5panel/score-baseline.jsonl --judge-model gemini-3.1-pro-preview --base-url https://router-api.0g.ai/v1 --workers 1 --resume --execute
+replay rows: 50
+pending rows: 0
+output: out/task_major_5panel/score-baseline.jsonl
+
+===== task 5/80  id=1516d849-b413-4fab-9153-c4d9b16a1aa9 =====
+--- panel solo: minimax-m3 ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output out/task_major_5panel/panel-minimax-m3.jsonl --model minimax-m3 --config-id panel-minimax-m3 --task-id 1516d849-b413-4fab-9153-c4d9b16a1aa9 --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 0
+model: minimax-m3  config_id: panel-minimax-m3
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: out/task_major_5panel/panel-minimax-m3.jsonl
+--- panel solo: kimi-k3 ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output out/task_major_5panel/panel-kimi-k3.jsonl --model kimi-k3 --config-id panel-kimi-k3 --task-id 1516d849-b413-4fab-9153-c4d9b16a1aa9 --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 1
+model: kimi-k3  config_id: panel-kimi-k3
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: out/task_major_5panel/panel-kimi-k3.jsonl
+agentic 1/1 task=1516d849 status=failed tools=None finish=None clen=0 elapsed=0s
+  WARNING: panel kimi-k3 failed for task 1516d849-b413-4fab-9153-c4d9b16a1aa9 (error_type=HTTPStatusError) -- fusion configs needing this model will skip this task until a later --resume re-run succeeds.
+--- panel solo: glm-5.3-flash ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output out/task_major_5panel/panel-glm-5.3-flash.jsonl --model glm-5.3-flash --config-id panel-glm-5.3-flash --task-id 1516d849-b413-4fab-9153-c4d9b16a1aa9 --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 0
+model: glm-5.3-flash  config_id: panel-glm-5.3-flash
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: out/task_major_5panel/panel-glm-5.3-flash.jsonl
+--- panel solo: deepseek-v4-flash ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output out/task_major_5panel/panel-deepseek-v4-flash.jsonl --model deepseek-v4-flash --config-id panel-deepseek-v4-flash --task-id 1516d849-b413-4fab-9153-c4d9b16a1aa9 --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 0
+model: deepseek-v4-flash  config_id: panel-deepseek-v4-flash
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: out/task_major_5panel/panel-deepseek-v4-flash.jsonl
+--- panel solo: qwen3.8-max ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output out/task_major_5panel/panel-qwen3.8-max.jsonl --model qwen3.8-max --config-id panel-qwen3.8-max --task-id 1516d849-b413-4fab-9153-c4d9b16a1aa9 --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 1
+model: qwen3.8-max  config_id: panel-qwen3.8-max
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: out/task_major_5panel/panel-qwen3.8-max.jsonl
+agentic 1/1 task=1516d849 status=ok tools=16 finish=stop clen=29231 elapsed=403s
+--- baseline: gpt-5.6-sol ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output out/task_major_5panel/baseline-gpt-5.6-sol.jsonl --model gpt-5.6-sol --config-id baseline --task-id 1516d849-b413-4fab-9153-c4d9b16a1aa9 --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 0
+model: gpt-5.6-sol  config_id: baseline
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: out/task_major_5panel/baseline-gpt-5.6-sol.jsonl
+--- fusion: fusion-latest5panel ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_client_fusion.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --panel minimax-m3=out/task_major_5panel/panel-minimax-m3.jsonl --panel kimi-k3=out/task_major_5panel/panel-kimi-k3.jsonl --panel glm-5.3-flash=out/task_major_5panel/panel-glm-5.3-flash.jsonl --panel deepseek-v4-flash=out/task_major_5panel/panel-deepseek-v4-flash.jsonl --panel qwen3.8-max=out/task_major_5panel/panel-qwen3.8-max.jsonl --output out/task_major_5panel/fusion-latest5panel.jsonl --config-id fusion-latest5panel --judge-model minimax-m3 --fuser-model minimax-m3 --base-url https://router-api.0g.ai/v1 --api-key-name TR_API_KEY --workers 1 --resume --require-full-panel --execute
+panel members: ['minimax-m3', 'kimi-k3', 'glm-5.3-flash', 'deepseek-v4-flash', 'qwen3.8-max']
+tasks with ALL panel answers: 0  pending: 0
+fuser: minimax-m3  judge: minimax-m3  config: fusion-latest5panel
+output: out/task_major_5panel/fusion-latest5panel.jsonl
+  skipped (prerequisite missing): fusion-latest5panel has no row for task 1516d849-b413-4fab-9153-c4d9b16a1aa9 -- at least one of ['minimax-m3', 'kimi-k3', 'glm-5.3-flash', 'deepseek-v4-flash', 'qwen3.8-max'] hasn't answered yet.
+--- score: fusion-latest5panel ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_rejudge.py out/task_major_5panel/fusion-latest5panel.jsonl --output out/task_major_5panel/score-fusion-latest5panel.jsonl --judge-model gemini-3.1-pro-preview --base-url https://router-api.0g.ai/v1 --workers 1 --resume --execute
+replay rows: 0
+pending rows: 0
+output: out/task_major_5panel/score-fusion-latest5panel.jsonl
+  skipped (prerequisite missing): score-fusion-latest5panel has no row for task 1516d849-b413-4fab-9153-c4d9b16a1aa9.
+--- score: baseline ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_rejudge.py out/task_major_5panel/baseline-gpt-5.6-sol.jsonl --output out/task_major_5panel/score-baseline.jsonl --judge-model gemini-3.1-pro-preview --base-url https://router-api.0g.ai/v1 --workers 1 --resume --execute
+replay rows: 50
+pending rows: 0
+output: out/task_major_5panel/score-baseline.jsonl
+
+===== task 6/80  id=b0e3597d-6cda-4082-a5b4-234aac7d2684 =====
+--- panel solo: minimax-m3 ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output out/task_major_5panel/panel-minimax-m3.jsonl --model minimax-m3 --config-id panel-minimax-m3 --task-id b0e3597d-6cda-4082-a5b4-234aac7d2684 --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 0
+model: minimax-m3  config_id: panel-minimax-m3
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: out/task_major_5panel/panel-minimax-m3.jsonl
+--- panel solo: kimi-k3 ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output out/task_major_5panel/panel-kimi-k3.jsonl --model kimi-k3 --config-id panel-kimi-k3 --task-id b0e3597d-6cda-4082-a5b4-234aac7d2684 --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 1
+model: kimi-k3  config_id: panel-kimi-k3
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: out/task_major_5panel/panel-kimi-k3.jsonl
+agentic 1/1 task=b0e3597d status=failed tools=None finish=None clen=0 elapsed=0s
+  WARNING: panel kimi-k3 failed for task b0e3597d-6cda-4082-a5b4-234aac7d2684 (error_type=HTTPStatusError) -- fusion configs needing this model will skip this task until a later --resume re-run succeeds.
+--- panel solo: glm-5.3-flash ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output out/task_major_5panel/panel-glm-5.3-flash.jsonl --model glm-5.3-flash --config-id panel-glm-5.3-flash --task-id b0e3597d-6cda-4082-a5b4-234aac7d2684 --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 0
+model: glm-5.3-flash  config_id: panel-glm-5.3-flash
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: out/task_major_5panel/panel-glm-5.3-flash.jsonl
+--- panel solo: deepseek-v4-flash ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output out/task_major_5panel/panel-deepseek-v4-flash.jsonl --model deepseek-v4-flash --config-id panel-deepseek-v4-flash --task-id b0e3597d-6cda-4082-a5b4-234aac7d2684 --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 0
+model: deepseek-v4-flash  config_id: panel-deepseek-v4-flash
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: out/task_major_5panel/panel-deepseek-v4-flash.jsonl
+--- panel solo: qwen3.8-max ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output out/task_major_5panel/panel-qwen3.8-max.jsonl --model qwen3.8-max --config-id panel-qwen3.8-max --task-id b0e3597d-6cda-4082-a5b4-234aac7d2684 --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 1
+model: qwen3.8-max  config_id: panel-qwen3.8-max
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: out/task_major_5panel/panel-qwen3.8-max.jsonl
+agentic 1/1 task=b0e3597d status=ok tools=16 finish=stop clen=21784 elapsed=397s
+--- baseline: gpt-5.6-sol ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output out/task_major_5panel/baseline-gpt-5.6-sol.jsonl --model gpt-5.6-sol --config-id baseline --task-id b0e3597d-6cda-4082-a5b4-234aac7d2684 --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 0
+model: gpt-5.6-sol  config_id: baseline
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: out/task_major_5panel/baseline-gpt-5.6-sol.jsonl
+--- fusion: fusion-latest5panel ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_client_fusion.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --panel minimax-m3=out/task_major_5panel/panel-minimax-m3.jsonl --panel kimi-k3=out/task_major_5panel/panel-kimi-k3.jsonl --panel glm-5.3-flash=out/task_major_5panel/panel-glm-5.3-flash.jsonl --panel deepseek-v4-flash=out/task_major_5panel/panel-deepseek-v4-flash.jsonl --panel qwen3.8-max=out/task_major_5panel/panel-qwen3.8-max.jsonl --output out/task_major_5panel/fusion-latest5panel.jsonl --config-id fusion-latest5panel --judge-model minimax-m3 --fuser-model minimax-m3 --base-url https://router-api.0g.ai/v1 --api-key-name TR_API_KEY --workers 1 --resume --require-full-panel --execute
+panel members: ['minimax-m3', 'kimi-k3', 'glm-5.3-flash', 'deepseek-v4-flash', 'qwen3.8-max']
+tasks with ALL panel answers: 0  pending: 0
+fuser: minimax-m3  judge: minimax-m3  config: fusion-latest5panel
+output: out/task_major_5panel/fusion-latest5panel.jsonl
+  skipped (prerequisite missing): fusion-latest5panel has no row for task b0e3597d-6cda-4082-a5b4-234aac7d2684 -- at least one of ['minimax-m3', 'kimi-k3', 'glm-5.3-flash', 'deepseek-v4-flash', 'qwen3.8-max'] hasn't answered yet.
+--- score: fusion-latest5panel ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_rejudge.py out/task_major_5panel/fusion-latest5panel.jsonl --output out/task_major_5panel/score-fusion-latest5panel.jsonl --judge-model gemini-3.1-pro-preview --base-url https://router-api.0g.ai/v1 --workers 1 --resume --execute
+replay rows: 0
+pending rows: 0
+output: out/task_major_5panel/score-fusion-latest5panel.jsonl
+  skipped (prerequisite missing): score-fusion-latest5panel has no row for task b0e3597d-6cda-4082-a5b4-234aac7d2684.
+--- score: baseline ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_rejudge.py out/task_major_5panel/baseline-gpt-5.6-sol.jsonl --output out/task_major_5panel/score-baseline.jsonl --judge-model gemini-3.1-pro-preview --base-url https://router-api.0g.ai/v1 --workers 1 --resume --execute
+replay rows: 50
+pending rows: 0
+output: out/task_major_5panel/score-baseline.jsonl
+
+===== task 7/80  id=79224558-75f7-4e51-bc24-51f1e3ede921 =====
+--- panel solo: minimax-m3 ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output out/task_major_5panel/panel-minimax-m3.jsonl --model minimax-m3 --config-id panel-minimax-m3 --task-id 79224558-75f7-4e51-bc24-51f1e3ede921 --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 0
+model: minimax-m3  config_id: panel-minimax-m3
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: out/task_major_5panel/panel-minimax-m3.jsonl
+--- panel solo: kimi-k3 ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output out/task_major_5panel/panel-kimi-k3.jsonl --model kimi-k3 --config-id panel-kimi-k3 --task-id 79224558-75f7-4e51-bc24-51f1e3ede921 --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute

@@ -1,0 +1,1901 @@
+nohup: ignoring input
+
+===== task 1/100  id=0c2c668a-c3bf-41af-93c9-b5614ff63508 =====
+tasks: 1  pending: 0
+model: gpt-5.6-sol  config_id: baseline
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: out/baseline_parity/baseline-gpt-5.6-sol.jsonl
+replay rows: 66
+pending rows: 38
+output: out/baseline_parity/score-baseline.jsonl
+rejudged 1/38 task_id=b0e3597d-6cda-4082-a5b4-234aac7d2684 score=None
+rejudged 2/38 task_id=646b575d-383d-483b-82bd-01e5526212c7 score=None
+rejudged 3/38 task_id=614a5d4c-5387-4f42-a319-61486bbcde0f score=None
+rejudged 4/38 task_id=e3734e91-e2d1-4696-bdee-81c8bfa3127e score=None
+rejudged 5/38 task_id=f1b0f094-fa7a-4f18-adbd-f4cd86633f77 score=None
+rejudged 6/38 task_id=8cf941c5-3ac1-4801-929b-8f5bab8691c7 score=None
+rejudged 7/38 task_id=a4bae04b-4337-4f28-ab8b-5a518cf58fe0 score=None
+rejudged 8/38 task_id=056e9cbe-d8eb-48a8-9618-432222100e79 score=None
+rejudged 9/38 task_id=ab074bda-d583-42d0-85ce-6c694a51d3ce score=None
+rejudged 10/38 task_id=b02ede76-2353-40f3-9da9-d319c617ab0d score=None
+rejudged 11/38 task_id=236d5ae8-8623-4436-b527-2853aeea2db9 score=None
+rejudged 12/38 task_id=36457179-b5e5-4daa-9956-fde342aade9b score=None
+rejudged 13/38 task_id=3d801f46-5707-4ff5-8151-1168ff0f09c0 score=None
+rejudged 14/38 task_id=b0f9b509-dff8-4414-9404-fe0a35c43107 score=None
+rejudged 15/38 task_id=10e75d21-9e92-4878-b691-02fc87ae5d54 score=None
+rejudged 16/38 task_id=928aea10-3918-484b-980e-19d13a747e30 score=None
+rejudged 17/38 task_id=9afd23d2-058d-469f-a663-91286ac0532f score=None
+rejudged 18/38 task_id=8ca825d6-174a-489d-89b9-b000649a2477 score=None
+rejudged 19/38 task_id=c2a1a24b-8a83-453f-9892-d17b533ffe93 score=None
+rejudged 20/38 task_id=6b3233e6-9b05-465a-a872-724af25df719 score=None
+rejudged 21/38 task_id=939cd89c-32e3-4ba3-a9c2-734a9f3b80d1 score=None
+rejudged 22/38 task_id=e179559d-08fd-4ca7-9f1b-5637d956b3d4 score=None
+rejudged 23/38 task_id=4b089235-06e7-4f1f-a815-96bb146cbbde score=None
+rejudged 24/38 task_id=6128e19e-5d6c-41ab-aaf5-35a1d718050e score=None
+rejudged 25/38 task_id=c63923e7-6ab4-4742-b739-49f5d1f1cfe4 score=None
+rejudged 26/38 task_id=ebac60ea-ea67-4b8f-986e-1e0aebed2b89 score=None
+rejudged 27/38 task_id=49d841f1-0c95-4a87-9b62-5e2a54e8e1a8 score=None
+rejudged 28/38 task_id=785c8570-6aed-4517-aac2-1d56e16745b7 score=None
+rejudged 29/38 task_id=7d09292c-c8b7-4ae9-9864-1676135bd041 score=None
+rejudged 30/38 task_id=10e9d085-a62f-4547-bbf3-62800b27950c score=None
+rejudged 31/38 task_id=2aac5ef3-f127-4582-a8a6-8f02bda5681e score=None
+rejudged 32/38 task_id=8e99d8d2-f6b9-4800-83a9-6f56829898fe score=None
+rejudged 33/38 task_id=9db832bc-c38d-4a0b-aebe-ea0fc96da563 score=None
+rejudged 34/38 task_id=1070e6eb-7a8f-4ce9-8818-1931bcfdb2dd score=None
+rejudged 35/38 task_id=0e7281ec-bf16-4d84-9501-0de69a803c59 score=None
+rejudged 36/38 task_id=69e0ce73-b0af-4f7c-a59d-71c96adc6a2b score=None
+rejudged 37/38 task_id=e6fbba71-d917-4d1e-bd09-009ff9cd8e9b score=None
+rejudged 38/38 task_id=91408757-a874-44b5-ad5a-66a22b39141d score=None
+
+===== task 2/100  id=a78eed67-ebe3-425e-a467-d54ee8949c8b =====
+tasks: 1  pending: 0
+model: gpt-5.6-sol  config_id: baseline
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: out/baseline_parity/baseline-gpt-5.6-sol.jsonl
+replay rows: 66
+pending rows: 38
+output: out/baseline_parity/score-baseline.jsonl
+rejudged 1/38 task_id=b0e3597d-6cda-4082-a5b4-234aac7d2684 score=None
+rejudged 2/38 task_id=646b575d-383d-483b-82bd-01e5526212c7 score=None
+rejudged 3/38 task_id=614a5d4c-5387-4f42-a319-61486bbcde0f score=None
+rejudged 4/38 task_id=e3734e91-e2d1-4696-bdee-81c8bfa3127e score=None
+rejudged 5/38 task_id=f1b0f094-fa7a-4f18-adbd-f4cd86633f77 score=None
+rejudged 6/38 task_id=8cf941c5-3ac1-4801-929b-8f5bab8691c7 score=None
+rejudged 7/38 task_id=a4bae04b-4337-4f28-ab8b-5a518cf58fe0 score=None
+rejudged 8/38 task_id=056e9cbe-d8eb-48a8-9618-432222100e79 score=None
+rejudged 9/38 task_id=ab074bda-d583-42d0-85ce-6c694a51d3ce score=None
+rejudged 10/38 task_id=b02ede76-2353-40f3-9da9-d319c617ab0d score=None
+rejudged 11/38 task_id=236d5ae8-8623-4436-b527-2853aeea2db9 score=None
+rejudged 12/38 task_id=36457179-b5e5-4daa-9956-fde342aade9b score=None
+rejudged 13/38 task_id=3d801f46-5707-4ff5-8151-1168ff0f09c0 score=None
+rejudged 14/38 task_id=b0f9b509-dff8-4414-9404-fe0a35c43107 score=None
+rejudged 15/38 task_id=10e75d21-9e92-4878-b691-02fc87ae5d54 score=None
+rejudged 16/38 task_id=928aea10-3918-484b-980e-19d13a747e30 score=None
+rejudged 17/38 task_id=9afd23d2-058d-469f-a663-91286ac0532f score=None
+rejudged 18/38 task_id=8ca825d6-174a-489d-89b9-b000649a2477 score=None
+rejudged 19/38 task_id=c2a1a24b-8a83-453f-9892-d17b533ffe93 score=None
+rejudged 20/38 task_id=6b3233e6-9b05-465a-a872-724af25df719 score=None
+rejudged 21/38 task_id=939cd89c-32e3-4ba3-a9c2-734a9f3b80d1 score=None
+rejudged 22/38 task_id=e179559d-08fd-4ca7-9f1b-5637d956b3d4 score=None
+rejudged 23/38 task_id=4b089235-06e7-4f1f-a815-96bb146cbbde score=None
+rejudged 24/38 task_id=6128e19e-5d6c-41ab-aaf5-35a1d718050e score=None
+rejudged 25/38 task_id=c63923e7-6ab4-4742-b739-49f5d1f1cfe4 score=None
+rejudged 26/38 task_id=ebac60ea-ea67-4b8f-986e-1e0aebed2b89 score=None
+rejudged 27/38 task_id=49d841f1-0c95-4a87-9b62-5e2a54e8e1a8 score=None
+rejudged 28/38 task_id=785c8570-6aed-4517-aac2-1d56e16745b7 score=None
+rejudged 29/38 task_id=7d09292c-c8b7-4ae9-9864-1676135bd041 score=None
+rejudged 30/38 task_id=10e9d085-a62f-4547-bbf3-62800b27950c score=None
+rejudged 31/38 task_id=2aac5ef3-f127-4582-a8a6-8f02bda5681e score=None
+rejudged 32/38 task_id=8e99d8d2-f6b9-4800-83a9-6f56829898fe score=None
+rejudged 33/38 task_id=9db832bc-c38d-4a0b-aebe-ea0fc96da563 score=None
+rejudged 34/38 task_id=1070e6eb-7a8f-4ce9-8818-1931bcfdb2dd score=None
+rejudged 35/38 task_id=0e7281ec-bf16-4d84-9501-0de69a803c59 score=None
+rejudged 36/38 task_id=69e0ce73-b0af-4f7c-a59d-71c96adc6a2b score=None
+rejudged 37/38 task_id=e6fbba71-d917-4d1e-bd09-009ff9cd8e9b score=None
+rejudged 38/38 task_id=91408757-a874-44b5-ad5a-66a22b39141d score=None
+
+===== task 3/100  id=f6de7687-7cff-4f68-93ea-f632bf6266af =====
+tasks: 1  pending: 0
+model: gpt-5.6-sol  config_id: baseline
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: out/baseline_parity/baseline-gpt-5.6-sol.jsonl
+replay rows: 66
+pending rows: 38
+output: out/baseline_parity/score-baseline.jsonl
+rejudged 1/38 task_id=b0e3597d-6cda-4082-a5b4-234aac7d2684 score=None
+rejudged 2/38 task_id=646b575d-383d-483b-82bd-01e5526212c7 score=None
+rejudged 3/38 task_id=614a5d4c-5387-4f42-a319-61486bbcde0f score=None
+rejudged 4/38 task_id=e3734e91-e2d1-4696-bdee-81c8bfa3127e score=None
+rejudged 5/38 task_id=f1b0f094-fa7a-4f18-adbd-f4cd86633f77 score=None
+rejudged 6/38 task_id=8cf941c5-3ac1-4801-929b-8f5bab8691c7 score=None
+rejudged 7/38 task_id=a4bae04b-4337-4f28-ab8b-5a518cf58fe0 score=None
+rejudged 8/38 task_id=056e9cbe-d8eb-48a8-9618-432222100e79 score=None
+rejudged 9/38 task_id=ab074bda-d583-42d0-85ce-6c694a51d3ce score=None
+rejudged 10/38 task_id=b02ede76-2353-40f3-9da9-d319c617ab0d score=None
+rejudged 11/38 task_id=236d5ae8-8623-4436-b527-2853aeea2db9 score=None
+rejudged 12/38 task_id=36457179-b5e5-4daa-9956-fde342aade9b score=None
+rejudged 13/38 task_id=3d801f46-5707-4ff5-8151-1168ff0f09c0 score=None
+rejudged 14/38 task_id=b0f9b509-dff8-4414-9404-fe0a35c43107 score=None
+rejudged 15/38 task_id=10e75d21-9e92-4878-b691-02fc87ae5d54 score=None
+rejudged 16/38 task_id=928aea10-3918-484b-980e-19d13a747e30 score=None
+rejudged 17/38 task_id=9afd23d2-058d-469f-a663-91286ac0532f score=None
+rejudged 18/38 task_id=8ca825d6-174a-489d-89b9-b000649a2477 score=None
+rejudged 19/38 task_id=c2a1a24b-8a83-453f-9892-d17b533ffe93 score=None
+rejudged 20/38 task_id=6b3233e6-9b05-465a-a872-724af25df719 score=None
+rejudged 21/38 task_id=939cd89c-32e3-4ba3-a9c2-734a9f3b80d1 score=None
+rejudged 22/38 task_id=e179559d-08fd-4ca7-9f1b-5637d956b3d4 score=None
+rejudged 23/38 task_id=4b089235-06e7-4f1f-a815-96bb146cbbde score=None
+rejudged 24/38 task_id=6128e19e-5d6c-41ab-aaf5-35a1d718050e score=None
+rejudged 25/38 task_id=c63923e7-6ab4-4742-b739-49f5d1f1cfe4 score=None
+rejudged 26/38 task_id=ebac60ea-ea67-4b8f-986e-1e0aebed2b89 score=None
+rejudged 27/38 task_id=49d841f1-0c95-4a87-9b62-5e2a54e8e1a8 score=None
+rejudged 28/38 task_id=785c8570-6aed-4517-aac2-1d56e16745b7 score=None
+rejudged 29/38 task_id=7d09292c-c8b7-4ae9-9864-1676135bd041 score=None
+rejudged 30/38 task_id=10e9d085-a62f-4547-bbf3-62800b27950c score=None
+rejudged 31/38 task_id=2aac5ef3-f127-4582-a8a6-8f02bda5681e score=None
+rejudged 32/38 task_id=8e99d8d2-f6b9-4800-83a9-6f56829898fe score=None
+rejudged 33/38 task_id=9db832bc-c38d-4a0b-aebe-ea0fc96da563 score=None
+rejudged 34/38 task_id=1070e6eb-7a8f-4ce9-8818-1931bcfdb2dd score=None
+rejudged 35/38 task_id=0e7281ec-bf16-4d84-9501-0de69a803c59 score=None
+rejudged 36/38 task_id=69e0ce73-b0af-4f7c-a59d-71c96adc6a2b score=None
+rejudged 37/38 task_id=e6fbba71-d917-4d1e-bd09-009ff9cd8e9b score=None
+rejudged 38/38 task_id=91408757-a874-44b5-ad5a-66a22b39141d score=None
+
+===== task 4/100  id=f0bed5aa-f7c4-4013-8d0c-10ffebeaf300 =====
+tasks: 1  pending: 1
+model: gpt-5.6-sol  config_id: baseline
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: out/baseline_parity/baseline-gpt-5.6-sol.jsonl
+    [gpt-5.6-sol] round 1: calling LLM...
+agentic 1/1 task=f0bed5aa status=failed tools=None finish=None clen=0 elapsed=0s
+replay rows: 66
+pending rows: 38
+output: out/baseline_parity/score-baseline.jsonl
+rejudged 1/38 task_id=b0e3597d-6cda-4082-a5b4-234aac7d2684 score=None
+rejudged 2/38 task_id=646b575d-383d-483b-82bd-01e5526212c7 score=None
+rejudged 3/38 task_id=614a5d4c-5387-4f42-a319-61486bbcde0f score=None
+rejudged 4/38 task_id=e3734e91-e2d1-4696-bdee-81c8bfa3127e score=None
+rejudged 5/38 task_id=f1b0f094-fa7a-4f18-adbd-f4cd86633f77 score=None
+rejudged 6/38 task_id=8cf941c5-3ac1-4801-929b-8f5bab8691c7 score=None
+rejudged 7/38 task_id=a4bae04b-4337-4f28-ab8b-5a518cf58fe0 score=None
+rejudged 8/38 task_id=056e9cbe-d8eb-48a8-9618-432222100e79 score=None
+rejudged 9/38 task_id=ab074bda-d583-42d0-85ce-6c694a51d3ce score=None
+rejudged 10/38 task_id=b02ede76-2353-40f3-9da9-d319c617ab0d score=None
+rejudged 11/38 task_id=236d5ae8-8623-4436-b527-2853aeea2db9 score=None
+rejudged 12/38 task_id=36457179-b5e5-4daa-9956-fde342aade9b score=None
+rejudged 13/38 task_id=3d801f46-5707-4ff5-8151-1168ff0f09c0 score=None
+rejudged 14/38 task_id=b0f9b509-dff8-4414-9404-fe0a35c43107 score=None
+rejudged 15/38 task_id=10e75d21-9e92-4878-b691-02fc87ae5d54 score=None
+rejudged 16/38 task_id=928aea10-3918-484b-980e-19d13a747e30 score=None
+rejudged 17/38 task_id=9afd23d2-058d-469f-a663-91286ac0532f score=None
+rejudged 18/38 task_id=8ca825d6-174a-489d-89b9-b000649a2477 score=None
+rejudged 19/38 task_id=c2a1a24b-8a83-453f-9892-d17b533ffe93 score=None
+rejudged 20/38 task_id=6b3233e6-9b05-465a-a872-724af25df719 score=None
+rejudged 21/38 task_id=939cd89c-32e3-4ba3-a9c2-734a9f3b80d1 score=None
+rejudged 22/38 task_id=e179559d-08fd-4ca7-9f1b-5637d956b3d4 score=None
+rejudged 23/38 task_id=4b089235-06e7-4f1f-a815-96bb146cbbde score=None
+rejudged 24/38 task_id=6128e19e-5d6c-41ab-aaf5-35a1d718050e score=None
+rejudged 25/38 task_id=c63923e7-6ab4-4742-b739-49f5d1f1cfe4 score=None
+rejudged 26/38 task_id=ebac60ea-ea67-4b8f-986e-1e0aebed2b89 score=None
+rejudged 27/38 task_id=49d841f1-0c95-4a87-9b62-5e2a54e8e1a8 score=None
+rejudged 28/38 task_id=785c8570-6aed-4517-aac2-1d56e16745b7 score=None
+rejudged 29/38 task_id=7d09292c-c8b7-4ae9-9864-1676135bd041 score=None
+rejudged 30/38 task_id=10e9d085-a62f-4547-bbf3-62800b27950c score=None
+rejudged 31/38 task_id=2aac5ef3-f127-4582-a8a6-8f02bda5681e score=None
+rejudged 32/38 task_id=8e99d8d2-f6b9-4800-83a9-6f56829898fe score=None
+rejudged 33/38 task_id=9db832bc-c38d-4a0b-aebe-ea0fc96da563 score=None
+rejudged 34/38 task_id=1070e6eb-7a8f-4ce9-8818-1931bcfdb2dd score=None
+rejudged 35/38 task_id=0e7281ec-bf16-4d84-9501-0de69a803c59 score=None
+rejudged 36/38 task_id=69e0ce73-b0af-4f7c-a59d-71c96adc6a2b score=None
+rejudged 37/38 task_id=e6fbba71-d917-4d1e-bd09-009ff9cd8e9b score=None
+rejudged 38/38 task_id=91408757-a874-44b5-ad5a-66a22b39141d score=None
+
+===== task 5/100  id=e1f2c310-d311-49da-b0e4-ee855603469d =====
+tasks: 1  pending: 0
+model: gpt-5.6-sol  config_id: baseline
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: out/baseline_parity/baseline-gpt-5.6-sol.jsonl
+replay rows: 66
+pending rows: 38
+output: out/baseline_parity/score-baseline.jsonl
+rejudged 1/38 task_id=b0e3597d-6cda-4082-a5b4-234aac7d2684 score=None
+rejudged 2/38 task_id=646b575d-383d-483b-82bd-01e5526212c7 score=None
+rejudged 3/38 task_id=614a5d4c-5387-4f42-a319-61486bbcde0f score=None
+rejudged 4/38 task_id=e3734e91-e2d1-4696-bdee-81c8bfa3127e score=None
+rejudged 5/38 task_id=f1b0f094-fa7a-4f18-adbd-f4cd86633f77 score=None
+rejudged 6/38 task_id=8cf941c5-3ac1-4801-929b-8f5bab8691c7 score=None
+rejudged 7/38 task_id=a4bae04b-4337-4f28-ab8b-5a518cf58fe0 score=None
+rejudged 8/38 task_id=056e9cbe-d8eb-48a8-9618-432222100e79 score=None
+rejudged 9/38 task_id=ab074bda-d583-42d0-85ce-6c694a51d3ce score=None
+rejudged 10/38 task_id=b02ede76-2353-40f3-9da9-d319c617ab0d score=None
+rejudged 11/38 task_id=236d5ae8-8623-4436-b527-2853aeea2db9 score=None
+rejudged 12/38 task_id=36457179-b5e5-4daa-9956-fde342aade9b score=None
+rejudged 13/38 task_id=3d801f46-5707-4ff5-8151-1168ff0f09c0 score=None
+rejudged 14/38 task_id=b0f9b509-dff8-4414-9404-fe0a35c43107 score=None
+rejudged 15/38 task_id=10e75d21-9e92-4878-b691-02fc87ae5d54 score=None
+rejudged 16/38 task_id=928aea10-3918-484b-980e-19d13a747e30 score=None
+rejudged 17/38 task_id=9afd23d2-058d-469f-a663-91286ac0532f score=None
+rejudged 18/38 task_id=8ca825d6-174a-489d-89b9-b000649a2477 score=None
+rejudged 19/38 task_id=c2a1a24b-8a83-453f-9892-d17b533ffe93 score=None
+rejudged 20/38 task_id=6b3233e6-9b05-465a-a872-724af25df719 score=None
+rejudged 21/38 task_id=939cd89c-32e3-4ba3-a9c2-734a9f3b80d1 score=None
+rejudged 22/38 task_id=e179559d-08fd-4ca7-9f1b-5637d956b3d4 score=None
+rejudged 23/38 task_id=4b089235-06e7-4f1f-a815-96bb146cbbde score=None
+rejudged 24/38 task_id=6128e19e-5d6c-41ab-aaf5-35a1d718050e score=None
+rejudged 25/38 task_id=c63923e7-6ab4-4742-b739-49f5d1f1cfe4 score=None
+rejudged 26/38 task_id=ebac60ea-ea67-4b8f-986e-1e0aebed2b89 score=None
+rejudged 27/38 task_id=49d841f1-0c95-4a87-9b62-5e2a54e8e1a8 score=None
+rejudged 28/38 task_id=785c8570-6aed-4517-aac2-1d56e16745b7 score=None
+rejudged 29/38 task_id=7d09292c-c8b7-4ae9-9864-1676135bd041 score=None
+rejudged 30/38 task_id=10e9d085-a62f-4547-bbf3-62800b27950c score=None
+rejudged 31/38 task_id=2aac5ef3-f127-4582-a8a6-8f02bda5681e score=None
+rejudged 32/38 task_id=8e99d8d2-f6b9-4800-83a9-6f56829898fe score=None
+rejudged 33/38 task_id=9db832bc-c38d-4a0b-aebe-ea0fc96da563 score=None
+rejudged 34/38 task_id=1070e6eb-7a8f-4ce9-8818-1931bcfdb2dd score=None
+rejudged 35/38 task_id=0e7281ec-bf16-4d84-9501-0de69a803c59 score=None
+rejudged 36/38 task_id=69e0ce73-b0af-4f7c-a59d-71c96adc6a2b score=None
+rejudged 37/38 task_id=e6fbba71-d917-4d1e-bd09-009ff9cd8e9b score=None
+rejudged 38/38 task_id=91408757-a874-44b5-ad5a-66a22b39141d score=None
+
+===== task 6/100  id=f004b46b-c0e7-4e86-a072-c7491328d538 =====
+tasks: 1  pending: 0
+model: gpt-5.6-sol  config_id: baseline
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: out/baseline_parity/baseline-gpt-5.6-sol.jsonl
+replay rows: 66
+pending rows: 38
+output: out/baseline_parity/score-baseline.jsonl
+rejudged 1/38 task_id=b0e3597d-6cda-4082-a5b4-234aac7d2684 score=None
+rejudged 2/38 task_id=646b575d-383d-483b-82bd-01e5526212c7 score=None
+rejudged 3/38 task_id=614a5d4c-5387-4f42-a319-61486bbcde0f score=None
+rejudged 4/38 task_id=e3734e91-e2d1-4696-bdee-81c8bfa3127e score=None
+rejudged 5/38 task_id=f1b0f094-fa7a-4f18-adbd-f4cd86633f77 score=None
+rejudged 6/38 task_id=8cf941c5-3ac1-4801-929b-8f5bab8691c7 score=None
+rejudged 7/38 task_id=a4bae04b-4337-4f28-ab8b-5a518cf58fe0 score=None
+rejudged 8/38 task_id=056e9cbe-d8eb-48a8-9618-432222100e79 score=None
+rejudged 9/38 task_id=ab074bda-d583-42d0-85ce-6c694a51d3ce score=None
+rejudged 10/38 task_id=b02ede76-2353-40f3-9da9-d319c617ab0d score=None
+rejudged 11/38 task_id=236d5ae8-8623-4436-b527-2853aeea2db9 score=None
+rejudged 12/38 task_id=36457179-b5e5-4daa-9956-fde342aade9b score=None
+rejudged 13/38 task_id=3d801f46-5707-4ff5-8151-1168ff0f09c0 score=None
+rejudged 14/38 task_id=b0f9b509-dff8-4414-9404-fe0a35c43107 score=None
+rejudged 15/38 task_id=10e75d21-9e92-4878-b691-02fc87ae5d54 score=None
+rejudged 16/38 task_id=928aea10-3918-484b-980e-19d13a747e30 score=None
+rejudged 17/38 task_id=9afd23d2-058d-469f-a663-91286ac0532f score=None
+rejudged 18/38 task_id=8ca825d6-174a-489d-89b9-b000649a2477 score=None
+rejudged 19/38 task_id=c2a1a24b-8a83-453f-9892-d17b533ffe93 score=None
+rejudged 20/38 task_id=6b3233e6-9b05-465a-a872-724af25df719 score=None
+rejudged 21/38 task_id=939cd89c-32e3-4ba3-a9c2-734a9f3b80d1 score=None
+rejudged 22/38 task_id=e179559d-08fd-4ca7-9f1b-5637d956b3d4 score=None
+rejudged 23/38 task_id=4b089235-06e7-4f1f-a815-96bb146cbbde score=None
+rejudged 24/38 task_id=6128e19e-5d6c-41ab-aaf5-35a1d718050e score=None
+rejudged 25/38 task_id=c63923e7-6ab4-4742-b739-49f5d1f1cfe4 score=None
+rejudged 26/38 task_id=ebac60ea-ea67-4b8f-986e-1e0aebed2b89 score=None
+rejudged 27/38 task_id=49d841f1-0c95-4a87-9b62-5e2a54e8e1a8 score=None
+rejudged 28/38 task_id=785c8570-6aed-4517-aac2-1d56e16745b7 score=None
+rejudged 29/38 task_id=7d09292c-c8b7-4ae9-9864-1676135bd041 score=None
+rejudged 30/38 task_id=10e9d085-a62f-4547-bbf3-62800b27950c score=None
+rejudged 31/38 task_id=2aac5ef3-f127-4582-a8a6-8f02bda5681e score=None
+rejudged 32/38 task_id=8e99d8d2-f6b9-4800-83a9-6f56829898fe score=None
+rejudged 33/38 task_id=9db832bc-c38d-4a0b-aebe-ea0fc96da563 score=None
+rejudged 34/38 task_id=1070e6eb-7a8f-4ce9-8818-1931bcfdb2dd score=None
+rejudged 35/38 task_id=0e7281ec-bf16-4d84-9501-0de69a803c59 score=None
+rejudged 36/38 task_id=69e0ce73-b0af-4f7c-a59d-71c96adc6a2b score=None
+rejudged 37/38 task_id=e6fbba71-d917-4d1e-bd09-009ff9cd8e9b score=None
+rejudged 38/38 task_id=91408757-a874-44b5-ad5a-66a22b39141d score=None
+
+===== task 7/100  id=1516d849-b413-4fab-9153-c4d9b16a1aa9 =====
+tasks: 1  pending: 0
+model: gpt-5.6-sol  config_id: baseline
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: out/baseline_parity/baseline-gpt-5.6-sol.jsonl
+replay rows: 66
+pending rows: 38
+output: out/baseline_parity/score-baseline.jsonl
+rejudged 1/38 task_id=b0e3597d-6cda-4082-a5b4-234aac7d2684 score=None
+rejudged 2/38 task_id=646b575d-383d-483b-82bd-01e5526212c7 score=None
+rejudged 3/38 task_id=614a5d4c-5387-4f42-a319-61486bbcde0f score=None
+rejudged 4/38 task_id=e3734e91-e2d1-4696-bdee-81c8bfa3127e score=None
+rejudged 5/38 task_id=f1b0f094-fa7a-4f18-adbd-f4cd86633f77 score=None
+rejudged 6/38 task_id=8cf941c5-3ac1-4801-929b-8f5bab8691c7 score=None
+rejudged 7/38 task_id=a4bae04b-4337-4f28-ab8b-5a518cf58fe0 score=None
+rejudged 8/38 task_id=056e9cbe-d8eb-48a8-9618-432222100e79 score=None
+rejudged 9/38 task_id=ab074bda-d583-42d0-85ce-6c694a51d3ce score=None
+rejudged 10/38 task_id=b02ede76-2353-40f3-9da9-d319c617ab0d score=None
+rejudged 11/38 task_id=236d5ae8-8623-4436-b527-2853aeea2db9 score=None
+rejudged 12/38 task_id=36457179-b5e5-4daa-9956-fde342aade9b score=None
+rejudged 13/38 task_id=3d801f46-5707-4ff5-8151-1168ff0f09c0 score=None
+rejudged 14/38 task_id=b0f9b509-dff8-4414-9404-fe0a35c43107 score=None
+rejudged 15/38 task_id=10e75d21-9e92-4878-b691-02fc87ae5d54 score=None
+rejudged 16/38 task_id=928aea10-3918-484b-980e-19d13a747e30 score=None
+rejudged 17/38 task_id=9afd23d2-058d-469f-a663-91286ac0532f score=None
+rejudged 18/38 task_id=8ca825d6-174a-489d-89b9-b000649a2477 score=None
+rejudged 19/38 task_id=c2a1a24b-8a83-453f-9892-d17b533ffe93 score=None
+rejudged 20/38 task_id=6b3233e6-9b05-465a-a872-724af25df719 score=None
+rejudged 21/38 task_id=939cd89c-32e3-4ba3-a9c2-734a9f3b80d1 score=None
+rejudged 22/38 task_id=e179559d-08fd-4ca7-9f1b-5637d956b3d4 score=None
+rejudged 23/38 task_id=4b089235-06e7-4f1f-a815-96bb146cbbde score=None
+rejudged 24/38 task_id=6128e19e-5d6c-41ab-aaf5-35a1d718050e score=None
+rejudged 25/38 task_id=c63923e7-6ab4-4742-b739-49f5d1f1cfe4 score=None
+rejudged 26/38 task_id=ebac60ea-ea67-4b8f-986e-1e0aebed2b89 score=None
+rejudged 27/38 task_id=49d841f1-0c95-4a87-9b62-5e2a54e8e1a8 score=None
+rejudged 28/38 task_id=785c8570-6aed-4517-aac2-1d56e16745b7 score=None
+rejudged 29/38 task_id=7d09292c-c8b7-4ae9-9864-1676135bd041 score=None
+rejudged 30/38 task_id=10e9d085-a62f-4547-bbf3-62800b27950c score=None
+rejudged 31/38 task_id=2aac5ef3-f127-4582-a8a6-8f02bda5681e score=None
+rejudged 32/38 task_id=8e99d8d2-f6b9-4800-83a9-6f56829898fe score=None
+rejudged 33/38 task_id=9db832bc-c38d-4a0b-aebe-ea0fc96da563 score=None
+rejudged 34/38 task_id=1070e6eb-7a8f-4ce9-8818-1931bcfdb2dd score=None
+rejudged 35/38 task_id=0e7281ec-bf16-4d84-9501-0de69a803c59 score=None
+rejudged 36/38 task_id=69e0ce73-b0af-4f7c-a59d-71c96adc6a2b score=None
+rejudged 37/38 task_id=e6fbba71-d917-4d1e-bd09-009ff9cd8e9b score=None
+rejudged 38/38 task_id=91408757-a874-44b5-ad5a-66a22b39141d score=None
+
+===== task 8/100  id=b0e3597d-6cda-4082-a5b4-234aac7d2684 =====
+tasks: 1  pending: 0
+model: gpt-5.6-sol  config_id: baseline
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: out/baseline_parity/baseline-gpt-5.6-sol.jsonl
+replay rows: 66
+pending rows: 38
+output: out/baseline_parity/score-baseline.jsonl
+rejudged 1/38 task_id=b0e3597d-6cda-4082-a5b4-234aac7d2684 score=None
+rejudged 2/38 task_id=646b575d-383d-483b-82bd-01e5526212c7 score=None
+rejudged 3/38 task_id=614a5d4c-5387-4f42-a319-61486bbcde0f score=None
+rejudged 4/38 task_id=e3734e91-e2d1-4696-bdee-81c8bfa3127e score=None
+rejudged 5/38 task_id=f1b0f094-fa7a-4f18-adbd-f4cd86633f77 score=None
+rejudged 6/38 task_id=8cf941c5-3ac1-4801-929b-8f5bab8691c7 score=None
+rejudged 7/38 task_id=a4bae04b-4337-4f28-ab8b-5a518cf58fe0 score=None
+rejudged 8/38 task_id=056e9cbe-d8eb-48a8-9618-432222100e79 score=None
+rejudged 9/38 task_id=ab074bda-d583-42d0-85ce-6c694a51d3ce score=None
+rejudged 10/38 task_id=b02ede76-2353-40f3-9da9-d319c617ab0d score=None
+rejudged 11/38 task_id=236d5ae8-8623-4436-b527-2853aeea2db9 score=None
+rejudged 12/38 task_id=36457179-b5e5-4daa-9956-fde342aade9b score=None
+rejudged 13/38 task_id=3d801f46-5707-4ff5-8151-1168ff0f09c0 score=None
+rejudged 14/38 task_id=b0f9b509-dff8-4414-9404-fe0a35c43107 score=None
+rejudged 15/38 task_id=10e75d21-9e92-4878-b691-02fc87ae5d54 score=None
+rejudged 16/38 task_id=928aea10-3918-484b-980e-19d13a747e30 score=None
+rejudged 17/38 task_id=9afd23d2-058d-469f-a663-91286ac0532f score=None
+rejudged 18/38 task_id=8ca825d6-174a-489d-89b9-b000649a2477 score=None
+rejudged 19/38 task_id=c2a1a24b-8a83-453f-9892-d17b533ffe93 score=None
+rejudged 20/38 task_id=6b3233e6-9b05-465a-a872-724af25df719 score=None
+rejudged 21/38 task_id=939cd89c-32e3-4ba3-a9c2-734a9f3b80d1 score=None
+rejudged 22/38 task_id=e179559d-08fd-4ca7-9f1b-5637d956b3d4 score=None
+rejudged 23/38 task_id=4b089235-06e7-4f1f-a815-96bb146cbbde score=None
+rejudged 24/38 task_id=6128e19e-5d6c-41ab-aaf5-35a1d718050e score=None
+rejudged 25/38 task_id=c63923e7-6ab4-4742-b739-49f5d1f1cfe4 score=None
+rejudged 26/38 task_id=ebac60ea-ea67-4b8f-986e-1e0aebed2b89 score=None
+rejudged 27/38 task_id=49d841f1-0c95-4a87-9b62-5e2a54e8e1a8 score=None
+rejudged 28/38 task_id=785c8570-6aed-4517-aac2-1d56e16745b7 score=None
+rejudged 29/38 task_id=7d09292c-c8b7-4ae9-9864-1676135bd041 score=None
+rejudged 30/38 task_id=10e9d085-a62f-4547-bbf3-62800b27950c score=None
+rejudged 31/38 task_id=2aac5ef3-f127-4582-a8a6-8f02bda5681e score=None
+rejudged 32/38 task_id=8e99d8d2-f6b9-4800-83a9-6f56829898fe score=None
+rejudged 33/38 task_id=9db832bc-c38d-4a0b-aebe-ea0fc96da563 score=None
+rejudged 34/38 task_id=1070e6eb-7a8f-4ce9-8818-1931bcfdb2dd score=None
+rejudged 35/38 task_id=0e7281ec-bf16-4d84-9501-0de69a803c59 score=None
+rejudged 36/38 task_id=69e0ce73-b0af-4f7c-a59d-71c96adc6a2b score=None
+rejudged 37/38 task_id=e6fbba71-d917-4d1e-bd09-009ff9cd8e9b score=None
+rejudged 38/38 task_id=91408757-a874-44b5-ad5a-66a22b39141d score=None
+
+===== task 9/100  id=79224558-75f7-4e51-bc24-51f1e3ede921 =====
+tasks: 1  pending: 0
+model: gpt-5.6-sol  config_id: baseline
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: out/baseline_parity/baseline-gpt-5.6-sol.jsonl
+replay rows: 66
+pending rows: 38
+output: out/baseline_parity/score-baseline.jsonl
+rejudged 1/38 task_id=b0e3597d-6cda-4082-a5b4-234aac7d2684 score=None
+rejudged 2/38 task_id=646b575d-383d-483b-82bd-01e5526212c7 score=None
+rejudged 3/38 task_id=614a5d4c-5387-4f42-a319-61486bbcde0f score=None
+rejudged 4/38 task_id=e3734e91-e2d1-4696-bdee-81c8bfa3127e score=None
+rejudged 5/38 task_id=f1b0f094-fa7a-4f18-adbd-f4cd86633f77 score=None
+rejudged 6/38 task_id=8cf941c5-3ac1-4801-929b-8f5bab8691c7 score=None
+rejudged 7/38 task_id=a4bae04b-4337-4f28-ab8b-5a518cf58fe0 score=None
+rejudged 8/38 task_id=056e9cbe-d8eb-48a8-9618-432222100e79 score=None
+rejudged 9/38 task_id=ab074bda-d583-42d0-85ce-6c694a51d3ce score=None
+rejudged 10/38 task_id=b02ede76-2353-40f3-9da9-d319c617ab0d score=None
+rejudged 11/38 task_id=236d5ae8-8623-4436-b527-2853aeea2db9 score=None
+rejudged 12/38 task_id=36457179-b5e5-4daa-9956-fde342aade9b score=None
+rejudged 13/38 task_id=3d801f46-5707-4ff5-8151-1168ff0f09c0 score=None
+rejudged 14/38 task_id=b0f9b509-dff8-4414-9404-fe0a35c43107 score=None
+rejudged 15/38 task_id=10e75d21-9e92-4878-b691-02fc87ae5d54 score=None
+rejudged 16/38 task_id=928aea10-3918-484b-980e-19d13a747e30 score=None
+rejudged 17/38 task_id=9afd23d2-058d-469f-a663-91286ac0532f score=None
+rejudged 18/38 task_id=8ca825d6-174a-489d-89b9-b000649a2477 score=None
+rejudged 19/38 task_id=c2a1a24b-8a83-453f-9892-d17b533ffe93 score=None
+rejudged 20/38 task_id=6b3233e6-9b05-465a-a872-724af25df719 score=None
+rejudged 21/38 task_id=939cd89c-32e3-4ba3-a9c2-734a9f3b80d1 score=None
+rejudged 22/38 task_id=e179559d-08fd-4ca7-9f1b-5637d956b3d4 score=None
+rejudged 23/38 task_id=4b089235-06e7-4f1f-a815-96bb146cbbde score=None
+rejudged 24/38 task_id=6128e19e-5d6c-41ab-aaf5-35a1d718050e score=None
+rejudged 25/38 task_id=c63923e7-6ab4-4742-b739-49f5d1f1cfe4 score=None
+rejudged 26/38 task_id=ebac60ea-ea67-4b8f-986e-1e0aebed2b89 score=None
+rejudged 27/38 task_id=49d841f1-0c95-4a87-9b62-5e2a54e8e1a8 score=None
+rejudged 28/38 task_id=785c8570-6aed-4517-aac2-1d56e16745b7 score=None
+rejudged 29/38 task_id=7d09292c-c8b7-4ae9-9864-1676135bd041 score=None
+rejudged 30/38 task_id=10e9d085-a62f-4547-bbf3-62800b27950c score=None
+rejudged 31/38 task_id=2aac5ef3-f127-4582-a8a6-8f02bda5681e score=None
+rejudged 32/38 task_id=8e99d8d2-f6b9-4800-83a9-6f56829898fe score=None
+rejudged 33/38 task_id=9db832bc-c38d-4a0b-aebe-ea0fc96da563 score=None
+rejudged 34/38 task_id=1070e6eb-7a8f-4ce9-8818-1931bcfdb2dd score=None
+rejudged 35/38 task_id=0e7281ec-bf16-4d84-9501-0de69a803c59 score=None
+rejudged 36/38 task_id=69e0ce73-b0af-4f7c-a59d-71c96adc6a2b score=None
+rejudged 37/38 task_id=e6fbba71-d917-4d1e-bd09-009ff9cd8e9b score=None
+rejudged 38/38 task_id=91408757-a874-44b5-ad5a-66a22b39141d score=None
+
+===== task 10/100  id=cd19ee22-ded0-4fee-b1a0-51f074d72b8b =====
+tasks: 1  pending: 0
+model: gpt-5.6-sol  config_id: baseline
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: out/baseline_parity/baseline-gpt-5.6-sol.jsonl
+replay rows: 66
+pending rows: 38
+output: out/baseline_parity/score-baseline.jsonl
+rejudged 1/38 task_id=b0e3597d-6cda-4082-a5b4-234aac7d2684 score=None
+rejudged 2/38 task_id=646b575d-383d-483b-82bd-01e5526212c7 score=None
+rejudged 3/38 task_id=614a5d4c-5387-4f42-a319-61486bbcde0f score=None
+rejudged 4/38 task_id=e3734e91-e2d1-4696-bdee-81c8bfa3127e score=None
+rejudged 5/38 task_id=f1b0f094-fa7a-4f18-adbd-f4cd86633f77 score=None
+rejudged 6/38 task_id=8cf941c5-3ac1-4801-929b-8f5bab8691c7 score=None
+rejudged 7/38 task_id=a4bae04b-4337-4f28-ab8b-5a518cf58fe0 score=None
+rejudged 8/38 task_id=056e9cbe-d8eb-48a8-9618-432222100e79 score=None
+rejudged 9/38 task_id=ab074bda-d583-42d0-85ce-6c694a51d3ce score=None
+rejudged 10/38 task_id=b02ede76-2353-40f3-9da9-d319c617ab0d score=None
+rejudged 11/38 task_id=236d5ae8-8623-4436-b527-2853aeea2db9 score=None
+rejudged 12/38 task_id=36457179-b5e5-4daa-9956-fde342aade9b score=None
+rejudged 13/38 task_id=3d801f46-5707-4ff5-8151-1168ff0f09c0 score=None
+rejudged 14/38 task_id=b0f9b509-dff8-4414-9404-fe0a35c43107 score=None
+rejudged 15/38 task_id=10e75d21-9e92-4878-b691-02fc87ae5d54 score=None
+rejudged 16/38 task_id=928aea10-3918-484b-980e-19d13a747e30 score=None
+rejudged 17/38 task_id=9afd23d2-058d-469f-a663-91286ac0532f score=None
+rejudged 18/38 task_id=8ca825d6-174a-489d-89b9-b000649a2477 score=None
+rejudged 19/38 task_id=c2a1a24b-8a83-453f-9892-d17b533ffe93 score=None
+rejudged 20/38 task_id=6b3233e6-9b05-465a-a872-724af25df719 score=None
+rejudged 21/38 task_id=939cd89c-32e3-4ba3-a9c2-734a9f3b80d1 score=None
+rejudged 22/38 task_id=e179559d-08fd-4ca7-9f1b-5637d956b3d4 score=None
+rejudged 23/38 task_id=4b089235-06e7-4f1f-a815-96bb146cbbde score=None
+rejudged 24/38 task_id=6128e19e-5d6c-41ab-aaf5-35a1d718050e score=None
+rejudged 25/38 task_id=c63923e7-6ab4-4742-b739-49f5d1f1cfe4 score=None
+rejudged 26/38 task_id=ebac60ea-ea67-4b8f-986e-1e0aebed2b89 score=None
+rejudged 27/38 task_id=49d841f1-0c95-4a87-9b62-5e2a54e8e1a8 score=None
+rejudged 28/38 task_id=785c8570-6aed-4517-aac2-1d56e16745b7 score=None
+rejudged 29/38 task_id=7d09292c-c8b7-4ae9-9864-1676135bd041 score=None
+rejudged 30/38 task_id=10e9d085-a62f-4547-bbf3-62800b27950c score=None
+rejudged 31/38 task_id=2aac5ef3-f127-4582-a8a6-8f02bda5681e score=None
+rejudged 32/38 task_id=8e99d8d2-f6b9-4800-83a9-6f56829898fe score=None
+rejudged 33/38 task_id=9db832bc-c38d-4a0b-aebe-ea0fc96da563 score=None
+rejudged 34/38 task_id=1070e6eb-7a8f-4ce9-8818-1931bcfdb2dd score=None
+rejudged 35/38 task_id=0e7281ec-bf16-4d84-9501-0de69a803c59 score=None
+rejudged 36/38 task_id=69e0ce73-b0af-4f7c-a59d-71c96adc6a2b score=None
+rejudged 37/38 task_id=e6fbba71-d917-4d1e-bd09-009ff9cd8e9b score=None
+rejudged 38/38 task_id=91408757-a874-44b5-ad5a-66a22b39141d score=None
+
+===== task 11/100  id=ca0edd2d-c9b8-4b85-9b40-754f4865579a =====
+tasks: 1  pending: 0
+model: gpt-5.6-sol  config_id: baseline
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: out/baseline_parity/baseline-gpt-5.6-sol.jsonl
+replay rows: 66
+pending rows: 38
+output: out/baseline_parity/score-baseline.jsonl
+rejudged 1/38 task_id=b0e3597d-6cda-4082-a5b4-234aac7d2684 score=None
+rejudged 2/38 task_id=646b575d-383d-483b-82bd-01e5526212c7 score=None
+rejudged 3/38 task_id=614a5d4c-5387-4f42-a319-61486bbcde0f score=None
+rejudged 4/38 task_id=e3734e91-e2d1-4696-bdee-81c8bfa3127e score=None
+rejudged 5/38 task_id=f1b0f094-fa7a-4f18-adbd-f4cd86633f77 score=None
+rejudged 6/38 task_id=8cf941c5-3ac1-4801-929b-8f5bab8691c7 score=None
+rejudged 7/38 task_id=a4bae04b-4337-4f28-ab8b-5a518cf58fe0 score=None
+rejudged 8/38 task_id=056e9cbe-d8eb-48a8-9618-432222100e79 score=None
+rejudged 9/38 task_id=ab074bda-d583-42d0-85ce-6c694a51d3ce score=None
+rejudged 10/38 task_id=b02ede76-2353-40f3-9da9-d319c617ab0d score=None
+rejudged 11/38 task_id=236d5ae8-8623-4436-b527-2853aeea2db9 score=None
+rejudged 12/38 task_id=36457179-b5e5-4daa-9956-fde342aade9b score=None
+rejudged 13/38 task_id=3d801f46-5707-4ff5-8151-1168ff0f09c0 score=None
+rejudged 14/38 task_id=b0f9b509-dff8-4414-9404-fe0a35c43107 score=None
+rejudged 15/38 task_id=10e75d21-9e92-4878-b691-02fc87ae5d54 score=None
+rejudged 16/38 task_id=928aea10-3918-484b-980e-19d13a747e30 score=None
+rejudged 17/38 task_id=9afd23d2-058d-469f-a663-91286ac0532f score=None
+rejudged 18/38 task_id=8ca825d6-174a-489d-89b9-b000649a2477 score=None
+rejudged 19/38 task_id=c2a1a24b-8a83-453f-9892-d17b533ffe93 score=None
+rejudged 20/38 task_id=6b3233e6-9b05-465a-a872-724af25df719 score=None
+rejudged 21/38 task_id=939cd89c-32e3-4ba3-a9c2-734a9f3b80d1 score=None
+rejudged 22/38 task_id=e179559d-08fd-4ca7-9f1b-5637d956b3d4 score=None
+rejudged 23/38 task_id=4b089235-06e7-4f1f-a815-96bb146cbbde score=None
+rejudged 24/38 task_id=6128e19e-5d6c-41ab-aaf5-35a1d718050e score=None
+rejudged 25/38 task_id=c63923e7-6ab4-4742-b739-49f5d1f1cfe4 score=None
+rejudged 26/38 task_id=ebac60ea-ea67-4b8f-986e-1e0aebed2b89 score=None
+rejudged 27/38 task_id=49d841f1-0c95-4a87-9b62-5e2a54e8e1a8 score=None
+rejudged 28/38 task_id=785c8570-6aed-4517-aac2-1d56e16745b7 score=None
+rejudged 29/38 task_id=7d09292c-c8b7-4ae9-9864-1676135bd041 score=None
+rejudged 30/38 task_id=10e9d085-a62f-4547-bbf3-62800b27950c score=None
+rejudged 31/38 task_id=2aac5ef3-f127-4582-a8a6-8f02bda5681e score=None
+rejudged 32/38 task_id=8e99d8d2-f6b9-4800-83a9-6f56829898fe score=None
+rejudged 33/38 task_id=9db832bc-c38d-4a0b-aebe-ea0fc96da563 score=None
+rejudged 34/38 task_id=1070e6eb-7a8f-4ce9-8818-1931bcfdb2dd score=None
+rejudged 35/38 task_id=0e7281ec-bf16-4d84-9501-0de69a803c59 score=None
+rejudged 36/38 task_id=69e0ce73-b0af-4f7c-a59d-71c96adc6a2b score=None
+rejudged 37/38 task_id=e6fbba71-d917-4d1e-bd09-009ff9cd8e9b score=None
+rejudged 38/38 task_id=91408757-a874-44b5-ad5a-66a22b39141d score=None
+
+===== task 12/100  id=ce522bc2-e8a2-436b-971f-dd4972f23d39 =====
+tasks: 1  pending: 0
+model: gpt-5.6-sol  config_id: baseline
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: out/baseline_parity/baseline-gpt-5.6-sol.jsonl
+replay rows: 66
+pending rows: 38
+output: out/baseline_parity/score-baseline.jsonl
+rejudged 1/38 task_id=b0e3597d-6cda-4082-a5b4-234aac7d2684 score=None
+rejudged 2/38 task_id=646b575d-383d-483b-82bd-01e5526212c7 score=None
+rejudged 3/38 task_id=614a5d4c-5387-4f42-a319-61486bbcde0f score=None
+rejudged 4/38 task_id=e3734e91-e2d1-4696-bdee-81c8bfa3127e score=None
+rejudged 5/38 task_id=f1b0f094-fa7a-4f18-adbd-f4cd86633f77 score=None
+rejudged 6/38 task_id=8cf941c5-3ac1-4801-929b-8f5bab8691c7 score=None
+rejudged 7/38 task_id=a4bae04b-4337-4f28-ab8b-5a518cf58fe0 score=None
+rejudged 8/38 task_id=056e9cbe-d8eb-48a8-9618-432222100e79 score=None
+rejudged 9/38 task_id=ab074bda-d583-42d0-85ce-6c694a51d3ce score=None
+rejudged 10/38 task_id=b02ede76-2353-40f3-9da9-d319c617ab0d score=None
+rejudged 11/38 task_id=236d5ae8-8623-4436-b527-2853aeea2db9 score=None
+rejudged 12/38 task_id=36457179-b5e5-4daa-9956-fde342aade9b score=None
+rejudged 13/38 task_id=3d801f46-5707-4ff5-8151-1168ff0f09c0 score=None
+rejudged 14/38 task_id=b0f9b509-dff8-4414-9404-fe0a35c43107 score=None
+rejudged 15/38 task_id=10e75d21-9e92-4878-b691-02fc87ae5d54 score=None
+rejudged 16/38 task_id=928aea10-3918-484b-980e-19d13a747e30 score=None
+rejudged 17/38 task_id=9afd23d2-058d-469f-a663-91286ac0532f score=None
+rejudged 18/38 task_id=8ca825d6-174a-489d-89b9-b000649a2477 score=None
+rejudged 19/38 task_id=c2a1a24b-8a83-453f-9892-d17b533ffe93 score=None
+rejudged 20/38 task_id=6b3233e6-9b05-465a-a872-724af25df719 score=None
+rejudged 21/38 task_id=939cd89c-32e3-4ba3-a9c2-734a9f3b80d1 score=None
+rejudged 22/38 task_id=e179559d-08fd-4ca7-9f1b-5637d956b3d4 score=None
+rejudged 23/38 task_id=4b089235-06e7-4f1f-a815-96bb146cbbde score=None
+rejudged 24/38 task_id=6128e19e-5d6c-41ab-aaf5-35a1d718050e score=None
+rejudged 25/38 task_id=c63923e7-6ab4-4742-b739-49f5d1f1cfe4 score=None
+rejudged 26/38 task_id=ebac60ea-ea67-4b8f-986e-1e0aebed2b89 score=None
+rejudged 27/38 task_id=49d841f1-0c95-4a87-9b62-5e2a54e8e1a8 score=None
+rejudged 28/38 task_id=785c8570-6aed-4517-aac2-1d56e16745b7 score=None
+rejudged 29/38 task_id=7d09292c-c8b7-4ae9-9864-1676135bd041 score=None
+rejudged 30/38 task_id=10e9d085-a62f-4547-bbf3-62800b27950c score=None
+rejudged 31/38 task_id=2aac5ef3-f127-4582-a8a6-8f02bda5681e score=None
+rejudged 32/38 task_id=8e99d8d2-f6b9-4800-83a9-6f56829898fe score=None
+rejudged 33/38 task_id=9db832bc-c38d-4a0b-aebe-ea0fc96da563 score=None
+rejudged 34/38 task_id=1070e6eb-7a8f-4ce9-8818-1931bcfdb2dd score=None
+rejudged 35/38 task_id=0e7281ec-bf16-4d84-9501-0de69a803c59 score=None
+rejudged 36/38 task_id=69e0ce73-b0af-4f7c-a59d-71c96adc6a2b score=None
+rejudged 37/38 task_id=e6fbba71-d917-4d1e-bd09-009ff9cd8e9b score=None
+rejudged 38/38 task_id=91408757-a874-44b5-ad5a-66a22b39141d score=None
+
+===== task 13/100  id=342b15b8-0ae1-43ce-9ebe-c7318179f156 =====
+tasks: 1  pending: 1
+model: gpt-5.6-sol  config_id: baseline
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: out/baseline_parity/baseline-gpt-5.6-sol.jsonl
+    [gpt-5.6-sol] round 1: calling LLM...
+agentic 1/1 task=342b15b8 status=failed tools=None finish=None clen=0 elapsed=0s
+replay rows: 66
+pending rows: 38
+output: out/baseline_parity/score-baseline.jsonl
+rejudged 1/38 task_id=b0e3597d-6cda-4082-a5b4-234aac7d2684 score=None
+rejudged 2/38 task_id=646b575d-383d-483b-82bd-01e5526212c7 score=None
+rejudged 3/38 task_id=614a5d4c-5387-4f42-a319-61486bbcde0f score=None
+rejudged 4/38 task_id=e3734e91-e2d1-4696-bdee-81c8bfa3127e score=None
+rejudged 5/38 task_id=f1b0f094-fa7a-4f18-adbd-f4cd86633f77 score=None
+rejudged 6/38 task_id=8cf941c5-3ac1-4801-929b-8f5bab8691c7 score=None
+rejudged 7/38 task_id=a4bae04b-4337-4f28-ab8b-5a518cf58fe0 score=None
+rejudged 8/38 task_id=056e9cbe-d8eb-48a8-9618-432222100e79 score=None
+rejudged 9/38 task_id=ab074bda-d583-42d0-85ce-6c694a51d3ce score=None
+rejudged 10/38 task_id=b02ede76-2353-40f3-9da9-d319c617ab0d score=None
+rejudged 11/38 task_id=236d5ae8-8623-4436-b527-2853aeea2db9 score=None
+rejudged 12/38 task_id=36457179-b5e5-4daa-9956-fde342aade9b score=None
+rejudged 13/38 task_id=3d801f46-5707-4ff5-8151-1168ff0f09c0 score=None
+rejudged 14/38 task_id=b0f9b509-dff8-4414-9404-fe0a35c43107 score=None
+rejudged 15/38 task_id=10e75d21-9e92-4878-b691-02fc87ae5d54 score=None
+rejudged 16/38 task_id=928aea10-3918-484b-980e-19d13a747e30 score=None
+rejudged 17/38 task_id=9afd23d2-058d-469f-a663-91286ac0532f score=None
+rejudged 18/38 task_id=8ca825d6-174a-489d-89b9-b000649a2477 score=None
+rejudged 19/38 task_id=c2a1a24b-8a83-453f-9892-d17b533ffe93 score=None
+rejudged 20/38 task_id=6b3233e6-9b05-465a-a872-724af25df719 score=None
+rejudged 21/38 task_id=939cd89c-32e3-4ba3-a9c2-734a9f3b80d1 score=None
+rejudged 22/38 task_id=e179559d-08fd-4ca7-9f1b-5637d956b3d4 score=None
+rejudged 23/38 task_id=4b089235-06e7-4f1f-a815-96bb146cbbde score=None
+rejudged 24/38 task_id=6128e19e-5d6c-41ab-aaf5-35a1d718050e score=None
+rejudged 25/38 task_id=c63923e7-6ab4-4742-b739-49f5d1f1cfe4 score=None
+rejudged 26/38 task_id=ebac60ea-ea67-4b8f-986e-1e0aebed2b89 score=None
+rejudged 27/38 task_id=49d841f1-0c95-4a87-9b62-5e2a54e8e1a8 score=None
+rejudged 28/38 task_id=785c8570-6aed-4517-aac2-1d56e16745b7 score=None
+rejudged 29/38 task_id=7d09292c-c8b7-4ae9-9864-1676135bd041 score=None
+rejudged 30/38 task_id=10e9d085-a62f-4547-bbf3-62800b27950c score=None
+rejudged 31/38 task_id=2aac5ef3-f127-4582-a8a6-8f02bda5681e score=None
+rejudged 32/38 task_id=8e99d8d2-f6b9-4800-83a9-6f56829898fe score=None
+rejudged 33/38 task_id=9db832bc-c38d-4a0b-aebe-ea0fc96da563 score=None
+rejudged 34/38 task_id=1070e6eb-7a8f-4ce9-8818-1931bcfdb2dd score=None
+rejudged 35/38 task_id=0e7281ec-bf16-4d84-9501-0de69a803c59 score=None
+rejudged 36/38 task_id=69e0ce73-b0af-4f7c-a59d-71c96adc6a2b score=None
+rejudged 37/38 task_id=e6fbba71-d917-4d1e-bd09-009ff9cd8e9b score=None
+rejudged 38/38 task_id=91408757-a874-44b5-ad5a-66a22b39141d score=None
+
+===== task 14/100  id=1ed18b1d-8436-44e5-9924-a503514c387d =====
+tasks: 1  pending: 0
+model: gpt-5.6-sol  config_id: baseline
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: out/baseline_parity/baseline-gpt-5.6-sol.jsonl
+replay rows: 66
+pending rows: 38
+output: out/baseline_parity/score-baseline.jsonl
+rejudged 1/38 task_id=b0e3597d-6cda-4082-a5b4-234aac7d2684 score=None
+rejudged 2/38 task_id=646b575d-383d-483b-82bd-01e5526212c7 score=None
+rejudged 3/38 task_id=614a5d4c-5387-4f42-a319-61486bbcde0f score=None
+rejudged 4/38 task_id=e3734e91-e2d1-4696-bdee-81c8bfa3127e score=None
+rejudged 5/38 task_id=f1b0f094-fa7a-4f18-adbd-f4cd86633f77 score=None
+rejudged 6/38 task_id=8cf941c5-3ac1-4801-929b-8f5bab8691c7 score=None
+rejudged 7/38 task_id=a4bae04b-4337-4f28-ab8b-5a518cf58fe0 score=None
+rejudged 8/38 task_id=056e9cbe-d8eb-48a8-9618-432222100e79 score=None
+rejudged 9/38 task_id=ab074bda-d583-42d0-85ce-6c694a51d3ce score=None
+rejudged 10/38 task_id=b02ede76-2353-40f3-9da9-d319c617ab0d score=None
+rejudged 11/38 task_id=236d5ae8-8623-4436-b527-2853aeea2db9 score=None
+rejudged 12/38 task_id=36457179-b5e5-4daa-9956-fde342aade9b score=None
+rejudged 13/38 task_id=3d801f46-5707-4ff5-8151-1168ff0f09c0 score=None
+rejudged 14/38 task_id=b0f9b509-dff8-4414-9404-fe0a35c43107 score=None
+rejudged 15/38 task_id=10e75d21-9e92-4878-b691-02fc87ae5d54 score=None
+rejudged 16/38 task_id=928aea10-3918-484b-980e-19d13a747e30 score=None
+rejudged 17/38 task_id=9afd23d2-058d-469f-a663-91286ac0532f score=None
+rejudged 18/38 task_id=8ca825d6-174a-489d-89b9-b000649a2477 score=None
+rejudged 19/38 task_id=c2a1a24b-8a83-453f-9892-d17b533ffe93 score=None
+rejudged 20/38 task_id=6b3233e6-9b05-465a-a872-724af25df719 score=None
+rejudged 21/38 task_id=939cd89c-32e3-4ba3-a9c2-734a9f3b80d1 score=None
+rejudged 22/38 task_id=e179559d-08fd-4ca7-9f1b-5637d956b3d4 score=None
+rejudged 23/38 task_id=4b089235-06e7-4f1f-a815-96bb146cbbde score=None
+rejudged 24/38 task_id=6128e19e-5d6c-41ab-aaf5-35a1d718050e score=None
+rejudged 25/38 task_id=c63923e7-6ab4-4742-b739-49f5d1f1cfe4 score=None
+rejudged 26/38 task_id=ebac60ea-ea67-4b8f-986e-1e0aebed2b89 score=None
+rejudged 27/38 task_id=49d841f1-0c95-4a87-9b62-5e2a54e8e1a8 score=None
+rejudged 28/38 task_id=785c8570-6aed-4517-aac2-1d56e16745b7 score=None
+rejudged 29/38 task_id=7d09292c-c8b7-4ae9-9864-1676135bd041 score=None
+rejudged 30/38 task_id=10e9d085-a62f-4547-bbf3-62800b27950c score=None
+rejudged 31/38 task_id=2aac5ef3-f127-4582-a8a6-8f02bda5681e score=None
+rejudged 32/38 task_id=8e99d8d2-f6b9-4800-83a9-6f56829898fe score=None
+rejudged 33/38 task_id=9db832bc-c38d-4a0b-aebe-ea0fc96da563 score=None
+rejudged 34/38 task_id=1070e6eb-7a8f-4ce9-8818-1931bcfdb2dd score=None
+rejudged 35/38 task_id=0e7281ec-bf16-4d84-9501-0de69a803c59 score=None
+rejudged 36/38 task_id=69e0ce73-b0af-4f7c-a59d-71c96adc6a2b score=None
+rejudged 37/38 task_id=e6fbba71-d917-4d1e-bd09-009ff9cd8e9b score=None
+rejudged 38/38 task_id=91408757-a874-44b5-ad5a-66a22b39141d score=None
+
+===== task 15/100  id=faeeb64e-e5eb-4768-a9b9-8ef19de51473 =====
+tasks: 1  pending: 0
+model: gpt-5.6-sol  config_id: baseline
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: out/baseline_parity/baseline-gpt-5.6-sol.jsonl
+replay rows: 66
+pending rows: 38
+output: out/baseline_parity/score-baseline.jsonl
+rejudged 1/38 task_id=b0e3597d-6cda-4082-a5b4-234aac7d2684 score=None
+rejudged 2/38 task_id=646b575d-383d-483b-82bd-01e5526212c7 score=None
+rejudged 3/38 task_id=614a5d4c-5387-4f42-a319-61486bbcde0f score=None
+rejudged 4/38 task_id=e3734e91-e2d1-4696-bdee-81c8bfa3127e score=None
+rejudged 5/38 task_id=f1b0f094-fa7a-4f18-adbd-f4cd86633f77 score=None
+rejudged 6/38 task_id=8cf941c5-3ac1-4801-929b-8f5bab8691c7 score=None
+rejudged 7/38 task_id=a4bae04b-4337-4f28-ab8b-5a518cf58fe0 score=None
+rejudged 8/38 task_id=056e9cbe-d8eb-48a8-9618-432222100e79 score=None
+rejudged 9/38 task_id=ab074bda-d583-42d0-85ce-6c694a51d3ce score=None
+rejudged 10/38 task_id=b02ede76-2353-40f3-9da9-d319c617ab0d score=None
+rejudged 11/38 task_id=236d5ae8-8623-4436-b527-2853aeea2db9 score=None
+rejudged 12/38 task_id=36457179-b5e5-4daa-9956-fde342aade9b score=None
+rejudged 13/38 task_id=3d801f46-5707-4ff5-8151-1168ff0f09c0 score=None
+rejudged 14/38 task_id=b0f9b509-dff8-4414-9404-fe0a35c43107 score=None
+rejudged 15/38 task_id=10e75d21-9e92-4878-b691-02fc87ae5d54 score=None
+rejudged 16/38 task_id=928aea10-3918-484b-980e-19d13a747e30 score=None
+rejudged 17/38 task_id=9afd23d2-058d-469f-a663-91286ac0532f score=None
+rejudged 18/38 task_id=8ca825d6-174a-489d-89b9-b000649a2477 score=None
+rejudged 19/38 task_id=c2a1a24b-8a83-453f-9892-d17b533ffe93 score=None
+rejudged 20/38 task_id=6b3233e6-9b05-465a-a872-724af25df719 score=None
+rejudged 21/38 task_id=939cd89c-32e3-4ba3-a9c2-734a9f3b80d1 score=None
+rejudged 22/38 task_id=e179559d-08fd-4ca7-9f1b-5637d956b3d4 score=None
+rejudged 23/38 task_id=4b089235-06e7-4f1f-a815-96bb146cbbde score=None
+rejudged 24/38 task_id=6128e19e-5d6c-41ab-aaf5-35a1d718050e score=None
+rejudged 25/38 task_id=c63923e7-6ab4-4742-b739-49f5d1f1cfe4 score=None
+rejudged 26/38 task_id=ebac60ea-ea67-4b8f-986e-1e0aebed2b89 score=None
+rejudged 27/38 task_id=49d841f1-0c95-4a87-9b62-5e2a54e8e1a8 score=None
+rejudged 28/38 task_id=785c8570-6aed-4517-aac2-1d56e16745b7 score=None
+rejudged 29/38 task_id=7d09292c-c8b7-4ae9-9864-1676135bd041 score=None
+rejudged 30/38 task_id=10e9d085-a62f-4547-bbf3-62800b27950c score=None
+rejudged 31/38 task_id=2aac5ef3-f127-4582-a8a6-8f02bda5681e score=None
+rejudged 32/38 task_id=8e99d8d2-f6b9-4800-83a9-6f56829898fe score=None
+rejudged 33/38 task_id=9db832bc-c38d-4a0b-aebe-ea0fc96da563 score=None
+rejudged 34/38 task_id=1070e6eb-7a8f-4ce9-8818-1931bcfdb2dd score=None
+rejudged 35/38 task_id=0e7281ec-bf16-4d84-9501-0de69a803c59 score=None
+rejudged 36/38 task_id=69e0ce73-b0af-4f7c-a59d-71c96adc6a2b score=None
+rejudged 37/38 task_id=e6fbba71-d917-4d1e-bd09-009ff9cd8e9b score=None
+rejudged 38/38 task_id=91408757-a874-44b5-ad5a-66a22b39141d score=None
+
+===== task 16/100  id=6c59b2a0-c097-4c69-ad03-2c4ea2ec579b =====
+tasks: 1  pending: 0
+model: gpt-5.6-sol  config_id: baseline
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: out/baseline_parity/baseline-gpt-5.6-sol.jsonl
+replay rows: 66
+pending rows: 38
+output: out/baseline_parity/score-baseline.jsonl
+rejudged 1/38 task_id=b0e3597d-6cda-4082-a5b4-234aac7d2684 score=None
+rejudged 2/38 task_id=646b575d-383d-483b-82bd-01e5526212c7 score=None
+rejudged 3/38 task_id=614a5d4c-5387-4f42-a319-61486bbcde0f score=None
+rejudged 4/38 task_id=e3734e91-e2d1-4696-bdee-81c8bfa3127e score=None
+rejudged 5/38 task_id=f1b0f094-fa7a-4f18-adbd-f4cd86633f77 score=None
+rejudged 6/38 task_id=8cf941c5-3ac1-4801-929b-8f5bab8691c7 score=None
+rejudged 7/38 task_id=a4bae04b-4337-4f28-ab8b-5a518cf58fe0 score=None
+rejudged 8/38 task_id=056e9cbe-d8eb-48a8-9618-432222100e79 score=None
+rejudged 9/38 task_id=ab074bda-d583-42d0-85ce-6c694a51d3ce score=None
+rejudged 10/38 task_id=b02ede76-2353-40f3-9da9-d319c617ab0d score=None
+rejudged 11/38 task_id=236d5ae8-8623-4436-b527-2853aeea2db9 score=None
+rejudged 12/38 task_id=36457179-b5e5-4daa-9956-fde342aade9b score=None
+rejudged 13/38 task_id=3d801f46-5707-4ff5-8151-1168ff0f09c0 score=None
+rejudged 14/38 task_id=b0f9b509-dff8-4414-9404-fe0a35c43107 score=None
+rejudged 15/38 task_id=10e75d21-9e92-4878-b691-02fc87ae5d54 score=None
+rejudged 16/38 task_id=928aea10-3918-484b-980e-19d13a747e30 score=None
+rejudged 17/38 task_id=9afd23d2-058d-469f-a663-91286ac0532f score=None
+rejudged 18/38 task_id=8ca825d6-174a-489d-89b9-b000649a2477 score=None
+rejudged 19/38 task_id=c2a1a24b-8a83-453f-9892-d17b533ffe93 score=None
+rejudged 20/38 task_id=6b3233e6-9b05-465a-a872-724af25df719 score=None
+rejudged 21/38 task_id=939cd89c-32e3-4ba3-a9c2-734a9f3b80d1 score=None
+rejudged 22/38 task_id=e179559d-08fd-4ca7-9f1b-5637d956b3d4 score=None
+rejudged 23/38 task_id=4b089235-06e7-4f1f-a815-96bb146cbbde score=None
+rejudged 24/38 task_id=6128e19e-5d6c-41ab-aaf5-35a1d718050e score=None
+rejudged 25/38 task_id=c63923e7-6ab4-4742-b739-49f5d1f1cfe4 score=None
+rejudged 26/38 task_id=ebac60ea-ea67-4b8f-986e-1e0aebed2b89 score=None
+rejudged 27/38 task_id=49d841f1-0c95-4a87-9b62-5e2a54e8e1a8 score=None
+rejudged 28/38 task_id=785c8570-6aed-4517-aac2-1d56e16745b7 score=None
+rejudged 29/38 task_id=7d09292c-c8b7-4ae9-9864-1676135bd041 score=None
+rejudged 30/38 task_id=10e9d085-a62f-4547-bbf3-62800b27950c score=None
+rejudged 31/38 task_id=2aac5ef3-f127-4582-a8a6-8f02bda5681e score=None
+rejudged 32/38 task_id=8e99d8d2-f6b9-4800-83a9-6f56829898fe score=None
+rejudged 33/38 task_id=9db832bc-c38d-4a0b-aebe-ea0fc96da563 score=None
+rejudged 34/38 task_id=1070e6eb-7a8f-4ce9-8818-1931bcfdb2dd score=None
+rejudged 35/38 task_id=0e7281ec-bf16-4d84-9501-0de69a803c59 score=None
+rejudged 36/38 task_id=69e0ce73-b0af-4f7c-a59d-71c96adc6a2b score=None
+rejudged 37/38 task_id=e6fbba71-d917-4d1e-bd09-009ff9cd8e9b score=None
+rejudged 38/38 task_id=91408757-a874-44b5-ad5a-66a22b39141d score=None
+
+===== task 17/100  id=c66a5c80-df51-4914-88dd-8b08aff7380c =====
+tasks: 1  pending: 0
+model: gpt-5.6-sol  config_id: baseline
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: out/baseline_parity/baseline-gpt-5.6-sol.jsonl
+replay rows: 66
+pending rows: 38
+output: out/baseline_parity/score-baseline.jsonl
+rejudged 1/38 task_id=b0e3597d-6cda-4082-a5b4-234aac7d2684 score=None
+rejudged 2/38 task_id=646b575d-383d-483b-82bd-01e5526212c7 score=None
+rejudged 3/38 task_id=614a5d4c-5387-4f42-a319-61486bbcde0f score=None
+rejudged 4/38 task_id=e3734e91-e2d1-4696-bdee-81c8bfa3127e score=None
+rejudged 5/38 task_id=f1b0f094-fa7a-4f18-adbd-f4cd86633f77 score=None
+rejudged 6/38 task_id=8cf941c5-3ac1-4801-929b-8f5bab8691c7 score=None
+rejudged 7/38 task_id=a4bae04b-4337-4f28-ab8b-5a518cf58fe0 score=None
+rejudged 8/38 task_id=056e9cbe-d8eb-48a8-9618-432222100e79 score=None
+rejudged 9/38 task_id=ab074bda-d583-42d0-85ce-6c694a51d3ce score=None
+rejudged 10/38 task_id=b02ede76-2353-40f3-9da9-d319c617ab0d score=None
+rejudged 11/38 task_id=236d5ae8-8623-4436-b527-2853aeea2db9 score=None
+rejudged 12/38 task_id=36457179-b5e5-4daa-9956-fde342aade9b score=None
+rejudged 13/38 task_id=3d801f46-5707-4ff5-8151-1168ff0f09c0 score=None
+rejudged 14/38 task_id=b0f9b509-dff8-4414-9404-fe0a35c43107 score=None
+rejudged 15/38 task_id=10e75d21-9e92-4878-b691-02fc87ae5d54 score=None
+rejudged 16/38 task_id=928aea10-3918-484b-980e-19d13a747e30 score=None
+rejudged 17/38 task_id=9afd23d2-058d-469f-a663-91286ac0532f score=None
+rejudged 18/38 task_id=8ca825d6-174a-489d-89b9-b000649a2477 score=None
+rejudged 19/38 task_id=c2a1a24b-8a83-453f-9892-d17b533ffe93 score=None
+rejudged 20/38 task_id=6b3233e6-9b05-465a-a872-724af25df719 score=None
+rejudged 21/38 task_id=939cd89c-32e3-4ba3-a9c2-734a9f3b80d1 score=None
+rejudged 22/38 task_id=e179559d-08fd-4ca7-9f1b-5637d956b3d4 score=None
+rejudged 23/38 task_id=4b089235-06e7-4f1f-a815-96bb146cbbde score=None
+rejudged 24/38 task_id=6128e19e-5d6c-41ab-aaf5-35a1d718050e score=None
+rejudged 25/38 task_id=c63923e7-6ab4-4742-b739-49f5d1f1cfe4 score=None
+rejudged 26/38 task_id=ebac60ea-ea67-4b8f-986e-1e0aebed2b89 score=None
+rejudged 27/38 task_id=49d841f1-0c95-4a87-9b62-5e2a54e8e1a8 score=None
+rejudged 28/38 task_id=785c8570-6aed-4517-aac2-1d56e16745b7 score=None
+rejudged 29/38 task_id=7d09292c-c8b7-4ae9-9864-1676135bd041 score=None
+rejudged 30/38 task_id=10e9d085-a62f-4547-bbf3-62800b27950c score=None
+rejudged 31/38 task_id=2aac5ef3-f127-4582-a8a6-8f02bda5681e score=None
+rejudged 32/38 task_id=8e99d8d2-f6b9-4800-83a9-6f56829898fe score=None
+rejudged 33/38 task_id=9db832bc-c38d-4a0b-aebe-ea0fc96da563 score=None
+rejudged 34/38 task_id=1070e6eb-7a8f-4ce9-8818-1931bcfdb2dd score=None
+rejudged 35/38 task_id=0e7281ec-bf16-4d84-9501-0de69a803c59 score=None
+rejudged 36/38 task_id=69e0ce73-b0af-4f7c-a59d-71c96adc6a2b score=None
+rejudged 37/38 task_id=e6fbba71-d917-4d1e-bd09-009ff9cd8e9b score=None
+rejudged 38/38 task_id=91408757-a874-44b5-ad5a-66a22b39141d score=None
+
+===== task 18/100  id=aca95495-b0fe-4330-90fc-d2fd1e2c709e =====
+tasks: 1  pending: 0
+model: gpt-5.6-sol  config_id: baseline
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: out/baseline_parity/baseline-gpt-5.6-sol.jsonl
+replay rows: 66
+pending rows: 38
+output: out/baseline_parity/score-baseline.jsonl
+rejudged 1/38 task_id=b0e3597d-6cda-4082-a5b4-234aac7d2684 score=None
+rejudged 2/38 task_id=646b575d-383d-483b-82bd-01e5526212c7 score=None
+rejudged 3/38 task_id=614a5d4c-5387-4f42-a319-61486bbcde0f score=None
+rejudged 4/38 task_id=e3734e91-e2d1-4696-bdee-81c8bfa3127e score=None
+rejudged 5/38 task_id=f1b0f094-fa7a-4f18-adbd-f4cd86633f77 score=None
+rejudged 6/38 task_id=8cf941c5-3ac1-4801-929b-8f5bab8691c7 score=None
+rejudged 7/38 task_id=a4bae04b-4337-4f28-ab8b-5a518cf58fe0 score=None
+rejudged 8/38 task_id=056e9cbe-d8eb-48a8-9618-432222100e79 score=None
+rejudged 9/38 task_id=ab074bda-d583-42d0-85ce-6c694a51d3ce score=None
+rejudged 10/38 task_id=b02ede76-2353-40f3-9da9-d319c617ab0d score=None
+rejudged 11/38 task_id=236d5ae8-8623-4436-b527-2853aeea2db9 score=None
+rejudged 12/38 task_id=36457179-b5e5-4daa-9956-fde342aade9b score=None
+rejudged 13/38 task_id=3d801f46-5707-4ff5-8151-1168ff0f09c0 score=None
+rejudged 14/38 task_id=b0f9b509-dff8-4414-9404-fe0a35c43107 score=None
+rejudged 15/38 task_id=10e75d21-9e92-4878-b691-02fc87ae5d54 score=None
+rejudged 16/38 task_id=928aea10-3918-484b-980e-19d13a747e30 score=None
+rejudged 17/38 task_id=9afd23d2-058d-469f-a663-91286ac0532f score=None
+rejudged 18/38 task_id=8ca825d6-174a-489d-89b9-b000649a2477 score=None
+rejudged 19/38 task_id=c2a1a24b-8a83-453f-9892-d17b533ffe93 score=None
+rejudged 20/38 task_id=6b3233e6-9b05-465a-a872-724af25df719 score=None
+rejudged 21/38 task_id=939cd89c-32e3-4ba3-a9c2-734a9f3b80d1 score=None
+rejudged 22/38 task_id=e179559d-08fd-4ca7-9f1b-5637d956b3d4 score=None
+rejudged 23/38 task_id=4b089235-06e7-4f1f-a815-96bb146cbbde score=None
+rejudged 24/38 task_id=6128e19e-5d6c-41ab-aaf5-35a1d718050e score=None
+rejudged 25/38 task_id=c63923e7-6ab4-4742-b739-49f5d1f1cfe4 score=None
+rejudged 26/38 task_id=ebac60ea-ea67-4b8f-986e-1e0aebed2b89 score=None
+rejudged 27/38 task_id=49d841f1-0c95-4a87-9b62-5e2a54e8e1a8 score=None
+rejudged 28/38 task_id=785c8570-6aed-4517-aac2-1d56e16745b7 score=None
+rejudged 29/38 task_id=7d09292c-c8b7-4ae9-9864-1676135bd041 score=None
+rejudged 30/38 task_id=10e9d085-a62f-4547-bbf3-62800b27950c score=None
+rejudged 31/38 task_id=2aac5ef3-f127-4582-a8a6-8f02bda5681e score=None
+rejudged 32/38 task_id=8e99d8d2-f6b9-4800-83a9-6f56829898fe score=None
+rejudged 33/38 task_id=9db832bc-c38d-4a0b-aebe-ea0fc96da563 score=None
+rejudged 34/38 task_id=1070e6eb-7a8f-4ce9-8818-1931bcfdb2dd score=None
+rejudged 35/38 task_id=0e7281ec-bf16-4d84-9501-0de69a803c59 score=None
+rejudged 36/38 task_id=69e0ce73-b0af-4f7c-a59d-71c96adc6a2b score=None
+rejudged 37/38 task_id=e6fbba71-d917-4d1e-bd09-009ff9cd8e9b score=None
+rejudged 38/38 task_id=91408757-a874-44b5-ad5a-66a22b39141d score=None
+
+===== task 19/100  id=6f425968-0c5b-42d8-a5c5-0b20d2f1d71e =====
+tasks: 1  pending: 1
+model: gpt-5.6-sol  config_id: baseline
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: out/baseline_parity/baseline-gpt-5.6-sol.jsonl
+    [gpt-5.6-sol] round 1: calling LLM...
+agentic 1/1 task=6f425968 status=failed tools=None finish=None clen=0 elapsed=0s
+replay rows: 66
+pending rows: 38
+output: out/baseline_parity/score-baseline.jsonl
+rejudged 1/38 task_id=b0e3597d-6cda-4082-a5b4-234aac7d2684 score=None
+rejudged 2/38 task_id=646b575d-383d-483b-82bd-01e5526212c7 score=None
+rejudged 3/38 task_id=614a5d4c-5387-4f42-a319-61486bbcde0f score=None
+rejudged 4/38 task_id=e3734e91-e2d1-4696-bdee-81c8bfa3127e score=None
+rejudged 5/38 task_id=f1b0f094-fa7a-4f18-adbd-f4cd86633f77 score=None
+rejudged 6/38 task_id=8cf941c5-3ac1-4801-929b-8f5bab8691c7 score=None
+rejudged 7/38 task_id=a4bae04b-4337-4f28-ab8b-5a518cf58fe0 score=None
+rejudged 8/38 task_id=056e9cbe-d8eb-48a8-9618-432222100e79 score=None
+rejudged 9/38 task_id=ab074bda-d583-42d0-85ce-6c694a51d3ce score=None
+rejudged 10/38 task_id=b02ede76-2353-40f3-9da9-d319c617ab0d score=None
+rejudged 11/38 task_id=236d5ae8-8623-4436-b527-2853aeea2db9 score=None
+rejudged 12/38 task_id=36457179-b5e5-4daa-9956-fde342aade9b score=None
+rejudged 13/38 task_id=3d801f46-5707-4ff5-8151-1168ff0f09c0 score=None
+rejudged 14/38 task_id=b0f9b509-dff8-4414-9404-fe0a35c43107 score=None
+rejudged 15/38 task_id=10e75d21-9e92-4878-b691-02fc87ae5d54 score=None
+rejudged 16/38 task_id=928aea10-3918-484b-980e-19d13a747e30 score=None
+rejudged 17/38 task_id=9afd23d2-058d-469f-a663-91286ac0532f score=None
+rejudged 18/38 task_id=8ca825d6-174a-489d-89b9-b000649a2477 score=None
+rejudged 19/38 task_id=c2a1a24b-8a83-453f-9892-d17b533ffe93 score=None
+rejudged 20/38 task_id=6b3233e6-9b05-465a-a872-724af25df719 score=None
+rejudged 21/38 task_id=939cd89c-32e3-4ba3-a9c2-734a9f3b80d1 score=None
+rejudged 22/38 task_id=e179559d-08fd-4ca7-9f1b-5637d956b3d4 score=None
+rejudged 23/38 task_id=4b089235-06e7-4f1f-a815-96bb146cbbde score=None
+rejudged 24/38 task_id=6128e19e-5d6c-41ab-aaf5-35a1d718050e score=None
+rejudged 25/38 task_id=c63923e7-6ab4-4742-b739-49f5d1f1cfe4 score=None
+rejudged 26/38 task_id=ebac60ea-ea67-4b8f-986e-1e0aebed2b89 score=None
+rejudged 27/38 task_id=49d841f1-0c95-4a87-9b62-5e2a54e8e1a8 score=None
+rejudged 28/38 task_id=785c8570-6aed-4517-aac2-1d56e16745b7 score=None
+rejudged 29/38 task_id=7d09292c-c8b7-4ae9-9864-1676135bd041 score=None
+rejudged 30/38 task_id=10e9d085-a62f-4547-bbf3-62800b27950c score=None
+rejudged 31/38 task_id=2aac5ef3-f127-4582-a8a6-8f02bda5681e score=None
+rejudged 32/38 task_id=8e99d8d2-f6b9-4800-83a9-6f56829898fe score=None
+rejudged 33/38 task_id=9db832bc-c38d-4a0b-aebe-ea0fc96da563 score=None
+rejudged 34/38 task_id=1070e6eb-7a8f-4ce9-8818-1931bcfdb2dd score=None
+rejudged 35/38 task_id=0e7281ec-bf16-4d84-9501-0de69a803c59 score=None
+rejudged 36/38 task_id=69e0ce73-b0af-4f7c-a59d-71c96adc6a2b score=None
+rejudged 37/38 task_id=e6fbba71-d917-4d1e-bd09-009ff9cd8e9b score=None
+rejudged 38/38 task_id=91408757-a874-44b5-ad5a-66a22b39141d score=None
+
+===== task 20/100  id=34e9b780-7fb6-426a-bc39-c340baa578e8 =====
+tasks: 1  pending: 1
+model: gpt-5.6-sol  config_id: baseline
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: out/baseline_parity/baseline-gpt-5.6-sol.jsonl
+    [gpt-5.6-sol] round 1: calling LLM...
+agentic 1/1 task=34e9b780 status=failed tools=None finish=None clen=0 elapsed=0s
+replay rows: 66
+pending rows: 38
+output: out/baseline_parity/score-baseline.jsonl
+rejudged 1/38 task_id=b0e3597d-6cda-4082-a5b4-234aac7d2684 score=None
+rejudged 2/38 task_id=646b575d-383d-483b-82bd-01e5526212c7 score=None
+rejudged 3/38 task_id=614a5d4c-5387-4f42-a319-61486bbcde0f score=None
+rejudged 4/38 task_id=e3734e91-e2d1-4696-bdee-81c8bfa3127e score=None
+rejudged 5/38 task_id=f1b0f094-fa7a-4f18-adbd-f4cd86633f77 score=None
+rejudged 6/38 task_id=8cf941c5-3ac1-4801-929b-8f5bab8691c7 score=None
+rejudged 7/38 task_id=a4bae04b-4337-4f28-ab8b-5a518cf58fe0 score=None
+rejudged 8/38 task_id=056e9cbe-d8eb-48a8-9618-432222100e79 score=None
+rejudged 9/38 task_id=ab074bda-d583-42d0-85ce-6c694a51d3ce score=None
+rejudged 10/38 task_id=b02ede76-2353-40f3-9da9-d319c617ab0d score=None
+rejudged 11/38 task_id=236d5ae8-8623-4436-b527-2853aeea2db9 score=None
+rejudged 12/38 task_id=36457179-b5e5-4daa-9956-fde342aade9b score=None
+rejudged 13/38 task_id=3d801f46-5707-4ff5-8151-1168ff0f09c0 score=None
+rejudged 14/38 task_id=b0f9b509-dff8-4414-9404-fe0a35c43107 score=None
+rejudged 15/38 task_id=10e75d21-9e92-4878-b691-02fc87ae5d54 score=None
+rejudged 16/38 task_id=928aea10-3918-484b-980e-19d13a747e30 score=None
+rejudged 17/38 task_id=9afd23d2-058d-469f-a663-91286ac0532f score=None
+rejudged 18/38 task_id=8ca825d6-174a-489d-89b9-b000649a2477 score=None
+rejudged 19/38 task_id=c2a1a24b-8a83-453f-9892-d17b533ffe93 score=None
+rejudged 20/38 task_id=6b3233e6-9b05-465a-a872-724af25df719 score=None
+rejudged 21/38 task_id=939cd89c-32e3-4ba3-a9c2-734a9f3b80d1 score=None
+rejudged 22/38 task_id=e179559d-08fd-4ca7-9f1b-5637d956b3d4 score=None
+rejudged 23/38 task_id=4b089235-06e7-4f1f-a815-96bb146cbbde score=None
+rejudged 24/38 task_id=6128e19e-5d6c-41ab-aaf5-35a1d718050e score=None
+rejudged 25/38 task_id=c63923e7-6ab4-4742-b739-49f5d1f1cfe4 score=None
+rejudged 26/38 task_id=ebac60ea-ea67-4b8f-986e-1e0aebed2b89 score=None
+rejudged 27/38 task_id=49d841f1-0c95-4a87-9b62-5e2a54e8e1a8 score=None
+rejudged 28/38 task_id=785c8570-6aed-4517-aac2-1d56e16745b7 score=None
+rejudged 29/38 task_id=7d09292c-c8b7-4ae9-9864-1676135bd041 score=None
+rejudged 30/38 task_id=10e9d085-a62f-4547-bbf3-62800b27950c score=None
+rejudged 31/38 task_id=2aac5ef3-f127-4582-a8a6-8f02bda5681e score=None
+rejudged 32/38 task_id=8e99d8d2-f6b9-4800-83a9-6f56829898fe score=None
+rejudged 33/38 task_id=9db832bc-c38d-4a0b-aebe-ea0fc96da563 score=None
+rejudged 34/38 task_id=1070e6eb-7a8f-4ce9-8818-1931bcfdb2dd score=None
+rejudged 35/38 task_id=0e7281ec-bf16-4d84-9501-0de69a803c59 score=None
+rejudged 36/38 task_id=69e0ce73-b0af-4f7c-a59d-71c96adc6a2b score=None
+rejudged 37/38 task_id=e6fbba71-d917-4d1e-bd09-009ff9cd8e9b score=None
+rejudged 38/38 task_id=91408757-a874-44b5-ad5a-66a22b39141d score=None
+
+===== task 21/100  id=262b3145-5b6d-486b-a09f-c8e6a8f98e20 =====
+tasks: 1  pending: 1
+model: gpt-5.6-sol  config_id: baseline
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: out/baseline_parity/baseline-gpt-5.6-sol.jsonl
+    [gpt-5.6-sol] round 1: calling LLM...
+agentic 1/1 task=262b3145 status=failed tools=None finish=None clen=0 elapsed=0s
+replay rows: 66
+pending rows: 38
+output: out/baseline_parity/score-baseline.jsonl
+rejudged 1/38 task_id=b0e3597d-6cda-4082-a5b4-234aac7d2684 score=None
+rejudged 2/38 task_id=646b575d-383d-483b-82bd-01e5526212c7 score=None
+rejudged 3/38 task_id=614a5d4c-5387-4f42-a319-61486bbcde0f score=None
+rejudged 4/38 task_id=e3734e91-e2d1-4696-bdee-81c8bfa3127e score=None
+rejudged 5/38 task_id=f1b0f094-fa7a-4f18-adbd-f4cd86633f77 score=None
+rejudged 6/38 task_id=8cf941c5-3ac1-4801-929b-8f5bab8691c7 score=None
+rejudged 7/38 task_id=a4bae04b-4337-4f28-ab8b-5a518cf58fe0 score=None
+rejudged 8/38 task_id=056e9cbe-d8eb-48a8-9618-432222100e79 score=None
+rejudged 9/38 task_id=ab074bda-d583-42d0-85ce-6c694a51d3ce score=None
+rejudged 10/38 task_id=b02ede76-2353-40f3-9da9-d319c617ab0d score=None
+rejudged 11/38 task_id=236d5ae8-8623-4436-b527-2853aeea2db9 score=None
+rejudged 12/38 task_id=36457179-b5e5-4daa-9956-fde342aade9b score=None
+rejudged 13/38 task_id=3d801f46-5707-4ff5-8151-1168ff0f09c0 score=None
+rejudged 14/38 task_id=b0f9b509-dff8-4414-9404-fe0a35c43107 score=None
+rejudged 15/38 task_id=10e75d21-9e92-4878-b691-02fc87ae5d54 score=None
+rejudged 16/38 task_id=928aea10-3918-484b-980e-19d13a747e30 score=None
+rejudged 17/38 task_id=9afd23d2-058d-469f-a663-91286ac0532f score=None
+rejudged 18/38 task_id=8ca825d6-174a-489d-89b9-b000649a2477 score=None
+rejudged 19/38 task_id=c2a1a24b-8a83-453f-9892-d17b533ffe93 score=None
+rejudged 20/38 task_id=6b3233e6-9b05-465a-a872-724af25df719 score=None
+rejudged 21/38 task_id=939cd89c-32e3-4ba3-a9c2-734a9f3b80d1 score=None
+rejudged 22/38 task_id=e179559d-08fd-4ca7-9f1b-5637d956b3d4 score=None
+rejudged 23/38 task_id=4b089235-06e7-4f1f-a815-96bb146cbbde score=None
+rejudged 24/38 task_id=6128e19e-5d6c-41ab-aaf5-35a1d718050e score=None
+rejudged 25/38 task_id=c63923e7-6ab4-4742-b739-49f5d1f1cfe4 score=None
+rejudged 26/38 task_id=ebac60ea-ea67-4b8f-986e-1e0aebed2b89 score=None
+rejudged 27/38 task_id=49d841f1-0c95-4a87-9b62-5e2a54e8e1a8 score=None
+rejudged 28/38 task_id=785c8570-6aed-4517-aac2-1d56e16745b7 score=None
+rejudged 29/38 task_id=7d09292c-c8b7-4ae9-9864-1676135bd041 score=None
+rejudged 30/38 task_id=10e9d085-a62f-4547-bbf3-62800b27950c score=None
+rejudged 31/38 task_id=2aac5ef3-f127-4582-a8a6-8f02bda5681e score=None
+rejudged 32/38 task_id=8e99d8d2-f6b9-4800-83a9-6f56829898fe score=None
+rejudged 33/38 task_id=9db832bc-c38d-4a0b-aebe-ea0fc96da563 score=None
+rejudged 34/38 task_id=1070e6eb-7a8f-4ce9-8818-1931bcfdb2dd score=None
+rejudged 35/38 task_id=0e7281ec-bf16-4d84-9501-0de69a803c59 score=None
+rejudged 36/38 task_id=69e0ce73-b0af-4f7c-a59d-71c96adc6a2b score=None
+rejudged 37/38 task_id=e6fbba71-d917-4d1e-bd09-009ff9cd8e9b score=None
+rejudged 38/38 task_id=91408757-a874-44b5-ad5a-66a22b39141d score=None
+
+===== task 22/100  id=eb3965d1-c466-4c4c-bd4a-c8a0b255b893 =====
+tasks: 1  pending: 1
+model: gpt-5.6-sol  config_id: baseline
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: out/baseline_parity/baseline-gpt-5.6-sol.jsonl
+    [gpt-5.6-sol] round 1: calling LLM...
+agentic 1/1 task=eb3965d1 status=failed tools=None finish=None clen=0 elapsed=0s
+replay rows: 66
+pending rows: 38
+output: out/baseline_parity/score-baseline.jsonl
+rejudged 1/38 task_id=b0e3597d-6cda-4082-a5b4-234aac7d2684 score=None
+rejudged 2/38 task_id=646b575d-383d-483b-82bd-01e5526212c7 score=None
+rejudged 3/38 task_id=614a5d4c-5387-4f42-a319-61486bbcde0f score=None
+rejudged 4/38 task_id=e3734e91-e2d1-4696-bdee-81c8bfa3127e score=None
+rejudged 5/38 task_id=f1b0f094-fa7a-4f18-adbd-f4cd86633f77 score=None
+rejudged 6/38 task_id=8cf941c5-3ac1-4801-929b-8f5bab8691c7 score=None
+rejudged 7/38 task_id=a4bae04b-4337-4f28-ab8b-5a518cf58fe0 score=None
+rejudged 8/38 task_id=056e9cbe-d8eb-48a8-9618-432222100e79 score=None
+rejudged 9/38 task_id=ab074bda-d583-42d0-85ce-6c694a51d3ce score=None
+rejudged 10/38 task_id=b02ede76-2353-40f3-9da9-d319c617ab0d score=None
+rejudged 11/38 task_id=236d5ae8-8623-4436-b527-2853aeea2db9 score=None
+rejudged 12/38 task_id=36457179-b5e5-4daa-9956-fde342aade9b score=None
+rejudged 13/38 task_id=3d801f46-5707-4ff5-8151-1168ff0f09c0 score=None
+rejudged 14/38 task_id=b0f9b509-dff8-4414-9404-fe0a35c43107 score=None
+rejudged 15/38 task_id=10e75d21-9e92-4878-b691-02fc87ae5d54 score=None
+rejudged 16/38 task_id=928aea10-3918-484b-980e-19d13a747e30 score=None
+rejudged 17/38 task_id=9afd23d2-058d-469f-a663-91286ac0532f score=None
+rejudged 18/38 task_id=8ca825d6-174a-489d-89b9-b000649a2477 score=None
+rejudged 19/38 task_id=c2a1a24b-8a83-453f-9892-d17b533ffe93 score=None
+rejudged 20/38 task_id=6b3233e6-9b05-465a-a872-724af25df719 score=None
+rejudged 21/38 task_id=939cd89c-32e3-4ba3-a9c2-734a9f3b80d1 score=None
+rejudged 22/38 task_id=e179559d-08fd-4ca7-9f1b-5637d956b3d4 score=None
+rejudged 23/38 task_id=4b089235-06e7-4f1f-a815-96bb146cbbde score=None
+rejudged 24/38 task_id=6128e19e-5d6c-41ab-aaf5-35a1d718050e score=None
+rejudged 25/38 task_id=c63923e7-6ab4-4742-b739-49f5d1f1cfe4 score=None
+rejudged 26/38 task_id=ebac60ea-ea67-4b8f-986e-1e0aebed2b89 score=None
+rejudged 27/38 task_id=49d841f1-0c95-4a87-9b62-5e2a54e8e1a8 score=None
+rejudged 28/38 task_id=785c8570-6aed-4517-aac2-1d56e16745b7 score=None
+rejudged 29/38 task_id=7d09292c-c8b7-4ae9-9864-1676135bd041 score=None
+rejudged 30/38 task_id=10e9d085-a62f-4547-bbf3-62800b27950c score=None
+rejudged 31/38 task_id=2aac5ef3-f127-4582-a8a6-8f02bda5681e score=None
+rejudged 32/38 task_id=8e99d8d2-f6b9-4800-83a9-6f56829898fe score=None
+rejudged 33/38 task_id=9db832bc-c38d-4a0b-aebe-ea0fc96da563 score=None
+rejudged 34/38 task_id=1070e6eb-7a8f-4ce9-8818-1931bcfdb2dd score=None
+rejudged 35/38 task_id=0e7281ec-bf16-4d84-9501-0de69a803c59 score=None
+rejudged 36/38 task_id=69e0ce73-b0af-4f7c-a59d-71c96adc6a2b score=None
+rejudged 37/38 task_id=e6fbba71-d917-4d1e-bd09-009ff9cd8e9b score=None
+rejudged 38/38 task_id=91408757-a874-44b5-ad5a-66a22b39141d score=None
+
+===== task 23/100  id=0a652d00-5c22-4621-8ec4-dd92b1f1450b =====
+tasks: 1  pending: 1
+model: gpt-5.6-sol  config_id: baseline
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: out/baseline_parity/baseline-gpt-5.6-sol.jsonl
+    [gpt-5.6-sol] round 1: calling LLM...
+agentic 1/1 task=0a652d00 status=failed tools=None finish=None clen=0 elapsed=0s
+replay rows: 66
+pending rows: 38
+output: out/baseline_parity/score-baseline.jsonl
+rejudged 1/38 task_id=b0e3597d-6cda-4082-a5b4-234aac7d2684 score=None
+rejudged 2/38 task_id=646b575d-383d-483b-82bd-01e5526212c7 score=None
+rejudged 3/38 task_id=614a5d4c-5387-4f42-a319-61486bbcde0f score=None
+rejudged 4/38 task_id=e3734e91-e2d1-4696-bdee-81c8bfa3127e score=None
+rejudged 5/38 task_id=f1b0f094-fa7a-4f18-adbd-f4cd86633f77 score=None
+rejudged 6/38 task_id=8cf941c5-3ac1-4801-929b-8f5bab8691c7 score=None
+rejudged 7/38 task_id=a4bae04b-4337-4f28-ab8b-5a518cf58fe0 score=None
+rejudged 8/38 task_id=056e9cbe-d8eb-48a8-9618-432222100e79 score=None
+rejudged 9/38 task_id=ab074bda-d583-42d0-85ce-6c694a51d3ce score=None
+rejudged 10/38 task_id=b02ede76-2353-40f3-9da9-d319c617ab0d score=None
+rejudged 11/38 task_id=236d5ae8-8623-4436-b527-2853aeea2db9 score=None
+rejudged 12/38 task_id=36457179-b5e5-4daa-9956-fde342aade9b score=None
+rejudged 13/38 task_id=3d801f46-5707-4ff5-8151-1168ff0f09c0 score=None
+rejudged 14/38 task_id=b0f9b509-dff8-4414-9404-fe0a35c43107 score=None
+rejudged 15/38 task_id=10e75d21-9e92-4878-b691-02fc87ae5d54 score=None
+rejudged 16/38 task_id=928aea10-3918-484b-980e-19d13a747e30 score=None
+rejudged 17/38 task_id=9afd23d2-058d-469f-a663-91286ac0532f score=None
+rejudged 18/38 task_id=8ca825d6-174a-489d-89b9-b000649a2477 score=None
+rejudged 19/38 task_id=c2a1a24b-8a83-453f-9892-d17b533ffe93 score=None
+rejudged 20/38 task_id=6b3233e6-9b05-465a-a872-724af25df719 score=None
+rejudged 21/38 task_id=939cd89c-32e3-4ba3-a9c2-734a9f3b80d1 score=None
+rejudged 22/38 task_id=e179559d-08fd-4ca7-9f1b-5637d956b3d4 score=None
+rejudged 23/38 task_id=4b089235-06e7-4f1f-a815-96bb146cbbde score=None
+rejudged 24/38 task_id=6128e19e-5d6c-41ab-aaf5-35a1d718050e score=None
+rejudged 25/38 task_id=c63923e7-6ab4-4742-b739-49f5d1f1cfe4 score=None
+rejudged 26/38 task_id=ebac60ea-ea67-4b8f-986e-1e0aebed2b89 score=None
+rejudged 27/38 task_id=49d841f1-0c95-4a87-9b62-5e2a54e8e1a8 score=None
+rejudged 28/38 task_id=785c8570-6aed-4517-aac2-1d56e16745b7 score=None
+rejudged 29/38 task_id=7d09292c-c8b7-4ae9-9864-1676135bd041 score=None
+rejudged 30/38 task_id=10e9d085-a62f-4547-bbf3-62800b27950c score=None
+rejudged 31/38 task_id=2aac5ef3-f127-4582-a8a6-8f02bda5681e score=None
+rejudged 32/38 task_id=8e99d8d2-f6b9-4800-83a9-6f56829898fe score=None
+rejudged 33/38 task_id=9db832bc-c38d-4a0b-aebe-ea0fc96da563 score=None
+rejudged 34/38 task_id=1070e6eb-7a8f-4ce9-8818-1931bcfdb2dd score=None
+rejudged 35/38 task_id=0e7281ec-bf16-4d84-9501-0de69a803c59 score=None
+rejudged 36/38 task_id=69e0ce73-b0af-4f7c-a59d-71c96adc6a2b score=None
+rejudged 37/38 task_id=e6fbba71-d917-4d1e-bd09-009ff9cd8e9b score=None
+rejudged 38/38 task_id=91408757-a874-44b5-ad5a-66a22b39141d score=None
+
+===== task 24/100  id=e15a37b4-cd7f-4f52-ba81-9f33b24aabe9 =====
+tasks: 1  pending: 0
+model: gpt-5.6-sol  config_id: baseline
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: out/baseline_parity/baseline-gpt-5.6-sol.jsonl
+replay rows: 66
+pending rows: 38
+output: out/baseline_parity/score-baseline.jsonl
+rejudged 1/38 task_id=b0e3597d-6cda-4082-a5b4-234aac7d2684 score=None
+rejudged 2/38 task_id=646b575d-383d-483b-82bd-01e5526212c7 score=None
+rejudged 3/38 task_id=614a5d4c-5387-4f42-a319-61486bbcde0f score=None
+rejudged 4/38 task_id=e3734e91-e2d1-4696-bdee-81c8bfa3127e score=None
+rejudged 5/38 task_id=f1b0f094-fa7a-4f18-adbd-f4cd86633f77 score=None
+rejudged 6/38 task_id=8cf941c5-3ac1-4801-929b-8f5bab8691c7 score=None
+rejudged 7/38 task_id=a4bae04b-4337-4f28-ab8b-5a518cf58fe0 score=None
+rejudged 8/38 task_id=056e9cbe-d8eb-48a8-9618-432222100e79 score=None
+rejudged 9/38 task_id=ab074bda-d583-42d0-85ce-6c694a51d3ce score=None
+rejudged 10/38 task_id=b02ede76-2353-40f3-9da9-d319c617ab0d score=None
+rejudged 11/38 task_id=236d5ae8-8623-4436-b527-2853aeea2db9 score=None
+rejudged 12/38 task_id=36457179-b5e5-4daa-9956-fde342aade9b score=None
+rejudged 13/38 task_id=3d801f46-5707-4ff5-8151-1168ff0f09c0 score=None
+rejudged 14/38 task_id=b0f9b509-dff8-4414-9404-fe0a35c43107 score=None
+rejudged 15/38 task_id=10e75d21-9e92-4878-b691-02fc87ae5d54 score=None
+rejudged 16/38 task_id=928aea10-3918-484b-980e-19d13a747e30 score=None
+rejudged 17/38 task_id=9afd23d2-058d-469f-a663-91286ac0532f score=None
+rejudged 18/38 task_id=8ca825d6-174a-489d-89b9-b000649a2477 score=None
+rejudged 19/38 task_id=c2a1a24b-8a83-453f-9892-d17b533ffe93 score=None
+rejudged 20/38 task_id=6b3233e6-9b05-465a-a872-724af25df719 score=None
+rejudged 21/38 task_id=939cd89c-32e3-4ba3-a9c2-734a9f3b80d1 score=None
+rejudged 22/38 task_id=e179559d-08fd-4ca7-9f1b-5637d956b3d4 score=None
+rejudged 23/38 task_id=4b089235-06e7-4f1f-a815-96bb146cbbde score=None
+rejudged 24/38 task_id=6128e19e-5d6c-41ab-aaf5-35a1d718050e score=None
+rejudged 25/38 task_id=c63923e7-6ab4-4742-b739-49f5d1f1cfe4 score=None
+rejudged 26/38 task_id=ebac60ea-ea67-4b8f-986e-1e0aebed2b89 score=None
+rejudged 27/38 task_id=49d841f1-0c95-4a87-9b62-5e2a54e8e1a8 score=None
+rejudged 28/38 task_id=785c8570-6aed-4517-aac2-1d56e16745b7 score=None
+rejudged 29/38 task_id=7d09292c-c8b7-4ae9-9864-1676135bd041 score=None
+rejudged 30/38 task_id=10e9d085-a62f-4547-bbf3-62800b27950c score=None
+rejudged 31/38 task_id=2aac5ef3-f127-4582-a8a6-8f02bda5681e score=None
+rejudged 32/38 task_id=8e99d8d2-f6b9-4800-83a9-6f56829898fe score=None
+rejudged 33/38 task_id=9db832bc-c38d-4a0b-aebe-ea0fc96da563 score=None
+rejudged 34/38 task_id=1070e6eb-7a8f-4ce9-8818-1931bcfdb2dd score=None
+rejudged 35/38 task_id=0e7281ec-bf16-4d84-9501-0de69a803c59 score=None
+rejudged 36/38 task_id=69e0ce73-b0af-4f7c-a59d-71c96adc6a2b score=None
+rejudged 37/38 task_id=e6fbba71-d917-4d1e-bd09-009ff9cd8e9b score=None
+rejudged 38/38 task_id=91408757-a874-44b5-ad5a-66a22b39141d score=None
+
+===== task 25/100  id=4f36f602-6c14-4c23-a37d-e5ee92ed4552 =====
+tasks: 1  pending: 0
+model: gpt-5.6-sol  config_id: baseline
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: out/baseline_parity/baseline-gpt-5.6-sol.jsonl
+replay rows: 66
+pending rows: 38
+output: out/baseline_parity/score-baseline.jsonl
+rejudged 1/38 task_id=b0e3597d-6cda-4082-a5b4-234aac7d2684 score=None
+rejudged 2/38 task_id=646b575d-383d-483b-82bd-01e5526212c7 score=None
+rejudged 3/38 task_id=614a5d4c-5387-4f42-a319-61486bbcde0f score=None
+rejudged 4/38 task_id=e3734e91-e2d1-4696-bdee-81c8bfa3127e score=None
+rejudged 5/38 task_id=f1b0f094-fa7a-4f18-adbd-f4cd86633f77 score=None
+rejudged 6/38 task_id=8cf941c5-3ac1-4801-929b-8f5bab8691c7 score=None
+rejudged 7/38 task_id=a4bae04b-4337-4f28-ab8b-5a518cf58fe0 score=None
+rejudged 8/38 task_id=056e9cbe-d8eb-48a8-9618-432222100e79 score=None
+rejudged 9/38 task_id=ab074bda-d583-42d0-85ce-6c694a51d3ce score=None
+rejudged 10/38 task_id=b02ede76-2353-40f3-9da9-d319c617ab0d score=None
+rejudged 11/38 task_id=236d5ae8-8623-4436-b527-2853aeea2db9 score=None
+rejudged 12/38 task_id=36457179-b5e5-4daa-9956-fde342aade9b score=None
+rejudged 13/38 task_id=3d801f46-5707-4ff5-8151-1168ff0f09c0 score=None
+rejudged 14/38 task_id=b0f9b509-dff8-4414-9404-fe0a35c43107 score=None
+rejudged 15/38 task_id=10e75d21-9e92-4878-b691-02fc87ae5d54 score=None
+rejudged 16/38 task_id=928aea10-3918-484b-980e-19d13a747e30 score=None
+rejudged 17/38 task_id=9afd23d2-058d-469f-a663-91286ac0532f score=None
+rejudged 18/38 task_id=8ca825d6-174a-489d-89b9-b000649a2477 score=None
+rejudged 19/38 task_id=c2a1a24b-8a83-453f-9892-d17b533ffe93 score=None
+rejudged 20/38 task_id=6b3233e6-9b05-465a-a872-724af25df719 score=None
+rejudged 21/38 task_id=939cd89c-32e3-4ba3-a9c2-734a9f3b80d1 score=None
+rejudged 22/38 task_id=e179559d-08fd-4ca7-9f1b-5637d956b3d4 score=None
+rejudged 23/38 task_id=4b089235-06e7-4f1f-a815-96bb146cbbde score=None
+rejudged 24/38 task_id=6128e19e-5d6c-41ab-aaf5-35a1d718050e score=None
+rejudged 25/38 task_id=c63923e7-6ab4-4742-b739-49f5d1f1cfe4 score=None
+rejudged 26/38 task_id=ebac60ea-ea67-4b8f-986e-1e0aebed2b89 score=None
+rejudged 27/38 task_id=49d841f1-0c95-4a87-9b62-5e2a54e8e1a8 score=None
+rejudged 28/38 task_id=785c8570-6aed-4517-aac2-1d56e16745b7 score=None
+rejudged 29/38 task_id=7d09292c-c8b7-4ae9-9864-1676135bd041 score=None
+rejudged 30/38 task_id=10e9d085-a62f-4547-bbf3-62800b27950c score=None
+rejudged 31/38 task_id=2aac5ef3-f127-4582-a8a6-8f02bda5681e score=None
+rejudged 32/38 task_id=8e99d8d2-f6b9-4800-83a9-6f56829898fe score=None
+rejudged 33/38 task_id=9db832bc-c38d-4a0b-aebe-ea0fc96da563 score=None
+rejudged 34/38 task_id=1070e6eb-7a8f-4ce9-8818-1931bcfdb2dd score=None
+rejudged 35/38 task_id=0e7281ec-bf16-4d84-9501-0de69a803c59 score=None
+rejudged 36/38 task_id=69e0ce73-b0af-4f7c-a59d-71c96adc6a2b score=None
+rejudged 37/38 task_id=e6fbba71-d917-4d1e-bd09-009ff9cd8e9b score=None
+rejudged 38/38 task_id=91408757-a874-44b5-ad5a-66a22b39141d score=None
+
+===== task 26/100  id=b3c576e7-dfc6-403f-90e7-53c011884d5c =====
+tasks: 1  pending: 0
+model: gpt-5.6-sol  config_id: baseline
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: out/baseline_parity/baseline-gpt-5.6-sol.jsonl
+replay rows: 66
+pending rows: 38
+output: out/baseline_parity/score-baseline.jsonl
+rejudged 1/38 task_id=b0e3597d-6cda-4082-a5b4-234aac7d2684 score=None
+rejudged 2/38 task_id=646b575d-383d-483b-82bd-01e5526212c7 score=None
+rejudged 3/38 task_id=614a5d4c-5387-4f42-a319-61486bbcde0f score=None
+rejudged 4/38 task_id=e3734e91-e2d1-4696-bdee-81c8bfa3127e score=None
+rejudged 5/38 task_id=f1b0f094-fa7a-4f18-adbd-f4cd86633f77 score=None
+rejudged 6/38 task_id=8cf941c5-3ac1-4801-929b-8f5bab8691c7 score=None
+rejudged 7/38 task_id=a4bae04b-4337-4f28-ab8b-5a518cf58fe0 score=None
+rejudged 8/38 task_id=056e9cbe-d8eb-48a8-9618-432222100e79 score=None
+rejudged 9/38 task_id=ab074bda-d583-42d0-85ce-6c694a51d3ce score=None
+rejudged 10/38 task_id=b02ede76-2353-40f3-9da9-d319c617ab0d score=None
+rejudged 11/38 task_id=236d5ae8-8623-4436-b527-2853aeea2db9 score=None
+rejudged 12/38 task_id=36457179-b5e5-4daa-9956-fde342aade9b score=None
+rejudged 13/38 task_id=3d801f46-5707-4ff5-8151-1168ff0f09c0 score=None
+rejudged 14/38 task_id=b0f9b509-dff8-4414-9404-fe0a35c43107 score=None
+rejudged 15/38 task_id=10e75d21-9e92-4878-b691-02fc87ae5d54 score=None
+rejudged 16/38 task_id=928aea10-3918-484b-980e-19d13a747e30 score=None
+rejudged 17/38 task_id=9afd23d2-058d-469f-a663-91286ac0532f score=None
+rejudged 18/38 task_id=8ca825d6-174a-489d-89b9-b000649a2477 score=None
+rejudged 19/38 task_id=c2a1a24b-8a83-453f-9892-d17b533ffe93 score=None
+rejudged 20/38 task_id=6b3233e6-9b05-465a-a872-724af25df719 score=None
+rejudged 21/38 task_id=939cd89c-32e3-4ba3-a9c2-734a9f3b80d1 score=None
+rejudged 22/38 task_id=e179559d-08fd-4ca7-9f1b-5637d956b3d4 score=None
+rejudged 23/38 task_id=4b089235-06e7-4f1f-a815-96bb146cbbde score=None
+rejudged 24/38 task_id=6128e19e-5d6c-41ab-aaf5-35a1d718050e score=None
+rejudged 25/38 task_id=c63923e7-6ab4-4742-b739-49f5d1f1cfe4 score=None
+rejudged 26/38 task_id=ebac60ea-ea67-4b8f-986e-1e0aebed2b89 score=None
+rejudged 27/38 task_id=49d841f1-0c95-4a87-9b62-5e2a54e8e1a8 score=None
+rejudged 28/38 task_id=785c8570-6aed-4517-aac2-1d56e16745b7 score=None
+rejudged 29/38 task_id=7d09292c-c8b7-4ae9-9864-1676135bd041 score=None
+rejudged 30/38 task_id=10e9d085-a62f-4547-bbf3-62800b27950c score=None
+rejudged 31/38 task_id=2aac5ef3-f127-4582-a8a6-8f02bda5681e score=None
+rejudged 32/38 task_id=8e99d8d2-f6b9-4800-83a9-6f56829898fe score=None
+rejudged 33/38 task_id=9db832bc-c38d-4a0b-aebe-ea0fc96da563 score=None
+rejudged 34/38 task_id=1070e6eb-7a8f-4ce9-8818-1931bcfdb2dd score=None
+rejudged 35/38 task_id=0e7281ec-bf16-4d84-9501-0de69a803c59 score=None
+rejudged 36/38 task_id=69e0ce73-b0af-4f7c-a59d-71c96adc6a2b score=None
+rejudged 37/38 task_id=e6fbba71-d917-4d1e-bd09-009ff9cd8e9b score=None
+rejudged 38/38 task_id=91408757-a874-44b5-ad5a-66a22b39141d score=None
+
+===== task 27/100  id=3a8db70a-d906-4bde-bf87-c0c74504409a =====
+tasks: 1  pending: 0
+model: gpt-5.6-sol  config_id: baseline
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: out/baseline_parity/baseline-gpt-5.6-sol.jsonl
+replay rows: 66
+pending rows: 38
+output: out/baseline_parity/score-baseline.jsonl
+rejudged 1/38 task_id=b0e3597d-6cda-4082-a5b4-234aac7d2684 score=None
+rejudged 2/38 task_id=646b575d-383d-483b-82bd-01e5526212c7 score=None
+rejudged 3/38 task_id=614a5d4c-5387-4f42-a319-61486bbcde0f score=None
+rejudged 4/38 task_id=e3734e91-e2d1-4696-bdee-81c8bfa3127e score=None
+rejudged 5/38 task_id=f1b0f094-fa7a-4f18-adbd-f4cd86633f77 score=None
+rejudged 6/38 task_id=8cf941c5-3ac1-4801-929b-8f5bab8691c7 score=None
+rejudged 7/38 task_id=a4bae04b-4337-4f28-ab8b-5a518cf58fe0 score=None
+rejudged 8/38 task_id=056e9cbe-d8eb-48a8-9618-432222100e79 score=None
+rejudged 9/38 task_id=ab074bda-d583-42d0-85ce-6c694a51d3ce score=None
+rejudged 10/38 task_id=b02ede76-2353-40f3-9da9-d319c617ab0d score=None
+rejudged 11/38 task_id=236d5ae8-8623-4436-b527-2853aeea2db9 score=None
+rejudged 12/38 task_id=36457179-b5e5-4daa-9956-fde342aade9b score=None
+rejudged 13/38 task_id=3d801f46-5707-4ff5-8151-1168ff0f09c0 score=None
+rejudged 14/38 task_id=b0f9b509-dff8-4414-9404-fe0a35c43107 score=None
+rejudged 15/38 task_id=10e75d21-9e92-4878-b691-02fc87ae5d54 score=None
+rejudged 16/38 task_id=928aea10-3918-484b-980e-19d13a747e30 score=None
+rejudged 17/38 task_id=9afd23d2-058d-469f-a663-91286ac0532f score=None
+rejudged 18/38 task_id=8ca825d6-174a-489d-89b9-b000649a2477 score=None
+rejudged 19/38 task_id=c2a1a24b-8a83-453f-9892-d17b533ffe93 score=None
+rejudged 20/38 task_id=6b3233e6-9b05-465a-a872-724af25df719 score=None
+rejudged 21/38 task_id=939cd89c-32e3-4ba3-a9c2-734a9f3b80d1 score=None
+rejudged 22/38 task_id=e179559d-08fd-4ca7-9f1b-5637d956b3d4 score=None
+rejudged 23/38 task_id=4b089235-06e7-4f1f-a815-96bb146cbbde score=None
+rejudged 24/38 task_id=6128e19e-5d6c-41ab-aaf5-35a1d718050e score=None
+rejudged 25/38 task_id=c63923e7-6ab4-4742-b739-49f5d1f1cfe4 score=None
+rejudged 26/38 task_id=ebac60ea-ea67-4b8f-986e-1e0aebed2b89 score=None
+rejudged 27/38 task_id=49d841f1-0c95-4a87-9b62-5e2a54e8e1a8 score=None
+rejudged 28/38 task_id=785c8570-6aed-4517-aac2-1d56e16745b7 score=None
+rejudged 29/38 task_id=7d09292c-c8b7-4ae9-9864-1676135bd041 score=None
+rejudged 30/38 task_id=10e9d085-a62f-4547-bbf3-62800b27950c score=None
+rejudged 31/38 task_id=2aac5ef3-f127-4582-a8a6-8f02bda5681e score=None
+rejudged 32/38 task_id=8e99d8d2-f6b9-4800-83a9-6f56829898fe score=None
+rejudged 33/38 task_id=9db832bc-c38d-4a0b-aebe-ea0fc96da563 score=None
+rejudged 34/38 task_id=1070e6eb-7a8f-4ce9-8818-1931bcfdb2dd score=None
+rejudged 35/38 task_id=0e7281ec-bf16-4d84-9501-0de69a803c59 score=None
+rejudged 36/38 task_id=69e0ce73-b0af-4f7c-a59d-71c96adc6a2b score=None
+rejudged 37/38 task_id=e6fbba71-d917-4d1e-bd09-009ff9cd8e9b score=None
+rejudged 38/38 task_id=91408757-a874-44b5-ad5a-66a22b39141d score=None
+
+===== task 28/100  id=c6ca6371-72de-4f96-bc90-c4273080382c =====
+tasks: 1  pending: 1
+model: gpt-5.6-sol  config_id: baseline
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: out/baseline_parity/baseline-gpt-5.6-sol.jsonl
+    [gpt-5.6-sol] round 1: calling LLM...
+agentic 1/1 task=c6ca6371 status=failed tools=None finish=None clen=0 elapsed=0s
+replay rows: 66
+pending rows: 38
+output: out/baseline_parity/score-baseline.jsonl
+rejudged 1/38 task_id=b0e3597d-6cda-4082-a5b4-234aac7d2684 score=None
+rejudged 2/38 task_id=646b575d-383d-483b-82bd-01e5526212c7 score=None
+rejudged 3/38 task_id=614a5d4c-5387-4f42-a319-61486bbcde0f score=None
+rejudged 4/38 task_id=e3734e91-e2d1-4696-bdee-81c8bfa3127e score=None
+rejudged 5/38 task_id=f1b0f094-fa7a-4f18-adbd-f4cd86633f77 score=None
+rejudged 6/38 task_id=8cf941c5-3ac1-4801-929b-8f5bab8691c7 score=None
+rejudged 7/38 task_id=a4bae04b-4337-4f28-ab8b-5a518cf58fe0 score=None
+rejudged 8/38 task_id=056e9cbe-d8eb-48a8-9618-432222100e79 score=None
+rejudged 9/38 task_id=ab074bda-d583-42d0-85ce-6c694a51d3ce score=None
+rejudged 10/38 task_id=b02ede76-2353-40f3-9da9-d319c617ab0d score=None
+rejudged 11/38 task_id=236d5ae8-8623-4436-b527-2853aeea2db9 score=None
+rejudged 12/38 task_id=36457179-b5e5-4daa-9956-fde342aade9b score=None
+rejudged 13/38 task_id=3d801f46-5707-4ff5-8151-1168ff0f09c0 score=None
+rejudged 14/38 task_id=b0f9b509-dff8-4414-9404-fe0a35c43107 score=None
+rejudged 15/38 task_id=10e75d21-9e92-4878-b691-02fc87ae5d54 score=None
+rejudged 16/38 task_id=928aea10-3918-484b-980e-19d13a747e30 score=None
+rejudged 17/38 task_id=9afd23d2-058d-469f-a663-91286ac0532f score=None
+rejudged 18/38 task_id=8ca825d6-174a-489d-89b9-b000649a2477 score=None
+rejudged 19/38 task_id=c2a1a24b-8a83-453f-9892-d17b533ffe93 score=None
+rejudged 20/38 task_id=6b3233e6-9b05-465a-a872-724af25df719 score=None
+rejudged 21/38 task_id=939cd89c-32e3-4ba3-a9c2-734a9f3b80d1 score=None
+rejudged 22/38 task_id=e179559d-08fd-4ca7-9f1b-5637d956b3d4 score=None
+rejudged 23/38 task_id=4b089235-06e7-4f1f-a815-96bb146cbbde score=None
+rejudged 24/38 task_id=6128e19e-5d6c-41ab-aaf5-35a1d718050e score=None
+rejudged 25/38 task_id=c63923e7-6ab4-4742-b739-49f5d1f1cfe4 score=None
+rejudged 26/38 task_id=ebac60ea-ea67-4b8f-986e-1e0aebed2b89 score=None
+rejudged 27/38 task_id=49d841f1-0c95-4a87-9b62-5e2a54e8e1a8 score=None
+rejudged 28/38 task_id=785c8570-6aed-4517-aac2-1d56e16745b7 score=None
+rejudged 29/38 task_id=7d09292c-c8b7-4ae9-9864-1676135bd041 score=None
+rejudged 30/38 task_id=10e9d085-a62f-4547-bbf3-62800b27950c score=None
+rejudged 31/38 task_id=2aac5ef3-f127-4582-a8a6-8f02bda5681e score=None
+rejudged 32/38 task_id=8e99d8d2-f6b9-4800-83a9-6f56829898fe score=None
+rejudged 33/38 task_id=9db832bc-c38d-4a0b-aebe-ea0fc96da563 score=None
+rejudged 34/38 task_id=1070e6eb-7a8f-4ce9-8818-1931bcfdb2dd score=None
+rejudged 35/38 task_id=0e7281ec-bf16-4d84-9501-0de69a803c59 score=None
+rejudged 36/38 task_id=69e0ce73-b0af-4f7c-a59d-71c96adc6a2b score=None
+rejudged 37/38 task_id=e6fbba71-d917-4d1e-bd09-009ff9cd8e9b score=None
+rejudged 38/38 task_id=91408757-a874-44b5-ad5a-66a22b39141d score=None
+
+===== task 29/100  id=9b35aaf1-f3cf-466f-96e5-dde018b0ef35 =====
+tasks: 1  pending: 1
+model: gpt-5.6-sol  config_id: baseline
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: out/baseline_parity/baseline-gpt-5.6-sol.jsonl
+    [gpt-5.6-sol] round 1: calling LLM...
+agentic 1/1 task=9b35aaf1 status=failed tools=None finish=None clen=0 elapsed=0s
+replay rows: 66
+pending rows: 38
+output: out/baseline_parity/score-baseline.jsonl
+rejudged 1/38 task_id=b0e3597d-6cda-4082-a5b4-234aac7d2684 score=None
+rejudged 2/38 task_id=646b575d-383d-483b-82bd-01e5526212c7 score=None
+rejudged 3/38 task_id=614a5d4c-5387-4f42-a319-61486bbcde0f score=None
+rejudged 4/38 task_id=e3734e91-e2d1-4696-bdee-81c8bfa3127e score=None
+rejudged 5/38 task_id=f1b0f094-fa7a-4f18-adbd-f4cd86633f77 score=None
+rejudged 6/38 task_id=8cf941c5-3ac1-4801-929b-8f5bab8691c7 score=None
+rejudged 7/38 task_id=a4bae04b-4337-4f28-ab8b-5a518cf58fe0 score=None
+rejudged 8/38 task_id=056e9cbe-d8eb-48a8-9618-432222100e79 score=None
+rejudged 9/38 task_id=ab074bda-d583-42d0-85ce-6c694a51d3ce score=None
+rejudged 10/38 task_id=b02ede76-2353-40f3-9da9-d319c617ab0d score=None
+rejudged 11/38 task_id=236d5ae8-8623-4436-b527-2853aeea2db9 score=None
+rejudged 12/38 task_id=36457179-b5e5-4daa-9956-fde342aade9b score=None
+rejudged 13/38 task_id=3d801f46-5707-4ff5-8151-1168ff0f09c0 score=None
+rejudged 14/38 task_id=b0f9b509-dff8-4414-9404-fe0a35c43107 score=None
+rejudged 15/38 task_id=10e75d21-9e92-4878-b691-02fc87ae5d54 score=None
+rejudged 16/38 task_id=928aea10-3918-484b-980e-19d13a747e30 score=None
+rejudged 17/38 task_id=9afd23d2-058d-469f-a663-91286ac0532f score=None
+rejudged 18/38 task_id=8ca825d6-174a-489d-89b9-b000649a2477 score=None
+rejudged 19/38 task_id=c2a1a24b-8a83-453f-9892-d17b533ffe93 score=None
+rejudged 20/38 task_id=6b3233e6-9b05-465a-a872-724af25df719 score=None
+rejudged 21/38 task_id=939cd89c-32e3-4ba3-a9c2-734a9f3b80d1 score=None
+rejudged 22/38 task_id=e179559d-08fd-4ca7-9f1b-5637d956b3d4 score=None
+rejudged 23/38 task_id=4b089235-06e7-4f1f-a815-96bb146cbbde score=None
+rejudged 24/38 task_id=6128e19e-5d6c-41ab-aaf5-35a1d718050e score=None
+rejudged 25/38 task_id=c63923e7-6ab4-4742-b739-49f5d1f1cfe4 score=None
+rejudged 26/38 task_id=ebac60ea-ea67-4b8f-986e-1e0aebed2b89 score=None
+rejudged 27/38 task_id=49d841f1-0c95-4a87-9b62-5e2a54e8e1a8 score=None
+rejudged 28/38 task_id=785c8570-6aed-4517-aac2-1d56e16745b7 score=None
+rejudged 29/38 task_id=7d09292c-c8b7-4ae9-9864-1676135bd041 score=None
+rejudged 30/38 task_id=10e9d085-a62f-4547-bbf3-62800b27950c score=None
+rejudged 31/38 task_id=2aac5ef3-f127-4582-a8a6-8f02bda5681e score=None
+rejudged 32/38 task_id=8e99d8d2-f6b9-4800-83a9-6f56829898fe score=None
+rejudged 33/38 task_id=9db832bc-c38d-4a0b-aebe-ea0fc96da563 score=None
+rejudged 34/38 task_id=1070e6eb-7a8f-4ce9-8818-1931bcfdb2dd score=None
+rejudged 35/38 task_id=0e7281ec-bf16-4d84-9501-0de69a803c59 score=None
+rejudged 36/38 task_id=69e0ce73-b0af-4f7c-a59d-71c96adc6a2b score=None
+rejudged 37/38 task_id=e6fbba71-d917-4d1e-bd09-009ff9cd8e9b score=None
+rejudged 38/38 task_id=91408757-a874-44b5-ad5a-66a22b39141d score=None
+
+===== task 30/100  id=7786ef30-1bb6-479b-9437-333ff50d5a3d =====
+tasks: 1  pending: 1
+model: gpt-5.6-sol  config_id: baseline
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: out/baseline_parity/baseline-gpt-5.6-sol.jsonl
+    [gpt-5.6-sol] round 1: calling LLM...
+agentic 1/1 task=7786ef30 status=failed tools=None finish=None clen=0 elapsed=0s
+replay rows: 66
+pending rows: 38
+output: out/baseline_parity/score-baseline.jsonl
+rejudged 1/38 task_id=b0e3597d-6cda-4082-a5b4-234aac7d2684 score=None
+rejudged 2/38 task_id=646b575d-383d-483b-82bd-01e5526212c7 score=None
+rejudged 3/38 task_id=614a5d4c-5387-4f42-a319-61486bbcde0f score=None
+rejudged 4/38 task_id=e3734e91-e2d1-4696-bdee-81c8bfa3127e score=None
+rejudged 5/38 task_id=f1b0f094-fa7a-4f18-adbd-f4cd86633f77 score=None
+rejudged 6/38 task_id=8cf941c5-3ac1-4801-929b-8f5bab8691c7 score=None
+rejudged 7/38 task_id=a4bae04b-4337-4f28-ab8b-5a518cf58fe0 score=None
+rejudged 8/38 task_id=056e9cbe-d8eb-48a8-9618-432222100e79 score=None
+rejudged 9/38 task_id=ab074bda-d583-42d0-85ce-6c694a51d3ce score=None
+rejudged 10/38 task_id=b02ede76-2353-40f3-9da9-d319c617ab0d score=None
+rejudged 11/38 task_id=236d5ae8-8623-4436-b527-2853aeea2db9 score=None
+rejudged 12/38 task_id=36457179-b5e5-4daa-9956-fde342aade9b score=None
+rejudged 13/38 task_id=3d801f46-5707-4ff5-8151-1168ff0f09c0 score=None
+rejudged 14/38 task_id=b0f9b509-dff8-4414-9404-fe0a35c43107 score=None
+rejudged 15/38 task_id=10e75d21-9e92-4878-b691-02fc87ae5d54 score=None
+rejudged 16/38 task_id=928aea10-3918-484b-980e-19d13a747e30 score=None
+rejudged 17/38 task_id=9afd23d2-058d-469f-a663-91286ac0532f score=None
+rejudged 18/38 task_id=8ca825d6-174a-489d-89b9-b000649a2477 score=None
+rejudged 19/38 task_id=c2a1a24b-8a83-453f-9892-d17b533ffe93 score=None
+rejudged 20/38 task_id=6b3233e6-9b05-465a-a872-724af25df719 score=None
+rejudged 21/38 task_id=939cd89c-32e3-4ba3-a9c2-734a9f3b80d1 score=None
+rejudged 22/38 task_id=e179559d-08fd-4ca7-9f1b-5637d956b3d4 score=None
+rejudged 23/38 task_id=4b089235-06e7-4f1f-a815-96bb146cbbde score=None
+rejudged 24/38 task_id=6128e19e-5d6c-41ab-aaf5-35a1d718050e score=None
+rejudged 25/38 task_id=c63923e7-6ab4-4742-b739-49f5d1f1cfe4 score=None
+rejudged 26/38 task_id=ebac60ea-ea67-4b8f-986e-1e0aebed2b89 score=None
+rejudged 27/38 task_id=49d841f1-0c95-4a87-9b62-5e2a54e8e1a8 score=None
+rejudged 28/38 task_id=785c8570-6aed-4517-aac2-1d56e16745b7 score=None
+rejudged 29/38 task_id=7d09292c-c8b7-4ae9-9864-1676135bd041 score=None
+rejudged 30/38 task_id=10e9d085-a62f-4547-bbf3-62800b27950c score=None
+rejudged 31/38 task_id=2aac5ef3-f127-4582-a8a6-8f02bda5681e score=None
+rejudged 32/38 task_id=8e99d8d2-f6b9-4800-83a9-6f56829898fe score=None
+rejudged 33/38 task_id=9db832bc-c38d-4a0b-aebe-ea0fc96da563 score=None
+rejudged 34/38 task_id=1070e6eb-7a8f-4ce9-8818-1931bcfdb2dd score=None
+rejudged 35/38 task_id=0e7281ec-bf16-4d84-9501-0de69a803c59 score=None
+rejudged 36/38 task_id=69e0ce73-b0af-4f7c-a59d-71c96adc6a2b score=None
+rejudged 37/38 task_id=e6fbba71-d917-4d1e-bd09-009ff9cd8e9b score=None
+rejudged 38/38 task_id=91408757-a874-44b5-ad5a-66a22b39141d score=None
+
+===== task 31/100  id=b8ff32b6-967c-41bf-8277-69afe025293e =====
+tasks: 1  pending: 0
+model: gpt-5.6-sol  config_id: baseline
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: out/baseline_parity/baseline-gpt-5.6-sol.jsonl
+replay rows: 66
+pending rows: 38
+output: out/baseline_parity/score-baseline.jsonl
+rejudged 1/38 task_id=b0e3597d-6cda-4082-a5b4-234aac7d2684 score=None
+rejudged 2/38 task_id=646b575d-383d-483b-82bd-01e5526212c7 score=None
+rejudged 3/38 task_id=614a5d4c-5387-4f42-a319-61486bbcde0f score=None
+rejudged 4/38 task_id=e3734e91-e2d1-4696-bdee-81c8bfa3127e score=None
+rejudged 5/38 task_id=f1b0f094-fa7a-4f18-adbd-f4cd86633f77 score=None
+rejudged 6/38 task_id=8cf941c5-3ac1-4801-929b-8f5bab8691c7 score=None
+rejudged 7/38 task_id=a4bae04b-4337-4f28-ab8b-5a518cf58fe0 score=None
+rejudged 8/38 task_id=056e9cbe-d8eb-48a8-9618-432222100e79 score=None
+rejudged 9/38 task_id=ab074bda-d583-42d0-85ce-6c694a51d3ce score=None
+rejudged 10/38 task_id=b02ede76-2353-40f3-9da9-d319c617ab0d score=None
+rejudged 11/38 task_id=236d5ae8-8623-4436-b527-2853aeea2db9 score=None
+rejudged 12/38 task_id=36457179-b5e5-4daa-9956-fde342aade9b score=None
+rejudged 13/38 task_id=3d801f46-5707-4ff5-8151-1168ff0f09c0 score=None
+rejudged 14/38 task_id=b0f9b509-dff8-4414-9404-fe0a35c43107 score=None
+rejudged 15/38 task_id=10e75d21-9e92-4878-b691-02fc87ae5d54 score=None
+rejudged 16/38 task_id=928aea10-3918-484b-980e-19d13a747e30 score=None
+rejudged 17/38 task_id=9afd23d2-058d-469f-a663-91286ac0532f score=None
+rejudged 18/38 task_id=8ca825d6-174a-489d-89b9-b000649a2477 score=None
+rejudged 19/38 task_id=c2a1a24b-8a83-453f-9892-d17b533ffe93 score=None
+rejudged 20/38 task_id=6b3233e6-9b05-465a-a872-724af25df719 score=None
+rejudged 21/38 task_id=939cd89c-32e3-4ba3-a9c2-734a9f3b80d1 score=None
+rejudged 22/38 task_id=e179559d-08fd-4ca7-9f1b-5637d956b3d4 score=None
+rejudged 23/38 task_id=4b089235-06e7-4f1f-a815-96bb146cbbde score=None
+rejudged 24/38 task_id=6128e19e-5d6c-41ab-aaf5-35a1d718050e score=None
+rejudged 25/38 task_id=c63923e7-6ab4-4742-b739-49f5d1f1cfe4 score=None
+rejudged 26/38 task_id=ebac60ea-ea67-4b8f-986e-1e0aebed2b89 score=None
+rejudged 27/38 task_id=49d841f1-0c95-4a87-9b62-5e2a54e8e1a8 score=None
+rejudged 28/38 task_id=785c8570-6aed-4517-aac2-1d56e16745b7 score=None
+rejudged 29/38 task_id=7d09292c-c8b7-4ae9-9864-1676135bd041 score=None
+rejudged 30/38 task_id=10e9d085-a62f-4547-bbf3-62800b27950c score=None
+rejudged 31/38 task_id=2aac5ef3-f127-4582-a8a6-8f02bda5681e score=None
+rejudged 32/38 task_id=8e99d8d2-f6b9-4800-83a9-6f56829898fe score=None
+rejudged 33/38 task_id=9db832bc-c38d-4a0b-aebe-ea0fc96da563 score=None
+rejudged 34/38 task_id=1070e6eb-7a8f-4ce9-8818-1931bcfdb2dd score=None
+rejudged 35/38 task_id=0e7281ec-bf16-4d84-9501-0de69a803c59 score=None
+rejudged 36/38 task_id=69e0ce73-b0af-4f7c-a59d-71c96adc6a2b score=None
+rejudged 37/38 task_id=e6fbba71-d917-4d1e-bd09-009ff9cd8e9b score=None
+rejudged 38/38 task_id=91408757-a874-44b5-ad5a-66a22b39141d score=None
+
+===== task 32/100  id=646b575d-383d-483b-82bd-01e5526212c7 =====
+tasks: 1  pending: 0
+model: gpt-5.6-sol  config_id: baseline
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: out/baseline_parity/baseline-gpt-5.6-sol.jsonl
+Terminated
+
+===== task 33/100  id=97378684-875a-4a7d-ad19-d7d77942f131 =====
+tasks: 1  pending: 0
+model: gpt-5.6-sol  config_id: baseline
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: out/baseline_parity/baseline-gpt-5.6-sol.jsonl
+replay rows: 66
+pending rows: 38
+output: out/baseline_parity/score-baseline.jsonl
+rejudged 1/38 task_id=b0e3597d-6cda-4082-a5b4-234aac7d2684 score=None
+rejudged 2/38 task_id=646b575d-383d-483b-82bd-01e5526212c7 score=None
+rejudged 3/38 task_id=614a5d4c-5387-4f42-a319-61486bbcde0f score=None
+rejudged 4/38 task_id=e3734e91-e2d1-4696-bdee-81c8bfa3127e score=None
+rejudged 5/38 task_id=f1b0f094-fa7a-4f18-adbd-f4cd86633f77 score=None
+rejudged 6/38 task_id=8cf941c5-3ac1-4801-929b-8f5bab8691c7 score=None
+rejudged 7/38 task_id=a4bae04b-4337-4f28-ab8b-5a518cf58fe0 score=None
+rejudged 8/38 task_id=056e9cbe-d8eb-48a8-9618-432222100e79 score=None
+rejudged 9/38 task_id=ab074bda-d583-42d0-85ce-6c694a51d3ce score=None
+rejudged 10/38 task_id=b02ede76-2353-40f3-9da9-d319c617ab0d score=None
+rejudged 11/38 task_id=236d5ae8-8623-4436-b527-2853aeea2db9 score=None
+rejudged 12/38 task_id=36457179-b5e5-4daa-9956-fde342aade9b score=None
+rejudged 13/38 task_id=3d801f46-5707-4ff5-8151-1168ff0f09c0 score=None
+rejudged 14/38 task_id=b0f9b509-dff8-4414-9404-fe0a35c43107 score=None
+rejudged 15/38 task_id=10e75d21-9e92-4878-b691-02fc87ae5d54 score=None
+rejudged 16/38 task_id=928aea10-3918-484b-980e-19d13a747e30 score=None
+rejudged 17/38 task_id=9afd23d2-058d-469f-a663-91286ac0532f score=None
+rejudged 18/38 task_id=8ca825d6-174a-489d-89b9-b000649a2477 score=None
+rejudged 19/38 task_id=c2a1a24b-8a83-453f-9892-d17b533ffe93 score=None
+rejudged 20/38 task_id=6b3233e6-9b05-465a-a872-724af25df719 score=None
+rejudged 21/38 task_id=939cd89c-32e3-4ba3-a9c2-734a9f3b80d1 score=None
+rejudged 22/38 task_id=e179559d-08fd-4ca7-9f1b-5637d956b3d4 score=None
+rejudged 23/38 task_id=4b089235-06e7-4f1f-a815-96bb146cbbde score=None
+rejudged 24/38 task_id=6128e19e-5d6c-41ab-aaf5-35a1d718050e score=None
+rejudged 25/38 task_id=c63923e7-6ab4-4742-b739-49f5d1f1cfe4 score=None
+rejudged 26/38 task_id=ebac60ea-ea67-4b8f-986e-1e0aebed2b89 score=None
+rejudged 27/38 task_id=49d841f1-0c95-4a87-9b62-5e2a54e8e1a8 score=None
+rejudged 28/38 task_id=785c8570-6aed-4517-aac2-1d56e16745b7 score=None
+rejudged 29/38 task_id=7d09292c-c8b7-4ae9-9864-1676135bd041 score=None
+rejudged 30/38 task_id=10e9d085-a62f-4547-bbf3-62800b27950c score=None
+rejudged 31/38 task_id=2aac5ef3-f127-4582-a8a6-8f02bda5681e score=None
+rejudged 32/38 task_id=8e99d8d2-f6b9-4800-83a9-6f56829898fe score=None
+rejudged 33/38 task_id=9db832bc-c38d-4a0b-aebe-ea0fc96da563 score=None
+rejudged 34/38 task_id=1070e6eb-7a8f-4ce9-8818-1931bcfdb2dd score=None
+rejudged 35/38 task_id=0e7281ec-bf16-4d84-9501-0de69a803c59 score=None
+rejudged 36/38 task_id=69e0ce73-b0af-4f7c-a59d-71c96adc6a2b score=None
+rejudged 37/38 task_id=e6fbba71-d917-4d1e-bd09-009ff9cd8e9b score=None
+rejudged 38/38 task_id=91408757-a874-44b5-ad5a-66a22b39141d score=None
+
+===== task 34/100  id=614a5d4c-5387-4f42-a319-61486bbcde0f =====
+tasks: 1  pending: 0
+model: gpt-5.6-sol  config_id: baseline
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: out/baseline_parity/baseline-gpt-5.6-sol.jsonl
+replay rows: 66
+pending rows: 38
+output: out/baseline_parity/score-baseline.jsonl
+rejudged 1/38 task_id=b0e3597d-6cda-4082-a5b4-234aac7d2684 score=None
+rejudged 2/38 task_id=646b575d-383d-483b-82bd-01e5526212c7 score=None
+rejudged 3/38 task_id=614a5d4c-5387-4f42-a319-61486bbcde0f score=None
+rejudged 4/38 task_id=e3734e91-e2d1-4696-bdee-81c8bfa3127e score=None
+rejudged 5/38 task_id=f1b0f094-fa7a-4f18-adbd-f4cd86633f77 score=None
+rejudged 6/38 task_id=8cf941c5-3ac1-4801-929b-8f5bab8691c7 score=None
+rejudged 7/38 task_id=a4bae04b-4337-4f28-ab8b-5a518cf58fe0 score=None
+rejudged 8/38 task_id=056e9cbe-d8eb-48a8-9618-432222100e79 score=None
+rejudged 9/38 task_id=ab074bda-d583-42d0-85ce-6c694a51d3ce score=None
+rejudged 10/38 task_id=b02ede76-2353-40f3-9da9-d319c617ab0d score=None
+rejudged 11/38 task_id=236d5ae8-8623-4436-b527-2853aeea2db9 score=None
+rejudged 12/38 task_id=36457179-b5e5-4daa-9956-fde342aade9b score=None
+rejudged 13/38 task_id=3d801f46-5707-4ff5-8151-1168ff0f09c0 score=None
+rejudged 14/38 task_id=b0f9b509-dff8-4414-9404-fe0a35c43107 score=None
+rejudged 15/38 task_id=10e75d21-9e92-4878-b691-02fc87ae5d54 score=None
+rejudged 16/38 task_id=928aea10-3918-484b-980e-19d13a747e30 score=None
+rejudged 17/38 task_id=9afd23d2-058d-469f-a663-91286ac0532f score=None
+rejudged 18/38 task_id=8ca825d6-174a-489d-89b9-b000649a2477 score=None
+rejudged 19/38 task_id=c2a1a24b-8a83-453f-9892-d17b533ffe93 score=None
+rejudged 20/38 task_id=6b3233e6-9b05-465a-a872-724af25df719 score=None
+rejudged 21/38 task_id=939cd89c-32e3-4ba3-a9c2-734a9f3b80d1 score=None
+rejudged 22/38 task_id=e179559d-08fd-4ca7-9f1b-5637d956b3d4 score=None
+rejudged 23/38 task_id=4b089235-06e7-4f1f-a815-96bb146cbbde score=None
+rejudged 24/38 task_id=6128e19e-5d6c-41ab-aaf5-35a1d718050e score=None
+rejudged 25/38 task_id=c63923e7-6ab4-4742-b739-49f5d1f1cfe4 score=None
+rejudged 26/38 task_id=ebac60ea-ea67-4b8f-986e-1e0aebed2b89 score=None
+rejudged 27/38 task_id=49d841f1-0c95-4a87-9b62-5e2a54e8e1a8 score=None
+rejudged 28/38 task_id=785c8570-6aed-4517-aac2-1d56e16745b7 score=None
+rejudged 29/38 task_id=7d09292c-c8b7-4ae9-9864-1676135bd041 score=None
+rejudged 30/38 task_id=10e9d085-a62f-4547-bbf3-62800b27950c score=None
+rejudged 31/38 task_id=2aac5ef3-f127-4582-a8a6-8f02bda5681e score=None
+rejudged 32/38 task_id=8e99d8d2-f6b9-4800-83a9-6f56829898fe score=None
+rejudged 33/38 task_id=9db832bc-c38d-4a0b-aebe-ea0fc96da563 score=None
+rejudged 34/38 task_id=1070e6eb-7a8f-4ce9-8818-1931bcfdb2dd score=None
+rejudged 35/38 task_id=0e7281ec-bf16-4d84-9501-0de69a803c59 score=None
+rejudged 36/38 task_id=69e0ce73-b0af-4f7c-a59d-71c96adc6a2b score=None
+rejudged 37/38 task_id=e6fbba71-d917-4d1e-bd09-009ff9cd8e9b score=None
+rejudged 38/38 task_id=91408757-a874-44b5-ad5a-66a22b39141d score=None
+
+===== task 35/100  id=e303d1aa-0b0c-4fe1-9806-e46058d6b3f3 =====
+tasks: 1  pending: 0
+model: gpt-5.6-sol  config_id: baseline
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: out/baseline_parity/baseline-gpt-5.6-sol.jsonl
+replay rows: 66
+pending rows: 38
+output: out/baseline_parity/score-baseline.jsonl
+rejudged 1/38 task_id=b0e3597d-6cda-4082-a5b4-234aac7d2684 score=None
+rejudged 2/38 task_id=646b575d-383d-483b-82bd-01e5526212c7 score=None
+rejudged 3/38 task_id=614a5d4c-5387-4f42-a319-61486bbcde0f score=None
+rejudged 4/38 task_id=e3734e91-e2d1-4696-bdee-81c8bfa3127e score=None
+rejudged 5/38 task_id=f1b0f094-fa7a-4f18-adbd-f4cd86633f77 score=None
+rejudged 6/38 task_id=8cf941c5-3ac1-4801-929b-8f5bab8691c7 score=None
+rejudged 7/38 task_id=a4bae04b-4337-4f28-ab8b-5a518cf58fe0 score=None
+rejudged 8/38 task_id=056e9cbe-d8eb-48a8-9618-432222100e79 score=None
+rejudged 9/38 task_id=ab074bda-d583-42d0-85ce-6c694a51d3ce score=None
+rejudged 10/38 task_id=b02ede76-2353-40f3-9da9-d319c617ab0d score=None
+rejudged 11/38 task_id=236d5ae8-8623-4436-b527-2853aeea2db9 score=None
+rejudged 12/38 task_id=36457179-b5e5-4daa-9956-fde342aade9b score=None
+rejudged 13/38 task_id=3d801f46-5707-4ff5-8151-1168ff0f09c0 score=None
+rejudged 14/38 task_id=b0f9b509-dff8-4414-9404-fe0a35c43107 score=None
+rejudged 15/38 task_id=10e75d21-9e92-4878-b691-02fc87ae5d54 score=None
+rejudged 16/38 task_id=928aea10-3918-484b-980e-19d13a747e30 score=None
+rejudged 17/38 task_id=9afd23d2-058d-469f-a663-91286ac0532f score=None
+rejudged 18/38 task_id=8ca825d6-174a-489d-89b9-b000649a2477 score=None
+rejudged 19/38 task_id=c2a1a24b-8a83-453f-9892-d17b533ffe93 score=None
+rejudged 20/38 task_id=6b3233e6-9b05-465a-a872-724af25df719 score=None
+rejudged 21/38 task_id=939cd89c-32e3-4ba3-a9c2-734a9f3b80d1 score=None
+rejudged 22/38 task_id=e179559d-08fd-4ca7-9f1b-5637d956b3d4 score=None
+rejudged 23/38 task_id=4b089235-06e7-4f1f-a815-96bb146cbbde score=None
+rejudged 24/38 task_id=6128e19e-5d6c-41ab-aaf5-35a1d718050e score=None
+rejudged 25/38 task_id=c63923e7-6ab4-4742-b739-49f5d1f1cfe4 score=None
+rejudged 26/38 task_id=ebac60ea-ea67-4b8f-986e-1e0aebed2b89 score=None
+rejudged 27/38 task_id=49d841f1-0c95-4a87-9b62-5e2a54e8e1a8 score=None
+rejudged 28/38 task_id=785c8570-6aed-4517-aac2-1d56e16745b7 score=None
+rejudged 29/38 task_id=7d09292c-c8b7-4ae9-9864-1676135bd041 score=None
+rejudged 30/38 task_id=10e9d085-a62f-4547-bbf3-62800b27950c score=None
+rejudged 31/38 task_id=2aac5ef3-f127-4582-a8a6-8f02bda5681e score=None
+rejudged 32/38 task_id=8e99d8d2-f6b9-4800-83a9-6f56829898fe score=None
+rejudged 33/38 task_id=9db832bc-c38d-4a0b-aebe-ea0fc96da563 score=None
+rejudged 34/38 task_id=1070e6eb-7a8f-4ce9-8818-1931bcfdb2dd score=None
+rejudged 35/38 task_id=0e7281ec-bf16-4d84-9501-0de69a803c59 score=None
+rejudged 36/38 task_id=69e0ce73-b0af-4f7c-a59d-71c96adc6a2b score=None
+rejudged 37/38 task_id=e6fbba71-d917-4d1e-bd09-009ff9cd8e9b score=None
+rejudged 38/38 task_id=91408757-a874-44b5-ad5a-66a22b39141d score=None
+
+===== task 36/100  id=868f0410-07c9-4609-a7f6-2ad72d678006 =====
+tasks: 1  pending: 0
+model: gpt-5.6-sol  config_id: baseline
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: out/baseline_parity/baseline-gpt-5.6-sol.jsonl
+replay rows: 66
+pending rows: 38
+output: out/baseline_parity/score-baseline.jsonl
+rejudged 1/38 task_id=b0e3597d-6cda-4082-a5b4-234aac7d2684 score=None
+rejudged 2/38 task_id=646b575d-383d-483b-82bd-01e5526212c7 score=None
+rejudged 3/38 task_id=614a5d4c-5387-4f42-a319-61486bbcde0f score=None
+rejudged 4/38 task_id=e3734e91-e2d1-4696-bdee-81c8bfa3127e score=None
+rejudged 5/38 task_id=f1b0f094-fa7a-4f18-adbd-f4cd86633f77 score=None
+rejudged 6/38 task_id=8cf941c5-3ac1-4801-929b-8f5bab8691c7 score=None
+rejudged 7/38 task_id=a4bae04b-4337-4f28-ab8b-5a518cf58fe0 score=None
+rejudged 8/38 task_id=056e9cbe-d8eb-48a8-9618-432222100e79 score=None
+rejudged 9/38 task_id=ab074bda-d583-42d0-85ce-6c694a51d3ce score=None
+rejudged 10/38 task_id=b02ede76-2353-40f3-9da9-d319c617ab0d score=None
+rejudged 11/38 task_id=236d5ae8-8623-4436-b527-2853aeea2db9 score=None
+rejudged 12/38 task_id=36457179-b5e5-4daa-9956-fde342aade9b score=None
+rejudged 13/38 task_id=3d801f46-5707-4ff5-8151-1168ff0f09c0 score=None
+rejudged 14/38 task_id=b0f9b509-dff8-4414-9404-fe0a35c43107 score=None
+rejudged 15/38 task_id=10e75d21-9e92-4878-b691-02fc87ae5d54 score=None
+rejudged 16/38 task_id=928aea10-3918-484b-980e-19d13a747e30 score=None
+rejudged 17/38 task_id=9afd23d2-058d-469f-a663-91286ac0532f score=None
+rejudged 18/38 task_id=8ca825d6-174a-489d-89b9-b000649a2477 score=None
+rejudged 19/38 task_id=c2a1a24b-8a83-453f-9892-d17b533ffe93 score=None
+rejudged 20/38 task_id=6b3233e6-9b05-465a-a872-724af25df719 score=None
+rejudged 21/38 task_id=939cd89c-32e3-4ba3-a9c2-734a9f3b80d1 score=None
+rejudged 22/38 task_id=e179559d-08fd-4ca7-9f1b-5637d956b3d4 score=None
+rejudged 23/38 task_id=4b089235-06e7-4f1f-a815-96bb146cbbde score=None
+rejudged 24/38 task_id=6128e19e-5d6c-41ab-aaf5-35a1d718050e score=None
+rejudged 25/38 task_id=c63923e7-6ab4-4742-b739-49f5d1f1cfe4 score=None
+rejudged 26/38 task_id=ebac60ea-ea67-4b8f-986e-1e0aebed2b89 score=None
+rejudged 27/38 task_id=49d841f1-0c95-4a87-9b62-5e2a54e8e1a8 score=None
+rejudged 28/38 task_id=785c8570-6aed-4517-aac2-1d56e16745b7 score=None
+rejudged 29/38 task_id=7d09292c-c8b7-4ae9-9864-1676135bd041 score=None
+rejudged 30/38 task_id=10e9d085-a62f-4547-bbf3-62800b27950c score=None
+rejudged 31/38 task_id=2aac5ef3-f127-4582-a8a6-8f02bda5681e score=None
+rejudged 32/38 task_id=8e99d8d2-f6b9-4800-83a9-6f56829898fe score=None
+rejudged 33/38 task_id=9db832bc-c38d-4a0b-aebe-ea0fc96da563 score=None
+rejudged 34/38 task_id=1070e6eb-7a8f-4ce9-8818-1931bcfdb2dd score=None
+rejudged 35/38 task_id=0e7281ec-bf16-4d84-9501-0de69a803c59 score=None
+rejudged 36/38 task_id=69e0ce73-b0af-4f7c-a59d-71c96adc6a2b score=None
+rejudged 37/38 task_id=e6fbba71-d917-4d1e-bd09-009ff9cd8e9b score=None
+rejudged 38/38 task_id=91408757-a874-44b5-ad5a-66a22b39141d score=None
+
+===== task 37/100  id=b3d9ac35-7d3f-4fd5-925e-bbaa40c0de51 =====
+tasks: 1  pending: 0
+model: gpt-5.6-sol  config_id: baseline
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: out/baseline_parity/baseline-gpt-5.6-sol.jsonl
+replay rows: 66
+pending rows: 38
+output: out/baseline_parity/score-baseline.jsonl
+rejudged 1/38 task_id=b0e3597d-6cda-4082-a5b4-234aac7d2684 score=None
+rejudged 2/38 task_id=646b575d-383d-483b-82bd-01e5526212c7 score=None
+rejudged 3/38 task_id=614a5d4c-5387-4f42-a319-61486bbcde0f score=None
+rejudged 4/38 task_id=e3734e91-e2d1-4696-bdee-81c8bfa3127e score=None
+rejudged 5/38 task_id=f1b0f094-fa7a-4f18-adbd-f4cd86633f77 score=None
+rejudged 6/38 task_id=8cf941c5-3ac1-4801-929b-8f5bab8691c7 score=None
+rejudged 7/38 task_id=a4bae04b-4337-4f28-ab8b-5a518cf58fe0 score=None
+rejudged 8/38 task_id=056e9cbe-d8eb-48a8-9618-432222100e79 score=None
+rejudged 9/38 task_id=ab074bda-d583-42d0-85ce-6c694a51d3ce score=None
+rejudged 10/38 task_id=b02ede76-2353-40f3-9da9-d319c617ab0d score=None
+rejudged 11/38 task_id=236d5ae8-8623-4436-b527-2853aeea2db9 score=None
+rejudged 12/38 task_id=36457179-b5e5-4daa-9956-fde342aade9b score=None
+rejudged 13/38 task_id=3d801f46-5707-4ff5-8151-1168ff0f09c0 score=None
+rejudged 14/38 task_id=b0f9b509-dff8-4414-9404-fe0a35c43107 score=None
+rejudged 15/38 task_id=10e75d21-9e92-4878-b691-02fc87ae5d54 score=None
+rejudged 16/38 task_id=928aea10-3918-484b-980e-19d13a747e30 score=None
+rejudged 17/38 task_id=9afd23d2-058d-469f-a663-91286ac0532f score=None
+rejudged 18/38 task_id=8ca825d6-174a-489d-89b9-b000649a2477 score=None
+rejudged 19/38 task_id=c2a1a24b-8a83-453f-9892-d17b533ffe93 score=None
+rejudged 20/38 task_id=6b3233e6-9b05-465a-a872-724af25df719 score=None
+rejudged 21/38 task_id=939cd89c-32e3-4ba3-a9c2-734a9f3b80d1 score=None
+rejudged 22/38 task_id=e179559d-08fd-4ca7-9f1b-5637d956b3d4 score=None
+rejudged 23/38 task_id=4b089235-06e7-4f1f-a815-96bb146cbbde score=None
+rejudged 24/38 task_id=6128e19e-5d6c-41ab-aaf5-35a1d718050e score=None
+rejudged 25/38 task_id=c63923e7-6ab4-4742-b739-49f5d1f1cfe4 score=None
+rejudged 26/38 task_id=ebac60ea-ea67-4b8f-986e-1e0aebed2b89 score=None
+rejudged 27/38 task_id=49d841f1-0c95-4a87-9b62-5e2a54e8e1a8 score=None
+rejudged 28/38 task_id=785c8570-6aed-4517-aac2-1d56e16745b7 score=None
+rejudged 29/38 task_id=7d09292c-c8b7-4ae9-9864-1676135bd041 score=None
+rejudged 30/38 task_id=10e9d085-a62f-4547-bbf3-62800b27950c score=None
+rejudged 31/38 task_id=2aac5ef3-f127-4582-a8a6-8f02bda5681e score=None
+rejudged 32/38 task_id=8e99d8d2-f6b9-4800-83a9-6f56829898fe score=None
+rejudged 33/38 task_id=9db832bc-c38d-4a0b-aebe-ea0fc96da563 score=None
+rejudged 34/38 task_id=1070e6eb-7a8f-4ce9-8818-1931bcfdb2dd score=None
+rejudged 35/38 task_id=0e7281ec-bf16-4d84-9501-0de69a803c59 score=None
+rejudged 36/38 task_id=69e0ce73-b0af-4f7c-a59d-71c96adc6a2b score=None
+rejudged 37/38 task_id=e6fbba71-d917-4d1e-bd09-009ff9cd8e9b score=None
+rejudged 38/38 task_id=91408757-a874-44b5-ad5a-66a22b39141d score=None
+
+===== task 38/100  id=cd680e2e-c0b9-4b54-948c-fd824d804a52 =====
+tasks: 1  pending: 0
+model: gpt-5.6-sol  config_id: baseline
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: out/baseline_parity/baseline-gpt-5.6-sol.jsonl
+replay rows: 66
+pending rows: 38
+output: out/baseline_parity/score-baseline.jsonl
+rejudged 1/38 task_id=b0e3597d-6cda-4082-a5b4-234aac7d2684 score=None
+rejudged 2/38 task_id=646b575d-383d-483b-82bd-01e5526212c7 score=None
+rejudged 3/38 task_id=614a5d4c-5387-4f42-a319-61486bbcde0f score=None
+rejudged 4/38 task_id=e3734e91-e2d1-4696-bdee-81c8bfa3127e score=None
+rejudged 5/38 task_id=f1b0f094-fa7a-4f18-adbd-f4cd86633f77 score=None
+rejudged 6/38 task_id=8cf941c5-3ac1-4801-929b-8f5bab8691c7 score=None
+rejudged 7/38 task_id=a4bae04b-4337-4f28-ab8b-5a518cf58fe0 score=None
+rejudged 8/38 task_id=056e9cbe-d8eb-48a8-9618-432222100e79 score=None
+rejudged 9/38 task_id=ab074bda-d583-42d0-85ce-6c694a51d3ce score=None
+rejudged 10/38 task_id=b02ede76-2353-40f3-9da9-d319c617ab0d score=None
+rejudged 11/38 task_id=236d5ae8-8623-4436-b527-2853aeea2db9 score=None
+rejudged 12/38 task_id=36457179-b5e5-4daa-9956-fde342aade9b score=None
+rejudged 13/38 task_id=3d801f46-5707-4ff5-8151-1168ff0f09c0 score=None
+rejudged 14/38 task_id=b0f9b509-dff8-4414-9404-fe0a35c43107 score=None
+rejudged 15/38 task_id=10e75d21-9e92-4878-b691-02fc87ae5d54 score=None
+rejudged 16/38 task_id=928aea10-3918-484b-980e-19d13a747e30 score=None
+rejudged 17/38 task_id=9afd23d2-058d-469f-a663-91286ac0532f score=None
+rejudged 18/38 task_id=8ca825d6-174a-489d-89b9-b000649a2477 score=None
+rejudged 19/38 task_id=c2a1a24b-8a83-453f-9892-d17b533ffe93 score=None
+rejudged 20/38 task_id=6b3233e6-9b05-465a-a872-724af25df719 score=None
+rejudged 21/38 task_id=939cd89c-32e3-4ba3-a9c2-734a9f3b80d1 score=None
+rejudged 22/38 task_id=e179559d-08fd-4ca7-9f1b-5637d956b3d4 score=None
+rejudged 23/38 task_id=4b089235-06e7-4f1f-a815-96bb146cbbde score=None
+rejudged 24/38 task_id=6128e19e-5d6c-41ab-aaf5-35a1d718050e score=None
+rejudged 25/38 task_id=c63923e7-6ab4-4742-b739-49f5d1f1cfe4 score=None
+rejudged 26/38 task_id=ebac60ea-ea67-4b8f-986e-1e0aebed2b89 score=None
+rejudged 27/38 task_id=49d841f1-0c95-4a87-9b62-5e2a54e8e1a8 score=None
+rejudged 28/38 task_id=785c8570-6aed-4517-aac2-1d56e16745b7 score=None
+rejudged 29/38 task_id=7d09292c-c8b7-4ae9-9864-1676135bd041 score=None
+rejudged 30/38 task_id=10e9d085-a62f-4547-bbf3-62800b27950c score=None
+rejudged 31/38 task_id=2aac5ef3-f127-4582-a8a6-8f02bda5681e score=None
+rejudged 32/38 task_id=8e99d8d2-f6b9-4800-83a9-6f56829898fe score=None
+rejudged 33/38 task_id=9db832bc-c38d-4a0b-aebe-ea0fc96da563 score=None
+rejudged 34/38 task_id=1070e6eb-7a8f-4ce9-8818-1931bcfdb2dd score=None
+rejudged 35/38 task_id=0e7281ec-bf16-4d84-9501-0de69a803c59 score=None
+rejudged 36/38 task_id=69e0ce73-b0af-4f7c-a59d-71c96adc6a2b score=None
+rejudged 37/38 task_id=e6fbba71-d917-4d1e-bd09-009ff9cd8e9b score=None
+rejudged 38/38 task_id=91408757-a874-44b5-ad5a-66a22b39141d score=None
+
+===== task 39/100  id=3b5505fb-dab6-44cb-9a14-746b1cd82d25 =====
+tasks: 1  pending: 0
+model: gpt-5.6-sol  config_id: baseline
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: out/baseline_parity/baseline-gpt-5.6-sol.jsonl
+replay rows: 66
+pending rows: 38
+output: out/baseline_parity/score-baseline.jsonl
+rejudged 1/38 task_id=b0e3597d-6cda-4082-a5b4-234aac7d2684 score=None
+rejudged 2/38 task_id=646b575d-383d-483b-82bd-01e5526212c7 score=None
+rejudged 3/38 task_id=614a5d4c-5387-4f42-a319-61486bbcde0f score=None
+rejudged 4/38 task_id=e3734e91-e2d1-4696-bdee-81c8bfa3127e score=None
+rejudged 5/38 task_id=f1b0f094-fa7a-4f18-adbd-f4cd86633f77 score=None
+rejudged 6/38 task_id=8cf941c5-3ac1-4801-929b-8f5bab8691c7 score=None
+rejudged 7/38 task_id=a4bae04b-4337-4f28-ab8b-5a518cf58fe0 score=None
+rejudged 8/38 task_id=056e9cbe-d8eb-48a8-9618-432222100e79 score=None
+rejudged 9/38 task_id=ab074bda-d583-42d0-85ce-6c694a51d3ce score=None
+rejudged 10/38 task_id=b02ede76-2353-40f3-9da9-d319c617ab0d score=None
+rejudged 11/38 task_id=236d5ae8-8623-4436-b527-2853aeea2db9 score=None
+rejudged 12/38 task_id=36457179-b5e5-4daa-9956-fde342aade9b score=None
+rejudged 13/38 task_id=3d801f46-5707-4ff5-8151-1168ff0f09c0 score=None
+rejudged 14/38 task_id=b0f9b509-dff8-4414-9404-fe0a35c43107 score=None
+rejudged 15/38 task_id=10e75d21-9e92-4878-b691-02fc87ae5d54 score=None
+rejudged 16/38 task_id=928aea10-3918-484b-980e-19d13a747e30 score=None
+rejudged 17/38 task_id=9afd23d2-058d-469f-a663-91286ac0532f score=None
+rejudged 18/38 task_id=8ca825d6-174a-489d-89b9-b000649a2477 score=None
+rejudged 19/38 task_id=c2a1a24b-8a83-453f-9892-d17b533ffe93 score=None
+rejudged 20/38 task_id=6b3233e6-9b05-465a-a872-724af25df719 score=None
+rejudged 21/38 task_id=939cd89c-32e3-4ba3-a9c2-734a9f3b80d1 score=None
+rejudged 22/38 task_id=e179559d-08fd-4ca7-9f1b-5637d956b3d4 score=None
+rejudged 23/38 task_id=4b089235-06e7-4f1f-a815-96bb146cbbde score=None
+rejudged 24/38 task_id=6128e19e-5d6c-41ab-aaf5-35a1d718050e score=None
+rejudged 25/38 task_id=c63923e7-6ab4-4742-b739-49f5d1f1cfe4 score=None
+rejudged 26/38 task_id=ebac60ea-ea67-4b8f-986e-1e0aebed2b89 score=None
+rejudged 27/38 task_id=49d841f1-0c95-4a87-9b62-5e2a54e8e1a8 score=None
+rejudged 28/38 task_id=785c8570-6aed-4517-aac2-1d56e16745b7 score=None
+rejudged 29/38 task_id=7d09292c-c8b7-4ae9-9864-1676135bd041 score=None
+rejudged 30/38 task_id=10e9d085-a62f-4547-bbf3-62800b27950c score=None
+rejudged 31/38 task_id=2aac5ef3-f127-4582-a8a6-8f02bda5681e score=None
+rejudged 32/38 task_id=8e99d8d2-f6b9-4800-83a9-6f56829898fe score=None
+rejudged 33/38 task_id=9db832bc-c38d-4a0b-aebe-ea0fc96da563 score=None
+rejudged 34/38 task_id=1070e6eb-7a8f-4ce9-8818-1931bcfdb2dd score=None
+rejudged 35/38 task_id=0e7281ec-bf16-4d84-9501-0de69a803c59 score=None
+rejudged 36/38 task_id=69e0ce73-b0af-4f7c-a59d-71c96adc6a2b score=None
+rejudged 37/38 task_id=e6fbba71-d917-4d1e-bd09-009ff9cd8e9b score=None
+rejudged 38/38 task_id=91408757-a874-44b5-ad5a-66a22b39141d score=None
+
+===== task 40/100  id=e3734e91-e2d1-4696-bdee-81c8bfa3127e =====
+tasks: 1  pending: 0
+model: gpt-5.6-sol  config_id: baseline
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: out/baseline_parity/baseline-gpt-5.6-sol.jsonl
+replay rows: 66
+pending rows: 38
+output: out/baseline_parity/score-baseline.jsonl
+rejudged 1/38 task_id=b0e3597d-6cda-4082-a5b4-234aac7d2684 score=None
+rejudged 2/38 task_id=646b575d-383d-483b-82bd-01e5526212c7 score=None
+rejudged 3/38 task_id=614a5d4c-5387-4f42-a319-61486bbcde0f score=None
+rejudged 4/38 task_id=e3734e91-e2d1-4696-bdee-81c8bfa3127e score=None
+rejudged 5/38 task_id=f1b0f094-fa7a-4f18-adbd-f4cd86633f77 score=None
+rejudged 6/38 task_id=8cf941c5-3ac1-4801-929b-8f5bab8691c7 score=None
+rejudged 7/38 task_id=a4bae04b-4337-4f28-ab8b-5a518cf58fe0 score=None
+rejudged 8/38 task_id=056e9cbe-d8eb-48a8-9618-432222100e79 score=None
+rejudged 9/38 task_id=ab074bda-d583-42d0-85ce-6c694a51d3ce score=None
+rejudged 10/38 task_id=b02ede76-2353-40f3-9da9-d319c617ab0d score=None
+rejudged 11/38 task_id=236d5ae8-8623-4436-b527-2853aeea2db9 score=None
+rejudged 12/38 task_id=36457179-b5e5-4daa-9956-fde342aade9b score=None
+rejudged 13/38 task_id=3d801f46-5707-4ff5-8151-1168ff0f09c0 score=None
+rejudged 14/38 task_id=b0f9b509-dff8-4414-9404-fe0a35c43107 score=None
+rejudged 15/38 task_id=10e75d21-9e92-4878-b691-02fc87ae5d54 score=None
+rejudged 16/38 task_id=928aea10-3918-484b-980e-19d13a747e30 score=None
+rejudged 17/38 task_id=9afd23d2-058d-469f-a663-91286ac0532f score=None
+rejudged 18/38 task_id=8ca825d6-174a-489d-89b9-b000649a2477 score=None
+rejudged 19/38 task_id=c2a1a24b-8a83-453f-9892-d17b533ffe93 score=None
+rejudged 20/38 task_id=6b3233e6-9b05-465a-a872-724af25df719 score=None
+rejudged 21/38 task_id=939cd89c-32e3-4ba3-a9c2-734a9f3b80d1 score=None
+rejudged 22/38 task_id=e179559d-08fd-4ca7-9f1b-5637d956b3d4 score=None
+rejudged 23/38 task_id=4b089235-06e7-4f1f-a815-96bb146cbbde score=None
+rejudged 24/38 task_id=6128e19e-5d6c-41ab-aaf5-35a1d718050e score=None
+rejudged 25/38 task_id=c63923e7-6ab4-4742-b739-49f5d1f1cfe4 score=None
+rejudged 26/38 task_id=ebac60ea-ea67-4b8f-986e-1e0aebed2b89 score=None
+rejudged 27/38 task_id=49d841f1-0c95-4a87-9b62-5e2a54e8e1a8 score=None
+rejudged 28/38 task_id=785c8570-6aed-4517-aac2-1d56e16745b7 score=None
+rejudged 29/38 task_id=7d09292c-c8b7-4ae9-9864-1676135bd041 score=None
+rejudged 30/38 task_id=10e9d085-a62f-4547-bbf3-62800b27950c score=None
+rejudged 31/38 task_id=2aac5ef3-f127-4582-a8a6-8f02bda5681e score=None
+rejudged 32/38 task_id=8e99d8d2-f6b9-4800-83a9-6f56829898fe score=None
+rejudged 33/38 task_id=9db832bc-c38d-4a0b-aebe-ea0fc96da563 score=None
+rejudged 34/38 task_id=1070e6eb-7a8f-4ce9-8818-1931bcfdb2dd score=None
+rejudged 35/38 task_id=0e7281ec-bf16-4d84-9501-0de69a803c59 score=None
+rejudged 36/38 task_id=69e0ce73-b0af-4f7c-a59d-71c96adc6a2b score=None
+rejudged 37/38 task_id=e6fbba71-d917-4d1e-bd09-009ff9cd8e9b score=None
+rejudged 38/38 task_id=91408757-a874-44b5-ad5a-66a22b39141d score=None

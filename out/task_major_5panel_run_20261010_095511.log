@@ -1,0 +1,18 @@
+nohup: ignoring input
+manifest: /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json  tasks: 80  execute: True
+out_dir: out/task_major_5panel
+panel models (5): minimax-m3, kimi-k3, glm-5.3-flash, deepseek-v4-flash, qwen3.8-max
+baseline: gpt-5.6-sol
+fusion [fusion-latest5panel]: panel=['minimax-m3', 'kimi-k3', 'glm-5.3-flash', 'deepseek-v4-flash', 'qwen3.8-max'] judge=minimax-m3 fuser=minimax-m3
+
+
+===== task 1/80  id=0c2c668a-c3bf-41af-93c9-b5614ff63508 =====
+--- panel solo: minimax-m3 ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output out/task_major_5panel/panel-minimax-m3.jsonl --model minimax-m3 --config-id panel-minimax-m3 --task-id 0c2c668a-c3bf-41af-93c9-b5614ff63508 --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute
+tasks: 1  pending: 0
+model: minimax-m3  config_id: panel-minimax-m3
+tools: web_search, web_fetch, bash  max_tool_calls: 16
+base_url: https://router-api.0g.ai/v1
+output: out/task_major_5panel/panel-minimax-m3.jsonl
+--- panel solo: kimi-k3 ---
+/home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/.venv/bin/python3 scripts/draco_agentic_solo.py --manifest /home/op/gaoteng/git_exp/TrustedRouter-Fusion-Draco/data/draco-non-financial-80.manifest.json --output out/task_major_5panel/panel-kimi-k3.jsonl --model kimi-k3 --config-id panel-kimi-k3 --task-id 0c2c668a-c3bf-41af-93c9-b5614ff63508 --base-url https://router-api.0g.ai/v1 --doc-parser markitdown --no-sec-facts --max-tool-calls 16 --synthesis-max-tokens 12000 --workers 1 --resume --execute

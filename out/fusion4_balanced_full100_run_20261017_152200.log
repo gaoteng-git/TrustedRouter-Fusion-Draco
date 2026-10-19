@@ -1,0 +1,217 @@
+nohup: ignoring input
+==========================================
+Preflight check...
+==========================================
+✓ Gateway auth verified (HTTP 200)
+
+Using existing 3-panel results:
+  - minimax-m3:       out/task_major_v2/panel-minimax-m3.jsonl
+  - glm-5.3-flash:    out/task_major_v2/panel-glm-5.3-flash.jsonl
+  - deepseek-v4-flash: out/task_major_v2/panel-deepseek-v4-flash.jsonl
+  - judge cache:      out/fusion4_mainlike/judge_cache.jsonl
+  - mimo panels:      out/mimo_panels_full100/ (按需生成)
+
+==========================================
+Starting task-by-task execution
+Total tasks: 100
+==========================================
+
+
+===== [1/100] 0c2c668a-c3bf-41af-93c9-b5614ff63508 =====
+
+[skip] Task 0c2c668a-c3bf-41af-93c9-b5614ff63508 already scored
+  Balanced:   90.02
+  3-Panel:    86.70
+  Baseline:   65.67
+
+===== [2/100] a78eed67-ebe3-425e-a467-d54ee8949c8b =====
+
+[skip] Task a78eed67-ebe3-425e-a467-d54ee8949c8b already scored
+  Balanced:   66.24
+  3-Panel:    69.90
+  Baseline:   72.28
+
+===== [3/100] f6de7687-7cff-4f68-93ea-f632bf6266af =====
+
+[skip] Task f6de7687-7cff-4f68-93ea-f632bf6266af already scored
+  Balanced:   87.62
+  3-Panel:    84.22
+  Baseline:   75.74
+
+===== [4/100] f0bed5aa-f7c4-4013-8d0c-10ffebeaf300 =====
+
+[skip] Task f0bed5aa-f7c4-4013-8d0c-10ffebeaf300 already scored
+  Balanced:   73.56
+  3-Panel:    86.86
+  Baseline:   87.68
+
+===== [5/100] e1f2c310-d311-49da-b0e4-ee855603469d =====
+
+[skip] Task e1f2c310-d311-49da-b0e4-ee855603469d already scored
+  Balanced:   65.78
+  3-Panel:    66.37
+  Baseline:   82.89
+
+===== [6/100] f004b46b-c0e7-4e86-a072-c7491328d538 =====
+
+[skip] Task f004b46b-c0e7-4e86-a072-c7491328d538 already scored
+  Balanced:   59.46
+  3-Panel:    57.54
+  Baseline:   64.27
+
+===== [7/100] 1516d849-b413-4fab-9153-c4d9b16a1aa9 =====
+
+[skip] Task 1516d849-b413-4fab-9153-c4d9b16a1aa9 already scored
+  Balanced:   80.50
+  3-Panel:    79.59
+  Baseline:   79.25
+
+===== [8/100] b0e3597d-6cda-4082-a5b4-234aac7d2684 =====
+
+[skip] Task b0e3597d-6cda-4082-a5b4-234aac7d2684 already scored
+  Balanced:   54.66
+  3-Panel:    80.12
+  Baseline:   77.85
+
+===== [9/100] 79224558-75f7-4e51-bc24-51f1e3ede921 =====
+
+[skip] Task 79224558-75f7-4e51-bc24-51f1e3ede921 already scored
+  Balanced:   46.00
+  3-Panel:    56.00
+  Baseline:   51.00
+
+===== [10/100] cd19ee22-ded0-4fee-b1a0-51f074d72b8b =====
+
+[skip] Task cd19ee22-ded0-4fee-b1a0-51f074d72b8b already scored
+  Balanced:   77.99
+  3-Panel:    86.54
+  Baseline:   77.78
+
+===== [11/100] ca0edd2d-c9b8-4b85-9b40-754f4865579a =====
+
+[skip] Task ca0edd2d-c9b8-4b85-9b40-754f4865579a already scored
+  Balanced:   81.86
+  3-Panel:    79.59
+  Baseline:   70.07
+
+===== [12/100] ce522bc2-e8a2-436b-971f-dd4972f23d39 =====
+
+[mimo] Generating mimo panel for task ce522bc2-e8a2-436b-971f-dd4972f23d39...
+tasks: 1  pending: 1
+| representing a | 7% increase for the same | | | | 0% | | COVID-19 CASE FATALITY RATIO |
+ Results: Our study identified some key challenges hindering the effective implementation of MNCH service delivery for the FDMNs. High turnover and poor retention of staff, overlapping of service, weak referral mechanism, complex health information system, and lack of security of the front line health providers were some of the key challenges identified. Motivating the health workers, task shifting, capacity building on emergency obstetric care, training CHW & TBA on danger signs, and ensuring the security of the workers are the potential solutions suggested by the respondents. Selecting a few indicators and the introduction of E-tracker can harmonize the health information system. 
+A skilled and highly committed midwife, Mustarina completed her education in 2018 and has since been working at the Rohingya refugee camp in Cox’s Bazar where she provided quality care to over 1000 Rohingya women having attended to 500 labours to date.
+A skilled and highly committed midwife, Mustarina completed her education in 2018 and has since been working at the Rohingya refugee camp in Cox’s Bazar where she provided quality care to over 1000 Rohingya women having attended to 500 labours to date.
+Four SBA training programs scheduled between 2009 and 2015 resulted in 79/88 (90%) of students successfully completing a training program of 250 theory hours and 625 supervised clinical hours. All 79 students were able to: achieve pass grades on theory examination (median 80%, range [70–89]); obtain the required clinical experience within twelve months; achieve clinical competence to provide safe care during childbirth. In 2010–2011, five experienced SBAs completed a train-the-trainer (TOT) program and went on to facilitate further training programs. Perinatal indicators within Shoklo Malaria Research Unit (SMRU), such as place of birth, maternal and newborn outcomes, showed no significant differences before and after introduction of training or following graduate deployment in the local maternity units. Confidence, competence and teamwork emerged from qualitative evaluation by senior SBAs working with and supervising students in the clinics.
+| 1, down to $10 per person from $12. | | | | | 0% | | COVID-19 CASE FATALITY RATIO |
+agentic 1/1 task=ce522bc2 status=ok tools=16 finish=length clen=40069 elapsed=338s
+[mimo] ✓ Completed
+[fusion] Starting fusion...
+draco_client_fusion.py: error: unrecognized arguments: --task-id ce522bc2-e8a2-436b-971f-dd4972f23d39
+[fusion] ✗ FAILED - task not found in output
+
+===== [13/100] 342b15b8-0ae1-43ce-9ebe-c7318179f156 =====
+
+[skip] Task 342b15b8-0ae1-43ce-9ebe-c7318179f156 already scored
+  Balanced:   65.85
+  3-Panel:    52.76
+  Baseline:   63.15
+
+===== [14/100] 1ed18b1d-8436-44e5-9924-a503514c387d =====
+
+[skip] Task 1ed18b1d-8436-44e5-9924-a503514c387d already scored
+  Balanced:   91.32
+  3-Panel:    72.41
+  Baseline:   67.56
+
+===== [15/100] faeeb64e-e5eb-4768-a9b9-8ef19de51473 =====
+
+[skip] Task faeeb64e-e5eb-4768-a9b9-8ef19de51473 already scored
+  Balanced:   80.10
+  3-Panel:    84.21
+  Baseline:   76.62
+
+===== [16/100] 6c59b2a0-c097-4c69-ad03-2c4ea2ec579b =====
+
+[skip] Task 6c59b2a0-c097-4c69-ad03-2c4ea2ec579b already scored
+  Balanced:   70.32
+  3-Panel:    70.65
+  Baseline:   55.72
+
+===== [17/100] c66a5c80-df51-4914-88dd-8b08aff7380c =====
+
+[skip] Task c66a5c80-df51-4914-88dd-8b08aff7380c already scored
+  Balanced:   92.89
+  3-Panel:    88.93
+  Baseline:   77.87
+
+===== [18/100] aca95495-b0fe-4330-90fc-d2fd1e2c709e =====
+
+[skip] Task aca95495-b0fe-4330-90fc-d2fd1e2c709e already scored
+  Balanced:   61.56
+  3-Panel:    55.06
+  Baseline:   39.46
+
+===== [19/100] 6f425968-0c5b-42d8-a5c5-0b20d2f1d71e =====
+
+[skip] Task 6f425968-0c5b-42d8-a5c5-0b20d2f1d71e already scored
+  Balanced:   88.79
+  3-Panel:    73.12
+  Baseline:   81.85
+
+===== [20/100] 34e9b780-7fb6-426a-bc39-c340baa578e8 =====
+
+[skip] Task 34e9b780-7fb6-426a-bc39-c340baa578e8 already scored
+  Balanced:   76.74
+  3-Panel:    63.68
+  Baseline:   58.80
+
+===== [21/100] 262b3145-5b6d-486b-a09f-c8e6a8f98e20 =====
+
+[skip] Task 262b3145-5b6d-486b-a09f-c8e6a8f98e20 already scored
+  Balanced:   80.67
+  3-Panel:    81.51
+  Baseline:   75.21
+
+===== [22/100] eb3965d1-c466-4c4c-bd4a-c8a0b255b893 =====
+
+[skip] Task eb3965d1-c466-4c4c-bd4a-c8a0b255b893 already scored
+  Balanced:   75.18
+  3-Panel:    67.27
+  Baseline:   67.58
+
+===== [23/100] 0a652d00-5c22-4621-8ec4-dd92b1f1450b =====
+
+[skip] Task 0a652d00-5c22-4621-8ec4-dd92b1f1450b already scored
+  Balanced:   62.35
+  3-Panel:    71.81
+  Baseline:   82.75
+
+===== [24/100] e15a37b4-cd7f-4f52-ba81-9f33b24aabe9 =====
+
+[skip] Task e15a37b4-cd7f-4f52-ba81-9f33b24aabe9 already scored
+  Balanced:   89.28
+  3-Panel:    78.87
+  Baseline:   78.40
+
+===== [25/100] 4f36f602-6c14-4c23-a37d-e5ee92ed4552 =====
+
+[skip] Task 4f36f602-6c14-4c23-a37d-e5ee92ed4552 already scored
+  Balanced:   82.06
+  3-Panel:    69.41
+  Baseline:   68.08
+
+===== [26/100] b3c576e7-dfc6-403f-90e7-53c011884d5c =====
+
+[mimo] Generating mimo panel for task b3c576e7-dfc6-403f-90e7-53c011884d5c...
+tasks: 1  pending: 1
+10th Grade Education or Equivalent - An applicant for the esthetician examination shall have completed a 10th grade education or its equivalent, unless over 35 years of age or a veteran.
+(c) No person shall be permitted to receive a license to teach cosmetology [or natural hair braiding], nail technology or esthetics unless such person shall have a license to practice cosmetology or a limited license, be at least eighteen years of age, shall have completed a twelfth grade education or the equivalent thereof and have had five hundred hours of specialized training as set forth in section 6 of this act which hours shall be in addition to the hours necessary to qualify for a license to practice cosmetology or a limited license. 
+[(3) (i) Natural hair braiding license, which shall authorize the holder to engage in the practice of natural hair braiding only. An applicant for a natural hair braiding license shall have completed three hundred hours of board-approved subjects relating to sanitation, scalp care, anatomy and natural hair braiding in a cosmetology school and passed an examination limited to that practice. Licensed natural hair braiders may operate a salon limited to that license. An applicant may be permitted to take a written examination upon completion of at least two hundred fifty hours of instruction in natural hair b…
+10th Grade Education or Equivalent - An applicant for the esthetician examination shall have completed a 10th grade education or its equivalent, unless over 35 years of age or a veteran.
+> (3) Have completed a minimum of 200 hours of instruction in nail technology in a licensed school of cosmetology. 
+■ 1. Your completed application, information consent and waiver agreement, and social security act certification. 
+10th Grade Education or Equivalent - An applicant for the esthetician examination shall have completed a 10th grade education or its equivalent, unless over 35 years of age or a veteran.
+Once you've completed your 200 hours, the next step is passing the state examination and obtaining your nail technician license PA. Here's the licensing process laid out clearly:
+Your school will certify your completed hours. You then submit an application to Pearson VUE, the testing company contracted by the PA cosmetology board. The application fee is $26, payable by certified check or money order.
+agentic 1/1 task=b3c576e7 status=ok tools=12 finish=stop clen=14891 elapsed=507s

@@ -1,0 +1,1040 @@
+nohup: ignoring input
+preflight OK: gateway auth verified (HTTP 200)
+
+Using existing panel results:
+  - 3-panel from out/task_major_v2/
+  - mimo panel from out/fusion4_mimo/panel-mimo-v2.5-pro.jsonl
+  - judge cache from out/fusion4_mainlike/judge_cache.jsonl
+
+==========================================
+Starting task-by-task fusion + scoring
+Total tasks: 100
+==========================================
+
+
+===== [1/100] 0c2c668a-c3bf-41af-93c9-b5614ff63508 =====
+[fusion] Starting fusion for task 0c2c668a-c3bf-41af-93c9-b5614ff63508...
+panel members: ['minimax-m3', 'glm-5.3-flash', 'deepseek-v4-flash', 'mimo-v2.5-pro']
+tasks with ALL panel answers: 31  pending: 31
+fuser: kimi-k3  judge: minimax-m3  config: fusion-4panel-balanced
+output: out/fusion4_balanced/fusion-4panel-balanced.jsonl
+judge cache: loaded 31 analyses from out/fusion4_mainlike/judge_cache.jsonl
+fusion 1/31 task=0c2c668a status=ok clen=32837 finish=length
+fusion 2/31 task=a78eed67 status=ok clen=20303 finish=stop
+fusion 3/31 task=f6de7687 status=ok clen=23251 finish=stop
+fusion 4/31 task=f0bed5aa status=ok clen=8172 finish=length
+fusion 5/31 task=e1f2c310 status=ok clen=19103 finish=length
+fusion 6/31 task=f004b46b status=ok clen=8018 finish=length
+fusion 7/31 task=1516d849 status=ok clen=25032 finish=length
+fusion 8/31 task=b0e3597d status=ok clen=12478 finish=length
+fusion 9/31 task=79224558 status=ok clen=22191 finish=length
+fusion 10/31 task=cd19ee22 status=ok clen=14810 finish=stop
+fusion 11/31 task=ca0edd2d status=ok clen=18004 finish=stop
+fusion 12/31 task=342b15b8 status=ok clen=13310 finish=stop
+fusion 13/31 task=1ed18b1d status=ok clen=25673 finish=stop
+fusion 14/31 task=faeeb64e status=ok clen=24206 finish=length
+fusion 15/31 task=6c59b2a0 status=ok clen=4136 finish=stop
+fusion 16/31 task=c66a5c80 status=ok clen=11383 finish=stop
+fusion 17/31 task=aca95495 status=ok clen=36246 finish=length
+fusion 18/31 task=6f425968 status=ok clen=37211 finish=length
+fusion 19/31 task=34e9b780 status=ok clen=30639 finish=stop
+fusion 20/31 task=262b3145 status=ok clen=34709 finish=length
+fusion 21/31 task=eb3965d1 status=ok clen=35441 finish=length
+fusion 22/31 task=0a652d00 status=ok clen=21178 finish=length
+fusion 23/31 task=e15a37b4 status=ok clen=28161 finish=stop
+fusion 24/31 task=4f36f602 status=ok clen=38612 finish=length
+fusion 25/31 task=b3c576e7 status=ok clen=0 finish=length
+fusion 26/31 task=3a8db70a status=ok clen=15998 finish=stop
+fusion 27/31 task=c6ca6371 status=ok clen=37092 finish=stop
+fusion 28/31 task=9b35aaf1 status=ok clen=23052 finish=length
+fusion 29/31 task=7786ef30 status=ok clen=23698 finish=length
+fusion 30/31 task=b8ff32b6 status=ok clen=18125 finish=stop
+fusion 31/31 task=646b575d status=ok clen=25629 finish=stop
+[fusion] Completed
+[score] Starting scoring for task 0c2c668a-c3bf-41af-93c9-b5614ff63508...
+replay rows: 31
+pending rows: 31
+output: out/fusion4_balanced/score-fusion-4panel-balanced.jsonl
+rejudged 1/31 task_id=0c2c668a-c3bf-41af-93c9-b5614ff63508 score=90.02493765586036
+rejudged 2/31 task_id=a78eed67-ebe3-425e-a467-d54ee8949c8b score=66.235167206041
+rejudged 3/31 task_id=f6de7687-7cff-4f68-93ea-f632bf6266af score=87.61662425784563
+rejudged 4/31 task_id=f0bed5aa-f7c4-4013-8d0c-10ffebeaf300 score=73.5632183908046
+rejudged 5/31 task_id=e1f2c310-d311-49da-b0e4-ee855603469d score=65.78171091445428
+rejudged 6/31 task_id=f004b46b-c0e7-4e86-a072-c7491328d538 score=59.46205571565802
+rejudged 7/31 task_id=1516d849-b413-4fab-9153-c4d9b16a1aa9 score=80.49886621315193
+rejudged 8/31 task_id=b0e3597d-6cda-4082-a5b4-234aac7d2684 score=54.6583850931677
+rejudged 9/31 task_id=79224558-75f7-4e51-bc24-51f1e3ede921 score=46.0
+rejudged 10/31 task_id=cd19ee22-ded0-4fee-b1a0-51f074d72b8b score=77.99145299145299
+rejudged 11/31 task_id=ca0edd2d-c9b8-4b85-9b40-754f4865579a score=81.85941043083899
+rejudged 12/31 task_id=342b15b8-0ae1-43ce-9ebe-c7318179f156 score=65.84507042253522
+rejudged 13/31 task_id=1ed18b1d-8436-44e5-9924-a503514c387d score=91.3154533844189
+rejudged 14/31 task_id=faeeb64e-e5eb-4768-a9b9-8ef19de51473 score=80.1025641025641
+rejudged 15/31 task_id=6c59b2a0-c097-4c69-ad03-2c4ea2ec579b score=70.31509121061359
+rejudged 16/31 task_id=c66a5c80-df51-4914-88dd-8b08aff7380c score=92.88537549407114
+rejudged 17/31 task_id=aca95495-b0fe-4330-90fc-d2fd1e2c709e score=61.559888579387184
+rejudged 18/31 task_id=6f425968-0c5b-42d8-a5c5-0b20d2f1d71e score=88.78968253968253
+rejudged 19/31 task_id=34e9b780-7fb6-426a-bc39-c340baa578e8 score=76.74418604651163
+rejudged 20/31 task_id=262b3145-5b6d-486b-a09f-c8e6a8f98e20 score=80.67226890756302
+rejudged 21/31 task_id=eb3965d1-c466-4c4c-bd4a-c8a0b255b893 score=75.177304964539
+rejudged 22/31 task_id=0a652d00-5c22-4621-8ec4-dd92b1f1450b score=62.35489220563847
+rejudged 23/31 task_id=e15a37b4-cd7f-4f52-ba81-9f33b24aabe9 score=89.27738927738928
+rejudged 24/31 task_id=4f36f602-6c14-4c23-a37d-e5ee92ed4552 score=82.05854579792258
+rejudged 25/31 task_id=b3c576e7-dfc6-403f-90e7-53c011884d5c score=None
+rejudged 26/31 task_id=3a8db70a-d906-4bde-bf87-c0c74504409a score=64.50916936353829
+rejudged 27/31 task_id=c6ca6371-72de-4f96-bc90-c4273080382c score=93.77431906614787
+rejudged 28/31 task_id=9b35aaf1-f3cf-466f-96e5-dde018b0ef35 score=81.81818181818181
+rejudged 29/31 task_id=7786ef30-1bb6-479b-9437-333ff50d5a3d score=82.23552894211576
+rejudged 30/31 task_id=b8ff32b6-967c-41bf-8277-69afe025293e score=90.1010101010101
+rejudged 31/31 task_id=646b575d-383d-483b-82bd-01e5526212c7 score=85.2482269503546
+[score] Completed
+[compare] Task 0c2c668a-c3bf-41af-93c9-b5614ff63508 comparison:
+Traceback (most recent call last):
+  File "<stdin>", line 21, in <module>
+ValueError: Invalid format specifier
+
+===== [2/100] a78eed67-ebe3-425e-a467-d54ee8949c8b =====
+[skip] Task already scored, skipping...
+[compare] Task a78eed67-ebe3-425e-a467-d54ee8949c8b comparison:
+Traceback (most recent call last):
+  File "<stdin>", line 20, in <module>
+ValueError: Invalid format specifier
+
+===== [3/100] f6de7687-7cff-4f68-93ea-f632bf6266af =====
+[skip] Task already scored, skipping...
+[compare] Task f6de7687-7cff-4f68-93ea-f632bf6266af comparison:
+Traceback (most recent call last):
+  File "<stdin>", line 20, in <module>
+ValueError: Invalid format specifier
+
+===== [4/100] f0bed5aa-f7c4-4013-8d0c-10ffebeaf300 =====
+[skip] Task already scored, skipping...
+[compare] Task f0bed5aa-f7c4-4013-8d0c-10ffebeaf300 comparison:
+Traceback (most recent call last):
+  File "<stdin>", line 20, in <module>
+ValueError: Invalid format specifier
+
+===== [5/100] e1f2c310-d311-49da-b0e4-ee855603469d =====
+[skip] Task already scored, skipping...
+[compare] Task e1f2c310-d311-49da-b0e4-ee855603469d comparison:
+Traceback (most recent call last):
+  File "<stdin>", line 20, in <module>
+ValueError: Invalid format specifier
+
+===== [6/100] f004b46b-c0e7-4e86-a072-c7491328d538 =====
+[skip] Task already scored, skipping...
+[compare] Task f004b46b-c0e7-4e86-a072-c7491328d538 comparison:
+Traceback (most recent call last):
+  File "<stdin>", line 20, in <module>
+ValueError: Invalid format specifier
+
+===== [7/100] 1516d849-b413-4fab-9153-c4d9b16a1aa9 =====
+[skip] Task already scored, skipping...
+[compare] Task 1516d849-b413-4fab-9153-c4d9b16a1aa9 comparison:
+Traceback (most recent call last):
+  File "<stdin>", line 20, in <module>
+ValueError: Invalid format specifier
+
+===== [8/100] b0e3597d-6cda-4082-a5b4-234aac7d2684 =====
+[skip] Task already scored, skipping...
+[compare] Task b0e3597d-6cda-4082-a5b4-234aac7d2684 comparison:
+Traceback (most recent call last):
+  File "<stdin>", line 20, in <module>
+ValueError: Invalid format specifier
+
+===== [9/100] 79224558-75f7-4e51-bc24-51f1e3ede921 =====
+[skip] Task already scored, skipping...
+[compare] Task 79224558-75f7-4e51-bc24-51f1e3ede921 comparison:
+Traceback (most recent call last):
+  File "<stdin>", line 20, in <module>
+ValueError: Invalid format specifier
+
+===== [10/100] cd19ee22-ded0-4fee-b1a0-51f074d72b8b =====
+[skip] Task already scored, skipping...
+[compare] Task cd19ee22-ded0-4fee-b1a0-51f074d72b8b comparison:
+Traceback (most recent call last):
+  File "<stdin>", line 20, in <module>
+ValueError: Invalid format specifier
+
+===== [11/100] ca0edd2d-c9b8-4b85-9b40-754f4865579a =====
+[skip] Task already scored, skipping...
+[compare] Task ca0edd2d-c9b8-4b85-9b40-754f4865579a comparison:
+Traceback (most recent call last):
+  File "<stdin>", line 20, in <module>
+ValueError: Invalid format specifier
+
+===== [12/100] ce522bc2-e8a2-436b-971f-dd4972f23d39 =====
+[fusion] Starting fusion for task ce522bc2-e8a2-436b-971f-dd4972f23d39...
+panel members: ['minimax-m3', 'glm-5.3-flash', 'deepseek-v4-flash', 'mimo-v2.5-pro']
+tasks with ALL panel answers: 31  pending: 0
+fuser: kimi-k3  judge: minimax-m3  config: fusion-4panel-balanced
+output: out/fusion4_balanced/fusion-4panel-balanced.jsonl
+judge cache: loaded 31 analyses from out/fusion4_mainlike/judge_cache.jsonl
+[fusion] FAILED - task not found in output
+[score] Skipping scoring for this task
+
+===== [13/100] 342b15b8-0ae1-43ce-9ebe-c7318179f156 =====
+[skip] Task already scored, skipping...
+[compare] Task 342b15b8-0ae1-43ce-9ebe-c7318179f156 comparison:
+Traceback (most recent call last):
+  File "<stdin>", line 20, in <module>
+ValueError: Invalid format specifier
+
+===== [14/100] 1ed18b1d-8436-44e5-9924-a503514c387d =====
+[skip] Task already scored, skipping...
+[compare] Task 1ed18b1d-8436-44e5-9924-a503514c387d comparison:
+Traceback (most recent call last):
+  File "<stdin>", line 20, in <module>
+ValueError: Invalid format specifier
+
+===== [15/100] faeeb64e-e5eb-4768-a9b9-8ef19de51473 =====
+[skip] Task already scored, skipping...
+[compare] Task faeeb64e-e5eb-4768-a9b9-8ef19de51473 comparison:
+Traceback (most recent call last):
+  File "<stdin>", line 20, in <module>
+ValueError: Invalid format specifier
+
+===== [16/100] 6c59b2a0-c097-4c69-ad03-2c4ea2ec579b =====
+[skip] Task already scored, skipping...
+[compare] Task 6c59b2a0-c097-4c69-ad03-2c4ea2ec579b comparison:
+Traceback (most recent call last):
+  File "<stdin>", line 20, in <module>
+ValueError: Invalid format specifier
+
+===== [17/100] c66a5c80-df51-4914-88dd-8b08aff7380c =====
+[skip] Task already scored, skipping...
+[compare] Task c66a5c80-df51-4914-88dd-8b08aff7380c comparison:
+Traceback (most recent call last):
+  File "<stdin>", line 20, in <module>
+ValueError: Invalid format specifier
+
+===== [18/100] aca95495-b0fe-4330-90fc-d2fd1e2c709e =====
+[skip] Task already scored, skipping...
+[compare] Task aca95495-b0fe-4330-90fc-d2fd1e2c709e comparison:
+Traceback (most recent call last):
+  File "<stdin>", line 20, in <module>
+ValueError: Invalid format specifier
+
+===== [19/100] 6f425968-0c5b-42d8-a5c5-0b20d2f1d71e =====
+[skip] Task already scored, skipping...
+[compare] Task 6f425968-0c5b-42d8-a5c5-0b20d2f1d71e comparison:
+Traceback (most recent call last):
+  File "<stdin>", line 20, in <module>
+ValueError: Invalid format specifier
+
+===== [20/100] 34e9b780-7fb6-426a-bc39-c340baa578e8 =====
+[skip] Task already scored, skipping...
+[compare] Task 34e9b780-7fb6-426a-bc39-c340baa578e8 comparison:
+Traceback (most recent call last):
+  File "<stdin>", line 20, in <module>
+ValueError: Invalid format specifier
+
+===== [21/100] 262b3145-5b6d-486b-a09f-c8e6a8f98e20 =====
+[skip] Task already scored, skipping...
+[compare] Task 262b3145-5b6d-486b-a09f-c8e6a8f98e20 comparison:
+Traceback (most recent call last):
+  File "<stdin>", line 20, in <module>
+ValueError: Invalid format specifier
+
+===== [22/100] eb3965d1-c466-4c4c-bd4a-c8a0b255b893 =====
+[skip] Task already scored, skipping...
+[compare] Task eb3965d1-c466-4c4c-bd4a-c8a0b255b893 comparison:
+Traceback (most recent call last):
+  File "<stdin>", line 20, in <module>
+ValueError: Invalid format specifier
+
+===== [23/100] 0a652d00-5c22-4621-8ec4-dd92b1f1450b =====
+[skip] Task already scored, skipping...
+[compare] Task 0a652d00-5c22-4621-8ec4-dd92b1f1450b comparison:
+Traceback (most recent call last):
+  File "<stdin>", line 20, in <module>
+ValueError: Invalid format specifier
+
+===== [24/100] e15a37b4-cd7f-4f52-ba81-9f33b24aabe9 =====
+[skip] Task already scored, skipping...
+[compare] Task e15a37b4-cd7f-4f52-ba81-9f33b24aabe9 comparison:
+Traceback (most recent call last):
+  File "<stdin>", line 20, in <module>
+ValueError: Invalid format specifier
+
+===== [25/100] 4f36f602-6c14-4c23-a37d-e5ee92ed4552 =====
+[skip] Task already scored, skipping...
+[compare] Task 4f36f602-6c14-4c23-a37d-e5ee92ed4552 comparison:
+Traceback (most recent call last):
+  File "<stdin>", line 20, in <module>
+ValueError: Invalid format specifier
+
+===== [26/100] b3c576e7-dfc6-403f-90e7-53c011884d5c =====
+[fusion] Starting fusion for task b3c576e7-dfc6-403f-90e7-53c011884d5c...
+panel members: ['minimax-m3', 'glm-5.3-flash', 'deepseek-v4-flash', 'mimo-v2.5-pro']
+tasks with ALL panel answers: 31  pending: 0
+fuser: kimi-k3  judge: minimax-m3  config: fusion-4panel-balanced
+output: out/fusion4_balanced/fusion-4panel-balanced.jsonl
+judge cache: loaded 31 analyses from out/fusion4_mainlike/judge_cache.jsonl
+[fusion] Completed
+[score] Starting scoring for task b3c576e7-dfc6-403f-90e7-53c011884d5c...
+replay rows: 31
+pending rows: 1
+output: out/fusion4_balanced/score-fusion-4panel-balanced.jsonl
+rejudged 1/1 task_id=b3c576e7-dfc6-403f-90e7-53c011884d5c score=None
+[score] FAILED - task not found or failed in score output
+
+===== [27/100] 3a8db70a-d906-4bde-bf87-c0c74504409a =====
+[skip] Task already scored, skipping...
+[compare] Task 3a8db70a-d906-4bde-bf87-c0c74504409a comparison:
+Traceback (most recent call last):
+  File "<stdin>", line 20, in <module>
+ValueError: Invalid format specifier
+
+===== [28/100] c6ca6371-72de-4f96-bc90-c4273080382c =====
+[skip] Task already scored, skipping...
+[compare] Task c6ca6371-72de-4f96-bc90-c4273080382c comparison:
+Traceback (most recent call last):
+  File "<stdin>", line 20, in <module>
+ValueError: Invalid format specifier
+
+===== [29/100] 9b35aaf1-f3cf-466f-96e5-dde018b0ef35 =====
+[skip] Task already scored, skipping...
+[compare] Task 9b35aaf1-f3cf-466f-96e5-dde018b0ef35 comparison:
+Traceback (most recent call last):
+  File "<stdin>", line 20, in <module>
+ValueError: Invalid format specifier
+
+===== [30/100] 7786ef30-1bb6-479b-9437-333ff50d5a3d =====
+[skip] Task already scored, skipping...
+[compare] Task 7786ef30-1bb6-479b-9437-333ff50d5a3d comparison:
+Traceback (most recent call last):
+  File "<stdin>", line 20, in <module>
+ValueError: Invalid format specifier
+
+===== [31/100] b8ff32b6-967c-41bf-8277-69afe025293e =====
+[skip] Task already scored, skipping...
+[compare] Task b8ff32b6-967c-41bf-8277-69afe025293e comparison:
+Traceback (most recent call last):
+  File "<stdin>", line 20, in <module>
+ValueError: Invalid format specifier
+
+===== [32/100] 646b575d-383d-483b-82bd-01e5526212c7 =====
+[skip] Task already scored, skipping...
+[compare] Task 646b575d-383d-483b-82bd-01e5526212c7 comparison:
+Traceback (most recent call last):
+  File "<stdin>", line 20, in <module>
+ValueError: Invalid format specifier
+
+===== [33/100] 97378684-875a-4a7d-ad19-d7d77942f131 =====
+[fusion] Starting fusion for task 97378684-875a-4a7d-ad19-d7d77942f131...
+panel members: ['minimax-m3', 'glm-5.3-flash', 'deepseek-v4-flash', 'mimo-v2.5-pro']
+tasks with ALL panel answers: 31  pending: 0
+fuser: kimi-k3  judge: minimax-m3  config: fusion-4panel-balanced
+output: out/fusion4_balanced/fusion-4panel-balanced.jsonl
+judge cache: loaded 31 analyses from out/fusion4_mainlike/judge_cache.jsonl
+[fusion] FAILED - task not found in output
+[score] Skipping scoring for this task
+
+===== [34/100] 614a5d4c-5387-4f42-a319-61486bbcde0f =====
+[fusion] Starting fusion for task 614a5d4c-5387-4f42-a319-61486bbcde0f...
+panel members: ['minimax-m3', 'glm-5.3-flash', 'deepseek-v4-flash', 'mimo-v2.5-pro']
+tasks with ALL panel answers: 31  pending: 0
+fuser: kimi-k3  judge: minimax-m3  config: fusion-4panel-balanced
+output: out/fusion4_balanced/fusion-4panel-balanced.jsonl
+judge cache: loaded 31 analyses from out/fusion4_mainlike/judge_cache.jsonl
+[fusion] FAILED - task not found in output
+[score] Skipping scoring for this task
+
+===== [35/100] e303d1aa-0b0c-4fe1-9806-e46058d6b3f3 =====
+[fusion] Starting fusion for task e303d1aa-0b0c-4fe1-9806-e46058d6b3f3...
+panel members: ['minimax-m3', 'glm-5.3-flash', 'deepseek-v4-flash', 'mimo-v2.5-pro']
+tasks with ALL panel answers: 31  pending: 0
+fuser: kimi-k3  judge: minimax-m3  config: fusion-4panel-balanced
+output: out/fusion4_balanced/fusion-4panel-balanced.jsonl
+judge cache: loaded 31 analyses from out/fusion4_mainlike/judge_cache.jsonl
+[fusion] FAILED - task not found in output
+[score] Skipping scoring for this task
+
+===== [36/100] 868f0410-07c9-4609-a7f6-2ad72d678006 =====
+[fusion] Starting fusion for task 868f0410-07c9-4609-a7f6-2ad72d678006...
+panel members: ['minimax-m3', 'glm-5.3-flash', 'deepseek-v4-flash', 'mimo-v2.5-pro']
+tasks with ALL panel answers: 31  pending: 0
+fuser: kimi-k3  judge: minimax-m3  config: fusion-4panel-balanced
+output: out/fusion4_balanced/fusion-4panel-balanced.jsonl
+judge cache: loaded 31 analyses from out/fusion4_mainlike/judge_cache.jsonl
+[fusion] FAILED - task not found in output
+[score] Skipping scoring for this task
+
+===== [37/100] b3d9ac35-7d3f-4fd5-925e-bbaa40c0de51 =====
+[fusion] Starting fusion for task b3d9ac35-7d3f-4fd5-925e-bbaa40c0de51...
+panel members: ['minimax-m3', 'glm-5.3-flash', 'deepseek-v4-flash', 'mimo-v2.5-pro']
+tasks with ALL panel answers: 31  pending: 0
+fuser: kimi-k3  judge: minimax-m3  config: fusion-4panel-balanced
+output: out/fusion4_balanced/fusion-4panel-balanced.jsonl
+judge cache: loaded 31 analyses from out/fusion4_mainlike/judge_cache.jsonl
+[fusion] FAILED - task not found in output
+[score] Skipping scoring for this task
+
+===== [38/100] cd680e2e-c0b9-4b54-948c-fd824d804a52 =====
+[fusion] Starting fusion for task cd680e2e-c0b9-4b54-948c-fd824d804a52...
+panel members: ['minimax-m3', 'glm-5.3-flash', 'deepseek-v4-flash', 'mimo-v2.5-pro']
+tasks with ALL panel answers: 31  pending: 0
+fuser: kimi-k3  judge: minimax-m3  config: fusion-4panel-balanced
+output: out/fusion4_balanced/fusion-4panel-balanced.jsonl
+judge cache: loaded 31 analyses from out/fusion4_mainlike/judge_cache.jsonl
+[fusion] FAILED - task not found in output
+[score] Skipping scoring for this task
+
+===== [39/100] 3b5505fb-dab6-44cb-9a14-746b1cd82d25 =====
+[fusion] Starting fusion for task 3b5505fb-dab6-44cb-9a14-746b1cd82d25...
+panel members: ['minimax-m3', 'glm-5.3-flash', 'deepseek-v4-flash', 'mimo-v2.5-pro']
+tasks with ALL panel answers: 31  pending: 0
+fuser: kimi-k3  judge: minimax-m3  config: fusion-4panel-balanced
+output: out/fusion4_balanced/fusion-4panel-balanced.jsonl
+judge cache: loaded 31 analyses from out/fusion4_mainlike/judge_cache.jsonl
+[fusion] FAILED - task not found in output
+[score] Skipping scoring for this task
+
+===== [40/100] e3734e91-e2d1-4696-bdee-81c8bfa3127e =====
+[fusion] Starting fusion for task e3734e91-e2d1-4696-bdee-81c8bfa3127e...
+panel members: ['minimax-m3', 'glm-5.3-flash', 'deepseek-v4-flash', 'mimo-v2.5-pro']
+tasks with ALL panel answers: 31  pending: 0
+fuser: kimi-k3  judge: minimax-m3  config: fusion-4panel-balanced
+output: out/fusion4_balanced/fusion-4panel-balanced.jsonl
+judge cache: loaded 31 analyses from out/fusion4_mainlike/judge_cache.jsonl
+[fusion] FAILED - task not found in output
+[score] Skipping scoring for this task
+
+===== [41/100] adacf6f4-9ec0-4d4e-a8c4-388aad0b2fb0 =====
+[fusion] Starting fusion for task adacf6f4-9ec0-4d4e-a8c4-388aad0b2fb0...
+panel members: ['minimax-m3', 'glm-5.3-flash', 'deepseek-v4-flash', 'mimo-v2.5-pro']
+tasks with ALL panel answers: 31  pending: 0
+fuser: kimi-k3  judge: minimax-m3  config: fusion-4panel-balanced
+output: out/fusion4_balanced/fusion-4panel-balanced.jsonl
+judge cache: loaded 31 analyses from out/fusion4_mainlike/judge_cache.jsonl
+[fusion] FAILED - task not found in output
+[score] Skipping scoring for this task
+
+===== [42/100] 09456551-1fdc-46fb-a931-4f3a2dfe21a3 =====
+[fusion] Starting fusion for task 09456551-1fdc-46fb-a931-4f3a2dfe21a3...
+panel members: ['minimax-m3', 'glm-5.3-flash', 'deepseek-v4-flash', 'mimo-v2.5-pro']
+tasks with ALL panel answers: 31  pending: 0
+fuser: kimi-k3  judge: minimax-m3  config: fusion-4panel-balanced
+output: out/fusion4_balanced/fusion-4panel-balanced.jsonl
+judge cache: loaded 31 analyses from out/fusion4_mainlike/judge_cache.jsonl
+[fusion] FAILED - task not found in output
+[score] Skipping scoring for this task
+
+===== [43/100] f1b0f094-fa7a-4f18-adbd-f4cd86633f77 =====
+[fusion] Starting fusion for task f1b0f094-fa7a-4f18-adbd-f4cd86633f77...
+panel members: ['minimax-m3', 'glm-5.3-flash', 'deepseek-v4-flash', 'mimo-v2.5-pro']
+tasks with ALL panel answers: 31  pending: 0
+fuser: kimi-k3  judge: minimax-m3  config: fusion-4panel-balanced
+output: out/fusion4_balanced/fusion-4panel-balanced.jsonl
+judge cache: loaded 31 analyses from out/fusion4_mainlike/judge_cache.jsonl
+[fusion] FAILED - task not found in output
+[score] Skipping scoring for this task
+
+===== [44/100] 9f36b55b-28a6-4c4f-b34d-14acc22e5352 =====
+[fusion] Starting fusion for task 9f36b55b-28a6-4c4f-b34d-14acc22e5352...
+panel members: ['minimax-m3', 'glm-5.3-flash', 'deepseek-v4-flash', 'mimo-v2.5-pro']
+tasks with ALL panel answers: 31  pending: 0
+fuser: kimi-k3  judge: minimax-m3  config: fusion-4panel-balanced
+output: out/fusion4_balanced/fusion-4panel-balanced.jsonl
+judge cache: loaded 31 analyses from out/fusion4_mainlike/judge_cache.jsonl
+[fusion] FAILED - task not found in output
+[score] Skipping scoring for this task
+
+===== [45/100] 8cf941c5-3ac1-4801-929b-8f5bab8691c7 =====
+[fusion] Starting fusion for task 8cf941c5-3ac1-4801-929b-8f5bab8691c7...
+panel members: ['minimax-m3', 'glm-5.3-flash', 'deepseek-v4-flash', 'mimo-v2.5-pro']
+tasks with ALL panel answers: 31  pending: 0
+fuser: kimi-k3  judge: minimax-m3  config: fusion-4panel-balanced
+output: out/fusion4_balanced/fusion-4panel-balanced.jsonl
+judge cache: loaded 31 analyses from out/fusion4_mainlike/judge_cache.jsonl
+[fusion] FAILED - task not found in output
+[score] Skipping scoring for this task
+
+===== [46/100] 72e81ce6-8d1f-4143-90d5-d25d7a212c85 =====
+[fusion] Starting fusion for task 72e81ce6-8d1f-4143-90d5-d25d7a212c85...
+panel members: ['minimax-m3', 'glm-5.3-flash', 'deepseek-v4-flash', 'mimo-v2.5-pro']
+tasks with ALL panel answers: 31  pending: 0
+fuser: kimi-k3  judge: minimax-m3  config: fusion-4panel-balanced
+output: out/fusion4_balanced/fusion-4panel-balanced.jsonl
+judge cache: loaded 31 analyses from out/fusion4_mainlike/judge_cache.jsonl
+[fusion] FAILED - task not found in output
+[score] Skipping scoring for this task
+
+===== [47/100] 7e9fa201-6bbd-4e77-a8ed-c62b8f551cab =====
+[fusion] Starting fusion for task 7e9fa201-6bbd-4e77-a8ed-c62b8f551cab...
+panel members: ['minimax-m3', 'glm-5.3-flash', 'deepseek-v4-flash', 'mimo-v2.5-pro']
+tasks with ALL panel answers: 31  pending: 0
+fuser: kimi-k3  judge: minimax-m3  config: fusion-4panel-balanced
+output: out/fusion4_balanced/fusion-4panel-balanced.jsonl
+judge cache: loaded 31 analyses from out/fusion4_mainlike/judge_cache.jsonl
+[fusion] FAILED - task not found in output
+[score] Skipping scoring for this task
+
+===== [48/100] a4bae04b-4337-4f28-ab8b-5a518cf58fe0 =====
+[fusion] Starting fusion for task a4bae04b-4337-4f28-ab8b-5a518cf58fe0...
+panel members: ['minimax-m3', 'glm-5.3-flash', 'deepseek-v4-flash', 'mimo-v2.5-pro']
+tasks with ALL panel answers: 31  pending: 0
+fuser: kimi-k3  judge: minimax-m3  config: fusion-4panel-balanced
+output: out/fusion4_balanced/fusion-4panel-balanced.jsonl
+judge cache: loaded 31 analyses from out/fusion4_mainlike/judge_cache.jsonl
+[fusion] FAILED - task not found in output
+[score] Skipping scoring for this task
+
+===== [49/100] 056e9cbe-d8eb-48a8-9618-432222100e79 =====
+[fusion] Starting fusion for task 056e9cbe-d8eb-48a8-9618-432222100e79...
+panel members: ['minimax-m3', 'glm-5.3-flash', 'deepseek-v4-flash', 'mimo-v2.5-pro']
+tasks with ALL panel answers: 31  pending: 0
+fuser: kimi-k3  judge: minimax-m3  config: fusion-4panel-balanced
+output: out/fusion4_balanced/fusion-4panel-balanced.jsonl
+judge cache: loaded 31 analyses from out/fusion4_mainlike/judge_cache.jsonl
+[fusion] FAILED - task not found in output
+[score] Skipping scoring for this task
+
+===== [50/100] bfdf5b0d-efe9-48fc-9399-2127f71e52c7 =====
+[fusion] Starting fusion for task bfdf5b0d-efe9-48fc-9399-2127f71e52c7...
+panel members: ['minimax-m3', 'glm-5.3-flash', 'deepseek-v4-flash', 'mimo-v2.5-pro']
+tasks with ALL panel answers: 31  pending: 0
+fuser: kimi-k3  judge: minimax-m3  config: fusion-4panel-balanced
+output: out/fusion4_balanced/fusion-4panel-balanced.jsonl
+judge cache: loaded 31 analyses from out/fusion4_mainlike/judge_cache.jsonl
+[fusion] FAILED - task not found in output
+[score] Skipping scoring for this task
+
+===== [51/100] ab074bda-d583-42d0-85ce-6c694a51d3ce =====
+[fusion] Starting fusion for task ab074bda-d583-42d0-85ce-6c694a51d3ce...
+panel members: ['minimax-m3', 'glm-5.3-flash', 'deepseek-v4-flash', 'mimo-v2.5-pro']
+tasks with ALL panel answers: 31  pending: 0
+fuser: kimi-k3  judge: minimax-m3  config: fusion-4panel-balanced
+output: out/fusion4_balanced/fusion-4panel-balanced.jsonl
+judge cache: loaded 31 analyses from out/fusion4_mainlike/judge_cache.jsonl
+[fusion] FAILED - task not found in output
+[score] Skipping scoring for this task
+
+===== [52/100] 71e3456f-e1df-4108-872f-f00f8a44acc6 =====
+[fusion] Starting fusion for task 71e3456f-e1df-4108-872f-f00f8a44acc6...
+panel members: ['minimax-m3', 'glm-5.3-flash', 'deepseek-v4-flash', 'mimo-v2.5-pro']
+tasks with ALL panel answers: 31  pending: 0
+fuser: kimi-k3  judge: minimax-m3  config: fusion-4panel-balanced
+output: out/fusion4_balanced/fusion-4panel-balanced.jsonl
+judge cache: loaded 31 analyses from out/fusion4_mainlike/judge_cache.jsonl
+[fusion] FAILED - task not found in output
+[score] Skipping scoring for this task
+
+===== [53/100] 78bfa372-ba7a-46e9-9c10-c3e80366afeb =====
+[fusion] Starting fusion for task 78bfa372-ba7a-46e9-9c10-c3e80366afeb...
+panel members: ['minimax-m3', 'glm-5.3-flash', 'deepseek-v4-flash', 'mimo-v2.5-pro']
+tasks with ALL panel answers: 31  pending: 0
+fuser: kimi-k3  judge: minimax-m3  config: fusion-4panel-balanced
+output: out/fusion4_balanced/fusion-4panel-balanced.jsonl
+judge cache: loaded 31 analyses from out/fusion4_mainlike/judge_cache.jsonl
+[fusion] FAILED - task not found in output
+[score] Skipping scoring for this task
+
+===== [54/100] b02ede76-2353-40f3-9da9-d319c617ab0d =====
+[fusion] Starting fusion for task b02ede76-2353-40f3-9da9-d319c617ab0d...
+panel members: ['minimax-m3', 'glm-5.3-flash', 'deepseek-v4-flash', 'mimo-v2.5-pro']
+tasks with ALL panel answers: 31  pending: 0
+fuser: kimi-k3  judge: minimax-m3  config: fusion-4panel-balanced
+output: out/fusion4_balanced/fusion-4panel-balanced.jsonl
+judge cache: loaded 31 analyses from out/fusion4_mainlike/judge_cache.jsonl
+[fusion] FAILED - task not found in output
+[score] Skipping scoring for this task
+
+===== [55/100] 82508e50-497c-445a-b1dd-fd9d7e6dafda =====
+[fusion] Starting fusion for task 82508e50-497c-445a-b1dd-fd9d7e6dafda...
+panel members: ['minimax-m3', 'glm-5.3-flash', 'deepseek-v4-flash', 'mimo-v2.5-pro']
+tasks with ALL panel answers: 31  pending: 0
+fuser: kimi-k3  judge: minimax-m3  config: fusion-4panel-balanced
+output: out/fusion4_balanced/fusion-4panel-balanced.jsonl
+judge cache: loaded 31 analyses from out/fusion4_mainlike/judge_cache.jsonl
+[fusion] FAILED - task not found in output
+[score] Skipping scoring for this task
+
+===== [56/100] 236d5ae8-8623-4436-b527-2853aeea2db9 =====
+[fusion] Starting fusion for task 236d5ae8-8623-4436-b527-2853aeea2db9...
+panel members: ['minimax-m3', 'glm-5.3-flash', 'deepseek-v4-flash', 'mimo-v2.5-pro']
+tasks with ALL panel answers: 31  pending: 0
+fuser: kimi-k3  judge: minimax-m3  config: fusion-4panel-balanced
+output: out/fusion4_balanced/fusion-4panel-balanced.jsonl
+judge cache: loaded 31 analyses from out/fusion4_mainlike/judge_cache.jsonl
+[fusion] FAILED - task not found in output
+[score] Skipping scoring for this task
+
+===== [57/100] 51c9e7b9-ab11-443e-97a4-9a8e75f2c9b8 =====
+[fusion] Starting fusion for task 51c9e7b9-ab11-443e-97a4-9a8e75f2c9b8...
+panel members: ['minimax-m3', 'glm-5.3-flash', 'deepseek-v4-flash', 'mimo-v2.5-pro']
+tasks with ALL panel answers: 31  pending: 0
+fuser: kimi-k3  judge: minimax-m3  config: fusion-4panel-balanced
+output: out/fusion4_balanced/fusion-4panel-balanced.jsonl
+judge cache: loaded 31 analyses from out/fusion4_mainlike/judge_cache.jsonl
+[fusion] FAILED - task not found in output
+[score] Skipping scoring for this task
+
+===== [58/100] 36457179-b5e5-4daa-9956-fde342aade9b =====
+[fusion] Starting fusion for task 36457179-b5e5-4daa-9956-fde342aade9b...
+panel members: ['minimax-m3', 'glm-5.3-flash', 'deepseek-v4-flash', 'mimo-v2.5-pro']
+tasks with ALL panel answers: 31  pending: 0
+fuser: kimi-k3  judge: minimax-m3  config: fusion-4panel-balanced
+output: out/fusion4_balanced/fusion-4panel-balanced.jsonl
+judge cache: loaded 31 analyses from out/fusion4_mainlike/judge_cache.jsonl
+[fusion] FAILED - task not found in output
+[score] Skipping scoring for this task
+
+===== [59/100] 3d801f46-5707-4ff5-8151-1168ff0f09c0 =====
+[fusion] Starting fusion for task 3d801f46-5707-4ff5-8151-1168ff0f09c0...
+panel members: ['minimax-m3', 'glm-5.3-flash', 'deepseek-v4-flash', 'mimo-v2.5-pro']
+tasks with ALL panel answers: 31  pending: 0
+fuser: kimi-k3  judge: minimax-m3  config: fusion-4panel-balanced
+output: out/fusion4_balanced/fusion-4panel-balanced.jsonl
+judge cache: loaded 31 analyses from out/fusion4_mainlike/judge_cache.jsonl
+[fusion] FAILED - task not found in output
+[score] Skipping scoring for this task
+
+===== [60/100] b0f9b509-dff8-4414-9404-fe0a35c43107 =====
+[fusion] Starting fusion for task b0f9b509-dff8-4414-9404-fe0a35c43107...
+panel members: ['minimax-m3', 'glm-5.3-flash', 'deepseek-v4-flash', 'mimo-v2.5-pro']
+tasks with ALL panel answers: 31  pending: 0
+fuser: kimi-k3  judge: minimax-m3  config: fusion-4panel-balanced
+output: out/fusion4_balanced/fusion-4panel-balanced.jsonl
+judge cache: loaded 31 analyses from out/fusion4_mainlike/judge_cache.jsonl
+[fusion] FAILED - task not found in output
+[score] Skipping scoring for this task
+
+===== [61/100] 10e75d21-9e92-4878-b691-02fc87ae5d54 =====
+[fusion] Starting fusion for task 10e75d21-9e92-4878-b691-02fc87ae5d54...
+panel members: ['minimax-m3', 'glm-5.3-flash', 'deepseek-v4-flash', 'mimo-v2.5-pro']
+tasks with ALL panel answers: 31  pending: 0
+fuser: kimi-k3  judge: minimax-m3  config: fusion-4panel-balanced
+output: out/fusion4_balanced/fusion-4panel-balanced.jsonl
+judge cache: loaded 31 analyses from out/fusion4_mainlike/judge_cache.jsonl
+[fusion] FAILED - task not found in output
+[score] Skipping scoring for this task
+
+===== [62/100] bea85f62-a722-48a9-8ece-fbfb62653997 =====
+[fusion] Starting fusion for task bea85f62-a722-48a9-8ece-fbfb62653997...
+panel members: ['minimax-m3', 'glm-5.3-flash', 'deepseek-v4-flash', 'mimo-v2.5-pro']
+tasks with ALL panel answers: 31  pending: 0
+fuser: kimi-k3  judge: minimax-m3  config: fusion-4panel-balanced
+output: out/fusion4_balanced/fusion-4panel-balanced.jsonl
+judge cache: loaded 31 analyses from out/fusion4_mainlike/judge_cache.jsonl
+[fusion] FAILED - task not found in output
+[score] Skipping scoring for this task
+
+===== [63/100] cc4bd873-0661-4bd2-84bb-928e9e6f1a1c =====
+[fusion] Starting fusion for task cc4bd873-0661-4bd2-84bb-928e9e6f1a1c...
+panel members: ['minimax-m3', 'glm-5.3-flash', 'deepseek-v4-flash', 'mimo-v2.5-pro']
+tasks with ALL panel answers: 31  pending: 0
+fuser: kimi-k3  judge: minimax-m3  config: fusion-4panel-balanced
+output: out/fusion4_balanced/fusion-4panel-balanced.jsonl
+judge cache: loaded 31 analyses from out/fusion4_mainlike/judge_cache.jsonl
+[fusion] FAILED - task not found in output
+[score] Skipping scoring for this task
+
+===== [64/100] 928aea10-3918-484b-980e-19d13a747e30 =====
+[fusion] Starting fusion for task 928aea10-3918-484b-980e-19d13a747e30...
+panel members: ['minimax-m3', 'glm-5.3-flash', 'deepseek-v4-flash', 'mimo-v2.5-pro']
+tasks with ALL panel answers: 31  pending: 0
+fuser: kimi-k3  judge: minimax-m3  config: fusion-4panel-balanced
+output: out/fusion4_balanced/fusion-4panel-balanced.jsonl
+judge cache: loaded 31 analyses from out/fusion4_mainlike/judge_cache.jsonl
+[fusion] FAILED - task not found in output
+[score] Skipping scoring for this task
+
+===== [65/100] 9afd23d2-058d-469f-a663-91286ac0532f =====
+[fusion] Starting fusion for task 9afd23d2-058d-469f-a663-91286ac0532f...
+panel members: ['minimax-m3', 'glm-5.3-flash', 'deepseek-v4-flash', 'mimo-v2.5-pro']
+tasks with ALL panel answers: 31  pending: 0
+fuser: kimi-k3  judge: minimax-m3  config: fusion-4panel-balanced
+output: out/fusion4_balanced/fusion-4panel-balanced.jsonl
+judge cache: loaded 31 analyses from out/fusion4_mainlike/judge_cache.jsonl
+[fusion] FAILED - task not found in output
+[score] Skipping scoring for this task
+
+===== [66/100] 45b0c59c-9d2a-4000-b26e-ee44bf1e7c81 =====
+[fusion] Starting fusion for task 45b0c59c-9d2a-4000-b26e-ee44bf1e7c81...
+panel members: ['minimax-m3', 'glm-5.3-flash', 'deepseek-v4-flash', 'mimo-v2.5-pro']
+tasks with ALL panel answers: 31  pending: 0
+fuser: kimi-k3  judge: minimax-m3  config: fusion-4panel-balanced
+output: out/fusion4_balanced/fusion-4panel-balanced.jsonl
+judge cache: loaded 31 analyses from out/fusion4_mainlike/judge_cache.jsonl
+[fusion] FAILED - task not found in output
+[score] Skipping scoring for this task
+
+===== [67/100] 95755c13-92a4-46fa-812b-4461b18f6a17 =====
+[fusion] Starting fusion for task 95755c13-92a4-46fa-812b-4461b18f6a17...
+panel members: ['minimax-m3', 'glm-5.3-flash', 'deepseek-v4-flash', 'mimo-v2.5-pro']
+tasks with ALL panel answers: 31  pending: 0
+fuser: kimi-k3  judge: minimax-m3  config: fusion-4panel-balanced
+output: out/fusion4_balanced/fusion-4panel-balanced.jsonl
+judge cache: loaded 31 analyses from out/fusion4_mainlike/judge_cache.jsonl
+[fusion] FAILED - task not found in output
+[score] Skipping scoring for this task
+
+===== [68/100] 101c18a4-ff10-4dca-8d43-95088f1b90dc =====
+[fusion] Starting fusion for task 101c18a4-ff10-4dca-8d43-95088f1b90dc...
+panel members: ['minimax-m3', 'glm-5.3-flash', 'deepseek-v4-flash', 'mimo-v2.5-pro']
+tasks with ALL panel answers: 31  pending: 0
+fuser: kimi-k3  judge: minimax-m3  config: fusion-4panel-balanced
+output: out/fusion4_balanced/fusion-4panel-balanced.jsonl
+judge cache: loaded 31 analyses from out/fusion4_mainlike/judge_cache.jsonl
+[fusion] FAILED - task not found in output
+[score] Skipping scoring for this task
+
+===== [69/100] 8e8b1864-6075-4d3b-8c4c-d427a5e3fc9f =====
+[fusion] Starting fusion for task 8e8b1864-6075-4d3b-8c4c-d427a5e3fc9f...
+panel members: ['minimax-m3', 'glm-5.3-flash', 'deepseek-v4-flash', 'mimo-v2.5-pro']
+tasks with ALL panel answers: 31  pending: 0
+fuser: kimi-k3  judge: minimax-m3  config: fusion-4panel-balanced
+output: out/fusion4_balanced/fusion-4panel-balanced.jsonl
+judge cache: loaded 31 analyses from out/fusion4_mainlike/judge_cache.jsonl
+[fusion] FAILED - task not found in output
+[score] Skipping scoring for this task
+
+===== [70/100] ab17484f-fa6e-4e72-a970-e7cd6c5856d3 =====
+[fusion] Starting fusion for task ab17484f-fa6e-4e72-a970-e7cd6c5856d3...
+panel members: ['minimax-m3', 'glm-5.3-flash', 'deepseek-v4-flash', 'mimo-v2.5-pro']
+tasks with ALL panel answers: 31  pending: 0
+fuser: kimi-k3  judge: minimax-m3  config: fusion-4panel-balanced
+output: out/fusion4_balanced/fusion-4panel-balanced.jsonl
+judge cache: loaded 31 analyses from out/fusion4_mainlike/judge_cache.jsonl
+[fusion] FAILED - task not found in output
+[score] Skipping scoring for this task
+
+===== [71/100] 8ca825d6-174a-489d-89b9-b000649a2477 =====
+[fusion] Starting fusion for task 8ca825d6-174a-489d-89b9-b000649a2477...
+panel members: ['minimax-m3', 'glm-5.3-flash', 'deepseek-v4-flash', 'mimo-v2.5-pro']
+tasks with ALL panel answers: 31  pending: 0
+fuser: kimi-k3  judge: minimax-m3  config: fusion-4panel-balanced
+output: out/fusion4_balanced/fusion-4panel-balanced.jsonl
+judge cache: loaded 31 analyses from out/fusion4_mainlike/judge_cache.jsonl
+[fusion] FAILED - task not found in output
+[score] Skipping scoring for this task
+
+===== [72/100] 5fbad062-f388-4a46-8b41-b0f9704c0530 =====
+[fusion] Starting fusion for task 5fbad062-f388-4a46-8b41-b0f9704c0530...
+panel members: ['minimax-m3', 'glm-5.3-flash', 'deepseek-v4-flash', 'mimo-v2.5-pro']
+tasks with ALL panel answers: 31  pending: 0
+fuser: kimi-k3  judge: minimax-m3  config: fusion-4panel-balanced
+output: out/fusion4_balanced/fusion-4panel-balanced.jsonl
+judge cache: loaded 31 analyses from out/fusion4_mainlike/judge_cache.jsonl
+[fusion] FAILED - task not found in output
+[score] Skipping scoring for this task
+
+===== [73/100] c2a1a24b-8a83-453f-9892-d17b533ffe93 =====
+[fusion] Starting fusion for task c2a1a24b-8a83-453f-9892-d17b533ffe93...
+panel members: ['minimax-m3', 'glm-5.3-flash', 'deepseek-v4-flash', 'mimo-v2.5-pro']
+tasks with ALL panel answers: 31  pending: 0
+fuser: kimi-k3  judge: minimax-m3  config: fusion-4panel-balanced
+output: out/fusion4_balanced/fusion-4panel-balanced.jsonl
+judge cache: loaded 31 analyses from out/fusion4_mainlike/judge_cache.jsonl
+[fusion] FAILED - task not found in output
+[score] Skipping scoring for this task
+
+===== [74/100] ce335c0c-f136-4408-a216-6a891cae861f =====
+[fusion] Starting fusion for task ce335c0c-f136-4408-a216-6a891cae861f...
+panel members: ['minimax-m3', 'glm-5.3-flash', 'deepseek-v4-flash', 'mimo-v2.5-pro']
+tasks with ALL panel answers: 31  pending: 0
+fuser: kimi-k3  judge: minimax-m3  config: fusion-4panel-balanced
+output: out/fusion4_balanced/fusion-4panel-balanced.jsonl
+judge cache: loaded 31 analyses from out/fusion4_mainlike/judge_cache.jsonl
+[fusion] FAILED - task not found in output
+[score] Skipping scoring for this task
+
+===== [75/100] 67dfb8ea-cc84-4fb9-abc2-4794aa20eb44 =====
+[fusion] Starting fusion for task 67dfb8ea-cc84-4fb9-abc2-4794aa20eb44...
+panel members: ['minimax-m3', 'glm-5.3-flash', 'deepseek-v4-flash', 'mimo-v2.5-pro']
+tasks with ALL panel answers: 31  pending: 0
+fuser: kimi-k3  judge: minimax-m3  config: fusion-4panel-balanced
+output: out/fusion4_balanced/fusion-4panel-balanced.jsonl
+judge cache: loaded 31 analyses from out/fusion4_mainlike/judge_cache.jsonl
+[fusion] FAILED - task not found in output
+[score] Skipping scoring for this task
+
+===== [76/100] 6b3233e6-9b05-465a-a872-724af25df719 =====
+[fusion] Starting fusion for task 6b3233e6-9b05-465a-a872-724af25df719...
+panel members: ['minimax-m3', 'glm-5.3-flash', 'deepseek-v4-flash', 'mimo-v2.5-pro']
+tasks with ALL panel answers: 31  pending: 0
+fuser: kimi-k3  judge: minimax-m3  config: fusion-4panel-balanced
+output: out/fusion4_balanced/fusion-4panel-balanced.jsonl
+judge cache: loaded 31 analyses from out/fusion4_mainlike/judge_cache.jsonl
+[fusion] FAILED - task not found in output
+[score] Skipping scoring for this task
+
+===== [77/100] 35bc9c48-0853-469d-8bf7-8f6947ec4fb7 =====
+[fusion] Starting fusion for task 35bc9c48-0853-469d-8bf7-8f6947ec4fb7...
+panel members: ['minimax-m3', 'glm-5.3-flash', 'deepseek-v4-flash', 'mimo-v2.5-pro']
+tasks with ALL panel answers: 31  pending: 0
+fuser: kimi-k3  judge: minimax-m3  config: fusion-4panel-balanced
+output: out/fusion4_balanced/fusion-4panel-balanced.jsonl
+judge cache: loaded 31 analyses from out/fusion4_mainlike/judge_cache.jsonl
+[fusion] FAILED - task not found in output
+[score] Skipping scoring for this task
+
+===== [78/100] 939cd89c-32e3-4ba3-a9c2-734a9f3b80d1 =====
+[fusion] Starting fusion for task 939cd89c-32e3-4ba3-a9c2-734a9f3b80d1...
+panel members: ['minimax-m3', 'glm-5.3-flash', 'deepseek-v4-flash', 'mimo-v2.5-pro']
+tasks with ALL panel answers: 31  pending: 0
+fuser: kimi-k3  judge: minimax-m3  config: fusion-4panel-balanced
+output: out/fusion4_balanced/fusion-4panel-balanced.jsonl
+judge cache: loaded 31 analyses from out/fusion4_mainlike/judge_cache.jsonl
+[fusion] FAILED - task not found in output
+[score] Skipping scoring for this task
+
+===== [79/100] c8aaa261-24b6-4142-916a-e0a1d98ee0b8 =====
+[fusion] Starting fusion for task c8aaa261-24b6-4142-916a-e0a1d98ee0b8...
+panel members: ['minimax-m3', 'glm-5.3-flash', 'deepseek-v4-flash', 'mimo-v2.5-pro']
+tasks with ALL panel answers: 31  pending: 0
+fuser: kimi-k3  judge: minimax-m3  config: fusion-4panel-balanced
+output: out/fusion4_balanced/fusion-4panel-balanced.jsonl
+judge cache: loaded 31 analyses from out/fusion4_mainlike/judge_cache.jsonl
+[fusion] FAILED - task not found in output
+[score] Skipping scoring for this task
+
+===== [80/100] e179559d-08fd-4ca7-9f1b-5637d956b3d4 =====
+[fusion] Starting fusion for task e179559d-08fd-4ca7-9f1b-5637d956b3d4...
+panel members: ['minimax-m3', 'glm-5.3-flash', 'deepseek-v4-flash', 'mimo-v2.5-pro']
+tasks with ALL panel answers: 31  pending: 0
+fuser: kimi-k3  judge: minimax-m3  config: fusion-4panel-balanced
+output: out/fusion4_balanced/fusion-4panel-balanced.jsonl
+judge cache: loaded 31 analyses from out/fusion4_mainlike/judge_cache.jsonl
+[fusion] FAILED - task not found in output
+[score] Skipping scoring for this task
+
+===== [81/100] 4b089235-06e7-4f1f-a815-96bb146cbbde =====
+[fusion] Starting fusion for task 4b089235-06e7-4f1f-a815-96bb146cbbde...
+panel members: ['minimax-m3', 'glm-5.3-flash', 'deepseek-v4-flash', 'mimo-v2.5-pro']
+tasks with ALL panel answers: 31  pending: 0
+fuser: kimi-k3  judge: minimax-m3  config: fusion-4panel-balanced
+output: out/fusion4_balanced/fusion-4panel-balanced.jsonl
+judge cache: loaded 31 analyses from out/fusion4_mainlike/judge_cache.jsonl
+[fusion] FAILED - task not found in output
+[score] Skipping scoring for this task
+
+===== [82/100] 6128e19e-5d6c-41ab-aaf5-35a1d718050e =====
+[fusion] Starting fusion for task 6128e19e-5d6c-41ab-aaf5-35a1d718050e...
+panel members: ['minimax-m3', 'glm-5.3-flash', 'deepseek-v4-flash', 'mimo-v2.5-pro']
+tasks with ALL panel answers: 31  pending: 0
+fuser: kimi-k3  judge: minimax-m3  config: fusion-4panel-balanced
+output: out/fusion4_balanced/fusion-4panel-balanced.jsonl
+judge cache: loaded 31 analyses from out/fusion4_mainlike/judge_cache.jsonl
+[fusion] FAILED - task not found in output
+[score] Skipping scoring for this task
+
+===== [83/100] c63923e7-6ab4-4742-b739-49f5d1f1cfe4 =====
+[fusion] Starting fusion for task c63923e7-6ab4-4742-b739-49f5d1f1cfe4...
+panel members: ['minimax-m3', 'glm-5.3-flash', 'deepseek-v4-flash', 'mimo-v2.5-pro']
+tasks with ALL panel answers: 31  pending: 0
+fuser: kimi-k3  judge: minimax-m3  config: fusion-4panel-balanced
+output: out/fusion4_balanced/fusion-4panel-balanced.jsonl
+judge cache: loaded 31 analyses from out/fusion4_mainlike/judge_cache.jsonl
+[fusion] FAILED - task not found in output
+[score] Skipping scoring for this task
+
+===== [84/100] ebac60ea-ea67-4b8f-986e-1e0aebed2b89 =====
+[fusion] Starting fusion for task ebac60ea-ea67-4b8f-986e-1e0aebed2b89...
+panel members: ['minimax-m3', 'glm-5.3-flash', 'deepseek-v4-flash', 'mimo-v2.5-pro']
+tasks with ALL panel answers: 31  pending: 0
+fuser: kimi-k3  judge: minimax-m3  config: fusion-4panel-balanced
+output: out/fusion4_balanced/fusion-4panel-balanced.jsonl
+judge cache: loaded 31 analyses from out/fusion4_mainlike/judge_cache.jsonl
+[fusion] FAILED - task not found in output
+[score] Skipping scoring for this task
+
+===== [85/100] 49d841f1-0c95-4a87-9b62-5e2a54e8e1a8 =====
+[fusion] Starting fusion for task 49d841f1-0c95-4a87-9b62-5e2a54e8e1a8...
+panel members: ['minimax-m3', 'glm-5.3-flash', 'deepseek-v4-flash', 'mimo-v2.5-pro']
+tasks with ALL panel answers: 31  pending: 0
+fuser: kimi-k3  judge: minimax-m3  config: fusion-4panel-balanced
+output: out/fusion4_balanced/fusion-4panel-balanced.jsonl
+judge cache: loaded 31 analyses from out/fusion4_mainlike/judge_cache.jsonl
+[fusion] FAILED - task not found in output
+[score] Skipping scoring for this task
+
+===== [86/100] 785c8570-6aed-4517-aac2-1d56e16745b7 =====
+[fusion] Starting fusion for task 785c8570-6aed-4517-aac2-1d56e16745b7...
+panel members: ['minimax-m3', 'glm-5.3-flash', 'deepseek-v4-flash', 'mimo-v2.5-pro']
+tasks with ALL panel answers: 31  pending: 0
+fuser: kimi-k3  judge: minimax-m3  config: fusion-4panel-balanced
+output: out/fusion4_balanced/fusion-4panel-balanced.jsonl
+judge cache: loaded 31 analyses from out/fusion4_mainlike/judge_cache.jsonl
+[fusion] FAILED - task not found in output
+[score] Skipping scoring for this task
+
+===== [87/100] 7d09292c-c8b7-4ae9-9864-1676135bd041 =====
+[fusion] Starting fusion for task 7d09292c-c8b7-4ae9-9864-1676135bd041...
+panel members: ['minimax-m3', 'glm-5.3-flash', 'deepseek-v4-flash', 'mimo-v2.5-pro']
+tasks with ALL panel answers: 31  pending: 0
+fuser: kimi-k3  judge: minimax-m3  config: fusion-4panel-balanced
+output: out/fusion4_balanced/fusion-4panel-balanced.jsonl
+judge cache: loaded 31 analyses from out/fusion4_mainlike/judge_cache.jsonl
+[fusion] FAILED - task not found in output
+[score] Skipping scoring for this task
+
+===== [88/100] 10e9d085-a62f-4547-bbf3-62800b27950c =====
+[fusion] Starting fusion for task 10e9d085-a62f-4547-bbf3-62800b27950c...
+panel members: ['minimax-m3', 'glm-5.3-flash', 'deepseek-v4-flash', 'mimo-v2.5-pro']
+tasks with ALL panel answers: 31  pending: 0
+fuser: kimi-k3  judge: minimax-m3  config: fusion-4panel-balanced
+output: out/fusion4_balanced/fusion-4panel-balanced.jsonl
+judge cache: loaded 31 analyses from out/fusion4_mainlike/judge_cache.jsonl
+[fusion] FAILED - task not found in output
+[score] Skipping scoring for this task
+
+===== [89/100] 2aac5ef3-f127-4582-a8a6-8f02bda5681e =====
+[fusion] Starting fusion for task 2aac5ef3-f127-4582-a8a6-8f02bda5681e...
+panel members: ['minimax-m3', 'glm-5.3-flash', 'deepseek-v4-flash', 'mimo-v2.5-pro']
+tasks with ALL panel answers: 31  pending: 0
+fuser: kimi-k3  judge: minimax-m3  config: fusion-4panel-balanced
+output: out/fusion4_balanced/fusion-4panel-balanced.jsonl
+judge cache: loaded 31 analyses from out/fusion4_mainlike/judge_cache.jsonl
+[fusion] FAILED - task not found in output
+[score] Skipping scoring for this task
+
+===== [90/100] 8e99d8d2-f6b9-4800-83a9-6f56829898fe =====
+[fusion] Starting fusion for task 8e99d8d2-f6b9-4800-83a9-6f56829898fe...
+panel members: ['minimax-m3', 'glm-5.3-flash', 'deepseek-v4-flash', 'mimo-v2.5-pro']
+tasks with ALL panel answers: 31  pending: 0
+fuser: kimi-k3  judge: minimax-m3  config: fusion-4panel-balanced
+output: out/fusion4_balanced/fusion-4panel-balanced.jsonl
+judge cache: loaded 31 analyses from out/fusion4_mainlike/judge_cache.jsonl
+[fusion] FAILED - task not found in output
+[score] Skipping scoring for this task
+
+===== [91/100] 9db832bc-c38d-4a0b-aebe-ea0fc96da563 =====
+[fusion] Starting fusion for task 9db832bc-c38d-4a0b-aebe-ea0fc96da563...
+panel members: ['minimax-m3', 'glm-5.3-flash', 'deepseek-v4-flash', 'mimo-v2.5-pro']
+tasks with ALL panel answers: 31  pending: 0
+fuser: kimi-k3  judge: minimax-m3  config: fusion-4panel-balanced
+output: out/fusion4_balanced/fusion-4panel-balanced.jsonl
+judge cache: loaded 31 analyses from out/fusion4_mainlike/judge_cache.jsonl
+[fusion] FAILED - task not found in output
+[score] Skipping scoring for this task
+
+===== [92/100] 1070e6eb-7a8f-4ce9-8818-1931bcfdb2dd =====
+[fusion] Starting fusion for task 1070e6eb-7a8f-4ce9-8818-1931bcfdb2dd...
+panel members: ['minimax-m3', 'glm-5.3-flash', 'deepseek-v4-flash', 'mimo-v2.5-pro']
+tasks with ALL panel answers: 31  pending: 0
+fuser: kimi-k3  judge: minimax-m3  config: fusion-4panel-balanced
+output: out/fusion4_balanced/fusion-4panel-balanced.jsonl
+judge cache: loaded 31 analyses from out/fusion4_mainlike/judge_cache.jsonl
+[fusion] FAILED - task not found in output
+[score] Skipping scoring for this task
+
+===== [93/100] a88bef13-7db6-4236-bdfa-da22ad75dc56 =====
+[fusion] Starting fusion for task a88bef13-7db6-4236-bdfa-da22ad75dc56...
+panel members: ['minimax-m3', 'glm-5.3-flash', 'deepseek-v4-flash', 'mimo-v2.5-pro']
+tasks with ALL panel answers: 31  pending: 0
+fuser: kimi-k3  judge: minimax-m3  config: fusion-4panel-balanced
+output: out/fusion4_balanced/fusion-4panel-balanced.jsonl
+judge cache: loaded 31 analyses from out/fusion4_mainlike/judge_cache.jsonl
+[fusion] FAILED - task not found in output
+[score] Skipping scoring for this task
+
+===== [94/100] d1a4c3ea-9507-402c-9ef5-281ea2171c99 =====
+[fusion] Starting fusion for task d1a4c3ea-9507-402c-9ef5-281ea2171c99...
+panel members: ['minimax-m3', 'glm-5.3-flash', 'deepseek-v4-flash', 'mimo-v2.5-pro']
+tasks with ALL panel answers: 31  pending: 0
+fuser: kimi-k3  judge: minimax-m3  config: fusion-4panel-balanced
+output: out/fusion4_balanced/fusion-4panel-balanced.jsonl
+judge cache: loaded 31 analyses from out/fusion4_mainlike/judge_cache.jsonl
+[fusion] FAILED - task not found in output
+[score] Skipping scoring for this task
+
+===== [95/100] 43c7e377-7a85-4cd3-8865-7cf620e9f6bc =====
+[fusion] Starting fusion for task 43c7e377-7a85-4cd3-8865-7cf620e9f6bc...
+panel members: ['minimax-m3', 'glm-5.3-flash', 'deepseek-v4-flash', 'mimo-v2.5-pro']
+tasks with ALL panel answers: 31  pending: 0
+fuser: kimi-k3  judge: minimax-m3  config: fusion-4panel-balanced
+output: out/fusion4_balanced/fusion-4panel-balanced.jsonl
+judge cache: loaded 31 analyses from out/fusion4_mainlike/judge_cache.jsonl
+[fusion] FAILED - task not found in output
+[score] Skipping scoring for this task
+
+===== [96/100] 61afdc3a-219d-4ff0-aa67-b823429487ae =====
+[fusion] Starting fusion for task 61afdc3a-219d-4ff0-aa67-b823429487ae...
+panel members: ['minimax-m3', 'glm-5.3-flash', 'deepseek-v4-flash', 'mimo-v2.5-pro']
+tasks with ALL panel answers: 31  pending: 0
+fuser: kimi-k3  judge: minimax-m3  config: fusion-4panel-balanced
+output: out/fusion4_balanced/fusion-4panel-balanced.jsonl
+judge cache: loaded 31 analyses from out/fusion4_mainlike/judge_cache.jsonl
+[fusion] FAILED - task not found in output
+[score] Skipping scoring for this task
+
+===== [97/100] 0e7281ec-bf16-4d84-9501-0de69a803c59 =====
+[fusion] Starting fusion for task 0e7281ec-bf16-4d84-9501-0de69a803c59...
+panel members: ['minimax-m3', 'glm-5.3-flash', 'deepseek-v4-flash', 'mimo-v2.5-pro']
+tasks with ALL panel answers: 31  pending: 0
+fuser: kimi-k3  judge: minimax-m3  config: fusion-4panel-balanced
+output: out/fusion4_balanced/fusion-4panel-balanced.jsonl
+judge cache: loaded 31 analyses from out/fusion4_mainlike/judge_cache.jsonl
+[fusion] FAILED - task not found in output
+[score] Skipping scoring for this task
+
+===== [98/100] 69e0ce73-b0af-4f7c-a59d-71c96adc6a2b =====
+[fusion] Starting fusion for task 69e0ce73-b0af-4f7c-a59d-71c96adc6a2b...
+panel members: ['minimax-m3', 'glm-5.3-flash', 'deepseek-v4-flash', 'mimo-v2.5-pro']
+tasks with ALL panel answers: 31  pending: 0
+fuser: kimi-k3  judge: minimax-m3  config: fusion-4panel-balanced
+output: out/fusion4_balanced/fusion-4panel-balanced.jsonl
+judge cache: loaded 31 analyses from out/fusion4_mainlike/judge_cache.jsonl
+[fusion] FAILED - task not found in output
+[score] Skipping scoring for this task
+
+===== [99/100] e6fbba71-d917-4d1e-bd09-009ff9cd8e9b =====
+[fusion] Starting fusion for task e6fbba71-d917-4d1e-bd09-009ff9cd8e9b...
+panel members: ['minimax-m3', 'glm-5.3-flash', 'deepseek-v4-flash', 'mimo-v2.5-pro']
+tasks with ALL panel answers: 31  pending: 0
+fuser: kimi-k3  judge: minimax-m3  config: fusion-4panel-balanced
+output: out/fusion4_balanced/fusion-4panel-balanced.jsonl
+judge cache: loaded 31 analyses from out/fusion4_mainlike/judge_cache.jsonl
+[fusion] FAILED - task not found in output
+[score] Skipping scoring for this task
+
+===== [100/100] 91408757-a874-44b5-ad5a-66a22b39141d =====
+[fusion] Starting fusion for task 91408757-a874-44b5-ad5a-66a22b39141d...
+panel members: ['minimax-m3', 'glm-5.3-flash', 'deepseek-v4-flash', 'mimo-v2.5-pro']
+tasks with ALL panel answers: 31  pending: 0
+fuser: kimi-k3  judge: minimax-m3  config: fusion-4panel-balanced
+output: out/fusion4_balanced/fusion-4panel-balanced.jsonl
+judge cache: loaded 31 analyses from out/fusion4_mainlike/judge_cache.jsonl
+[fusion] FAILED - task not found in output
+[score] Skipping scoring for this task
+
+==========================================
+All 100 tasks processed.
+==========================================
+
+=== FINAL RESULTS ===
+Tasks scored: 30
+
+Average scores:
+  balanced:   76.62
+  mainlike:   73.55  (Δ +3.07)
+  3-panel:    75.42  (Δ +1.19)
+  baseline:   71.71  (Δ +4.91)
+
+Win rates:
+  vs mainlike:  21/30 (70.0%)
+  vs 3-panel:   17/30 (56.7%)
+  vs baseline:  21/30 (70.0%)
+
+Top 5 improvements vs mainlike:
+  1. 262b3145-5b6d-486b-a09f-c8e6a8f98e20: +42.7 (balanced 80.7 vs mainlike 38.0)
+  2. aca95495-b0fe-4330-90fc-d2fd1e2c709e: +14.5 (balanced 61.6 vs mainlike 47.1)
+  3. f6de7687-7cff-4f68-93ea-f632bf6266af: +13.0 (balanced 87.6 vs mainlike 74.6)
+  4. 6c59b2a0-c097-4c69-ad03-2c4ea2ec579b: +11.6 (balanced 70.3 vs mainlike 58.7)
+  5. a78eed67-ebe3-425e-a467-d54ee8949c8b: +11.2 (balanced 66.2 vs mainlike 55.0)
+
+Top 5 regressions vs mainlike:
+  1. 79224558-75f7-4e51-bc24-51f1e3ede921: -5.6 (balanced 46.0 vs mainlike 51.6)
+  2. 0a652d00-5c22-4621-8ec4-dd92b1f1450b: -6.1 (balanced 62.4 vs mainlike 68.5)
+  3. f0bed5aa-f7c4-4013-8d0c-10ffebeaf300: -12.2 (balanced 73.6 vs mainlike 85.7)
+  4. 9b35aaf1-f3cf-466f-96e5-dde018b0ef35: -14.5 (balanced 81.8 vs mainlike 96.4)
+  5. b0e3597d-6cda-4082-a5b4-234aac7d2684: -34.6 (balanced 54.7 vs mainlike 89.2)
+
+Output length distribution (balanced):
+  avg length: 22216 chars (~5554 tokens)
+  min: 0, max: 38612
+  truncated (finish=length): 17/31
+
+Done.
